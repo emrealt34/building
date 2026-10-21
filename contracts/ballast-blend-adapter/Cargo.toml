@@ -1,0 +1,21 @@
+[package]
+name = "ballast-blend-adapter"
+version = "0.1.0"
+edition = "2021"
+description = "Ballast adapter for the Blend lending pool: the venue the vault earns yield in."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# The Blend SDK ships the pool's real ABI (contractimport of pool.wasm), so the adapter
+# speaks Blend's own types rather than a hand-copied guess of them. It is built against
+# soroban-sdk 25, which is why this crate pins 25 while the vault uses 29: the two
+# contracts only ever exchange addresses and i128s, so they never share these types.
+[dependencies]
+soroban-sdk = "25"
+blend-contract-sdk = "2.25"
+
+[dev-dependencies]
+soroban-sdk = { version = "25", features = ["testutils"] }
+blend-contract-sdk = { version = "2.25", features = ["testutils"] }
