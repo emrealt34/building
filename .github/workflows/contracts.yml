@@ -68,3 +68,14 @@ jobs:
             echo "$f: $size bytes"
             test "$size" -lt 120000 || { echo "wasm over 120KB, tighten it"; exit 1; }
           done
+
+      # The wasm is the deliverable, not a build by-product: the testnet deploy job
+      # consumes exactly these files, so they are published with the run.
+      - name: Upload wasm
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasm
+          path: |
+            contracts/target/wasm32v1-none/release/keelson_vault.wasm
+            contracts/keelson-blend-adapter/target/wasm32v1-none/release/keelson_blend_adapter.wasm
+          if-no-files-found: error
