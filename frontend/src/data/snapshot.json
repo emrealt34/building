@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T16:18:46.312978338Z",
+ "generated_at": "2026-10-21T16:25:35.770400028Z",
  "note": "Frozen read API. This static site renders this snapshot; run the Go backend for live data.",
  "deposits": [
   100,
@@ -10,14 +10,14 @@
  "responses": {
   "/api/v1/alpha?days=90": {
    "window_days": 90,
-   "generated_at": "2026-10-21T16:18:46.314268511Z",
+   "generated_at": "2026-10-21T16:25:35.772185346Z",
    "venues": [
     {
      "venue_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
      "label": "Blend Fixed Pool — USDC",
      "days": 96,
      "mean_apy": 7.11,
-     "min_apy": 5.74,
+     "min_apy": 5.73,
      "max_apy": 9.62,
      "series": [
       {
@@ -497,8 +497,8 @@
       },
       {
        "date": "2026-10-21",
-       "apy": 5.73604,
-       "tvl_usd": 14884493
+       "apy": 5.73492,
+       "tvl_usd": 14878968
       }
      ]
     },
@@ -1336,9 +1336,9 @@
    "network": "mainnet",
    "provider_error": "",
    "status": "ok",
-   "time": "2026-10-21T16:18:46.31346341Z",
+   "time": "2026-10-21T16:25:35.770785671Z",
    "venues_cached": 12,
-   "venues_updated": "2026-10-21T16:18:45.490700813Z",
+   "venues_updated": "2026-10-21T16:25:35.010649894Z",
    "version": "1.0.0"
   },
   "/api/v1/meta": {
@@ -1355,12 +1355,12 @@
   },
   "/api/v1/network": {
    "rpc_healthy": true,
-   "latest_ledger": 65062748,
+   "latest_ledger": 65062830,
    "protocol": 29,
-   "close_time": 1792599523,
+   "close_time": 1792599933,
    "base_fee_stroops": 100,
    "horizon_ok": true,
-   "checked_at": "2026-10-21T16:18:45.490701081Z"
+   "checked_at": "2026-10-21T16:25:35.010650435Z"
   },
   "/api/v1/plan?deposit=100": {
    "deposit_usd": 100,
@@ -1388,9 +1388,9 @@
      "label": "Blend v2 — Fixed Pool / USDC reserve",
      "amount_usd": 28.82,
      "weight_bps": 2882,
-     "apy": 5.73604,
+     "apy": 5.73492,
      "risk_band": "B",
-     "risk": 58.8
+     "risk": 58.7
     }
    ],
    "idle_usd": 10,
@@ -1455,7 +1455,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T16:18:46.387130798Z"
+   "generated_at": "2026-10-21T16:25:36.779295402Z"
   },
   "/api/v1/plan?deposit=1000": {
    "deposit_usd": 1000,
@@ -1483,15 +1483,15 @@
      "label": "Blend v2 — Fixed Pool / USDC reserve",
      "amount_usd": 288.22,
      "weight_bps": 2882,
-     "apy": 5.73604,
+     "apy": 5.73492,
      "risk_band": "B",
-     "risk": 58.8
+     "risk": 58.7
     }
    ],
    "idle_usd": 99.99,
    "blended_apy": 5.67,
-   "portfolio_risk": 45.6,
-   "portfolio_risk_base": 44.9,
+   "portfolio_risk": 45.5,
+   "portfolio_risk_base": 44.8,
    "correlation_penalty": 0.7,
    "refusals": [
     {
@@ -1550,7 +1550,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T16:18:46.388434646Z"
+   "generated_at": "2026-10-21T16:25:36.780675731Z"
   },
   "/api/v1/plan?deposit=10000": {
    "deposit_usd": 10000,
@@ -1558,8 +1558,8 @@
     {
      "venue_id": "defindex:CBNKCU3HGF",
      "label": "DeFindex vault CBNKCU… ($272K)",
-     "amount_usd": 3224.77,
-     "weight_bps": 3224,
+     "amount_usd": 3226.72,
+     "weight_bps": 3226,
      "apy": 5.93,
      "risk_band": "A",
      "risk": 40.4
@@ -1567,8 +1567,8 @@
     {
      "venue_id": "defindex:CCA2ZJP5BV",
      "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
-     "amount_usd": 2893.05,
-     "weight_bps": 2893,
+     "amount_usd": 2894.8,
+     "weight_bps": 2894,
      "apy": 5.32,
      "risk_band": "A",
      "risk": 38.2
@@ -1576,9 +1576,9 @@
     {
      "venue_id": "blend-pools-v2:ecf788e3",
      "label": "Blend v2 — Fixed Pool / USDC reserve",
-     "amount_usd": 2882.18,
-     "weight_bps": 2882,
-     "apy": 5.73604,
+     "amount_usd": 2878.48,
+     "weight_bps": 2878,
+     "apy": 5.73492,
      "risk_band": "B",
      "risk": 58.8
     }
@@ -1645,7 +1645,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T16:18:46.389366238Z"
+   "generated_at": "2026-10-21T16:25:36.781715502Z"
   },
   "/api/v1/plan?deposit=50000": {
    "deposit_usd": 50000,
@@ -1673,9 +1673,9 @@
      "label": "Blend v2 — Fixed Pool / USDC reserve",
      "amount_usd": 19754.71,
      "weight_bps": 3950,
-     "apy": 5.73604,
+     "apy": 5.73492,
      "risk_band": "B",
-     "risk": 59
+     "risk": 58.9
     }
    ],
    "idle_usd": 5000,
@@ -1740,7 +1740,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T16:18:46.390247213Z"
+   "generated_at": "2026-10-21T16:25:36.78282473Z"
   },
   "/api/v1/policy": {
    "chosen_by_measurement": {
@@ -2228,7 +2228,7 @@
    "venue_id": "blend-pools-v2:48c597dc"
   },
   "/api/v1/venues/blend-pools-v2:48c597dc?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "blend-pools-v2:48c597dc",
     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
@@ -2242,7 +2242,7 @@
     "apy": 6.92084,
     "apy_base": 6.92084,
     "apy_reward": 0,
-    "apy_mean_30d": 7.55325,
+    "apy_mean_30d": 7.54932,
     "tvl_usd": 7725,
     "capacity_usd": 7725,
     "instant_exit": false,
@@ -2280,13 +2280,13 @@
      "subs": {
       "contagion": 73,
       "contract": 94,
-      "durability": 33.4,
+      "durability": 33.3,
       "governance": 55,
       "liquidity": 65,
       "oracle": 75
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.464113452Z",
+     "computed_at": "2026-10-21T16:25:37.441436209Z",
      "stale": false,
      "input_hash": "81e2be0310d1fae2"
     },
@@ -2751,14 +2751,14 @@
     },
     {
      "date": "2026-10-21",
-     "apy": 5.73604,
-     "tvl_usd": 14884493
+     "apy": 5.73492,
+     "tvl_usd": 14878968
     }
    ],
    "venue_id": "blend-pools-v2:ecf788e3"
   },
   "/api/v1/venues/blend-pools-v2:ecf788e3?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "blend-pools-v2:ecf788e3",
     "label": "Blend v2 — Fixed Pool / USDC reserve",
@@ -2769,12 +2769,12 @@
     "source": "defillama",
     "chain": "Stellar",
     "protocol": "blend-pools-v2",
-    "apy": 5.73604,
-    "apy_base": 5.73604,
+    "apy": 5.73492,
+    "apy_base": 5.73492,
     "apy_reward": 0,
-    "apy_mean_30d": 7.05132,
-    "tvl_usd": 14884493,
-    "capacity_usd": 14884493,
+    "apy_mean_30d": 7.04777,
+    "tvl_usd": 14878968,
+    "capacity_usd": 14878968,
     "instant_exit": false,
     "audits": 3,
     "tier1_audit": true,
@@ -2805,18 +2805,18 @@
      }
     ],
     "risk": {
-     "score": 58.8,
+     "score": 58.7,
      "band": "B",
      "subs": {
       "contagion": 73,
       "contract": 94,
-      "durability": 43.7,
+      "durability": 43.6,
       "governance": 55,
       "liquidity": 35,
       "oracle": 35
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.432791823Z",
+     "computed_at": "2026-10-21T16:25:37.096751479Z",
      "stale": false,
      "input_hash": "9a3b024b4af6c0b5"
     },
@@ -2827,7 +2827,7 @@
   },
   "/api/v1/venues/defindex:CA2FIPJ7U6/history?days=90": null,
   "/api/v1/venues/defindex:CA2FIPJ7U6?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CA2FIPJ7U6",
     "label": "DeFindex vault CA2FIP… (small, $40098)",
@@ -2867,7 +2867,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.490043057Z",
+     "computed_at": "2026-10-21T16:25:37.506742743Z",
      "stale": false,
      "input_hash": "5478a1a9aa961ded"
     },
@@ -2879,7 +2879,7 @@
   },
   "/api/v1/venues/defindex:CAB4JOLSCN/history?days=90": null,
   "/api/v1/venues/defindex:CAB4JOLSCN?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CAB4JOLSCN",
     "label": "DeFindex vault CAB4JO… (small, $7511)",
@@ -2893,8 +2893,8 @@
     "apy": 7.34,
     "apy_base": 7.34,
     "apy_reward": 0,
-    "tvl_usd": 7511.2277042,
-    "capacity_usd": 7511.2277042,
+    "tvl_usd": 7511.2322133,
+    "capacity_usd": 7511.2322133,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -2919,7 +2919,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.494056139Z",
+     "computed_at": "2026-10-21T16:25:37.51050933Z",
      "stale": false,
      "input_hash": "06017491c9ee1216"
     },
@@ -2931,7 +2931,7 @@
   },
   "/api/v1/venues/defindex:CAWM7NKSYG/history?days=90": null,
   "/api/v1/venues/defindex:CAWM7NKSYG?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CAWM7NKSYG",
     "label": "DeFindex vault CAWM7N… (small, $10079)",
@@ -2945,8 +2945,8 @@
     "apy": 6.32,
     "apy_base": 6.32,
     "apy_reward": 0,
-    "tvl_usd": 10078.6828975,
-    "capacity_usd": 10078.6828975,
+    "tvl_usd": 10078.6889743,
+    "capacity_usd": 10078.6889743,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -2971,7 +2971,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.493357163Z",
+     "computed_at": "2026-10-21T16:25:37.509930782Z",
      "stale": false,
      "input_hash": "0ae8c7ea2c4af8c1"
     },
@@ -2983,7 +2983,7 @@
   },
   "/api/v1/venues/defindex:CBNKCU3HGF/history?days=90": null,
   "/api/v1/venues/defindex:CBNKCU3HGF?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CBNKCU3HGF",
     "label": "DeFindex vault CBNKCU… ($272K)",
@@ -2997,8 +2997,8 @@
     "apy": 5.93,
     "apy_base": 5.93,
     "apy_reward": 0,
-    "tvl_usd": 271850.4751628,
-    "capacity_usd": 271850.4751628,
+    "tvl_usd": 271850.6307907,
+    "capacity_usd": 271850.6307907,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3023,7 +3023,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.489268288Z",
+     "computed_at": "2026-10-21T16:25:37.505920921Z",
      "stale": false,
      "input_hash": "511de267b8b8261c"
     },
@@ -3034,7 +3034,7 @@
   },
   "/api/v1/venues/defindex:CBUJZL5QAD/history?days=90": null,
   "/api/v1/venues/defindex:CBUJZL5QAD?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CBUJZL5QAD",
     "label": "DeFindex vault CBUJZL… (small, $8780)",
@@ -3048,8 +3048,8 @@
     "apy": 6.06,
     "apy_base": 6.06,
     "apy_reward": 0,
-    "tvl_usd": 8779.6349129,
-    "capacity_usd": 8779.6349129,
+    "tvl_usd": 8779.6402009,
+    "capacity_usd": 8779.6402009,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3074,7 +3074,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.490711129Z",
+     "computed_at": "2026-10-21T16:25:37.507364389Z",
      "stale": false,
      "input_hash": "783d450ae1d51a06"
     },
@@ -3086,7 +3086,7 @@
   },
   "/api/v1/venues/defindex:CC767WIU5Q/history?days=90": null,
   "/api/v1/venues/defindex:CC767WIU5Q?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CC767WIU5Q",
     "label": "DeFindex vault CC767W… (small, $1458)",
@@ -3100,8 +3100,8 @@
     "apy": 5.24,
     "apy_base": 5.24,
     "apy_reward": 0,
-    "tvl_usd": 1458.4395097,
-    "capacity_usd": 1458.4395097,
+    "tvl_usd": 1458.4399398,
+    "capacity_usd": 1458.4399398,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3126,7 +3126,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.491798218Z",
+     "computed_at": "2026-10-21T16:25:37.508706859Z",
      "stale": false,
      "input_hash": "e4fba8b0d66097ad"
     },
@@ -3138,7 +3138,7 @@
   },
   "/api/v1/venues/defindex:CCA2ZJP5BV/history?days=90": null,
   "/api/v1/venues/defindex:CCA2ZJP5BV?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CCA2ZJP5BV",
     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
@@ -3152,8 +3152,8 @@
     "apy": 5.32,
     "apy_base": 5.32,
     "apy_reward": 0,
-    "tvl_usd": 18911673.9748998,
-    "capacity_usd": 18911673.9748998,
+    "tvl_usd": 18911346.1056768,
+    "capacity_usd": 18911346.1056768,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3178,7 +3178,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.494588689Z",
+     "computed_at": "2026-10-21T16:25:37.511036216Z",
      "stale": false,
      "input_hash": "9aaf3f367202605c"
     },
@@ -3189,7 +3189,7 @@
   },
   "/api/v1/venues/defindex:CCDRFMZ7CH/history?days=90": null,
   "/api/v1/venues/defindex:CCDRFMZ7CH?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CCDRFMZ7CH",
     "label": "DeFindex vault CCDRFM… (small, $4745)",
@@ -3203,8 +3203,8 @@
     "apy": 6.78,
     "apy_base": 6.78,
     "apy_reward": 0,
-    "tvl_usd": 4745.0524735,
-    "capacity_usd": 4745.0524735,
+    "tvl_usd": 4745.0553382,
+    "capacity_usd": 4745.0553382,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3229,7 +3229,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.492594404Z",
+     "computed_at": "2026-10-21T16:25:37.509378386Z",
      "stale": false,
      "input_hash": "8e90fadbc0dd6e5d"
     },
@@ -3241,7 +3241,7 @@
   },
   "/api/v1/venues/defindex:CD4JGS6BB5/history?days=90": null,
   "/api/v1/venues/defindex:CD4JGS6BB5?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "defindex:CD4JGS6BB5",
     "label": "DeFindex vault CD4JGS… (small, $13352)",
@@ -3255,8 +3255,8 @@
     "apy": 5.95,
     "apy_base": 5.95,
     "apy_reward": 0,
-    "tvl_usd": 13352.2642,
-    "capacity_usd": 13352.2642,
+    "tvl_usd": 13352.2722601,
+    "capacity_usd": 13352.2722601,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3281,7 +3281,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.491330506Z",
+     "computed_at": "2026-10-21T16:25:37.508045857Z",
      "stale": false,
      "input_hash": "157a0704b15fe43c"
     },
@@ -3753,7 +3753,7 @@
    "venue_id": "gami-labs:038cb9c0"
   },
   "/api/v1/venues/gami-labs:038cb9c0?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "venue": {
     "id": "gami-labs:038cb9c0",
     "label": "Gami earnUSDC (managed vault)",
@@ -3796,7 +3796,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T16:18:46.391186278Z",
+     "computed_at": "2026-10-21T16:25:36.783807275Z",
      "stale": false,
      "input_hash": "e37bd80607ad0cba"
     },
@@ -3807,7 +3807,7 @@
    }
   },
   "/api/v1/venues?deposit=100": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "count": 12,
    "deposit_usd": 100,
    "provider_error": "",
@@ -3854,7 +3854,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -3876,8 +3876,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2277042,
-     "capacity_usd": 7511.2277042,
+     "tvl_usd": 7511.2322133,
+     "capacity_usd": 7511.2322133,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -3902,7 +3902,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -3924,8 +3924,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0524735,
-     "capacity_usd": 4745.0524735,
+     "tvl_usd": 4745.0553382,
+     "capacity_usd": 4745.0553382,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -3950,7 +3950,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -3972,8 +3972,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.6828975,
-     "capacity_usd": 10078.6828975,
+     "tvl_usd": 10078.6889743,
+     "capacity_usd": 10078.6889743,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -3998,7 +3998,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -4020,7 +4020,7 @@
      "apy": 6.92084,
      "apy_base": 6.92084,
      "apy_reward": 0,
-     "apy_mean_30d": 7.55325,
+     "apy_mean_30d": 7.54932,
      "tvl_usd": 7725,
      "capacity_usd": 7725,
      "instant_exit": false,
@@ -4058,13 +4058,13 @@
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 33.4,
+       "durability": 33.3,
        "governance": 55,
        "liquidity": 38.9,
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -4086,8 +4086,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.6349129,
-     "capacity_usd": 8779.6349129,
+     "tvl_usd": 8779.6402009,
+     "capacity_usd": 8779.6402009,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4112,7 +4112,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -4134,8 +4134,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.2642,
-     "capacity_usd": 13352.2642,
+     "tvl_usd": 13352.2722601,
+     "capacity_usd": 13352.2722601,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4160,7 +4160,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -4182,8 +4182,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271850.4751628,
-     "capacity_usd": 271850.4751628,
+     "tvl_usd": 271850.6307907,
+     "capacity_usd": 271850.6307907,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4208,7 +4208,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -4229,8 +4229,8 @@
      "apy": 5.32,
      "apy_base": 5.32,
      "apy_reward": 0,
-     "tvl_usd": 18911673.9748998,
-     "capacity_usd": 18911673.9748998,
+     "tvl_usd": 18911346.1056768,
+     "capacity_usd": 18911346.1056768,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4255,7 +4255,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -4273,12 +4273,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73604,
-     "apy_base": 5.73604,
+     "apy": 5.73492,
+     "apy_base": 5.73492,
      "apy_reward": 0,
-     "apy_mean_30d": 7.05132,
-     "tvl_usd": 14884493,
-     "capacity_usd": 14884493,
+     "apy_mean_30d": 7.04777,
+     "tvl_usd": 14878968,
+     "capacity_usd": 14878968,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -4309,18 +4309,18 @@
       }
      ],
      "risk": {
-      "score": 58.8,
+      "score": 58.7,
       "band": "B",
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 43.7,
+       "durability": 43.6,
        "governance": 55,
        "liquidity": 35,
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -4341,8 +4341,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4395097,
-     "capacity_usd": 1458.4395097,
+     "tvl_usd": 1458.4399398,
+     "capacity_usd": 1458.4399398,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4367,7 +4367,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -4415,7 +4415,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "computed_at": "2026-10-21T16:25:36.779751034Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -4427,7 +4427,7 @@
    ]
   },
   "/api/v1/venues?deposit=1000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "count": 12,
    "deposit_usd": 1000,
    "provider_error": "",
@@ -4474,7 +4474,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -4496,8 +4496,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2277042,
-     "capacity_usd": 7511.2277042,
+     "tvl_usd": 7511.2322133,
+     "capacity_usd": 7511.2322133,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4522,7 +4522,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -4544,8 +4544,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0524735,
-     "capacity_usd": 4745.0524735,
+     "tvl_usd": 4745.0553382,
+     "capacity_usd": 4745.0553382,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4570,7 +4570,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -4592,8 +4592,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.6828975,
-     "capacity_usd": 10078.6828975,
+     "tvl_usd": 10078.6889743,
+     "capacity_usd": 10078.6889743,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4618,7 +4618,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -4640,8 +4640,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.6349129,
-     "capacity_usd": 8779.6349129,
+     "tvl_usd": 8779.6402009,
+     "capacity_usd": 8779.6402009,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4666,7 +4666,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -4688,7 +4688,7 @@
      "apy": 6.92084,
      "apy_base": 6.92084,
      "apy_reward": 0,
-     "apy_mean_30d": 7.55325,
+     "apy_mean_30d": 7.54932,
      "tvl_usd": 7725,
      "capacity_usd": 7725,
      "instant_exit": false,
@@ -4726,13 +4726,13 @@
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 33.4,
+       "durability": 33.3,
        "governance": 55,
        "liquidity": 65,
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -4754,8 +4754,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.2642,
-     "capacity_usd": 13352.2642,
+     "tvl_usd": 13352.2722601,
+     "capacity_usd": 13352.2722601,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4780,7 +4780,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -4802,8 +4802,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271850.4751628,
-     "capacity_usd": 271850.4751628,
+     "tvl_usd": 271850.6307907,
+     "capacity_usd": 271850.6307907,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4828,7 +4828,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -4849,8 +4849,8 @@
      "apy": 5.32,
      "apy_base": 5.32,
      "apy_reward": 0,
-     "tvl_usd": 18911673.9748998,
-     "capacity_usd": 18911673.9748998,
+     "tvl_usd": 18911346.1056768,
+     "capacity_usd": 18911346.1056768,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4875,7 +4875,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -4893,12 +4893,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73604,
-     "apy_base": 5.73604,
+     "apy": 5.73492,
+     "apy_base": 5.73492,
      "apy_reward": 0,
-     "apy_mean_30d": 7.05132,
-     "tvl_usd": 14884493,
-     "capacity_usd": 14884493,
+     "apy_mean_30d": 7.04777,
+     "tvl_usd": 14878968,
+     "capacity_usd": 14878968,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -4929,18 +4929,18 @@
       }
      ],
      "risk": {
-      "score": 58.8,
+      "score": 58.7,
       "band": "B",
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 43.7,
+       "durability": 43.6,
        "governance": 55,
        "liquidity": 35,
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -4961,8 +4961,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4395097,
-     "capacity_usd": 1458.4395097,
+     "tvl_usd": 1458.4399398,
+     "capacity_usd": 1458.4399398,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4987,7 +4987,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -5035,7 +5035,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "computed_at": "2026-10-21T16:25:36.781007995Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -5047,7 +5047,7 @@
    ]
   },
   "/api/v1/venues?deposit=10000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "count": 12,
    "deposit_usd": 10000,
    "provider_error": "",
@@ -5094,7 +5094,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -5116,8 +5116,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2277042,
-     "capacity_usd": 7511.2277042,
+     "tvl_usd": 7511.2322133,
+     "capacity_usd": 7511.2322133,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5142,7 +5142,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -5164,8 +5164,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0524735,
-     "capacity_usd": 4745.0524735,
+     "tvl_usd": 4745.0553382,
+     "capacity_usd": 4745.0553382,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5190,7 +5190,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -5212,8 +5212,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.6828975,
-     "capacity_usd": 10078.6828975,
+     "tvl_usd": 10078.6889743,
+     "capacity_usd": 10078.6889743,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5238,7 +5238,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -5260,8 +5260,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.6349129,
-     "capacity_usd": 8779.6349129,
+     "tvl_usd": 8779.6402009,
+     "capacity_usd": 8779.6402009,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5286,7 +5286,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -5308,7 +5308,7 @@
      "apy": 6.92084,
      "apy_base": 6.92084,
      "apy_reward": 0,
-     "apy_mean_30d": 7.55325,
+     "apy_mean_30d": 7.54932,
      "tvl_usd": 7725,
      "capacity_usd": 7725,
      "instant_exit": false,
@@ -5346,13 +5346,13 @@
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 33.4,
+       "durability": 33.3,
        "governance": 55,
        "liquidity": 65,
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -5374,8 +5374,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.2642,
-     "capacity_usd": 13352.2642,
+     "tvl_usd": 13352.2722601,
+     "capacity_usd": 13352.2722601,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5400,7 +5400,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -5422,8 +5422,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271850.4751628,
-     "capacity_usd": 271850.4751628,
+     "tvl_usd": 271850.6307907,
+     "capacity_usd": 271850.6307907,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5448,7 +5448,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -5469,8 +5469,8 @@
      "apy": 5.32,
      "apy_base": 5.32,
      "apy_reward": 0,
-     "tvl_usd": 18911673.9748998,
-     "capacity_usd": 18911673.9748998,
+     "tvl_usd": 18911346.1056768,
+     "capacity_usd": 18911346.1056768,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5495,7 +5495,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -5513,12 +5513,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73604,
-     "apy_base": 5.73604,
+     "apy": 5.73492,
+     "apy_base": 5.73492,
      "apy_reward": 0,
-     "apy_mean_30d": 7.05132,
-     "tvl_usd": 14884493,
-     "capacity_usd": 14884493,
+     "apy_mean_30d": 7.04777,
+     "tvl_usd": 14878968,
+     "capacity_usd": 14878968,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -5554,17 +5554,17 @@
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 43.7,
+       "durability": 43.6,
        "governance": 55,
        "liquidity": 35.2,
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
-     "net_score": 5.3,
+     "net_score": 5.29,
      "max_position_usd": 250000,
      "eligible": true
     },
@@ -5581,8 +5581,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4395097,
-     "capacity_usd": 1458.4395097,
+     "tvl_usd": 1458.4399398,
+     "capacity_usd": 1458.4399398,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5607,7 +5607,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -5655,7 +5655,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "computed_at": "2026-10-21T16:25:36.781998893Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -5667,7 +5667,7 @@
    ]
   },
   "/api/v1/venues?deposit=50000": {
-   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "as_of": "2026-10-21T16:25:35.010649894Z",
    "count": 12,
    "deposit_usd": 50000,
    "provider_error": "",
@@ -5714,7 +5714,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -5736,8 +5736,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2277042,
-     "capacity_usd": 7511.2277042,
+     "tvl_usd": 7511.2322133,
+     "capacity_usd": 7511.2322133,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5762,7 +5762,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -5784,8 +5784,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0524735,
-     "capacity_usd": 4745.0524735,
+     "tvl_usd": 4745.0553382,
+     "capacity_usd": 4745.0553382,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5810,7 +5810,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -5832,8 +5832,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.6828975,
-     "capacity_usd": 10078.6828975,
+     "tvl_usd": 10078.6889743,
+     "capacity_usd": 10078.6889743,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5858,7 +5858,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -5880,8 +5880,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.6349129,
-     "capacity_usd": 8779.6349129,
+     "tvl_usd": 8779.6402009,
+     "capacity_usd": 8779.6402009,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5906,7 +5906,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -5928,7 +5928,7 @@
      "apy": 6.92084,
      "apy_base": 6.92084,
      "apy_reward": 0,
-     "apy_mean_30d": 7.55325,
+     "apy_mean_30d": 7.54932,
      "tvl_usd": 7725,
      "capacity_usd": 7725,
      "instant_exit": false,
@@ -5966,13 +5966,13 @@
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 33.4,
+       "durability": 33.3,
        "governance": 55,
        "liquidity": 65,
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -5994,8 +5994,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.2642,
-     "capacity_usd": 13352.2642,
+     "tvl_usd": 13352.2722601,
+     "capacity_usd": 13352.2722601,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6020,7 +6020,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -6042,8 +6042,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271850.4751628,
-     "capacity_usd": 271850.4751628,
+     "tvl_usd": 271850.6307907,
+     "capacity_usd": 271850.6307907,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6068,7 +6068,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -6089,8 +6089,8 @@
      "apy": 5.32,
      "apy_base": 5.32,
      "apy_reward": 0,
-     "tvl_usd": 18911673.9748998,
-     "capacity_usd": 18911673.9748998,
+     "tvl_usd": 18911346.1056768,
+     "capacity_usd": 18911346.1056768,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6115,7 +6115,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -6133,12 +6133,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73604,
-     "apy_base": 5.73604,
+     "apy": 5.73492,
+     "apy_base": 5.73492,
      "apy_reward": 0,
-     "apy_mean_30d": 7.05132,
-     "tvl_usd": 14884493,
-     "capacity_usd": 14884493,
+     "apy_mean_30d": 7.04777,
+     "tvl_usd": 14878968,
+     "capacity_usd": 14878968,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -6169,18 +6169,18 @@
       }
      ],
      "risk": {
-      "score": 59,
+      "score": 58.9,
       "band": "B",
       "subs": {
        "contagion": 73,
        "contract": 94,
-       "durability": 43.7,
+       "durability": 43.6,
        "governance": 55,
        "liquidity": 36,
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -6201,8 +6201,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4395097,
-     "capacity_usd": 1458.4395097,
+     "tvl_usd": 1458.4399398,
+     "capacity_usd": 1458.4399398,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6227,7 +6227,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -6275,7 +6275,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "computed_at": "2026-10-21T16:25:36.783116867Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
