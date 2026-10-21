@@ -1,0 +1,72 @@
+---
+import { href } from '../lib/url';
+import { usd, pct } from '../lib/format';
+import type { Plan } from '../lib/types';
+
+export interface Props { plan: Plan; deposit: number }
+const { plan, deposit } = Astro.props;
+const palette = ['#C7481D', '#3E6B4F', '#C98A1B', '#C98A1B', '#A83A16', '#7A6A55'];
+const invested = plan.legs.reduce((s, l) => s + l.amount_usd, 0);
+const idlePct = deposit > 0 ? (plan.idle_usd / deposit) * 100 : 0;
+const w = (usd_: number) => (deposit > 0 ? Math.round((usd_ / deposit) * 10000) / 100 : 0);
+---
+<div class="card">
+  <div class="head">
+    <h2>Allocation</h2>
+    <span class="small muted">policy {plan.policy_version}</span>
+  </div>
+
+  <div class="bar">
+    {plan.legs.map((leg, i) => (
+      <div
+        class="seg"
+        style={`width:${w(leg.amount_usd)}%;background:${palette[i % palette.length]}`}
+        title={`${leg.label} — ${usd(leg.amount_usd)}`}
+      ></div>
+    ))}
+    <div class="seg idle" style={`width:${w(plan.idle_usd)}%`} title={`Withdrawable cash — ${usd(plan.idle_usd)}`}></div>
+  </div>
+
+  <ul class="legend">
+    {plan.legs.map((leg, i) => (
+      <li>
+        <span class="swatch" style={`background:${palette[i % palette.length]}`}></span>
+        <span class="w num">{deposit > 0 ? ((leg.amount_usd / deposit) * 100).toFixed(0) : 0}%</span>
+        <a class="lbl" href={href(`/venues/${leg.venue_id}/`)}>{leg.label}</a>
+        <span class="apy num">{pct(leg.apy)}</span>
+        <span class="amt num">{usd(leg.amount_usd)}</span>
+      </li>
+    ))}
+    <li class="idle-row">
+      <span class="swatch idle"></span>
+      <span class="w num">{idlePct.toFixed(0)}%</span>
+      <span class="lbl">Withdrawable cash (always ≥ policy floor)</span>
+      <span class="apy num">—</span>
+      <span class="amt num">{usd(plan.idle_usd)}</span>
+    </li>
+  </ul>
+
+  <div class="foot small muted">
+    Diversification is enforced by the engine, not by taste: allocation is proportional to risk-adjusted score,
+    then capped per venue, then the excess is redistributed. A single best venue never gets everything.
+  </div>
+</div>
+
+<style>
+  .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .bar { display: flex; height: 34px; border-radius: 8px; overflow: hidden; background: #F2EADB; }
+  .seg { height: 34px; }
+  .seg + .seg { border-left: 1px solid rgba(255,255,255,0.7); }
+  .seg.idle, .swatch.idle { background: #DCCFB6; }
+  .legend { list-style: none; margin: 12px 0 0; padding: 0; }
+  .legend li { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dashed #F2EADB; font-size: 13px; }
+  .legend li:last-child { border-bottom: none; }
+  .swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+  .w { width: 38px; font-weight: 600; }
+  .lbl { flex: 1; color: #4A3D2C; }
+  a.lbl:hover { color: var(--brand); text-decoration: underline; }
+  .apy { width: 64px; text-align: right; color: var(--muted); }
+  .amt { width: 92px; text-align: right; font-weight: 600; }
+  .idle-row .lbl { color: var(--muted); }
+  .foot { margin-top: 12px; }
+</style>

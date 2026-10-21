@@ -1,0 +1,6290 @@
+{
+ "generated_at": "2026-10-21T16:18:46.312978338Z",
+ "note": "Frozen read API. This static site renders this snapshot; run the Go backend for live data.",
+ "deposits": [
+  100,
+  1000,
+  10000,
+  50000
+ ],
+ "responses": {
+  "/api/v1/alpha?days=90": {
+   "window_days": 90,
+   "generated_at": "2026-10-21T16:18:46.314268511Z",
+   "venues": [
+    {
+     "venue_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
+     "label": "Blend Fixed Pool — USDC",
+     "days": 96,
+     "mean_apy": 7.11,
+     "min_apy": 5.74,
+     "max_apy": 9.62,
+     "series": [
+      {
+       "date": "2026-07-18",
+       "apy": 7.49565,
+       "tvl_usd": 11881049
+      },
+      {
+       "date": "2026-07-19",
+       "apy": 7.42103,
+       "tvl_usd": 11947361
+      },
+      {
+       "date": "2026-07-20",
+       "apy": 7.34859,
+       "tvl_usd": 12015730
+      },
+      {
+       "date": "2026-07-21",
+       "apy": 8.84241,
+       "tvl_usd": 10825291
+      },
+      {
+       "date": "2026-07-22",
+       "apy": 8.49057,
+       "tvl_usd": 11117091
+      },
+      {
+       "date": "2026-07-23",
+       "apy": 8.18664,
+       "tvl_usd": 11370582
+      },
+      {
+       "date": "2026-07-24",
+       "apy": 7.98766,
+       "tvl_usd": 11495920
+      },
+      {
+       "date": "2026-07-25",
+       "apy": 7.86333,
+       "tvl_usd": 11604929
+      },
+      {
+       "date": "2026-07-26",
+       "apy": 7.92399,
+       "tvl_usd": 11565923
+      },
+      {
+       "date": "2026-07-27",
+       "apy": 9.62121,
+       "tvl_usd": 10258850
+      },
+      {
+       "date": "2026-07-28",
+       "apy": 7.14832,
+       "tvl_usd": 12299897
+      },
+      {
+       "date": "2026-07-29",
+       "apy": 7.02507,
+       "tvl_usd": 12936941
+      },
+      {
+       "date": "2026-07-30",
+       "apy": 7.01809,
+       "tvl_usd": 12941269
+      },
+      {
+       "date": "2026-07-31",
+       "apy": 7.01164,
+       "tvl_usd": 12947344
+      },
+      {
+       "date": "2026-08-01",
+       "apy": 7.00804,
+       "tvl_usd": 12932658
+      },
+      {
+       "date": "2026-08-02",
+       "apy": 7.00644,
+       "tvl_usd": 12909065
+      },
+      {
+       "date": "2026-08-03",
+       "apy": 7.02684,
+       "tvl_usd": 12767292
+      },
+      {
+       "date": "2026-08-04",
+       "apy": 7.00921,
+       "tvl_usd": 12842415
+      },
+      {
+       "date": "2026-08-05",
+       "apy": 6.7918,
+       "tvl_usd": 14043833
+      },
+      {
+       "date": "2026-08-06",
+       "apy": 6.79576,
+       "tvl_usd": 13932437
+      },
+      {
+       "date": "2026-08-07",
+       "apy": 6.75828,
+       "tvl_usd": 14064934
+      },
+      {
+       "date": "2026-08-08",
+       "apy": 6.47858,
+       "tvl_usd": 15685055
+      },
+      {
+       "date": "2026-08-09",
+       "apy": 6.45183,
+       "tvl_usd": 15669579
+      },
+      {
+       "date": "2026-08-10",
+       "apy": 6.42596,
+       "tvl_usd": 15651627
+      },
+      {
+       "date": "2026-08-11",
+       "apy": 6.39964,
+       "tvl_usd": 15634347
+      },
+      {
+       "date": "2026-08-12",
+       "apy": 6.35583,
+       "tvl_usd": 15730082
+      },
+      {
+       "date": "2026-08-13",
+       "apy": 6.59077,
+       "tvl_usd": 14103020
+      },
+      {
+       "date": "2026-08-14",
+       "apy": 6.71267,
+       "tvl_usd": 13293438
+      },
+      {
+       "date": "2026-08-15",
+       "apy": 6.74129,
+       "tvl_usd": 13073615
+      },
+      {
+       "date": "2026-08-16",
+       "apy": 6.49536,
+       "tvl_usd": 14506901
+      },
+      {
+       "date": "2026-08-17",
+       "apy": 6.38352,
+       "tvl_usd": 15093861
+      },
+      {
+       "date": "2026-08-18",
+       "apy": 6.41765,
+       "tvl_usd": 14729923
+      },
+      {
+       "date": "2026-08-19",
+       "apy": 6.39215,
+       "tvl_usd": 14754930
+      },
+      {
+       "date": "2026-08-20",
+       "apy": 6.37567,
+       "tvl_usd": 14729729
+      },
+      {
+       "date": "2026-08-21",
+       "apy": 6.38147,
+       "tvl_usd": 14563059
+      },
+      {
+       "date": "2026-08-22",
+       "apy": 6.3307,
+       "tvl_usd": 14760786
+      },
+      {
+       "date": "2026-08-23",
+       "apy": 6.32578,
+       "tvl_usd": 14655901
+      },
+      {
+       "date": "2026-08-24",
+       "apy": 6.31539,
+       "tvl_usd": 14592590
+      },
+      {
+       "date": "2026-08-25",
+       "apy": 6.60473,
+       "tvl_usd": 12721453
+      },
+      {
+       "date": "2026-08-26",
+       "apy": 6.61935,
+       "tvl_usd": 12616877
+      },
+      {
+       "date": "2026-08-27",
+       "apy": 6.89142,
+       "tvl_usd": 9673328
+      },
+      {
+       "date": "2026-08-28",
+       "apy": 6.51302,
+       "tvl_usd": 10335772
+      },
+      {
+       "date": "2026-08-29",
+       "apy": 6.55563,
+       "tvl_usd": 10100036
+      },
+      {
+       "date": "2026-08-30",
+       "apy": 6.59623,
+       "tvl_usd": 9889342
+      },
+      {
+       "date": "2026-08-31",
+       "apy": 6.61887,
+       "tvl_usd": 9772144
+      },
+      {
+       "date": "2026-09-01",
+       "apy": 6.63002,
+       "tvl_usd": 9715679
+      },
+      {
+       "date": "2026-09-02",
+       "apy": 7.03881,
+       "tvl_usd": 10567361
+      },
+      {
+       "date": "2026-09-03",
+       "apy": 7.13655,
+       "tvl_usd": 10498053
+      },
+      {
+       "date": "2026-09-04",
+       "apy": 7.29001,
+       "tvl_usd": 10386238
+      },
+      {
+       "date": "2026-09-05",
+       "apy": 7.49828,
+       "tvl_usd": 10233241
+      },
+      {
+       "date": "2026-09-06",
+       "apy": 7.57122,
+       "tvl_usd": 10187539
+      },
+      {
+       "date": "2026-09-07",
+       "apy": 8.04101,
+       "tvl_usd": 9843207
+      },
+      {
+       "date": "2026-09-08",
+       "apy": 7.95847,
+       "tvl_usd": 9921887
+      },
+      {
+       "date": "2026-09-09",
+       "apy": 7.6762,
+       "tvl_usd": 10147072
+      },
+      {
+       "date": "2026-09-10",
+       "apy": 7.26945,
+       "tvl_usd": 10469653
+      },
+      {
+       "date": "2026-09-11",
+       "apy": 7.23457,
+       "tvl_usd": 10503893
+      },
+      {
+       "date": "2026-09-12",
+       "apy": 7.39577,
+       "tvl_usd": 10386722
+      },
+      {
+       "date": "2026-09-13",
+       "apy": 7.46676,
+       "tvl_usd": 10339143
+      },
+      {
+       "date": "2026-09-14",
+       "apy": 7.42295,
+       "tvl_usd": 10383378
+      },
+      {
+       "date": "2026-09-15",
+       "apy": 8.00536,
+       "tvl_usd": 9947610
+      },
+      {
+       "date": "2026-09-16",
+       "apy": 7.99041,
+       "tvl_usd": 9971585
+      },
+      {
+       "date": "2026-09-17",
+       "apy": 8.05005,
+       "tvl_usd": 9939848
+      },
+      {
+       "date": "2026-09-18",
+       "apy": 8.31153,
+       "tvl_usd": 9762080
+      },
+      {
+       "date": "2026-09-19",
+       "apy": 8.2702,
+       "tvl_usd": 9806376
+      },
+      {
+       "date": "2026-09-20",
+       "apy": 8.18709,
+       "tvl_usd": 9882856
+      },
+      {
+       "date": "2026-09-21",
+       "apy": 8.32009,
+       "tvl_usd": 9801030
+      },
+      {
+       "date": "2026-09-22",
+       "apy": 8.41896,
+       "tvl_usd": 9743091
+      },
+      {
+       "date": "2026-09-23",
+       "apy": 7.58607,
+       "tvl_usd": 10239172
+      },
+      {
+       "date": "2026-09-24",
+       "apy": 7.6753,
+       "tvl_usd": 10180471
+      },
+      {
+       "date": "2026-09-25",
+       "apy": 7.61387,
+       "tvl_usd": 10236351
+      },
+      {
+       "date": "2026-09-26",
+       "apy": 7.64046,
+       "tvl_usd": 10225045
+      },
+      {
+       "date": "2026-09-27",
+       "apy": 7.68962,
+       "tvl_usd": 10197062
+      },
+      {
+       "date": "2026-09-28",
+       "apy": 7.29295,
+       "tvl_usd": 10506155
+      },
+      {
+       "date": "2026-09-29",
+       "apy": 7.38653,
+       "tvl_usd": 10441308
+      },
+      {
+       "date": "2026-09-30",
+       "apy": 6.5808,
+       "tvl_usd": 12298356
+      },
+      {
+       "date": "2026-10-01",
+       "apy": 6.60195,
+       "tvl_usd": 12113814
+      },
+      {
+       "date": "2026-10-02",
+       "apy": 6.66141,
+       "tvl_usd": 11738153
+      },
+      {
+       "date": "2026-10-03",
+       "apy": 6.65411,
+       "tvl_usd": 11730408
+      },
+      {
+       "date": "2026-10-04",
+       "apy": 6.66365,
+       "tvl_usd": 11634965
+      },
+      {
+       "date": "2026-10-05",
+       "apy": 6.69657,
+       "tvl_usd": 11429489
+      },
+      {
+       "date": "2026-10-06",
+       "apy": 6.67434,
+       "tvl_usd": 11516514
+      },
+      {
+       "date": "2026-10-07",
+       "apy": 6.68391,
+       "tvl_usd": 11429854
+      },
+      {
+       "date": "2026-10-08",
+       "apy": 6.67567,
+       "tvl_usd": 11444739
+      },
+      {
+       "date": "2026-10-09",
+       "apy": 6.67073,
+       "tvl_usd": 11443400
+      },
+      {
+       "date": "2026-10-10",
+       "apy": 6.68504,
+       "tvl_usd": 11339979
+      },
+      {
+       "date": "2026-10-11",
+       "apy": 6.71976,
+       "tvl_usd": 11139374
+      },
+      {
+       "date": "2026-10-12",
+       "apy": 6.73123,
+       "tvl_usd": 11072722
+      },
+      {
+       "date": "2026-10-13",
+       "apy": 7.35417,
+       "tvl_usd": 10435655
+      },
+      {
+       "date": "2026-10-14",
+       "apy": 7.43726,
+       "tvl_usd": 10377269
+      },
+      {
+       "date": "2026-10-15",
+       "apy": 7.02383,
+       "tvl_usd": 10703271
+      },
+      {
+       "date": "2026-10-16",
+       "apy": 7.04105,
+       "tvl_usd": 10695089
+      },
+      {
+       "date": "2026-10-17",
+       "apy": 7.00922,
+       "tvl_usd": 10724756
+      },
+      {
+       "date": "2026-10-18",
+       "apy": 7.019,
+       "tvl_usd": 10722638
+      },
+      {
+       "date": "2026-10-19",
+       "apy": 5.81368,
+       "tvl_usd": 14915809
+      },
+      {
+       "date": "2026-10-20",
+       "apy": 5.77084,
+       "tvl_usd": 14875862
+      },
+      {
+       "date": "2026-10-21",
+       "apy": 5.73604,
+       "tvl_usd": 14884493
+      }
+     ]
+    },
+    {
+     "venue_id": "48c597dc-9367-4b4a-aa10-49b9755c4c2e",
+     "label": "Blend YieldBlox Pool — USDC",
+     "days": 96,
+     "mean_apy": 8.39,
+     "min_apy": 1.86,
+     "max_apy": 193.92,
+     "series": [
+      {
+       "date": "2026-07-18",
+       "apy": 4.08248,
+       "tvl_usd": 210571
+      },
+      {
+       "date": "2026-07-19",
+       "apy": 4.06683,
+       "tvl_usd": 210575
+      },
+      {
+       "date": "2026-07-20",
+       "apy": 4.13057,
+       "tvl_usd": 209193
+      },
+      {
+       "date": "2026-07-21",
+       "apy": 4.14397,
+       "tvl_usd": 208999
+      },
+      {
+       "date": "2026-07-22",
+       "apy": 4.1898,
+       "tvl_usd": 208406
+      },
+      {
+       "date": "2026-07-23",
+       "apy": 4.2027,
+       "tvl_usd": 208745
+      },
+      {
+       "date": "2026-07-24",
+       "apy": 4.02477,
+       "tvl_usd": 208345
+      },
+      {
+       "date": "2026-07-25",
+       "apy": 4.26312,
+       "tvl_usd": 199940
+      },
+      {
+       "date": "2026-07-26",
+       "apy": 4.27817,
+       "tvl_usd": 199934
+      },
+      {
+       "date": "2026-07-27",
+       "apy": 4.30572,
+       "tvl_usd": 200090
+      },
+      {
+       "date": "2026-07-28",
+       "apy": 4.3332,
+       "tvl_usd": 200147
+      },
+      {
+       "date": "2026-07-29",
+       "apy": 4.38901,
+       "tvl_usd": 198950
+      },
+      {
+       "date": "2026-07-30",
+       "apy": 5.54577,
+       "tvl_usd": 163089
+      },
+      {
+       "date": "2026-07-31",
+       "apy": 5.29304,
+       "tvl_usd": 130849
+      },
+      {
+       "date": "2026-08-01",
+       "apy": 4.98437,
+       "tvl_usd": 137659
+      },
+      {
+       "date": "2026-08-02",
+       "apy": 5.05995,
+       "tvl_usd": 136459
+      },
+      {
+       "date": "2026-08-03",
+       "apy": 5.34083,
+       "tvl_usd": 130922
+      },
+      {
+       "date": "2026-08-04",
+       "apy": 5.30619,
+       "tvl_usd": 144926
+      },
+      {
+       "date": "2026-08-05",
+       "apy": 5.33794,
+       "tvl_usd": 145191
+      },
+      {
+       "date": "2026-08-06",
+       "apy": 5.20535,
+       "tvl_usd": 145543
+      },
+      {
+       "date": "2026-08-07",
+       "apy": 5.30652,
+       "tvl_usd": 145592
+      },
+      {
+       "date": "2026-08-08",
+       "apy": 5.36909,
+       "tvl_usd": 145599
+      },
+      {
+       "date": "2026-08-09",
+       "apy": 5.39202,
+       "tvl_usd": 145830
+      },
+      {
+       "date": "2026-08-10",
+       "apy": 5.30555,
+       "tvl_usd": 146613
+      },
+      {
+       "date": "2026-08-11",
+       "apy": 5.40529,
+       "tvl_usd": 146560
+      },
+      {
+       "date": "2026-08-12",
+       "apy": 6.00119,
+       "tvl_usd": 135539
+      },
+      {
+       "date": "2026-08-13",
+       "apy": 5.93073,
+       "tvl_usd": 134552
+      },
+      {
+       "date": "2026-08-14",
+       "apy": 6.23434,
+       "tvl_usd": 134611
+      },
+      {
+       "date": "2026-08-15",
+       "apy": 6.24982,
+       "tvl_usd": 134615
+      },
+      {
+       "date": "2026-08-16",
+       "apy": 6.27872,
+       "tvl_usd": 134651
+      },
+      {
+       "date": "2026-08-17",
+       "apy": 6.07356,
+       "tvl_usd": 139682
+      },
+      {
+       "date": "2026-08-18",
+       "apy": 4.9699,
+       "tvl_usd": 161283
+      },
+      {
+       "date": "2026-08-19",
+       "apy": 5.26892,
+       "tvl_usd": 154780
+      },
+      {
+       "date": "2026-08-20",
+       "apy": 5.4915,
+       "tvl_usd": 149888
+      },
+      {
+       "date": "2026-08-21",
+       "apy": 5.80469,
+       "tvl_usd": 144777
+      },
+      {
+       "date": "2026-08-22",
+       "apy": 6.24899,
+       "tvl_usd": 135020
+      },
+      {
+       "date": "2026-08-23",
+       "apy": 6.673,
+       "tvl_usd": 112476
+      },
+      {
+       "date": "2026-08-24",
+       "apy": 6.46206,
+       "tvl_usd": 113160
+      },
+      {
+       "date": "2026-08-25",
+       "apy": 8.27509,
+       "tvl_usd": 41637
+      },
+      {
+       "date": "2026-08-26",
+       "apy": 9.20665,
+       "tvl_usd": 7972
+      },
+      {
+       "date": "2026-08-27",
+       "apy": 7.254,
+       "tvl_usd": 10790
+      },
+      {
+       "date": "2026-08-28",
+       "apy": 7.68175,
+       "tvl_usd": 10165
+      },
+      {
+       "date": "2026-08-29",
+       "apy": 7.19589,
+       "tvl_usd": 11108
+      },
+      {
+       "date": "2026-08-30",
+       "apy": 7.15569,
+       "tvl_usd": 11161
+      },
+      {
+       "date": "2026-08-31",
+       "apy": 6.53018,
+       "tvl_usd": 11118
+      },
+      {
+       "date": "2026-09-01",
+       "apy": 6.66893,
+       "tvl_usd": 11149
+      },
+      {
+       "date": "2026-09-02",
+       "apy": 6.65162,
+       "tvl_usd": 11248
+      },
+      {
+       "date": "2026-09-03",
+       "apy": 4.23478,
+       "tvl_usd": 9189
+      },
+      {
+       "date": "2026-09-04",
+       "apy": 4.25791,
+       "tvl_usd": 9170
+      },
+      {
+       "date": "2026-09-05",
+       "apy": 4.2538,
+       "tvl_usd": 13636
+      },
+      {
+       "date": "2026-09-06",
+       "apy": 4.53523,
+       "tvl_usd": 11304
+      },
+      {
+       "date": "2026-09-07",
+       "apy": 4.95184,
+       "tvl_usd": 9132
+      },
+      {
+       "date": "2026-09-08",
+       "apy": 5.22714,
+       "tvl_usd": 8881
+      },
+      {
+       "date": "2026-09-09",
+       "apy": 5.53267,
+       "tvl_usd": 8665
+      },
+      {
+       "date": "2026-09-10",
+       "apy": 8.11534,
+       "tvl_usd": 6880
+      },
+      {
+       "date": "2026-09-11",
+       "apy": 8.17083,
+       "tvl_usd": 6854
+      },
+      {
+       "date": "2026-09-12",
+       "apy": 1.85975,
+       "tvl_usd": 55052
+      },
+      {
+       "date": "2026-09-13",
+       "apy": 193.92145,
+       "tvl_usd": 1326
+      },
+      {
+       "date": "2026-09-14",
+       "apy": 12.07806,
+       "tvl_usd": 3773
+      },
+      {
+       "date": "2026-09-15",
+       "apy": 5.8626,
+       "tvl_usd": 7859
+      },
+      {
+       "date": "2026-09-16",
+       "apy": 8.66702,
+       "tvl_usd": 5660
+      },
+      {
+       "date": "2026-09-17",
+       "apy": 8.86788,
+       "tvl_usd": 5662
+      },
+      {
+       "date": "2026-09-18",
+       "apy": 9.66383,
+       "tvl_usd": 5202
+      },
+      {
+       "date": "2026-09-19",
+       "apy": 14.6897,
+       "tvl_usd": 2209
+      },
+      {
+       "date": "2026-09-20",
+       "apy": 7.55478,
+       "tvl_usd": 6819
+      },
+      {
+       "date": "2026-09-21",
+       "apy": 9.67724,
+       "tvl_usd": 5409
+      },
+      {
+       "date": "2026-09-22",
+       "apy": 9.91108,
+       "tvl_usd": 5337
+      },
+      {
+       "date": "2026-09-23",
+       "apy": 9.1887,
+       "tvl_usd": 5837
+      },
+      {
+       "date": "2026-09-24",
+       "apy": 8.13957,
+       "tvl_usd": 6688
+      },
+      {
+       "date": "2026-09-25",
+       "apy": 7.70567,
+       "tvl_usd": 7046
+      },
+      {
+       "date": "2026-09-26",
+       "apy": 5.01903,
+       "tvl_usd": 10151
+      },
+      {
+       "date": "2026-09-27",
+       "apy": 5.0799,
+       "tvl_usd": 9743
+      },
+      {
+       "date": "2026-09-28",
+       "apy": 5.06587,
+       "tvl_usd": 9733
+      },
+      {
+       "date": "2026-09-29",
+       "apy": 8.25155,
+       "tvl_usd": 6666
+      },
+      {
+       "date": "2026-09-30",
+       "apy": 8.25155,
+       "tvl_usd": 6666
+      },
+      {
+       "date": "2026-10-01",
+       "apy": 7.02287,
+       "tvl_usd": 7661
+      },
+      {
+       "date": "2026-10-02",
+       "apy": 7.05918,
+       "tvl_usd": 7663
+      },
+      {
+       "date": "2026-10-03",
+       "apy": 8.64174,
+       "tvl_usd": 6552
+      },
+      {
+       "date": "2026-10-04",
+       "apy": 8.06016,
+       "tvl_usd": 7001
+      },
+      {
+       "date": "2026-10-05",
+       "apy": 8.15524,
+       "tvl_usd": 6991
+      },
+      {
+       "date": "2026-10-06",
+       "apy": 8.15524,
+       "tvl_usd": 6991
+      },
+      {
+       "date": "2026-10-07",
+       "apy": 8.15524,
+       "tvl_usd": 6989
+      },
+      {
+       "date": "2026-10-08",
+       "apy": 8.29747,
+       "tvl_usd": 6989
+      },
+      {
+       "date": "2026-10-09",
+       "apy": 7.78974,
+       "tvl_usd": 7390
+      },
+      {
+       "date": "2026-10-10",
+       "apy": 7.78974,
+       "tvl_usd": 7390
+      },
+      {
+       "date": "2026-10-11",
+       "apy": 7.29497,
+       "tvl_usd": 7789
+      },
+      {
+       "date": "2026-10-12",
+       "apy": 6.90179,
+       "tvl_usd": 8090
+      },
+      {
+       "date": "2026-10-13",
+       "apy": 6.93053,
+       "tvl_usd": 8091
+      },
+      {
+       "date": "2026-10-14",
+       "apy": 6.93053,
+       "tvl_usd": 8089
+      },
+      {
+       "date": "2026-10-15",
+       "apy": 8.4604,
+       "tvl_usd": 7103
+      },
+      {
+       "date": "2026-10-16",
+       "apy": 5.62751,
+       "tvl_usd": 9128
+      },
+      {
+       "date": "2026-10-17",
+       "apy": 5.62751,
+       "tvl_usd": 9127
+      },
+      {
+       "date": "2026-10-18",
+       "apy": 5.62751,
+       "tvl_usd": 9128
+      },
+      {
+       "date": "2026-10-19",
+       "apy": 6.92084,
+       "tvl_usd": 7728
+      },
+      {
+       "date": "2026-10-20",
+       "apy": 6.92084,
+       "tvl_usd": 7727
+      },
+      {
+       "date": "2026-10-21",
+       "apy": 6.92084,
+       "tvl_usd": 7725
+      }
+     ]
+    }
+   ],
+   "upper_bound_usd": 1.36,
+   "best_single_label": "Blend Fixed Pool — USDC",
+   "best_single_usd": 1018.88,
+   "perfect_hindsight_usd": 1020.24,
+   "sweeps": [
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 100,
+     "cooldown_days": 2,
+     "switches": 7,
+     "final_usd": 1019.59,
+     "gain_usd": 19.59,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.71,
+     "alpha_bps_per_year": 27.06,
+     "capture_of_upper_bound_pct": 52.21
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 100,
+     "cooldown_days": 3,
+     "switches": 7,
+     "final_usd": 1019.59,
+     "gain_usd": 19.59,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.71,
+     "alpha_bps_per_year": 27.06,
+     "capture_of_upper_bound_pct": 52.21
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 10,
+     "cooldown_days": 0,
+     "switches": 15,
+     "final_usd": 1019.56,
+     "gain_usd": 19.56,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.68,
+     "alpha_bps_per_year": 25.81,
+     "capture_of_upper_bound_pct": 50
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 25,
+     "cooldown_days": 0,
+     "switches": 15,
+     "final_usd": 1019.56,
+     "gain_usd": 19.56,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.68,
+     "alpha_bps_per_year": 25.81,
+     "capture_of_upper_bound_pct": 50
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 10,
+     "cooldown_days": 1,
+     "switches": 15,
+     "final_usd": 1019.56,
+     "gain_usd": 19.56,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.68,
+     "alpha_bps_per_year": 25.81,
+     "capture_of_upper_bound_pct": 50
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 25,
+     "cooldown_days": 1,
+     "switches": 15,
+     "final_usd": 1019.56,
+     "gain_usd": 19.56,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.68,
+     "alpha_bps_per_year": 25.81,
+     "capture_of_upper_bound_pct": 50
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 100,
+     "cooldown_days": 0,
+     "switches": 9,
+     "final_usd": 1019.51,
+     "gain_usd": 19.51,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.63,
+     "alpha_bps_per_year": 24.03,
+     "capture_of_upper_bound_pct": 46.32
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 100,
+     "cooldown_days": 1,
+     "switches": 9,
+     "final_usd": 1019.51,
+     "gain_usd": 19.51,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.63,
+     "alpha_bps_per_year": 24.03,
+     "capture_of_upper_bound_pct": 46.32
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 10,
+     "cooldown_days": 2,
+     "switches": 13,
+     "final_usd": 1019.5,
+     "gain_usd": 19.5,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.62,
+     "alpha_bps_per_year": 23.48,
+     "capture_of_upper_bound_pct": 45.59
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 25,
+     "cooldown_days": 2,
+     "switches": 13,
+     "final_usd": 1019.5,
+     "gain_usd": 19.5,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.62,
+     "alpha_bps_per_year": 23.48,
+     "capture_of_upper_bound_pct": 45.59
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 10,
+     "cooldown_days": 3,
+     "switches": 9,
+     "final_usd": 1019.5,
+     "gain_usd": 19.5,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.62,
+     "alpha_bps_per_year": 23.46,
+     "capture_of_upper_bound_pct": 45.59
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 25,
+     "cooldown_days": 3,
+     "switches": 9,
+     "final_usd": 1019.5,
+     "gain_usd": 19.5,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.62,
+     "alpha_bps_per_year": 23.46,
+     "capture_of_upper_bound_pct": 45.59
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 10,
+     "cooldown_days": 7,
+     "switches": 7,
+     "final_usd": 1019.48,
+     "gain_usd": 19.48,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.6,
+     "alpha_bps_per_year": 22.73,
+     "capture_of_upper_bound_pct": 44.12
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 25,
+     "cooldown_days": 7,
+     "switches": 7,
+     "final_usd": 1019.48,
+     "gain_usd": 19.48,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.6,
+     "alpha_bps_per_year": 22.73,
+     "capture_of_upper_bound_pct": 44.12
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 100,
+     "cooldown_days": 5,
+     "switches": 6,
+     "final_usd": 1019.45,
+     "gain_usd": 19.45,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.57,
+     "alpha_bps_per_year": 21.6,
+     "capture_of_upper_bound_pct": 41.91
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 100,
+     "cooldown_days": 7,
+     "switches": 6,
+     "final_usd": 1019.45,
+     "gain_usd": 19.45,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.57,
+     "alpha_bps_per_year": 21.6,
+     "capture_of_upper_bound_pct": 41.91
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 50,
+     "cooldown_days": 2,
+     "switches": 11,
+     "final_usd": 1019.43,
+     "gain_usd": 19.43,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.55,
+     "alpha_bps_per_year": 20.9,
+     "capture_of_upper_bound_pct": 40.44
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 50,
+     "cooldown_days": 0,
+     "switches": 15,
+     "final_usd": 1019.41,
+     "gain_usd": 19.41,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.53,
+     "alpha_bps_per_year": 20.26,
+     "capture_of_upper_bound_pct": 38.97
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 50,
+     "cooldown_days": 1,
+     "switches": 15,
+     "final_usd": 1019.41,
+     "gain_usd": 19.41,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.53,
+     "alpha_bps_per_year": 20.26,
+     "capture_of_upper_bound_pct": 38.97
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 50,
+     "cooldown_days": 3,
+     "switches": 9,
+     "final_usd": 1019.35,
+     "gain_usd": 19.35,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.47,
+     "alpha_bps_per_year": 17.91,
+     "capture_of_upper_bound_pct": 34.56
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 50,
+     "cooldown_days": 7,
+     "switches": 6,
+     "final_usd": 1019.3,
+     "gain_usd": 19.3,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.42,
+     "alpha_bps_per_year": 15.92,
+     "capture_of_upper_bound_pct": 30.88
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 10,
+     "cooldown_days": 5,
+     "switches": 9,
+     "final_usd": 1019.24,
+     "gain_usd": 19.24,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.36,
+     "alpha_bps_per_year": 13.66,
+     "capture_of_upper_bound_pct": 26.47
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 25,
+     "cooldown_days": 5,
+     "switches": 9,
+     "final_usd": 1019.24,
+     "gain_usd": 19.24,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.36,
+     "alpha_bps_per_year": 13.66,
+     "capture_of_upper_bound_pct": 26.47
+    },
+    {
+     "principal_usd": 1000,
+     "threshold_bps": 50,
+     "cooldown_days": 5,
+     "switches": 9,
+     "final_usd": 1019.03,
+     "gain_usd": 19.03,
+     "passive_venue": "Blend Fixed Pool — USDC",
+     "passive_final_usd": 1018.88,
+     "alpha_usd": 0.15,
+     "alpha_bps_per_year": 5.58,
+     "capture_of_upper_bound_pct": 11.03
+    }
+   ],
+   "best": {
+    "principal_usd": 1000,
+    "threshold_bps": 100,
+    "cooldown_days": 2,
+    "switches": 7,
+    "final_usd": 1019.59,
+    "gain_usd": 19.59,
+    "passive_venue": "Blend Fixed Pool — USDC",
+    "passive_final_usd": 1018.88,
+    "alpha_usd": 0.71,
+    "alpha_bps_per_year": 27.06,
+    "capture_of_upper_bound_pct": 52.21
+   },
+   "days_gap_over_threshold": 88,
+   "avg_gap_bps": 168.01,
+   "note": "Upper bound is perfect hindsight minus the best single venue, i.e. the entire value of routing with a crystal ball. A realistic keeper captures a fraction of it."
+  },
+  "/api/v1/decisions": {
+   "decisions": [],
+   "note": "Every keeper evaluation, including the ones where nothing happened. A decision log that only shows successful moves is marketing, not a log."
+  },
+  "/api/v1/health": {
+   "network": "mainnet",
+   "provider_error": "",
+   "status": "ok",
+   "time": "2026-10-21T16:18:46.31346341Z",
+   "venues_cached": 12,
+   "venues_updated": "2026-10-21T16:18:45.490700813Z",
+   "version": "1.0.0"
+  },
+  "/api/v1/meta": {
+   "api_version": "1.0.0",
+   "asset": "USDC",
+   "automation": "policy-bounded: the vault enforces caps, cooldowns and a NAV check",
+   "chain": "Stellar",
+   "custody": "non-custodial: the backend holds no key and signs nothing",
+   "policy_version": "policy-v1.2",
+   "product": "Compass",
+   "risk_model": "risk-model-v1.0",
+   "safety_registry": "safety-registry-2026-10-21",
+   "vault_contract": ""
+  },
+  "/api/v1/network": {
+   "rpc_healthy": true,
+   "latest_ledger": 65062748,
+   "protocol": 29,
+   "close_time": 1792599523,
+   "base_fee_stroops": 100,
+   "horizon_ok": true,
+   "checked_at": "2026-10-21T16:18:45.490701081Z"
+  },
+  "/api/v1/plan?deposit=100": {
+   "deposit_usd": 100,
+   "legs": [
+    {
+     "venue_id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "amount_usd": 32.25,
+     "weight_bps": 3225,
+     "apy": 5.93,
+     "risk_band": "A",
+     "risk": 38.2
+    },
+    {
+     "venue_id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "amount_usd": 28.93,
+     "weight_bps": 2893,
+     "apy": 5.32,
+     "risk_band": "A",
+     "risk": 38.2
+    },
+    {
+     "venue_id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "amount_usd": 28.82,
+     "weight_bps": 2882,
+     "apy": 5.73604,
+     "risk_band": "B",
+     "risk": 58.8
+    }
+   ],
+   "idle_usd": 10,
+   "blended_apy": 5.67,
+   "portfolio_risk": 45.5,
+   "portfolio_risk_base": 44.8,
+   "correlation_penalty": 0.7,
+   "refusals": [
+    {
+     "venue_id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "apy": 10,
+     "reason": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "venue_id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "apy": 7.34,
+     "reason": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "apy": 6.92084,
+     "reason": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "apy": 6.78,
+     "reason": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "apy": 6.32,
+     "reason": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "apy": 6.06,
+     "reason": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "apy": 5.95,
+     "reason": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "apy": 5.24,
+     "reason": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "apy": 0,
+     "reason": "No yield."
+    }
+   ],
+   "policy_version": "policy-v1.2",
+   "generated_at": "2026-10-21T16:18:46.387130798Z"
+  },
+  "/api/v1/plan?deposit=1000": {
+   "deposit_usd": 1000,
+   "legs": [
+    {
+     "venue_id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "amount_usd": 322.48,
+     "weight_bps": 3224,
+     "apy": 5.93,
+     "risk_band": "A",
+     "risk": 38.4
+    },
+    {
+     "venue_id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "amount_usd": 289.31,
+     "weight_bps": 2893,
+     "apy": 5.32,
+     "risk_band": "A",
+     "risk": 38.2
+    },
+    {
+     "venue_id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "amount_usd": 288.22,
+     "weight_bps": 2882,
+     "apy": 5.73604,
+     "risk_band": "B",
+     "risk": 58.8
+    }
+   ],
+   "idle_usd": 99.99,
+   "blended_apy": 5.67,
+   "portfolio_risk": 45.6,
+   "portfolio_risk_base": 44.9,
+   "correlation_penalty": 0.7,
+   "refusals": [
+    {
+     "venue_id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "apy": 10,
+     "reason": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "venue_id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "apy": 7.34,
+     "reason": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "apy": 6.92084,
+     "reason": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "apy": 6.78,
+     "reason": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "apy": 6.32,
+     "reason": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "apy": 6.06,
+     "reason": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "apy": 5.95,
+     "reason": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "apy": 5.24,
+     "reason": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "apy": 0,
+     "reason": "No yield."
+    }
+   ],
+   "policy_version": "policy-v1.2",
+   "generated_at": "2026-10-21T16:18:46.388434646Z"
+  },
+  "/api/v1/plan?deposit=10000": {
+   "deposit_usd": 10000,
+   "legs": [
+    {
+     "venue_id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "amount_usd": 3224.77,
+     "weight_bps": 3224,
+     "apy": 5.93,
+     "risk_band": "A",
+     "risk": 40.4
+    },
+    {
+     "venue_id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "amount_usd": 2893.05,
+     "weight_bps": 2893,
+     "apy": 5.32,
+     "risk_band": "A",
+     "risk": 38.2
+    },
+    {
+     "venue_id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "amount_usd": 2882.18,
+     "weight_bps": 2882,
+     "apy": 5.73604,
+     "risk_band": "B",
+     "risk": 58.8
+    }
+   ],
+   "idle_usd": 1000,
+   "blended_apy": 5.67,
+   "portfolio_risk": 46.3,
+   "portfolio_risk_base": 45.6,
+   "correlation_penalty": 0.7,
+   "refusals": [
+    {
+     "venue_id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "apy": 10,
+     "reason": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "venue_id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "apy": 7.34,
+     "reason": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "apy": 6.92084,
+     "reason": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "apy": 6.78,
+     "reason": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "apy": 6.32,
+     "reason": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "apy": 6.06,
+     "reason": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "apy": 5.95,
+     "reason": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "apy": 5.24,
+     "reason": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "apy": 0,
+     "reason": "No yield."
+    }
+   ],
+   "policy_version": "policy-v1.2",
+   "generated_at": "2026-10-21T16:18:46.389366238Z"
+  },
+  "/api/v1/plan?deposit=50000": {
+   "deposit_usd": 50000,
+   "legs": [
+    {
+     "venue_id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "amount_usd": 5437,
+     "weight_bps": 1087,
+     "apy": 5.93,
+     "risk_band": "A",
+     "risk": 44.2
+    },
+    {
+     "venue_id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "amount_usd": 19808.29,
+     "weight_bps": 3961,
+     "apy": 5.32,
+     "risk_band": "A",
+     "risk": 38.3
+    },
+    {
+     "venue_id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "amount_usd": 19754.71,
+     "weight_bps": 3950,
+     "apy": 5.73604,
+     "risk_band": "B",
+     "risk": 59
+    }
+   ],
+   "idle_usd": 5000,
+   "blended_apy": 5.58,
+   "portfolio_risk": 48.4,
+   "portfolio_risk_base": 48.1,
+   "correlation_penalty": 0.3,
+   "refusals": [
+    {
+     "venue_id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "apy": 10,
+     "reason": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "venue_id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "apy": 7.34,
+     "reason": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "apy": 6.92084,
+     "reason": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "apy": 6.78,
+     "reason": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "apy": 6.32,
+     "reason": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "apy": 6.06,
+     "reason": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "apy": 5.95,
+     "reason": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "apy": 5.24,
+     "reason": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "venue_id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "apy": 0,
+     "reason": "No yield."
+    }
+   ],
+   "policy_version": "policy-v1.2",
+   "generated_at": "2026-10-21T16:18:46.390247213Z"
+  },
+  "/api/v1/policy": {
+   "chosen_by_measurement": {
+    "cooldown_secs": "average leadership between the two verified venues was ~6.7 days; a 7-day cooldown missed most switches",
+    "max_venue_share_of_cap": "capped at 2% of a venue so our own exit does not become the risk",
+    "min_capacity_usd": "venues under $100k cannot absorb our exit without moving the rate against us",
+    "min_improvement_bps": "below 25 bps the switch costs more attention than it earns"
+   },
+   "explain": "These parameters are what a user signs once. The vault cannot exceed them, and the keeper cannot bypass them.",
+   "policy": {
+    "version": "policy-v1.2",
+    "max_venue_bps": 6000,
+    "min_idle_bps": 1000,
+    "max_move_bps": 5000,
+    "min_improvement_bps": 25,
+    "cooldown_secs": 172800,
+    "max_slippage_bps": 10,
+    "max_venue_utilization_bps": 8500,
+    "stability_days": 1,
+    "min_capacity_usd": 100000,
+    "max_venue_share_of_capacity": 0.02,
+    "min_position_usd": 25,
+    "rebalance_enabled": true
+   }
+  },
+  "/api/v1/venues/blend-pools-v2:48c597dc/history?days=90": {
+   "days": 90,
+   "points": [
+    {
+     "date": "2026-07-23",
+     "apy": 4.2027,
+     "tvl_usd": 208745
+    },
+    {
+     "date": "2026-07-24",
+     "apy": 4.02477,
+     "tvl_usd": 208345
+    },
+    {
+     "date": "2026-07-25",
+     "apy": 4.26312,
+     "tvl_usd": 199940
+    },
+    {
+     "date": "2026-07-26",
+     "apy": 4.27817,
+     "tvl_usd": 199934
+    },
+    {
+     "date": "2026-07-27",
+     "apy": 4.30572,
+     "tvl_usd": 200090
+    },
+    {
+     "date": "2026-07-28",
+     "apy": 4.3332,
+     "tvl_usd": 200147
+    },
+    {
+     "date": "2026-07-29",
+     "apy": 4.38901,
+     "tvl_usd": 198950
+    },
+    {
+     "date": "2026-07-30",
+     "apy": 5.54577,
+     "tvl_usd": 163089
+    },
+    {
+     "date": "2026-07-31",
+     "apy": 5.29304,
+     "tvl_usd": 130849
+    },
+    {
+     "date": "2026-08-01",
+     "apy": 4.98437,
+     "tvl_usd": 137659
+    },
+    {
+     "date": "2026-08-02",
+     "apy": 5.05995,
+     "tvl_usd": 136459
+    },
+    {
+     "date": "2026-08-03",
+     "apy": 5.34083,
+     "tvl_usd": 130922
+    },
+    {
+     "date": "2026-08-04",
+     "apy": 5.30619,
+     "tvl_usd": 144926
+    },
+    {
+     "date": "2026-08-05",
+     "apy": 5.33794,
+     "tvl_usd": 145191
+    },
+    {
+     "date": "2026-08-06",
+     "apy": 5.20535,
+     "tvl_usd": 145543
+    },
+    {
+     "date": "2026-08-07",
+     "apy": 5.30652,
+     "tvl_usd": 145592
+    },
+    {
+     "date": "2026-08-08",
+     "apy": 5.36909,
+     "tvl_usd": 145599
+    },
+    {
+     "date": "2026-08-09",
+     "apy": 5.39202,
+     "tvl_usd": 145830
+    },
+    {
+     "date": "2026-08-10",
+     "apy": 5.30555,
+     "tvl_usd": 146613
+    },
+    {
+     "date": "2026-08-11",
+     "apy": 5.40529,
+     "tvl_usd": 146560
+    },
+    {
+     "date": "2026-08-12",
+     "apy": 6.00119,
+     "tvl_usd": 135539
+    },
+    {
+     "date": "2026-08-13",
+     "apy": 5.93073,
+     "tvl_usd": 134552
+    },
+    {
+     "date": "2026-08-14",
+     "apy": 6.23434,
+     "tvl_usd": 134611
+    },
+    {
+     "date": "2026-08-15",
+     "apy": 6.24982,
+     "tvl_usd": 134615
+    },
+    {
+     "date": "2026-08-16",
+     "apy": 6.27872,
+     "tvl_usd": 134651
+    },
+    {
+     "date": "2026-08-17",
+     "apy": 6.07356,
+     "tvl_usd": 139682
+    },
+    {
+     "date": "2026-08-18",
+     "apy": 4.9699,
+     "tvl_usd": 161283
+    },
+    {
+     "date": "2026-08-19",
+     "apy": 5.26892,
+     "tvl_usd": 154780
+    },
+    {
+     "date": "2026-08-20",
+     "apy": 5.4915,
+     "tvl_usd": 149888
+    },
+    {
+     "date": "2026-08-21",
+     "apy": 5.80469,
+     "tvl_usd": 144777
+    },
+    {
+     "date": "2026-08-22",
+     "apy": 6.24899,
+     "tvl_usd": 135020
+    },
+    {
+     "date": "2026-08-23",
+     "apy": 6.673,
+     "tvl_usd": 112476
+    },
+    {
+     "date": "2026-08-24",
+     "apy": 6.46206,
+     "tvl_usd": 113160
+    },
+    {
+     "date": "2026-08-25",
+     "apy": 8.27509,
+     "tvl_usd": 41637
+    },
+    {
+     "date": "2026-08-26",
+     "apy": 9.20665,
+     "tvl_usd": 7972
+    },
+    {
+     "date": "2026-08-27",
+     "apy": 7.254,
+     "tvl_usd": 10790
+    },
+    {
+     "date": "2026-08-28",
+     "apy": 7.68175,
+     "tvl_usd": 10165
+    },
+    {
+     "date": "2026-08-29",
+     "apy": 7.19589,
+     "tvl_usd": 11108
+    },
+    {
+     "date": "2026-08-30",
+     "apy": 7.15569,
+     "tvl_usd": 11161
+    },
+    {
+     "date": "2026-08-31",
+     "apy": 6.53018,
+     "tvl_usd": 11118
+    },
+    {
+     "date": "2026-09-01",
+     "apy": 6.66893,
+     "tvl_usd": 11149
+    },
+    {
+     "date": "2026-09-02",
+     "apy": 6.65162,
+     "tvl_usd": 11248
+    },
+    {
+     "date": "2026-09-03",
+     "apy": 4.23478,
+     "tvl_usd": 9189
+    },
+    {
+     "date": "2026-09-04",
+     "apy": 4.25791,
+     "tvl_usd": 9170
+    },
+    {
+     "date": "2026-09-05",
+     "apy": 4.2538,
+     "tvl_usd": 13636
+    },
+    {
+     "date": "2026-09-06",
+     "apy": 4.53523,
+     "tvl_usd": 11304
+    },
+    {
+     "date": "2026-09-07",
+     "apy": 4.95184,
+     "tvl_usd": 9132
+    },
+    {
+     "date": "2026-09-08",
+     "apy": 5.22714,
+     "tvl_usd": 8881
+    },
+    {
+     "date": "2026-09-09",
+     "apy": 5.53267,
+     "tvl_usd": 8665
+    },
+    {
+     "date": "2026-09-10",
+     "apy": 8.11534,
+     "tvl_usd": 6880
+    },
+    {
+     "date": "2026-09-11",
+     "apy": 8.17083,
+     "tvl_usd": 6854
+    },
+    {
+     "date": "2026-09-12",
+     "apy": 1.85975,
+     "tvl_usd": 55052
+    },
+    {
+     "date": "2026-09-13",
+     "apy": 193.92145,
+     "tvl_usd": 1326
+    },
+    {
+     "date": "2026-09-14",
+     "apy": 12.07806,
+     "tvl_usd": 3773
+    },
+    {
+     "date": "2026-09-15",
+     "apy": 5.8626,
+     "tvl_usd": 7859
+    },
+    {
+     "date": "2026-09-16",
+     "apy": 8.66702,
+     "tvl_usd": 5660
+    },
+    {
+     "date": "2026-09-17",
+     "apy": 8.86788,
+     "tvl_usd": 5662
+    },
+    {
+     "date": "2026-09-18",
+     "apy": 9.66383,
+     "tvl_usd": 5202
+    },
+    {
+     "date": "2026-09-19",
+     "apy": 14.6897,
+     "tvl_usd": 2209
+    },
+    {
+     "date": "2026-09-20",
+     "apy": 7.55478,
+     "tvl_usd": 6819
+    },
+    {
+     "date": "2026-09-21",
+     "apy": 9.67724,
+     "tvl_usd": 5409
+    },
+    {
+     "date": "2026-09-22",
+     "apy": 9.91108,
+     "tvl_usd": 5337
+    },
+    {
+     "date": "2026-09-23",
+     "apy": 9.1887,
+     "tvl_usd": 5837
+    },
+    {
+     "date": "2026-09-24",
+     "apy": 8.13957,
+     "tvl_usd": 6688
+    },
+    {
+     "date": "2026-09-25",
+     "apy": 7.70567,
+     "tvl_usd": 7046
+    },
+    {
+     "date": "2026-09-26",
+     "apy": 5.01903,
+     "tvl_usd": 10151
+    },
+    {
+     "date": "2026-09-27",
+     "apy": 5.0799,
+     "tvl_usd": 9743
+    },
+    {
+     "date": "2026-09-28",
+     "apy": 5.06587,
+     "tvl_usd": 9733
+    },
+    {
+     "date": "2026-09-29",
+     "apy": 8.25155,
+     "tvl_usd": 6666
+    },
+    {
+     "date": "2026-09-30",
+     "apy": 8.25155,
+     "tvl_usd": 6666
+    },
+    {
+     "date": "2026-10-01",
+     "apy": 7.02287,
+     "tvl_usd": 7661
+    },
+    {
+     "date": "2026-10-02",
+     "apy": 7.05918,
+     "tvl_usd": 7663
+    },
+    {
+     "date": "2026-10-03",
+     "apy": 8.64174,
+     "tvl_usd": 6552
+    },
+    {
+     "date": "2026-10-04",
+     "apy": 8.06016,
+     "tvl_usd": 7001
+    },
+    {
+     "date": "2026-10-05",
+     "apy": 8.15524,
+     "tvl_usd": 6991
+    },
+    {
+     "date": "2026-10-06",
+     "apy": 8.15524,
+     "tvl_usd": 6991
+    },
+    {
+     "date": "2026-10-07",
+     "apy": 8.15524,
+     "tvl_usd": 6989
+    },
+    {
+     "date": "2026-10-08",
+     "apy": 8.29747,
+     "tvl_usd": 6989
+    },
+    {
+     "date": "2026-10-09",
+     "apy": 7.78974,
+     "tvl_usd": 7390
+    },
+    {
+     "date": "2026-10-10",
+     "apy": 7.78974,
+     "tvl_usd": 7390
+    },
+    {
+     "date": "2026-10-11",
+     "apy": 7.29497,
+     "tvl_usd": 7789
+    },
+    {
+     "date": "2026-10-12",
+     "apy": 6.90179,
+     "tvl_usd": 8090
+    },
+    {
+     "date": "2026-10-13",
+     "apy": 6.93053,
+     "tvl_usd": 8091
+    },
+    {
+     "date": "2026-10-14",
+     "apy": 6.93053,
+     "tvl_usd": 8089
+    },
+    {
+     "date": "2026-10-15",
+     "apy": 8.4604,
+     "tvl_usd": 7103
+    },
+    {
+     "date": "2026-10-16",
+     "apy": 5.62751,
+     "tvl_usd": 9128
+    },
+    {
+     "date": "2026-10-17",
+     "apy": 5.62751,
+     "tvl_usd": 9127
+    },
+    {
+     "date": "2026-10-18",
+     "apy": 5.62751,
+     "tvl_usd": 9128
+    },
+    {
+     "date": "2026-10-19",
+     "apy": 6.92084,
+     "tvl_usd": 7728
+    },
+    {
+     "date": "2026-10-20",
+     "apy": 6.92084,
+     "tvl_usd": 7727
+    },
+    {
+     "date": "2026-10-21",
+     "apy": 6.92084,
+     "tvl_usd": 7725
+    }
+   ],
+   "venue_id": "blend-pools-v2:48c597dc"
+  },
+  "/api/v1/venues/blend-pools-v2:48c597dc?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "blend-pools-v2:48c597dc",
+    "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+    "kind": "lending_reserve",
+    "project": "blend-pools-v2",
+    "pool_id": "48c597dc-9367-4b4a-aa10-49b9755c4c2e",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defillama",
+    "chain": "Stellar",
+    "protocol": "blend-pools-v2",
+    "apy": 6.92084,
+    "apy_base": 6.92084,
+    "apy_reward": 0,
+    "apy_mean_30d": 7.55325,
+    "tvl_usd": 7725,
+    "capacity_usd": 7725,
+    "instant_exit": false,
+    "audits": 3,
+    "tier1_audit": true,
+    "live_months": 26,
+    "upgradeable": true,
+    "oracle": "SDEX-fed price (shallow market)",
+    "oracle_quality": 0.25,
+    "reward_dependence": 0,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend pool",
+     "Comet backstop LP (indirect)"
+    ],
+    "incidents": [
+     {
+      "type": "shared_dependency",
+      "loss_usd": 717000,
+      "months_ago": 2,
+      "scope": "protocol_code",
+      "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+     },
+     {
+      "type": "oracle_manipulation",
+      "loss_usd": 10900000,
+      "months_ago": 8,
+      "scope": "pool_config",
+      "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+     }
+    ],
+    "risk": {
+     "score": 69.2,
+     "band": "C",
+     "subs": {
+      "contagion": 73,
+      "contract": 94,
+      "durability": 33.4,
+      "governance": 55,
+      "liquidity": 65,
+      "oracle": 75
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.464113452Z",
+     "stale": false,
+     "input_hash": "81e2be0310d1fae2"
+    },
+    "net_score": 5.96,
+    "max_position_usd": 155,
+    "eligible": false,
+    "refusal": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/blend-pools-v2:ecf788e3/history?days=90": {
+   "days": 90,
+   "points": [
+    {
+     "date": "2026-07-23",
+     "apy": 8.18664,
+     "tvl_usd": 11370582
+    },
+    {
+     "date": "2026-07-24",
+     "apy": 7.98766,
+     "tvl_usd": 11495920
+    },
+    {
+     "date": "2026-07-25",
+     "apy": 7.86333,
+     "tvl_usd": 11604929
+    },
+    {
+     "date": "2026-07-26",
+     "apy": 7.92399,
+     "tvl_usd": 11565923
+    },
+    {
+     "date": "2026-07-27",
+     "apy": 9.62121,
+     "tvl_usd": 10258850
+    },
+    {
+     "date": "2026-07-28",
+     "apy": 7.14832,
+     "tvl_usd": 12299897
+    },
+    {
+     "date": "2026-07-29",
+     "apy": 7.02507,
+     "tvl_usd": 12936941
+    },
+    {
+     "date": "2026-07-30",
+     "apy": 7.01809,
+     "tvl_usd": 12941269
+    },
+    {
+     "date": "2026-07-31",
+     "apy": 7.01164,
+     "tvl_usd": 12947344
+    },
+    {
+     "date": "2026-08-01",
+     "apy": 7.00804,
+     "tvl_usd": 12932658
+    },
+    {
+     "date": "2026-08-02",
+     "apy": 7.00644,
+     "tvl_usd": 12909065
+    },
+    {
+     "date": "2026-08-03",
+     "apy": 7.02684,
+     "tvl_usd": 12767292
+    },
+    {
+     "date": "2026-08-04",
+     "apy": 7.00921,
+     "tvl_usd": 12842415
+    },
+    {
+     "date": "2026-08-05",
+     "apy": 6.7918,
+     "tvl_usd": 14043833
+    },
+    {
+     "date": "2026-08-06",
+     "apy": 6.79576,
+     "tvl_usd": 13932437
+    },
+    {
+     "date": "2026-08-07",
+     "apy": 6.75828,
+     "tvl_usd": 14064934
+    },
+    {
+     "date": "2026-08-08",
+     "apy": 6.47858,
+     "tvl_usd": 15685055
+    },
+    {
+     "date": "2026-08-09",
+     "apy": 6.45183,
+     "tvl_usd": 15669579
+    },
+    {
+     "date": "2026-08-10",
+     "apy": 6.42596,
+     "tvl_usd": 15651627
+    },
+    {
+     "date": "2026-08-11",
+     "apy": 6.39964,
+     "tvl_usd": 15634347
+    },
+    {
+     "date": "2026-08-12",
+     "apy": 6.35583,
+     "tvl_usd": 15730082
+    },
+    {
+     "date": "2026-08-13",
+     "apy": 6.59077,
+     "tvl_usd": 14103020
+    },
+    {
+     "date": "2026-08-14",
+     "apy": 6.71267,
+     "tvl_usd": 13293438
+    },
+    {
+     "date": "2026-08-15",
+     "apy": 6.74129,
+     "tvl_usd": 13073615
+    },
+    {
+     "date": "2026-08-16",
+     "apy": 6.49536,
+     "tvl_usd": 14506901
+    },
+    {
+     "date": "2026-08-17",
+     "apy": 6.38352,
+     "tvl_usd": 15093861
+    },
+    {
+     "date": "2026-08-18",
+     "apy": 6.41765,
+     "tvl_usd": 14729923
+    },
+    {
+     "date": "2026-08-19",
+     "apy": 6.39215,
+     "tvl_usd": 14754930
+    },
+    {
+     "date": "2026-08-20",
+     "apy": 6.37567,
+     "tvl_usd": 14729729
+    },
+    {
+     "date": "2026-08-21",
+     "apy": 6.38147,
+     "tvl_usd": 14563059
+    },
+    {
+     "date": "2026-08-22",
+     "apy": 6.3307,
+     "tvl_usd": 14760786
+    },
+    {
+     "date": "2026-08-23",
+     "apy": 6.32578,
+     "tvl_usd": 14655901
+    },
+    {
+     "date": "2026-08-24",
+     "apy": 6.31539,
+     "tvl_usd": 14592590
+    },
+    {
+     "date": "2026-08-25",
+     "apy": 6.60473,
+     "tvl_usd": 12721453
+    },
+    {
+     "date": "2026-08-26",
+     "apy": 6.61935,
+     "tvl_usd": 12616877
+    },
+    {
+     "date": "2026-08-27",
+     "apy": 6.89142,
+     "tvl_usd": 9673328
+    },
+    {
+     "date": "2026-08-28",
+     "apy": 6.51302,
+     "tvl_usd": 10335772
+    },
+    {
+     "date": "2026-08-29",
+     "apy": 6.55563,
+     "tvl_usd": 10100036
+    },
+    {
+     "date": "2026-08-30",
+     "apy": 6.59623,
+     "tvl_usd": 9889342
+    },
+    {
+     "date": "2026-08-31",
+     "apy": 6.61887,
+     "tvl_usd": 9772144
+    },
+    {
+     "date": "2026-09-01",
+     "apy": 6.63002,
+     "tvl_usd": 9715679
+    },
+    {
+     "date": "2026-09-02",
+     "apy": 7.03881,
+     "tvl_usd": 10567361
+    },
+    {
+     "date": "2026-09-03",
+     "apy": 7.13655,
+     "tvl_usd": 10498053
+    },
+    {
+     "date": "2026-09-04",
+     "apy": 7.29001,
+     "tvl_usd": 10386238
+    },
+    {
+     "date": "2026-09-05",
+     "apy": 7.49828,
+     "tvl_usd": 10233241
+    },
+    {
+     "date": "2026-09-06",
+     "apy": 7.57122,
+     "tvl_usd": 10187539
+    },
+    {
+     "date": "2026-09-07",
+     "apy": 8.04101,
+     "tvl_usd": 9843207
+    },
+    {
+     "date": "2026-09-08",
+     "apy": 7.95847,
+     "tvl_usd": 9921887
+    },
+    {
+     "date": "2026-09-09",
+     "apy": 7.6762,
+     "tvl_usd": 10147072
+    },
+    {
+     "date": "2026-09-10",
+     "apy": 7.26945,
+     "tvl_usd": 10469653
+    },
+    {
+     "date": "2026-09-11",
+     "apy": 7.23457,
+     "tvl_usd": 10503893
+    },
+    {
+     "date": "2026-09-12",
+     "apy": 7.39577,
+     "tvl_usd": 10386722
+    },
+    {
+     "date": "2026-09-13",
+     "apy": 7.46676,
+     "tvl_usd": 10339143
+    },
+    {
+     "date": "2026-09-14",
+     "apy": 7.42295,
+     "tvl_usd": 10383378
+    },
+    {
+     "date": "2026-09-15",
+     "apy": 8.00536,
+     "tvl_usd": 9947610
+    },
+    {
+     "date": "2026-09-16",
+     "apy": 7.99041,
+     "tvl_usd": 9971585
+    },
+    {
+     "date": "2026-09-17",
+     "apy": 8.05005,
+     "tvl_usd": 9939848
+    },
+    {
+     "date": "2026-09-18",
+     "apy": 8.31153,
+     "tvl_usd": 9762080
+    },
+    {
+     "date": "2026-09-19",
+     "apy": 8.2702,
+     "tvl_usd": 9806376
+    },
+    {
+     "date": "2026-09-20",
+     "apy": 8.18709,
+     "tvl_usd": 9882856
+    },
+    {
+     "date": "2026-09-21",
+     "apy": 8.32009,
+     "tvl_usd": 9801030
+    },
+    {
+     "date": "2026-09-22",
+     "apy": 8.41896,
+     "tvl_usd": 9743091
+    },
+    {
+     "date": "2026-09-23",
+     "apy": 7.58607,
+     "tvl_usd": 10239172
+    },
+    {
+     "date": "2026-09-24",
+     "apy": 7.6753,
+     "tvl_usd": 10180471
+    },
+    {
+     "date": "2026-09-25",
+     "apy": 7.61387,
+     "tvl_usd": 10236351
+    },
+    {
+     "date": "2026-09-26",
+     "apy": 7.64046,
+     "tvl_usd": 10225045
+    },
+    {
+     "date": "2026-09-27",
+     "apy": 7.68962,
+     "tvl_usd": 10197062
+    },
+    {
+     "date": "2026-09-28",
+     "apy": 7.29295,
+     "tvl_usd": 10506155
+    },
+    {
+     "date": "2026-09-29",
+     "apy": 7.38653,
+     "tvl_usd": 10441308
+    },
+    {
+     "date": "2026-09-30",
+     "apy": 6.5808,
+     "tvl_usd": 12298356
+    },
+    {
+     "date": "2026-10-01",
+     "apy": 6.60195,
+     "tvl_usd": 12113814
+    },
+    {
+     "date": "2026-10-02",
+     "apy": 6.66141,
+     "tvl_usd": 11738153
+    },
+    {
+     "date": "2026-10-03",
+     "apy": 6.65411,
+     "tvl_usd": 11730408
+    },
+    {
+     "date": "2026-10-04",
+     "apy": 6.66365,
+     "tvl_usd": 11634965
+    },
+    {
+     "date": "2026-10-05",
+     "apy": 6.69657,
+     "tvl_usd": 11429489
+    },
+    {
+     "date": "2026-10-06",
+     "apy": 6.67434,
+     "tvl_usd": 11516514
+    },
+    {
+     "date": "2026-10-07",
+     "apy": 6.68391,
+     "tvl_usd": 11429854
+    },
+    {
+     "date": "2026-10-08",
+     "apy": 6.67567,
+     "tvl_usd": 11444739
+    },
+    {
+     "date": "2026-10-09",
+     "apy": 6.67073,
+     "tvl_usd": 11443400
+    },
+    {
+     "date": "2026-10-10",
+     "apy": 6.68504,
+     "tvl_usd": 11339979
+    },
+    {
+     "date": "2026-10-11",
+     "apy": 6.71976,
+     "tvl_usd": 11139374
+    },
+    {
+     "date": "2026-10-12",
+     "apy": 6.73123,
+     "tvl_usd": 11072722
+    },
+    {
+     "date": "2026-10-13",
+     "apy": 7.35417,
+     "tvl_usd": 10435655
+    },
+    {
+     "date": "2026-10-14",
+     "apy": 7.43726,
+     "tvl_usd": 10377269
+    },
+    {
+     "date": "2026-10-15",
+     "apy": 7.02383,
+     "tvl_usd": 10703271
+    },
+    {
+     "date": "2026-10-16",
+     "apy": 7.04105,
+     "tvl_usd": 10695089
+    },
+    {
+     "date": "2026-10-17",
+     "apy": 7.00922,
+     "tvl_usd": 10724756
+    },
+    {
+     "date": "2026-10-18",
+     "apy": 7.019,
+     "tvl_usd": 10722638
+    },
+    {
+     "date": "2026-10-19",
+     "apy": 5.81368,
+     "tvl_usd": 14915809
+    },
+    {
+     "date": "2026-10-20",
+     "apy": 5.77084,
+     "tvl_usd": 14875862
+    },
+    {
+     "date": "2026-10-21",
+     "apy": 5.73604,
+     "tvl_usd": 14884493
+    }
+   ],
+   "venue_id": "blend-pools-v2:ecf788e3"
+  },
+  "/api/v1/venues/blend-pools-v2:ecf788e3?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "blend-pools-v2:ecf788e3",
+    "label": "Blend v2 — Fixed Pool / USDC reserve",
+    "kind": "lending_reserve",
+    "project": "blend-pools-v2",
+    "pool_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defillama",
+    "chain": "Stellar",
+    "protocol": "blend-pools-v2",
+    "apy": 5.73604,
+    "apy_base": 5.73604,
+    "apy_reward": 0,
+    "apy_mean_30d": 7.05132,
+    "tvl_usd": 14884493,
+    "capacity_usd": 14884493,
+    "instant_exit": false,
+    "audits": 3,
+    "tier1_audit": true,
+    "live_months": 26,
+    "upgradeable": true,
+    "oracle": "Reflector / SEP-40 (per-pool configuration)",
+    "oracle_quality": 0.65,
+    "reward_dependence": 0,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend pool",
+     "Comet backstop LP (indirect)"
+    ],
+    "incidents": [
+     {
+      "type": "shared_dependency",
+      "loss_usd": 717000,
+      "months_ago": 2,
+      "scope": "protocol_code",
+      "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+     },
+     {
+      "type": "oracle_manipulation",
+      "loss_usd": 10900000,
+      "months_ago": 8,
+      "scope": "pool_config",
+      "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+     }
+    ],
+    "risk": {
+     "score": 58.8,
+     "band": "B",
+     "subs": {
+      "contagion": 73,
+      "contract": 94,
+      "durability": 43.7,
+      "governance": 55,
+      "liquidity": 35,
+      "oracle": 35
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.432791823Z",
+     "stale": false,
+     "input_hash": "9a3b024b4af6c0b5"
+    },
+    "net_score": 5.3,
+    "max_position_usd": 250000,
+    "eligible": true
+   }
+  },
+  "/api/v1/venues/defindex:CA2FIPJ7U6/history?days=90": null,
+  "/api/v1/venues/defindex:CA2FIPJ7U6?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CA2FIPJ7U6",
+    "label": "DeFindex vault CA2FIP… (small, $40098)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CA2FIPJ7U6BG3N7EOZFI74XPJZOEOD4TYWXFVCIO5VDCHTVAGS6F4UKK",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 0,
+    "apy_base": 0,
+    "apy_reward": 0,
+    "tvl_usd": 40098.0675724,
+    "capacity_usd": 40098.0675724,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 41.2,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 44,
+      "governance": 45,
+      "liquidity": 27.5,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.490043057Z",
+     "stale": false,
+     "input_hash": "5478a1a9aa961ded"
+    },
+    "net_score": 0,
+    "max_position_usd": 802,
+    "eligible": false,
+    "refusal": "No yield."
+   }
+  },
+  "/api/v1/venues/defindex:CAB4JOLSCN/history?days=90": null,
+  "/api/v1/venues/defindex:CAB4JOLSCN?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CAB4JOLSCN",
+    "label": "DeFindex vault CAB4JO… (small, $7511)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 7.34,
+    "apy_base": 7.34,
+    "apy_reward": 0,
+    "tvl_usd": 7511.2277042,
+    "capacity_usd": 7511.2277042,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 44.2,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 50,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.494056139Z",
+     "stale": false,
+     "input_hash": "06017491c9ee1216"
+    },
+    "net_score": 7.34,
+    "max_position_usd": 150,
+    "eligible": false,
+    "refusal": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/defindex:CAWM7NKSYG/history?days=90": null,
+  "/api/v1/venues/defindex:CAWM7NKSYG?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CAWM7NKSYG",
+    "label": "DeFindex vault CAWM7N… (small, $10079)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 6.32,
+    "apy_base": 6.32,
+    "apy_reward": 0,
+    "tvl_usd": 10078.6828975,
+    "capacity_usd": 10078.6828975,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 44.1,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 49.8,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.493357163Z",
+     "stale": false,
+     "input_hash": "0ae8c7ea2c4af8c1"
+    },
+    "net_score": 6.32,
+    "max_position_usd": 202,
+    "eligible": false,
+    "refusal": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/defindex:CBNKCU3HGF/history?days=90": null,
+  "/api/v1/venues/defindex:CBNKCU3HGF?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CBNKCU3HGF",
+    "label": "DeFindex vault CBNKCU… ($272K)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CBNKCU3HGFKHFOF7JTGXQCNKE3G3DXS5RDBQUKQMIIECYKXPIOUGB2S3",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 5.93,
+    "apy_base": 5.93,
+    "apy_reward": 0,
+    "tvl_usd": 271850.4751628,
+    "capacity_usd": 271850.4751628,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 38.4,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 21.1,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.489268288Z",
+     "stale": false,
+     "input_hash": "511de267b8b8261c"
+    },
+    "net_score": 5.93,
+    "max_position_usd": 5437,
+    "eligible": true
+   }
+  },
+  "/api/v1/venues/defindex:CBUJZL5QAD/history?days=90": null,
+  "/api/v1/venues/defindex:CBUJZL5QAD?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CBUJZL5QAD",
+    "label": "DeFindex vault CBUJZL… (small, $8780)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 6.06,
+    "apy_base": 6.06,
+    "apy_reward": 0,
+    "tvl_usd": 8779.6349129,
+    "capacity_usd": 8779.6349129,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 44.2,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 50,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.490711129Z",
+     "stale": false,
+     "input_hash": "783d450ae1d51a06"
+    },
+    "net_score": 6.06,
+    "max_position_usd": 176,
+    "eligible": false,
+    "refusal": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/defindex:CC767WIU5Q/history?days=90": null,
+  "/api/v1/venues/defindex:CC767WIU5Q?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CC767WIU5Q",
+    "label": "DeFindex vault CC767W… (small, $1458)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 5.24,
+    "apy_base": 5.24,
+    "apy_reward": 0,
+    "tvl_usd": 1458.4395097,
+    "capacity_usd": 1458.4395097,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 44.2,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 50,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.491798218Z",
+     "stale": false,
+     "input_hash": "e4fba8b0d66097ad"
+    },
+    "net_score": 5.24,
+    "max_position_usd": 29,
+    "eligible": false,
+    "refusal": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/defindex:CCA2ZJP5BV/history?days=90": null,
+  "/api/v1/venues/defindex:CCA2ZJP5BV?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CCA2ZJP5BV",
+    "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CCA2ZJP5BVRXYTQH4FAGHCAUMRYCXVC4CRYC2NXHWMR7TIVX36U7F5HR",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 5.32,
+    "apy_base": 5.32,
+    "apy_reward": 0,
+    "tvl_usd": 18911673.9748998,
+    "capacity_usd": 18911673.9748998,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 38.2,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 20,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.494588689Z",
+     "stale": false,
+     "input_hash": "9aaf3f367202605c"
+    },
+    "net_score": 5.32,
+    "max_position_usd": 250000,
+    "eligible": true
+   }
+  },
+  "/api/v1/venues/defindex:CCDRFMZ7CH/history?days=90": null,
+  "/api/v1/venues/defindex:CCDRFMZ7CH?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CCDRFMZ7CH",
+    "label": "DeFindex vault CCDRFM… (small, $4745)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 6.78,
+    "apy_base": 6.78,
+    "apy_reward": 0,
+    "tvl_usd": 4745.0524735,
+    "capacity_usd": 4745.0524735,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 44.2,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 50,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.492594404Z",
+     "stale": false,
+     "input_hash": "8e90fadbc0dd6e5d"
+    },
+    "net_score": 6.78,
+    "max_position_usd": 95,
+    "eligible": false,
+    "refusal": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/defindex:CD4JGS6BB5/history?days=90": null,
+  "/api/v1/venues/defindex:CD4JGS6BB5?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "defindex:CD4JGS6BB5",
+    "label": "DeFindex vault CD4JGS… (small, $13352)",
+    "kind": "vault",
+    "project": "defindex",
+    "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defindex-discovery",
+    "chain": "Stellar",
+    "protocol": "defindex",
+    "apy": 5.95,
+    "apy_base": 5.95,
+    "apy_reward": 0,
+    "tvl_usd": 13352.2642,
+    "capacity_usd": 13352.2642,
+    "instant_exit": true,
+    "audits": 2,
+    "tier1_audit": false,
+    "live_months": 14,
+    "upgradeable": true,
+    "oracle": "n/a (share price)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.15,
+    "yield_source_verified": true,
+    "underlying": [
+     "Blend strategy (autocompound)"
+    ],
+    "risk": {
+     "score": 42.7,
+     "band": "A",
+     "subs": {
+      "contagion": 42,
+      "contract": 55,
+      "durability": 34,
+      "governance": 45,
+      "liquidity": 42.5,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.491330506Z",
+     "stale": false,
+     "input_hash": "157a0704b15fe43c"
+    },
+    "net_score": 5.95,
+    "max_position_usd": 267,
+    "eligible": false,
+    "refusal": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+   }
+  },
+  "/api/v1/venues/gami-labs:038cb9c0/history?days=90": {
+   "days": 90,
+   "points": [
+    {
+     "date": "2026-07-23",
+     "apy": 7,
+     "tvl_usd": 16924782
+    },
+    {
+     "date": "2026-07-24",
+     "apy": 7,
+     "tvl_usd": 16923924
+    },
+    {
+     "date": "2026-07-25",
+     "apy": 7,
+     "tvl_usd": 16810951
+    },
+    {
+     "date": "2026-07-26",
+     "apy": 7,
+     "tvl_usd": 16811667
+    },
+    {
+     "date": "2026-07-27",
+     "apy": 7,
+     "tvl_usd": 17109598
+    },
+    {
+     "date": "2026-07-28",
+     "apy": 7,
+     "tvl_usd": 19108700
+    },
+    {
+     "date": "2026-07-29",
+     "apy": 7,
+     "tvl_usd": 19110037
+    },
+    {
+     "date": "2026-07-30",
+     "apy": 7,
+     "tvl_usd": 20115141
+    },
+    {
+     "date": "2026-07-31",
+     "apy": 7,
+     "tvl_usd": 20120465
+    },
+    {
+     "date": "2026-08-01",
+     "apy": 7,
+     "tvl_usd": 20122357
+    },
+    {
+     "date": "2026-08-02",
+     "apy": 7,
+     "tvl_usd": 19223382
+    },
+    {
+     "date": "2026-08-03",
+     "apy": 7,
+     "tvl_usd": 20129782
+    },
+    {
+     "date": "2026-08-04",
+     "apy": 7,
+     "tvl_usd": 20633271
+    },
+    {
+     "date": "2026-08-05",
+     "apy": 7,
+     "tvl_usd": 20637948
+    },
+    {
+     "date": "2026-08-06",
+     "apy": 7,
+     "tvl_usd": 20999565
+    },
+    {
+     "date": "2026-08-07",
+     "apy": 7,
+     "tvl_usd": 22339109
+    },
+    {
+     "date": "2026-08-08",
+     "apy": 7,
+     "tvl_usd": 22339663
+    },
+    {
+     "date": "2026-08-09",
+     "apy": 7,
+     "tvl_usd": 22341797
+    },
+    {
+     "date": "2026-08-10",
+     "apy": 7,
+     "tvl_usd": 22341366
+    },
+    {
+     "date": "2026-08-11",
+     "apy": 7,
+     "tvl_usd": 21515961
+    },
+    {
+     "date": "2026-08-12",
+     "apy": 7,
+     "tvl_usd": 21542929
+    },
+    {
+     "date": "2026-08-13",
+     "apy": 7,
+     "tvl_usd": 21239160
+    },
+    {
+     "date": "2026-08-14",
+     "apy": 7,
+     "tvl_usd": 20713749
+    },
+    {
+     "date": "2026-08-15",
+     "apy": 7,
+     "tvl_usd": 19193352
+    },
+    {
+     "date": "2026-08-16",
+     "apy": 7,
+     "tvl_usd": 21490400
+    },
+    {
+     "date": "2026-08-17",
+     "apy": 10,
+     "tvl_usd": 21513410
+    },
+    {
+     "date": "2026-08-18",
+     "apy": 10,
+     "tvl_usd": 22428622
+    },
+    {
+     "date": "2026-08-19",
+     "apy": 10,
+     "tvl_usd": 23507994
+    },
+    {
+     "date": "2026-08-20",
+     "apy": 10,
+     "tvl_usd": 23504139
+    },
+    {
+     "date": "2026-08-21",
+     "apy": 10,
+     "tvl_usd": 23507767
+    },
+    {
+     "date": "2026-08-22",
+     "apy": 10,
+     "tvl_usd": 23515634
+    },
+    {
+     "date": "2026-08-23",
+     "apy": 10,
+     "tvl_usd": 23484665
+    },
+    {
+     "date": "2026-08-24",
+     "apy": 10,
+     "tvl_usd": 23488054
+    },
+    {
+     "date": "2026-08-25",
+     "apy": 10,
+     "tvl_usd": 23489946
+    },
+    {
+     "date": "2026-08-26",
+     "apy": 10,
+     "tvl_usd": 23302580
+    },
+    {
+     "date": "2026-08-27",
+     "apy": 10,
+     "tvl_usd": 23819120
+    },
+    {
+     "date": "2026-08-28",
+     "apy": 10,
+     "tvl_usd": 23911349
+    },
+    {
+     "date": "2026-08-29",
+     "apy": 10,
+     "tvl_usd": 23911384
+    },
+    {
+     "date": "2026-08-30",
+     "apy": 10,
+     "tvl_usd": 23911481
+    },
+    {
+     "date": "2026-08-31",
+     "apy": 10,
+     "tvl_usd": 24839400
+    },
+    {
+     "date": "2026-09-01",
+     "apy": 10,
+     "tvl_usd": 24843961
+    },
+    {
+     "date": "2026-09-02",
+     "apy": 10,
+     "tvl_usd": 24843295
+    },
+    {
+     "date": "2026-09-03",
+     "apy": 10,
+     "tvl_usd": 24851354
+    },
+    {
+     "date": "2026-09-04",
+     "apy": 10,
+     "tvl_usd": 24859343
+    },
+    {
+     "date": "2026-09-05",
+     "apy": 10,
+     "tvl_usd": 24859507
+    },
+    {
+     "date": "2026-09-06",
+     "apy": 10,
+     "tvl_usd": 24859895
+    },
+    {
+     "date": "2026-09-07",
+     "apy": 10,
+     "tvl_usd": 24867197
+    },
+    {
+     "date": "2026-09-08",
+     "apy": 10,
+     "tvl_usd": 24866537
+    },
+    {
+     "date": "2026-09-09",
+     "apy": 10,
+     "tvl_usd": 25073944
+    },
+    {
+     "date": "2026-09-10",
+     "apy": 10,
+     "tvl_usd": 24273146
+    },
+    {
+     "date": "2026-09-11",
+     "apy": 10,
+     "tvl_usd": 24297780
+    },
+    {
+     "date": "2026-09-12",
+     "apy": 10,
+     "tvl_usd": 25294340
+    },
+    {
+     "date": "2026-09-13",
+     "apy": 10,
+     "tvl_usd": 25403991
+    },
+    {
+     "date": "2026-09-14",
+     "apy": 10,
+     "tvl_usd": 25403942
+    },
+    {
+     "date": "2026-09-15",
+     "apy": 10,
+     "tvl_usd": 24681307
+    },
+    {
+     "date": "2026-09-16",
+     "apy": 10,
+     "tvl_usd": 25538545
+    },
+    {
+     "date": "2026-09-17",
+     "apy": 10,
+     "tvl_usd": 25542112
+    },
+    {
+     "date": "2026-09-18",
+     "apy": 10,
+     "tvl_usd": 25551918
+    },
+    {
+     "date": "2026-09-19",
+     "apy": 10,
+     "tvl_usd": 25556168
+    },
+    {
+     "date": "2026-09-20",
+     "apy": 10,
+     "tvl_usd": 25555401
+    },
+    {
+     "date": "2026-09-21",
+     "apy": 10,
+     "tvl_usd": 25563568
+    },
+    {
+     "date": "2026-09-22",
+     "apy": 10,
+     "tvl_usd": 25570172
+    },
+    {
+     "date": "2026-09-23",
+     "apy": 10,
+     "tvl_usd": 25454859
+    },
+    {
+     "date": "2026-09-24",
+     "apy": 10,
+     "tvl_usd": 25455140
+    },
+    {
+     "date": "2026-09-25",
+     "apy": 10,
+     "tvl_usd": 25632925
+    },
+    {
+     "date": "2026-09-26",
+     "apy": 10,
+     "tvl_usd": 25632619
+    },
+    {
+     "date": "2026-09-27",
+     "apy": 10,
+     "tvl_usd": 25632821
+    },
+    {
+     "date": "2026-09-28",
+     "apy": 10,
+     "tvl_usd": 25650491
+    },
+    {
+     "date": "2026-09-29",
+     "apy": 10,
+     "tvl_usd": 25730563
+    },
+    {
+     "date": "2026-09-30",
+     "apy": 10,
+     "tvl_usd": 25476661
+    },
+    {
+     "date": "2026-10-01",
+     "apy": 10,
+     "tvl_usd": 25486273
+    },
+    {
+     "date": "2026-10-02",
+     "apy": 10,
+     "tvl_usd": 25494043
+    },
+    {
+     "date": "2026-10-03",
+     "apy": 10,
+     "tvl_usd": 25497395
+    },
+    {
+     "date": "2026-10-04",
+     "apy": 10,
+     "tvl_usd": 25501559
+    },
+    {
+     "date": "2026-10-05",
+     "apy": 10,
+     "tvl_usd": 25506471
+    },
+    {
+     "date": "2026-10-06",
+     "apy": 10,
+     "tvl_usd": 25001803
+    },
+    {
+     "date": "2026-10-07",
+     "apy": 10,
+     "tvl_usd": 25020927
+    },
+    {
+     "date": "2026-10-08",
+     "apy": 10,
+     "tvl_usd": 25017957
+    },
+    {
+     "date": "2026-10-09",
+     "apy": 10,
+     "tvl_usd": 25019609
+    },
+    {
+     "date": "2026-10-10",
+     "apy": 10,
+     "tvl_usd": 25020812
+    },
+    {
+     "date": "2026-10-11",
+     "apy": 10,
+     "tvl_usd": 25026703
+    },
+    {
+     "date": "2026-10-12",
+     "apy": 10,
+     "tvl_usd": 25031539
+    },
+    {
+     "date": "2026-10-13",
+     "apy": 10,
+     "tvl_usd": 25040267
+    },
+    {
+     "date": "2026-10-14",
+     "apy": 10,
+     "tvl_usd": 26243969
+    },
+    {
+     "date": "2026-10-15",
+     "apy": 10,
+     "tvl_usd": 25233209
+    },
+    {
+     "date": "2026-10-16",
+     "apy": 10,
+     "tvl_usd": 25244483
+    },
+    {
+     "date": "2026-10-17",
+     "apy": 10,
+     "tvl_usd": 25245368
+    },
+    {
+     "date": "2026-10-18",
+     "apy": 10,
+     "tvl_usd": 25246102
+    },
+    {
+     "date": "2026-10-19",
+     "apy": 10,
+     "tvl_usd": 25261638
+    },
+    {
+     "date": "2026-10-20",
+     "apy": 10,
+     "tvl_usd": 25263147
+    },
+    {
+     "date": "2026-10-21",
+     "apy": 10,
+     "tvl_usd": 25261277
+    }
+   ],
+   "venue_id": "gami-labs:038cb9c0"
+  },
+  "/api/v1/venues/gami-labs:038cb9c0?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "venue": {
+    "id": "gami-labs:038cb9c0",
+    "label": "Gami earnUSDC (managed vault)",
+    "kind": "managed_vault",
+    "project": "gami-labs",
+    "pool_id": "038cb9c0-814d-41cc-ac43-b4fefd95da53",
+    "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+    "source": "defillama",
+    "chain": "Stellar",
+    "protocol": "gami-labs",
+    "apy": 10,
+    "apy_base": 10,
+    "apy_reward": 0,
+    "apy_mean_30d": 10,
+    "tvl_usd": 25261277,
+    "capacity_usd": 25261277,
+    "instant_exit": true,
+    "audits": 1,
+    "tier1_audit": false,
+    "live_months": 7,
+    "upgradeable": true,
+    "oracle": "n/a (vault NAV)",
+    "oracle_quality": 0.7,
+    "reward_dependence": 0.5,
+    "yield_source_verified": false,
+    "underlying": [
+     "Blend",
+     "Aquarius",
+     "managed strategy"
+    ],
+    "risk": {
+     "score": 45.2,
+     "band": "B",
+     "subs": {
+      "contagion": 66,
+      "contract": 45,
+      "durability": 80,
+      "governance": 35,
+      "liquidity": 20,
+      "oracle": 30
+     },
+     "version": "risk-model-v1.0",
+     "computed_at": "2026-10-21T16:18:46.391186278Z",
+     "stale": false,
+     "input_hash": "e37bd80607ad0cba"
+    },
+    "net_score": 10,
+    "max_position_usd": 250000,
+    "eligible": false,
+    "refusal": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+   }
+  },
+  "/api/v1/venues?deposit=100": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "count": 12,
+   "deposit_usd": 100,
+   "provider_error": "",
+   "venues": [
+    {
+     "id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "kind": "managed_vault",
+     "project": "gami-labs",
+     "pool_id": "038cb9c0-814d-41cc-ac43-b4fefd95da53",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "gami-labs",
+     "apy": 10,
+     "apy_base": 10,
+     "apy_reward": 0,
+     "apy_mean_30d": 10,
+     "tvl_usd": 25261277,
+     "capacity_usd": 25261277,
+     "instant_exit": true,
+     "audits": 1,
+     "tier1_audit": false,
+     "live_months": 7,
+     "upgradeable": true,
+     "oracle": "n/a (vault NAV)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.5,
+     "yield_source_verified": false,
+     "underlying": [
+      "Blend",
+      "Aquarius",
+      "managed strategy"
+     ],
+     "risk": {
+      "score": 45.2,
+      "band": "B",
+      "subs": {
+       "contagion": 66,
+       "contract": 45,
+       "durability": 80,
+       "governance": 35,
+       "liquidity": 20,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "e37bd80607ad0cba"
+     },
+     "net_score": 10,
+     "max_position_usd": 250000,
+     "eligible": false,
+     "refusal": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 7511.2277042,
+     "capacity_usd": 7511.2277042,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 39,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 24,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "06017491c9ee1216"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 150,
+     "eligible": false,
+     "refusal": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.78,
+     "apy_base": 6.78,
+     "apy_reward": 0,
+     "tvl_usd": 4745.0524735,
+     "capacity_usd": 4745.0524735,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 39.4,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 26.3,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 6.78,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.32,
+     "apy_base": 6.32,
+     "apy_reward": 0,
+     "tvl_usd": 10078.6828975,
+     "capacity_usd": 10078.6828975,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.8,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 23,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.32,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "48c597dc-9367-4b4a-aa10-49b9755c4c2e",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 6.92084,
+     "apy_base": 6.92084,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.55325,
+     "tvl_usd": 7725,
+     "capacity_usd": 7725,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "SDEX-fed price (shallow market)",
+     "oracle_quality": 0.25,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 64,
+      "band": "C",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 33.4,
+       "governance": 55,
+       "liquidity": 38.9,
+       "oracle": 75
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "81e2be0310d1fae2"
+     },
+     "net_score": 6.22,
+     "max_position_usd": 155,
+     "eligible": false,
+     "refusal": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.06,
+     "apy_base": 6.06,
+     "apy_reward": 0,
+     "tvl_usd": 8779.6349129,
+     "capacity_usd": 8779.6349129,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.8,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 23.4,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "783d450ae1d51a06"
+     },
+     "net_score": 6.06,
+     "max_position_usd": 176,
+     "eligible": false,
+     "refusal": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.95,
+     "apy_base": 5.95,
+     "apy_reward": 0,
+     "tvl_usd": 13352.2642,
+     "capacity_usd": 13352.2642,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.6,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 22.2,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 5.95,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBNKCU3HGFKHFOF7JTGXQCNKE3G3DXS5RDBQUKQMIIECYKXPIOUGB2S3",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.93,
+     "apy_base": 5.93,
+     "apy_reward": 0,
+     "tvl_usd": 271850.4751628,
+     "capacity_usd": 271850.4751628,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 20.1,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "511de267b8b8261c"
+     },
+     "net_score": 5.93,
+     "max_position_usd": 5437,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCA2ZJP5BVRXYTQH4FAGHCAUMRYCXVC4CRYC2NXHWMR7TIVX36U7F5HR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.32,
+     "apy_base": 5.32,
+     "apy_reward": 0,
+     "tvl_usd": 18911673.9748998,
+     "capacity_usd": 18911673.9748998,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 20,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "9aaf3f367202605c"
+     },
+     "net_score": 5.32,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 5.73604,
+     "apy_base": 5.73604,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.05132,
+     "tvl_usd": 14884493,
+     "capacity_usd": 14884493,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "Reflector / SEP-40 (per-pool configuration)",
+     "oracle_quality": 0.65,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 58.8,
+      "band": "B",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 43.7,
+       "governance": 55,
+       "liquidity": 35,
+       "oracle": 35
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "9a3b024b4af6c0b5"
+     },
+     "net_score": 5.3,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.24,
+     "apy_base": 5.24,
+     "apy_reward": 0,
+     "tvl_usd": 1458.4395097,
+     "capacity_usd": 1458.4395097,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 42.3,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 40.6,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "e4fba8b0d66097ad"
+     },
+     "net_score": 5.24,
+     "max_position_usd": 29,
+     "eligible": false,
+     "refusal": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CA2FIPJ7U6BG3N7EOZFI74XPJZOEOD4TYWXFVCIO5VDCHTVAGS6F4UKK",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 40098.0675724,
+     "capacity_usd": 40098.0675724,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 39.8,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 20.7,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.387570356Z",
+      "stale": false,
+      "input_hash": "5478a1a9aa961ded"
+     },
+     "net_score": 0,
+     "max_position_usd": 802,
+     "eligible": false,
+     "refusal": "No yield."
+    }
+   ]
+  },
+  "/api/v1/venues?deposit=1000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "count": 12,
+   "deposit_usd": 1000,
+   "provider_error": "",
+   "venues": [
+    {
+     "id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "kind": "managed_vault",
+     "project": "gami-labs",
+     "pool_id": "038cb9c0-814d-41cc-ac43-b4fefd95da53",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "gami-labs",
+     "apy": 10,
+     "apy_base": 10,
+     "apy_reward": 0,
+     "apy_mean_30d": 10,
+     "tvl_usd": 25261277,
+     "capacity_usd": 25261277,
+     "instant_exit": true,
+     "audits": 1,
+     "tier1_audit": false,
+     "live_months": 7,
+     "upgradeable": true,
+     "oracle": "n/a (vault NAV)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.5,
+     "yield_source_verified": false,
+     "underlying": [
+      "Blend",
+      "Aquarius",
+      "managed strategy"
+     ],
+     "risk": {
+      "score": 45.2,
+      "band": "B",
+      "subs": {
+       "contagion": 66,
+       "contract": 45,
+       "durability": 80,
+       "governance": 35,
+       "liquidity": 20,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "e37bd80607ad0cba"
+     },
+     "net_score": 10,
+     "max_position_usd": 250000,
+     "eligible": false,
+     "refusal": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 7511.2277042,
+     "capacity_usd": 7511.2277042,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "06017491c9ee1216"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 150,
+     "eligible": false,
+     "refusal": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.78,
+     "apy_base": 6.78,
+     "apy_reward": 0,
+     "tvl_usd": 4745.0524735,
+     "capacity_usd": 4745.0524735,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 6.78,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.32,
+     "apy_base": 6.32,
+     "apy_reward": 0,
+     "tvl_usd": 10078.6828975,
+     "capacity_usd": 10078.6828975,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.1,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 49.8,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.32,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.06,
+     "apy_base": 6.06,
+     "apy_reward": 0,
+     "tvl_usd": 8779.6349129,
+     "capacity_usd": 8779.6349129,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "783d450ae1d51a06"
+     },
+     "net_score": 6.06,
+     "max_position_usd": 176,
+     "eligible": false,
+     "refusal": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "48c597dc-9367-4b4a-aa10-49b9755c4c2e",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 6.92084,
+     "apy_base": 6.92084,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.55325,
+     "tvl_usd": 7725,
+     "capacity_usd": 7725,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "SDEX-fed price (shallow market)",
+     "oracle_quality": 0.25,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 69.2,
+      "band": "C",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 33.4,
+       "governance": 55,
+       "liquidity": 65,
+       "oracle": 75
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "81e2be0310d1fae2"
+     },
+     "net_score": 5.96,
+     "max_position_usd": 155,
+     "eligible": false,
+     "refusal": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.95,
+     "apy_base": 5.95,
+     "apy_reward": 0,
+     "tvl_usd": 13352.2642,
+     "capacity_usd": 13352.2642,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 42.7,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 42.5,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 5.95,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBNKCU3HGFKHFOF7JTGXQCNKE3G3DXS5RDBQUKQMIIECYKXPIOUGB2S3",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.93,
+     "apy_base": 5.93,
+     "apy_reward": 0,
+     "tvl_usd": 271850.4751628,
+     "capacity_usd": 271850.4751628,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.4,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 21.1,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "511de267b8b8261c"
+     },
+     "net_score": 5.93,
+     "max_position_usd": 5437,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCA2ZJP5BVRXYTQH4FAGHCAUMRYCXVC4CRYC2NXHWMR7TIVX36U7F5HR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.32,
+     "apy_base": 5.32,
+     "apy_reward": 0,
+     "tvl_usd": 18911673.9748998,
+     "capacity_usd": 18911673.9748998,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 20,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "9aaf3f367202605c"
+     },
+     "net_score": 5.32,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 5.73604,
+     "apy_base": 5.73604,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.05132,
+     "tvl_usd": 14884493,
+     "capacity_usd": 14884493,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "Reflector / SEP-40 (per-pool configuration)",
+     "oracle_quality": 0.65,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 58.8,
+      "band": "B",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 43.7,
+       "governance": 55,
+       "liquidity": 35,
+       "oracle": 35
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "9a3b024b4af6c0b5"
+     },
+     "net_score": 5.3,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.24,
+     "apy_base": 5.24,
+     "apy_reward": 0,
+     "tvl_usd": 1458.4395097,
+     "capacity_usd": 1458.4395097,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "e4fba8b0d66097ad"
+     },
+     "net_score": 5.24,
+     "max_position_usd": 29,
+     "eligible": false,
+     "refusal": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CA2FIPJ7U6BG3N7EOZFI74XPJZOEOD4TYWXFVCIO5VDCHTVAGS6F4UKK",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 40098.0675724,
+     "capacity_usd": 40098.0675724,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 41.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 27.5,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.388755501Z",
+      "stale": false,
+      "input_hash": "5478a1a9aa961ded"
+     },
+     "net_score": 0,
+     "max_position_usd": 802,
+     "eligible": false,
+     "refusal": "No yield."
+    }
+   ]
+  },
+  "/api/v1/venues?deposit=10000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "count": 12,
+   "deposit_usd": 10000,
+   "provider_error": "",
+   "venues": [
+    {
+     "id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "kind": "managed_vault",
+     "project": "gami-labs",
+     "pool_id": "038cb9c0-814d-41cc-ac43-b4fefd95da53",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "gami-labs",
+     "apy": 10,
+     "apy_base": 10,
+     "apy_reward": 0,
+     "apy_mean_30d": 10,
+     "tvl_usd": 25261277,
+     "capacity_usd": 25261277,
+     "instant_exit": true,
+     "audits": 1,
+     "tier1_audit": false,
+     "live_months": 7,
+     "upgradeable": true,
+     "oracle": "n/a (vault NAV)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.5,
+     "yield_source_verified": false,
+     "underlying": [
+      "Blend",
+      "Aquarius",
+      "managed strategy"
+     ],
+     "risk": {
+      "score": 45.2,
+      "band": "B",
+      "subs": {
+       "contagion": 66,
+       "contract": 45,
+       "durability": 80,
+       "governance": 35,
+       "liquidity": 20.1,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "e37bd80607ad0cba"
+     },
+     "net_score": 10,
+     "max_position_usd": 250000,
+     "eligible": false,
+     "refusal": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 7511.2277042,
+     "capacity_usd": 7511.2277042,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "06017491c9ee1216"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 150,
+     "eligible": false,
+     "refusal": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.78,
+     "apy_base": 6.78,
+     "apy_reward": 0,
+     "tvl_usd": 4745.0524735,
+     "capacity_usd": 4745.0524735,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 6.78,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.32,
+     "apy_base": 6.32,
+     "apy_reward": 0,
+     "tvl_usd": 10078.6828975,
+     "capacity_usd": 10078.6828975,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.32,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.06,
+     "apy_base": 6.06,
+     "apy_reward": 0,
+     "tvl_usd": 8779.6349129,
+     "capacity_usd": 8779.6349129,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "783d450ae1d51a06"
+     },
+     "net_score": 6.06,
+     "max_position_usd": 176,
+     "eligible": false,
+     "refusal": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "48c597dc-9367-4b4a-aa10-49b9755c4c2e",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 6.92084,
+     "apy_base": 6.92084,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.55325,
+     "tvl_usd": 7725,
+     "capacity_usd": 7725,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "SDEX-fed price (shallow market)",
+     "oracle_quality": 0.25,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 69.2,
+      "band": "C",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 33.4,
+       "governance": 55,
+       "liquidity": 65,
+       "oracle": 75
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "81e2be0310d1fae2"
+     },
+     "net_score": 5.96,
+     "max_position_usd": 155,
+     "eligible": false,
+     "refusal": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.95,
+     "apy_base": 5.95,
+     "apy_reward": 0,
+     "tvl_usd": 13352.2642,
+     "capacity_usd": 13352.2642,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 5.95,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBNKCU3HGFKHFOF7JTGXQCNKE3G3DXS5RDBQUKQMIIECYKXPIOUGB2S3",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.93,
+     "apy_base": 5.93,
+     "apy_reward": 0,
+     "tvl_usd": 271850.4751628,
+     "capacity_usd": 271850.4751628,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 40.4,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 31,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "511de267b8b8261c"
+     },
+     "net_score": 5.93,
+     "max_position_usd": 5437,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCA2ZJP5BVRXYTQH4FAGHCAUMRYCXVC4CRYC2NXHWMR7TIVX36U7F5HR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.32,
+     "apy_base": 5.32,
+     "apy_reward": 0,
+     "tvl_usd": 18911673.9748998,
+     "capacity_usd": 18911673.9748998,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 20.2,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "9aaf3f367202605c"
+     },
+     "net_score": 5.32,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 5.73604,
+     "apy_base": 5.73604,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.05132,
+     "tvl_usd": 14884493,
+     "capacity_usd": 14884493,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "Reflector / SEP-40 (per-pool configuration)",
+     "oracle_quality": 0.65,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 58.8,
+      "band": "B",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 43.7,
+       "governance": 55,
+       "liquidity": 35.2,
+       "oracle": 35
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "9a3b024b4af6c0b5"
+     },
+     "net_score": 5.3,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.24,
+     "apy_base": 5.24,
+     "apy_reward": 0,
+     "tvl_usd": 1458.4395097,
+     "capacity_usd": 1458.4395097,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "e4fba8b0d66097ad"
+     },
+     "net_score": 5.24,
+     "max_position_usd": 29,
+     "eligible": false,
+     "refusal": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CA2FIPJ7U6BG3N7EOZFI74XPJZOEOD4TYWXFVCIO5VDCHTVAGS6F4UKK",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 40098.0675724,
+     "capacity_usd": 40098.0675724,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 45.7,
+      "band": "B",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.389548704Z",
+      "stale": false,
+      "input_hash": "5478a1a9aa961ded"
+     },
+     "net_score": 0,
+     "max_position_usd": 802,
+     "eligible": false,
+     "refusal": "No yield."
+    }
+   ]
+  },
+  "/api/v1/venues?deposit=50000": {
+   "as_of": "2026-10-21T16:18:45.490700813Z",
+   "count": 12,
+   "deposit_usd": 50000,
+   "provider_error": "",
+   "venues": [
+    {
+     "id": "gami-labs:038cb9c0",
+     "label": "Gami earnUSDC (managed vault)",
+     "kind": "managed_vault",
+     "project": "gami-labs",
+     "pool_id": "038cb9c0-814d-41cc-ac43-b4fefd95da53",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "gami-labs",
+     "apy": 10,
+     "apy_base": 10,
+     "apy_reward": 0,
+     "apy_mean_30d": 10,
+     "tvl_usd": 25261277,
+     "capacity_usd": 25261277,
+     "instant_exit": true,
+     "audits": 1,
+     "tier1_audit": false,
+     "live_months": 7,
+     "upgradeable": true,
+     "oracle": "n/a (vault NAV)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.5,
+     "yield_source_verified": false,
+     "underlying": [
+      "Blend",
+      "Aquarius",
+      "managed strategy"
+     ],
+     "risk": {
+      "score": 45.3,
+      "band": "B",
+      "subs": {
+       "contagion": 66,
+       "contract": 45,
+       "durability": 80,
+       "governance": 35,
+       "liquidity": 20.6,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "e37bd80607ad0cba"
+     },
+     "net_score": 10,
+     "max_position_usd": 250000,
+     "eligible": false,
+     "refusal": "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+    },
+    {
+     "id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex vault CAB4JO… (small, $7511)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 7511.2277042,
+     "capacity_usd": 7511.2277042,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "06017491c9ee1216"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 150,
+     "eligible": false,
+     "refusal": "Venue is too small ($7511 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex vault CCDRFM… (small, $4745)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.78,
+     "apy_base": 6.78,
+     "apy_reward": 0,
+     "tvl_usd": 4745.0524735,
+     "capacity_usd": 4745.0524735,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 6.78,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Venue is too small ($4745 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex vault CAWM7N… (small, $10079)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.32,
+     "apy_base": 6.32,
+     "apy_reward": 0,
+     "tvl_usd": 10078.6828975,
+     "capacity_usd": 10078.6828975,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.32,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Venue is too small ($10079 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex vault CBUJZL… (small, $8780)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.06,
+     "apy_base": 6.06,
+     "apy_reward": 0,
+     "tvl_usd": 8779.6349129,
+     "capacity_usd": 8779.6349129,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "783d450ae1d51a06"
+     },
+     "net_score": 6.06,
+     "max_position_usd": 176,
+     "eligible": false,
+     "refusal": "Venue is too small ($8780 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "blend-pools-v2:48c597dc",
+     "label": "Blend v2 — YieldBlox Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "48c597dc-9367-4b4a-aa10-49b9755c4c2e",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 6.92084,
+     "apy_base": 6.92084,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.55325,
+     "tvl_usd": 7725,
+     "capacity_usd": 7725,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "SDEX-fed price (shallow market)",
+     "oracle_quality": 0.25,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 69.2,
+      "band": "C",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 33.4,
+       "governance": 55,
+       "liquidity": 65,
+       "oracle": 75
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "81e2be0310d1fae2"
+     },
+     "net_score": 5.96,
+     "max_position_usd": 155,
+     "eligible": false,
+     "refusal": "Venue is too small ($7725 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex vault CD4JGS… (small, $13352)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.95,
+     "apy_base": 5.95,
+     "apy_reward": 0,
+     "tvl_usd": 13352.2642,
+     "capacity_usd": 13352.2642,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 5.95,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "Venue is too small ($13352 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CBNKCU3HGF",
+     "label": "DeFindex vault CBNKCU… ($272K)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CBNKCU3HGFKHFOF7JTGXQCNKE3G3DXS5RDBQUKQMIIECYKXPIOUGB2S3",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.93,
+     "apy_base": 5.93,
+     "apy_reward": 0,
+     "tvl_usd": 271850.4751628,
+     "capacity_usd": 271850.4751628,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "511de267b8b8261c"
+     },
+     "net_score": 5.93,
+     "max_position_usd": 5437,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CCA2ZJP5BV",
+     "label": "DeFindex vault CCA2ZJ… (large, $18.9M)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCA2ZJP5BVRXYTQH4FAGHCAUMRYCXVC4CRYC2NXHWMR7TIVX36U7F5HR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.32,
+     "apy_base": 5.32,
+     "apy_reward": 0,
+     "tvl_usd": 18911673.9748998,
+     "capacity_usd": 18911673.9748998,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.3,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 20.8,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "9aaf3f367202605c"
+     },
+     "net_score": 5.32,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "blend-pools-v2:ecf788e3",
+     "label": "Blend v2 — Fixed Pool / USDC reserve",
+     "kind": "lending_reserve",
+     "project": "blend-pools-v2",
+     "pool_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defillama",
+     "chain": "Stellar",
+     "protocol": "blend-pools-v2",
+     "apy": 5.73604,
+     "apy_base": 5.73604,
+     "apy_reward": 0,
+     "apy_mean_30d": 7.05132,
+     "tvl_usd": 14884493,
+     "capacity_usd": 14884493,
+     "instant_exit": false,
+     "audits": 3,
+     "tier1_audit": true,
+     "live_months": 26,
+     "upgradeable": true,
+     "oracle": "Reflector / SEP-40 (per-pool configuration)",
+     "oracle_quality": 0.65,
+     "reward_dependence": 0,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend pool",
+      "Comet backstop LP (indirect)"
+     ],
+     "incidents": [
+      {
+       "type": "shared_dependency",
+       "loss_usd": 717000,
+       "months_ago": 2,
+       "scope": "protocol_code",
+       "note": "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral."
+      },
+      {
+       "type": "oracle_manipulation",
+       "loss_usd": 10900000,
+       "months_ago": 8,
+       "scope": "pool_config",
+       "note": "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing."
+      }
+     ],
+     "risk": {
+      "score": 59,
+      "band": "B",
+      "subs": {
+       "contagion": 73,
+       "contract": 94,
+       "durability": 43.7,
+       "governance": 55,
+       "liquidity": 36,
+       "oracle": 35
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "9a3b024b4af6c0b5"
+     },
+     "net_score": 5.29,
+     "max_position_usd": 250000,
+     "eligible": true
+    },
+    {
+     "id": "defindex:CC767WIU5Q",
+     "label": "DeFindex vault CC767W… (small, $1458)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 5.24,
+     "apy_base": 5.24,
+     "apy_reward": 0,
+     "tvl_usd": 1458.4395097,
+     "capacity_usd": 1458.4395097,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "e4fba8b0d66097ad"
+     },
+     "net_score": 5.24,
+     "max_position_usd": 29,
+     "eligible": false,
+     "refusal": "Venue is too small ($1458 withdrawable): exit liquidity cannot be guaranteed at our size."
+    },
+    {
+     "id": "defindex:CA2FIPJ7U6",
+     "label": "DeFindex vault CA2FIP… (small, $40098)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CA2FIPJ7U6BG3N7EOZFI74XPJZOEOD4TYWXFVCIO5VDCHTVAGS6F4UKK",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 40098.0675724,
+     "capacity_usd": 40098.0675724,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 45.7,
+      "band": "B",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-21T16:18:46.390486648Z",
+      "stale": false,
+      "input_hash": "5478a1a9aa961ded"
+     },
+     "net_score": 0,
+     "max_position_usd": 802,
+     "eligible": false,
+     "refusal": "No yield."
+    }
+   ]
+  }
+ }
+}

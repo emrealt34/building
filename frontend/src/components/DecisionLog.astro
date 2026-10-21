@@ -1,0 +1,51 @@
+---
+import { timeAgo, pct } from '../lib/format';
+import type { Decision } from '../lib/types';
+
+export interface Props { decisions: Decision[]; note?: string }
+const { decisions, note } = Astro.props;
+const rows = decisions.slice(0, 8);
+const badge: Record<string, string> = { noop: 'stayed put', proposed: 'proposed move', skipped: 'skipped' };
+---
+<div class="card">
+  <div class="head">
+    <h2>Keeper decision log</h2>
+    <span class="small muted">every evaluation, including the boring ones</span>
+  </div>
+
+  {rows.length === 0 && <p class="small muted">No evaluations yet — the keeper ticks every minute in this deployment.</p>}
+
+  <ul>
+    {rows.map((d) => (
+      <li>
+        <div class="row">
+          <span class={`badge ${d.action}`}>{badge[d.action] ?? d.action}</span>
+          <span class="when small muted num">{timeAgo(d.at)}</span>
+          {typeof d.gap_bps === 'number' && d.gap_bps !== 0 && (
+            <span class="gap small num">{d.gap_bps > 0 ? '+' : ''}{d.gap_bps.toFixed(0)} bps</span>
+          )}
+          {d.current_apy ? <span class="small muted num">in {pct(d.current_apy)} → best {pct(d.best_apy ?? 0)}</span> : null}
+          {d.plan_hash && <span class="mono hash small">{d.plan_hash}</span>}
+        </div>
+        <p class="why small">{d.reason}</p>
+      </li>
+    ))}
+  </ul>
+  {note && <p class="small muted foot">{note}</p>}
+</div>
+
+<style>
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 9px 0; border-bottom: 1px solid #F3EBDB; }
+  li:last-child { border-bottom: none; }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .badge { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; }
+  .badge.noop { background: #F2EADB; color: #7A6A55; }
+  .badge.proposed { background: #FBEDE7; color: var(--brand-ink); }
+  .badge.skipped { background: #F9E7E1; color: var(--bad); }
+  .gap { color: var(--warn); font-weight: 600; }
+  .hash { color: #9C8B74; }
+  .why { margin: 4px 0 0; color: #7A6A55; }
+  .foot { margin: 10px 0 0; }
+</style>

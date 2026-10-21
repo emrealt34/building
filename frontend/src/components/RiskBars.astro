@@ -1,0 +1,80 @@
+---
+import { bandColor, bandLabel, subLabel } from '../lib/format';
+import type { RiskResult, Incident } from '../lib/types';
+
+export interface Props {
+  risk: RiskResult;
+  incidents?: Incident[];
+}
+const { risk, incidents = [] } = Astro.props;
+const color = bandColor[risk.band];
+const order = ['contract', 'liquidity', 'oracle', 'durability', 'contagion', 'governance'];
+const weights: Record<string, number> = {
+  contract: 0.25, liquidity: 0.2, oracle: 0.15, durability: 0.15, contagion: 0.15, governance: 0.1,
+};
+---
+<div class="card">
+  <div class="head">
+    <h2>Risk breakdown</h2>
+    <span class="band" style={`background:${color}1a;color:${color}`}>
+      {risk.band} · {bandLabel[risk.band]} — {risk.score.toFixed(0)}/100
+    </span>
+  </div>
+
+  <ul class="subs">
+    {order.map((k) => (
+      <li>
+        <span class="name">{subLabel[k]} <span class="w small muted">×{weights[k].toFixed(2)}</span></span>
+        <span class="track"><span class="fill" style={`width:${Math.min(100, risk.subs[k])}%;background:${color}`}></span></span>
+        <span class="val num">{risk.subs[k].toFixed(0)}</span>
+      </li>
+    ))}
+  </ul>
+
+  {incidents.length > 0 && (
+    <div class="incidents">
+      <h3>Incident history (scored, not hidden)</h3>
+      <ul>
+        {incidents.map((i) => (
+          <li class="small">
+            <span class={i.scope === 'protocol_code' ? 'tag bad' : 'tag warn'}>{i.scope === 'protocol_code' ? 'protocol code' : 'pool config'}</span>
+            <span class="num">${(i.loss_usd / 1_000_000).toFixed(2)}M · {i.months_ago} mo ago</span>
+            <p class="muted">{i.note}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="meta small muted">
+    <div><span>Model</span><span class="mono">{risk.version}</span></div>
+    <div><span>Input hash</span><span class="mono">{risk.input_hash}</span></div>
+    <div><span>Computed</span><span class="mono">{new Date(risk.computed_at).toISOString().slice(0, 16).replace('T', ' ')} UTC</span></div>
+  </div>
+  <p class="small muted foot">
+    Deterministic and reproducible: the same inputs always produce the same score, and the input hash lets you
+    check that a score was not quietly re-weighted. A score cannot predict a zero-day contract bug.
+  </p>
+</div>
+
+<style>
+  .head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .band { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+  .subs { list-style: none; margin: 0; padding: 0; }
+  .subs li { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 12.5px; }
+  .name { width: 168px; flex: none; color: #4A3D2C; }
+  .w { color: #9C8B74; }
+  .track { flex: 1; height: 7px; background: #F2EADB; border-radius: 999px; overflow: hidden; }
+  .fill { display: block; height: 7px; border-radius: 999px; }
+  .val { width: 28px; text-align: right; font-weight: 600; }
+  .incidents { margin-top: 14px; padding-top: 12px; border-top: 1px solid #F3EBDB; }
+  .incidents ul { list-style: none; margin: 0; padding: 0; }
+  .incidents li { padding: 6px 0; }
+  .incidents p { margin: 4px 0 0; }
+  .tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 1px 7px; border-radius: 999px; margin-right: 8px; }
+  .tag.bad { background: #F9E7E1; color: var(--bad); }
+  .tag.warn { background: #FCF3DF; color: var(--warn); }
+  .meta { margin-top: 12px; padding-top: 10px; border-top: 1px solid #F3EBDB; display: flex; flex-direction: column; gap: 3px; }
+  .meta div { display: flex; justify-content: space-between; gap: 12px; }
+  .foot { margin: 10px 0 0; }
+</style>

@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import { api } from '../lib/api';
+import { pct, usd } from '../lib/format';
+
+const [meta, network, policyDoc] = await Promise.all([api.meta(), api.network(), api.policy()]);
+const p = policyDoc?.policy;
+const flows = [
+  {
+    n: '1', title: 'User signs in with a passkey',
+    body: 'An OpenZeppelin smart account is created on Stellar; the passkey is the key. No seed phrase to lose, no extension to install.',
+  },
+  {
+    n: '2', title: 'A vault is deployed for that user',
+    body: 'The vault is a Soroban contract owned by the smart account. The backend proposes; it cannot move a cent.',
+  },
+  {
+    n: '3', title: 'USDC arrives',
+    body: 'From an existing wallet, from a SEP-24 anchor (KYC stays with the licensed anchor), or from another chain via CCTP — no bridge custodian.',
+  },
+  {
+    n: '4', title: 'The keeper proposes, the vault decides',
+    body: 'A permissionless keeper builds a plan. The vault checks it against the signed policy and against NAV before/after. A value-losing move reverts inside the same transaction.',
+  },
+];
+const invariants = [
+  'No arbitrary transfer entry point: the vault can only call registered adapters, and adapters only return funds to the vault.',
+  'Rebalance is permissionless but policy-bounded and NAV-checked; automation cannot exceed what the user signed.',
+  'The owner can always withdraw. Illiquid parts return as “pending” and are shown — never hidden.',
+  'Keeper bounties are paid by the app treasury, never from user principal.',
+  'Vaults are immutable by default; upgrading requires a new version and per-user opt-in migration.',
+  'Freezing a venue blocks new deposits immediately while withdrawals stay open. Freezing is instant; unfreezing needs a timelock.',
+];
+---
+<Base title="How it works" subtitle="Non-custodial, automatic, and boring in the places that matter: the parts that can move money are small, bounded and testable." network={network} meta={meta}>
+  <div class="grid g4">
+    {flows.map((f) => (
+      <div class="card flow">
+        <span class="n num">{f.n}</span>
+        <h3>{f.title}</h3>
+        <p class="small muted">{f.body}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="grid g2 stack">
+    <div class="card">
+      <h2>Six invariants we test</h2>
+      <ul class="inv">
+        {invariants.map((i) => <li><span class="tick">✓</span><span>{i}</span></li>)}
+      </ul>
+    </div>
+
+    <div class="card" id="policy">
+      <h2>The policy you sign</h2>
+      {p ? (
+        <div class="kv small">
+          <div><span>Max in one venue</span><span class="num">{(p.max_venue_bps / 100).toFixed(0)}%</span></div>
+          <div><span>Always liquid</span><span class="num">{(p.min_idle_bps / 100).toFixed(0)}%</span></div>
+          <div><span>Max single move</span><span class="num">{(p.max_move_bps / 100).toFixed(0)}%</span></div>
+          <div><span>Min. improvement to move</span><span class="num">{p.min_improvement_bps} bps</span></div>
+          <div><span>Cooldown</span><span class="num">{p.cooldown_secs / 86400} days</span></div>
+          <div><span>NAV tolerance</span><span class="num">{p.max_slippage_bps} bps</span></div>
+          <div><span>Max venue utilisation</span><span class="num">{(p.max_venue_utilization_bps / 100).toFixed(0)}%</span></div>
+          <div><span>Min. venue size</span><span class="num">{usd(p.min_capacity_usd)}</span></div>
+          <div><span>Max share of a venue</span><span class="num">{(p.max_venue_share_of_capacity * 100).toFixed(0)}%</span></div>
+        </div>
+      ) : <p class="small muted">Policy unavailable.</p>}
+      <p class="small muted mt">
+        These values were chosen by measurement, not taste. The cooldown is two days because measured leadership
+        between the verified venues lasts about a week; a seven-day cooldown missed most switches.
+      </p>
+    </div>
+  </div>
+
+  <div class="card stack">
+    <h2>Architecture</h2>
+    <pre class="arch mono">
+passkey smart account (owner)
+        │ owner auth
+        ▼
+   UserVault (one per user, immutable by default)
+     ├── idle USDC sleeve          policy: min_idle_bps
+     ├── positions per venue       policy: max_venue_bps, max_move_bps, cooldown
+     └── rebalance(plan)           ANYONE → policy check → NAV check → revert on loss
+             ├── BlendAdapter     supply / withdraw / position_value / liquidity_now
+             └── DeFindexAdapter  deposit / withdraw / share_price / position_value
+
+Registry (2/3 multisig + 48h timelock; guardian can freeze instantly)
+Go backend:  venue ingestion · risk engine · policy planner · keeper log · read-only API
+Astro:       server-rendered dashboard (no client key, no API token in the browser)</pre>
+    <p class="small muted">
+      The backend is deliberately the least powerful component. It reads the chain, scores venues and returns
+      unsigned intents. There is no signing key in it, so compromising it does not move funds — the worst case is a
+      bad proposal, which the vault rejects.
+    </p>
+  </div>
+
+  <div class="card stack callout">
+    <h2>What we will not claim</h2>
+    <ul class="no">
+      <li>No fixed APY, no “beat inflation”, no principal protection. Yield comes from borrowers paying interest and can fall.</li>
+      <li>Not “KYC-free”. The app takes no custody and performs no KYC; a fiat ramp means the licensed anchor performs KYC.</li>
+      <li>We are not an aggregator while the venue count is small. We are a policy-driven allocator, and its value grows as decorrelated venues appear.</li>
+      <li>A risk score cannot see a zero-day contract bug or an issuer freezing a balance. It prices what is observable and dated.</li>
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .flow { display: flex; flex-direction: column; gap: 6px; }
+  .n { font-size: 12px; font-weight: 700; color: var(--brand); }
+  .flow h3 { margin: 0; }
+  .stack { margin-top: 14px; }
+  .inv { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  .inv li { display: flex; gap: 9px; padding: 7px 0; border-bottom: 1px dashed #F3EBDB; color: #4A3D2C; }
+  .inv li:last-child { border-bottom: none; }
+  .tick { color: var(--brand); font-weight: 700; flex: none; }
+  .kv { display: flex; flex-direction: column; gap: 4px; }
+  .kv div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed #F3EBDB; padding: 5px 0; }
+  .kv span:first-child { color: var(--muted); }
+  .mt { margin-top: 12px; }
+  .arch { background: #2E2418; color: #F3E9D8; padding: 16px; border-radius: 10px; overflow-x: auto; line-height: 1.45; font-size: 11.5px; }
+  .callout { background: #FFFCF6; border-color: #E8DCC6; }
+  .no { margin: 0 0 0 18px; padding: 0; font-size: 13px; line-height: 1.7; color: #4A3D2C; }
+</style>

@@ -1,0 +1,67 @@
+---
+import { href } from '../../lib/url';
+import Base from '../../layouts/Base.astro';
+import VenueTable from '../../components/VenueTable.astro';
+import { api } from '../../lib/api';
+import { pct, compactUSD, bandColor } from '../../lib/format';
+
+const deposit = Number(Astro.url.searchParams.get('deposit')) || 1_000;
+const [venues, meta, network] = await Promise.all([api.venues(deposit), api.meta(), api.network()]);
+const list = venues?.venues ?? [];
+const eligible = list.filter((v) => v.eligible);
+const refused = list.filter((v) => !v.eligible);
+---
+<Base
+  title="Venues"
+  subtitle="Every Stellar USDC venue we can observe, scored on the same published scale. Inclusion is not an endorsement: half of this list is refused on purpose."
+  network={network}
+  meta={meta}
+  updated={venues?.as_of ?? null}
+>
+  <div class="grid g4">
+    <div class="card stat"><span class="k">Venues observed</span><span class="v num">{list.length}</span></div>
+    <div class="card stat"><span class="k">Eligible now</span><span class="v num ok">{eligible.length}</span></div>
+    <div class="card stat"><span class="k">Refused</span><span class="v num bad">{refused.length}</span></div>
+    <div class="card stat"><span class="k">Largest withdrawable</span><span class="v num">{compactUSD(Math.max(0, ...list.map((v) => v.capacity_usd)))}</span></div>
+  </div>
+
+  <div class="stack">
+    <VenueTable venues={list} />
+  </div>
+
+  <div class="stack card">
+    <h2>Why the refusals matter more than the picks</h2>
+    <p class="small muted">
+      A list that only ranks yield rewards the venue with the most aggressive incentive programme. Our
+      eligibility rules refuse four categories before any ranking happens: yield that cannot be decomposed into
+      borrower interest versus incentives; venues too small to exit at our size; utilisation above the policy ceiling;
+      and rates more than 3× their own 30-day median (a liquidity squeeze, not a yield).
+    </p>
+    <table class="reasons">
+      <thead><tr><th>Venue</th><th class="right">APY</th><th class="right">Risk</th><th>Refusal</th></tr></thead>
+      <tbody>
+        {refused.map((v) => (
+          <tr>
+            <td><a class="name" href={href(`/venues/${v.id}/`)}>{v.label}</a></td>
+            <td class="right num">{pct(v.apy)}</td>
+            <td class="right num"><span class="band" style={`color:${bandColor[v.risk.band]}`}>{v.risk.band}</span></td>
+            <td class="small muted">{v.refusal}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Base>
+
+<style>
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .k { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .v { font-size: 26px; font-weight: 700; }
+  .ok { color: var(--brand); }
+  .bad { color: var(--bad); }
+  .stack { margin-top: 14px; }
+  .name { font-weight: 600; }
+  .name:hover { color: var(--brand); text-decoration: underline; }
+  .band { font-weight: 700; }
+  .reasons { margin-top: 10px; }
+</style>

@@ -1,0 +1,62 @@
+name: Refresh data snapshot
+
+# The public site is static, so its numbers are frozen at build time. This job
+# re-runs the real Go backend against mainnet every day, regenerates
+# frontend/src/data/snapshot.json, and commits it. That commit triggers the Pages
+# deploy, so the published site stays current without any server to operate.
+#
+# If the providers or the RPC are unreachable the job fails before writing, leaving
+# the last good snapshot in place — a stale page beats a blank one.
+
+on:
+  schedule:
+    - cron: '17 5 * * *' # daily, 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache: false
+
+      - name: Regenerate snapshot from mainnet
+        working-directory: backend
+        run: go run ./cmd/snapshot -out ../frontend/src/data/snapshot.json
+
+      - name: Sanity check
+        working-directory: frontend
+        run: |
+          python3 - <<'PY'
+          import json
+          d = json.load(open('src/data/snapshot.json'))
+          n = len(d['responses'])
+          plan = json.loads(json.dumps(d['responses']['/api/v1/plan?deposit=1000']))
+          venues = len(json.loads(json.dumps(d['responses']['/api/v1/venues?deposit=1000']))['venues'])
+          assert n > 20, f'only {n} responses'
+          assert venues >= 5, f'only {venues} venues'
+          print(f'ok: {n} responses, {venues} venues, blended apy {plan["blended_apy"]}%')
+          PY
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "ballast-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- frontend/src/data/snapshot.json; then
+            echo "snapshot unchanged"
+          else
+            git add frontend/src/data/snapshot.json
+            git commit -m "chore(data): refresh venue snapshot from mainnet"
+            git push
+          fi

@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Dashboard from '../components/Dashboard.astro';
+import { api } from '../lib/api';
+
+const [meta, network, health] = await Promise.all([api.meta(), api.network(), api.health()]);
+---
+<Base
+  title="Where your money is, what it earns, what could go wrong"
+  subtitle="A non-custodial USDC savings autopilot on Stellar. Your money sits in a contract you own; a policy you sign decides which audited venue holds it; a permissionless keeper proposes moves and the contract rejects any that lose value."
+  network={network}
+  meta={meta}
+  updated={health?.venues_updated ?? null}
+>
+  <Dashboard deposit={1000} />
+</Base>

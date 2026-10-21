@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import { api } from '../lib/api';
+import { usd, pct, bps } from '../lib/format';
+
+const [report, meta, network] = await Promise.all([api.alpha(90), api.meta(), api.network()]);
+const sweeps = (report?.sweeps ?? []).slice(0, 8);
+const best = report?.best ?? null;
+const idleToYieldBps = report && report.venues.length ? Math.round(Math.max(...report.venues.map((v) => v.mean_apy)) * 100) : 0;
+---
+<Base
+  title="Evidence: what is picking the best venue actually worth?"
+  subtitle="We measured the claim before building on it. Two verified Stellar USDC venues, daily APY from a public feed, a keeper that only reacts to yesterday's data. Numbers below are computed by the backend at request time, not typed into a slide."
+  network={network}
+  meta={meta}
+  updated={report?.generated_at ?? null}
+>
+  {!report ? (
+    <div class="card err"><h2>The alpha report is unavailable</h2><p class="small">Start the API to render this page.</p></div>
+  ) : (
+    <>
+      <div class="grid g4">
+        <div class="card stat">
+          <span class="k">Idle cash → working</span>
+          <span class="v num hero">+{idleToYieldBps} bps</span>
+          <span class="note small muted">this is the product</span>
+        </div>
+        <div class="card stat">
+          <span class="k">Upper bound of routing</span>
+          <span class="v num">+{Math.round(report.upper_bound_usd * 10)} bps</span>
+          <span class="note small muted">{usd(report.upper_bound_usd, 2)} on $1,000 over {report.window_days}d, with perfect hindsight</span>
+        </div>
+        <div class="card stat">
+          <span class="k">Realistic keeper</span>
+          <span class="v num">{best ? `${best.alpha_bps_per_year > 0 ? '+' : ''}${Math.round(best.alpha_bps_per_year)} bps` : '—'}</span>
+          <span class="note small muted">{best ? `${usd(best.alpha_usd, 2)} vs never moving · ${best.switches} switches` : ''}</span>
+        </div>
+        <div class="card stat">
+          <span class="k">Captured of upper bound</span>
+          <span class="v num">{best ? `${Math.round(best.capture_of_upper_bound_pct)}%` : '—'}</span>
+          <span class="note small muted">the rest is unknowable in advance</span>
+        </div>
+      </div>
+
+      <div class="card stack">
+        <h2>Venues compared ({report.window_days}-day window)</h2>
+        <table>
+          <thead><tr><th>Venue</th><th class="right">Days</th><th class="right">Mean APY</th><th class="right">Min</th><th class="right">Max</th></tr></thead>
+          <tbody>
+            {report.venues.map((v) => (
+              <tr>
+                <td>{v.label}</td>
+                <td class="right num">{v.days}</td>
+                <td class="right num strong">{pct(v.mean_apy)}</td>
+                <td class="right num muted">{pct(v.min_apy)}</td>
+                <td class="right num muted">{pct(v.max_apy)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="small muted">
+          Buy-and-hold reference: staying in <strong>{report.best_single_label}</strong> turns $1,000 into
+          {usd(report.best_single_usd, 2)}. Perfect hindsight turns it into {usd(report.perfect_hindsight_usd, 2)} —
+          that gap ({usd(report.upper_bound_usd, 2)}) is the entire value of routing, and nobody can capture all of it.
+        </p>
+      </div>
+
+      <div class="card stack">
+        <h2>Policy parameter sweep</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Cooldown</th><th>Threshold</th><th class="right">Switches</th>
+              <th class="right">Final value</th><th class="right">vs. never moving</th><th class="right">Annualised</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sweeps.map((s) => (
+              <tr class={best && s.cooldown_days === best.cooldown_days && s.threshold_bps === best.threshold_bps ? 'best' : ''}>
+                <td class="num">{s.cooldown_days}d</td>
+                <td class="num">{s.threshold_bps} bps</td>
+                <td class="right num">{s.switches}</td>
+                <td class="right num">{usd(s.final_usd, 2)}</td>
+                <td class={`right num ${s.alpha_usd > 0 ? 'pos' : 'neg'}`}>{usd(s.alpha_usd, 2)}</td>
+                <td class="right num">{bps(s.alpha_bps_per_year)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="small muted">
+          {report.days_gap_over_threshold} of {report.window_days} days had a gap of at least 25 bps; the average gap was
+          {` ${Math.round(report.avg_gap_bps)} bps`}. The gap looks large, but it is mostly one venue being cheaper for a few days —
+          a keeper that always switches at that gap trades a real rate advantage for churn and risks.
+        </p>
+      </div>
+
+      <div class="card stack callout">
+        <h2>What this changed in the product</h2>
+        <ol>
+          <li><strong>We do not sell "highest APY".</strong> Between verified venues it is worth tens of basis points a year at retail size — real, but not a reason to download an app.</li>
+          <li><strong>The value is 0% → working capital, exit-ability and visible risk.</strong> +{idleToYieldBps} bps versus doing nothing, plus never being locked in, plus knowing what you hold.</li>
+          <li><strong>The cooldown is 2 days, not 7.</strong> Measured leadership between these venues lasts about a week; a 7-day cooldown misses most of it.</li>
+          <li><strong>Outliers are excluded.</strong> One venue printed 193% APY for a single day; a naive router chases that. It is a liquidity squeeze, so our cleaning drops it and eligibility refuses new money.</li>
+        </ol>
+        <p class="small muted">
+          Method: daily APY from the public DefiLlama yields feed, observations above 3× their trailing 30-day median dropped,
+          keeper decisions made on the previous day's observation and applied the next day, no transaction costs
+          (they are under $0.01 per move on Stellar). Reproduce it with
+          <span class="mono">GET /api/v1/alpha?days=90</span> on our Go backend. Past performance is not a forecast.
+        </p>
+      </div>
+    </>
+  )}
+</Base>
+
+<style>
+  .stat { display: flex; flex-direction: column; gap: 3px; }
+  .k { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .v { font-size: 26px; font-weight: 700; }
+  .hero { color: var(--brand); }
+  .stack { margin-top: 14px; }
+  .strong { font-weight: 600; }
+  .pos { color: var(--brand); }
+  .neg { color: var(--bad); }
+  tr.best { background: #F1F7EE; }
+  tr.best td { font-weight: 600; }
+  .callout { background: #F6FBF4; border-color: #D6E3CF; }
+  .callout ol { margin: 0 0 10px 18px; padding: 0; font-size: 13px; line-height: 1.7; color: #4A3D2C; }
+  .err { border-color: #E7C4B6; }
+</style>

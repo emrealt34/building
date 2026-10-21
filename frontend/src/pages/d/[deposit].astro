@@ -1,0 +1,23 @@
+---
+// One prerendered page per deposit preset. Static hosting (GitHub Pages) has no
+// server to read ?deposit= from, so the amount is part of the path instead.
+import Base from '../../layouts/Base.astro';
+import Dashboard from '../../components/Dashboard.astro';
+import { api, DEPOSITS } from '../../lib/api';
+
+export function getStaticPaths() {
+  return DEPOSITS.map((d) => ({ params: { deposit: String(d) } }));
+}
+
+const deposit = Number(Astro.params.deposit);
+const [meta, network, health] = await Promise.all([api.meta(), api.network(), api.health()]);
+---
+<Base
+  title={`Savings plan for $${deposit.toLocaleString('en-US')}`}
+  subtitle="The same policy, applied to a different balance. Small balances stay liquid because a $25 minimum position is not worth its own overhead."
+  network={network}
+  meta={meta}
+  updated={health?.venues_updated ?? null}
+>
+  <Dashboard deposit={deposit} hero={false} />
+</Base>

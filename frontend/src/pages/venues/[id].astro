@@ -1,0 +1,127 @@
+---
+import { href } from '../../lib/url';
+import Base from '../../layouts/Base.astro';
+import RiskBars from '../../components/RiskBars.astro';
+import { api } from '../../lib/api';
+import { pct, usd, compactUSD, sparkline } from '../../lib/format';
+
+// Static hosting: one page per venue we know about at build time. The list comes
+// from the same source the site uses (live API or snapshot), so a newly indexed
+// venue appears on the next build without touching this file.
+export async function getStaticPaths() {
+  const list = await api.venues(1000);
+  return (list?.venues ?? []).map((v) => ({ params: { id: v.id } }));
+}
+
+const id = Astro.params.id as string;
+const deposit = 1_000;
+const [detail, hist, meta, network] = await Promise.all([
+  api.venue(id, deposit),
+  api.history(id, 90),
+  api.meta(),
+  api.network(),
+]);
+const v = detail!.venue;
+const chart = hist?.points?.length ? sparkline(hist.points) : '';
+const rows = hist?.points ?? [];
+const avg = rows.length ? rows.reduce((s, p) => s + p.apy, 0) / rows.length : 0;
+const min = rows.length ? Math.min(...rows.map((p) => p.apy)) : 0;
+const max = rows.length ? Math.max(...rows.map((p) => p.apy)) : 0;
+---
+<Base title={v.label} subtitle={`${v.kind.replace('_', ' ')} · ${v.source} · asset USDC · ${v.oracle ?? 'n/a'}`} network={network} meta={meta} updated={detail.as_of}>
+  <div class="grid g2">
+    <div class="card">
+      <div class="rowtop">
+        <div>
+          <span class="k">Current rate</span>
+          <div class="rate num">{pct(v.apy)}</div>
+          <div class="small muted">
+            base {pct(v.apy_base)}{v.apy_reward > 0 ? ` · reward ${pct(v.apy_reward)}` : ''}
+            {v.apy_mean_30d ? ` · 30d avg ${pct(v.apy_mean_30d)}` : ''}
+          </div>
+        </div>
+        <div class="pos">
+          <div><span class="k">Withdrawable</span><span class="num">{compactUSD(v.capacity_usd)}</span></div>
+          <div><span class="k">Our max per policy</span><span class="num">{usd(v.max_position_usd)}</span></div>
+          <div><span class="k">Net score</span><span class="num">{v.net_score.toFixed(2)}</span></div>
+        </div>
+      </div>
+
+      <div class={`verdict ${v.eligible ? 'ok' : 'no'}`}>
+        {v.eligible
+          ? <>Eligible for new deposits under the current policy.</>
+          : <><strong>Refused:</strong> {v.refusal}</>}
+      </div>
+
+      {chart && (
+        <div class="chart">
+          <div class="chart-head small muted">
+            <span>90-day realised APY</span>
+            <span class="num">min {pct(min)} · avg {pct(avg)} · max {pct(max)}</span>
+          </div>
+          <div set:html={chart} />
+        </div>
+      )}
+    </div>
+
+    <RiskBars risk={v.risk} incidents={v.incidents} />
+  </div>
+
+  <div class="grid g2 stack">
+    <div class="card">
+      <h2>Dependencies</h2>
+      <ul class="deps">
+        {v.underlying.map((u) => (
+          <li><span class="bull">•</span><span>{u}</span></li>
+        ))}
+      </ul>
+      <h3 class="mt">Safety inputs (curated, versioned)</h3>
+      <div class="kv small">
+        <div><span>Audits</span><span class="num">{v.audits}{v.tier1_audit ? ' · tier-1' : ''}</span></div>
+        <div><span>Live on mainnet</span><span class="num">{v.live_months} months</span></div>
+        <div><span>Upgradeable</span><span class="num">{v.upgradeable ? 'yes' : 'no'}</span></div>
+        <div><span>Oracle</span><span class="num">{v.oracle ?? 'n/a'}</span></div>
+        <div><span>Incentive dependence</span><span class="num">{Math.round(v.reward_dependence * 100)}%</span></div>
+        <div><span>Yield source verified</span><span class="num">{v.yield_source_verified ? 'yes' : 'no'}</span></div>
+        <div><span>Instant exit</span><span class="num">{v.instant_exit ? 'yes' : 'no'}</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>What this page is not</h2>
+      <p class="small muted">
+        This is a venue risk profile, not a recommendation. The score cannot see a zero-day contract bug, a stablecoin
+        issuer freezing a balance, or a governance vote changing parameters overnight. It prices what is observable and
+        dated, and it stops new deposits when a venue's own metrics deteriorate — nothing more.
+      </p>
+      <p class="small muted">
+        Rates shown are realised, not promised. A 6% venue can pay 3% next month; that is why the product keeps a
+        liquid sleeve and a cooldown instead of chasing the top of the table.
+      </p>
+      <a class="link small" href={href('/evidence/')}>How much does switching between venues actually earn? →</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .rowtop { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .k { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); display: block; }
+  .rate { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+  .pos { display: flex; flex-direction: column; gap: 6px; text-align: right; font-size: 13px; }
+  .pos .num { font-weight: 600; display: block; }
+  .verdict { margin-top: 14px; border-radius: 10px; padding: 10px 12px; font-size: 13px; }
+  .verdict.ok { background: #EDF3EA; color: var(--brand-ink); border: 1px solid #D6E3CF; }
+  .verdict.no { background: #F9E7E1; color: #7A2A10; border: 1px solid #E7C4B6; }
+  .chart { margin-top: 14px; }
+  .chart-head { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .deps { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  .deps li { display: flex; gap: 8px; padding: 3px 0; color: #4A3D2C; }
+  .bull { color: var(--brand); }
+  .mt { margin-top: 14px; }
+  .kv { display: flex; flex-direction: column; gap: 4px; }
+  .kv div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed #F3EBDB; padding: 5px 0; }
+  .kv span:first-child { color: var(--muted); }
+  .link { color: var(--brand); font-weight: 600; }
+  .link:hover { text-decoration: underline; }
+  .stack { margin-top: 14px; }
+</style>

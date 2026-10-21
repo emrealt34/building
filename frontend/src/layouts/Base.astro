@@ -1,0 +1,211 @@
+---
+import { href } from '../lib/url';
+import { dataSource } from '../lib/api';
+import { timeAgo } from '../lib/format';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  network?: { rpc_healthy: boolean; latest_ledger: number; protocol: number } | null;
+  meta?: { risk_model: string; policy_version: string; safety_registry: string } | null;
+  updated?: string | null;
+}
+const { title, subtitle, network, meta, updated } = Astro.props;
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const isActive = (p: string) => (p === '/' ? path === '/' || path.startsWith('/d/') : path.startsWith(p));
+const nav = [
+  { p: '/', label: 'Dashboard' },
+  { p: '/venues', label: 'Venues' },
+  { p: '/evidence', label: 'Evidence' },
+  { p: '/how-it-works', label: 'How it works' },
+];
+const src = dataSource();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Ballast</title>
+    <meta name="description" content="Ballast — a non-custodial USDC savings autopilot on Stellar. Money you can always withdraw, in venues a published risk model accepts, moved by a keeper the vault polices." />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C7481D'/%3E%3Cpath d='M9 20c2.6 2.2 11.4 2.2 14 0' stroke='%23FBF6EC' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='12' r='3' fill='%23FBF6EC'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="strip">
+      <div class="wrap strip-inner">
+        <span class="net">
+          <span class:list={['dot', network?.rpc_healthy ? 'ok' : 'bad']}></span>
+          {network ? `Stellar mainnet · ledger ${network.latest_ledger.toLocaleString()} · protocol ${network.protocol || '—'}` : 'Stellar mainnet'}
+        </span>
+        <span class="src">
+          {src.mode === 'live' ? 'live Go API' : `data snapshot · ${src.at ? timeAgo(src.at) : 'unknown'}`}
+        </span>
+      </div>
+    </div>
+
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href={href('/')}>
+          <span class="mark" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+              <rect width="32" height="32" rx="8" fill="#C7481D"></rect>
+              <path d="M9 20c2.6 2.2 11.4 2.2 14 0" stroke="#FBF6EC" stroke-width="2.4" stroke-linecap="round"></path>
+              <circle cx="16" cy="12" r="3" fill="#FBF6EC"></circle>
+            </svg>
+          </span>
+          <span class="word">Ballast</span>
+          <span class="tag">USDC · Stellar</span>
+        </a>
+
+        <nav class="nav">
+          {nav.map((n) => (
+            <a class:list={['navlink', isActive(n.p) && 'active']} href={href(n.p)}>{n.label}</a>
+          ))}
+        </nav>
+
+        <a class="cta" href={href('/how-it-works/')}>Why it is safe</a>
+      </div>
+    </header>
+
+    <main class="wrap main">
+      {(title || subtitle) && (
+        <div class="page-head">
+          <h1>{title}</h1>
+          {subtitle && <p class="sub">{subtitle}</p>}
+          {(meta || updated) && (
+            <div class="statusline">
+              {meta && <span class="pill ghost mono">{meta.risk_model}</span>}
+              {meta && <span class="pill ghost mono">{meta.policy_version}</span>}
+              {updated && <span class="pill">venues as of {timeAgo(updated)}</span>}
+            </div>
+          )}
+        </div>
+      )}
+      <slot />
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-top">
+          <div>
+            <div class="foot-brand">Ballast</div>
+            <p class="small muted">
+              A non-custodial savings autopilot: your USDC sits in a vault you own, a policy you sign bounds what
+              the keeper can do, and withdrawals never depend on our uptime.
+            </p>
+          </div>
+          <div class="foot-links">
+            <a href={href('/how-it-works/')}>How it works</a>
+            <a href={href('/evidence/')}>Evidence</a>
+            <a href={href('/venues/')}>Venues</a>
+            <a href="https://github.com/emrealt34/building" rel="noopener">Source</a>
+          </div>
+        </div>
+        <p class="small muted legal">
+          Not investment or legal advice. Yield is variable and can fall; a venue can be exploited or paused; a
+          stablecoin can depeg or be frozen. The backend holds no key and cannot move funds. Figures on this page are
+          realised rates from public feeds at the time shown, not a promise of future return.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #FBF6EC;
+    --card: #FFFFFF;
+    --ink: #3B2E1E;
+    --muted: #7A6A55;
+    --line: #E8DCC6;
+    --brand: #C7481D;
+    --brand-ink: #8F3112;
+    --brand-soft: #FBEDE7;
+    --ok: #3E6B4F;
+    --ok-soft: #EDF3EA;
+    --gold: #C98A1B;
+    --gold-soft: #FCF3DF;
+    --bad: #A83A16;
+    --bad-soft: #F9E7E1;
+    --radius: 16px;
+    --shadow: 0 1px 2px rgba(59, 46, 30, 0.05), 0 8px 24px rgba(59, 46, 30, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .word, .foot-brand {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    letter-spacing: -0.01em;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+  .num { font-variant-numeric: tabular-nums; }
+  .muted { color: var(--muted); }
+  .small { font-size: 12.5px; }
+  .right { text-align: right; }
+
+  /* top strip */
+  .strip { background: #3B2E1E; color: #F3E9D8; font-size: 12px; }
+  .strip-inner { display: flex; justify-content: space-between; gap: 12px; padding: 7px 20px; flex-wrap: wrap; }
+  .net { display: inline-flex; align-items: center; gap: 7px; font-variant-numeric: tabular-nums; }
+  .src { opacity: 0.75; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #C98A1B; }
+  .dot.ok { background: #8FC49B; }
+  .dot.bad { background: #E4835F; }
+
+  /* header */
+  .top { background: rgba(251, 246, 236, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 66px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; }
+  .mark { display: inline-flex; }
+  .word { font-size: 21px; }
+  .tag { font-size: 11px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; background: #fff; }
+  .nav { display: flex; gap: 2px; flex-wrap: wrap; }
+  .navlink { padding: 7px 12px; border-radius: 999px; font-size: 13.5px; color: var(--muted); font-weight: 500; }
+  .navlink:hover { background: #F2EADB; color: var(--ink); }
+  .navlink.active { background: var(--ink); color: #FBF6EC; }
+  .cta { background: var(--brand); color: #fff; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+  .cta:hover { background: var(--brand-ink); }
+
+  /* page head + content */
+  .main { padding-top: 30px; padding-bottom: 48px; }
+  .page-head { margin-bottom: 20px; }
+  .page-head h1 { margin: 0 0 6px; font-size: 30px; line-height: 1.2; }
+  .sub { margin: 0 0 12px; color: var(--muted); max-width: 72ch; }
+  .statusline { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .pill.ghost { background: transparent; border-style: dashed; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .grid { display: grid; gap: 14px; }
+  .g2 { grid-template-columns: 1.2fr 0.8fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 880px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+  h2 { font-size: 19px; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 0 0 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 7px 8px; border-bottom: 1px solid var(--line); }
+  td { padding: 10px 8px; border-bottom: 1px solid #F3EBDB; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+
+  .foot { border-top: 1px solid var(--line); background: #F7F0E2; padding: 26px 0 40px; font-size: 13px; }
+  .foot-top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .foot-brand { font-size: 20px; font-weight: 700; }
+  .foot p { margin: 6px 0 0; max-width: 62ch; }
+  .foot-links { display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .foot-links a { color: var(--muted); }
+  .foot-links a:hover { color: var(--brand); }
+  .legal { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 14px; max-width: 90ch; }
+  .link { color: var(--brand); font-weight: 600; }
+  .link:hover { text-decoration: underline; }
+</style>

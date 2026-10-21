@@ -1,0 +1,193 @@
+---
+import BalanceCard from './BalanceCard.astro';
+import AllocationBar from './AllocationBar.astro';
+import VenueTable from './VenueTable.astro';
+import RefusalList from './RefusalList.astro';
+import DecisionLog from './DecisionLog.astro';
+import { api, DEPOSITS } from '../lib/api';
+import { href, depositHref } from '../lib/url';
+import { usd } from '../lib/format';
+
+export interface Props { deposit: number; hero?: boolean }
+const { deposit, hero = true } = Astro.props;
+
+const [meta, network, plan, venues, decisions, health] = await Promise.all([
+  api.meta(),
+  api.network(),
+  api.plan(deposit),
+  api.venues(deposit),
+  api.decisions(),
+  api.health(),
+]);
+
+const offline = !plan || !venues;
+const steps = [
+  { n: '1', t: 'Deposit USDC', d: 'From a wallet, an anchor, or another chain via CCTP. Your passkey is the key.' },
+  { n: '2', t: 'The policy picks the venue', d: 'Audited venues only, capped per venue, 10% always liquid, no exotic yield.' },
+  { n: '3', t: 'Withdraw whenever', d: 'No lock-up, no queue, no permission from us. The contract is yours.' },
+];
+---
+{hero && (
+  <>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Non-custodial savings · Stellar</p>
+        <h1>Your dollars should not sit still.<br />They should not sit in our wallet either.</h1>
+        <p class="lede">
+          Ballast puts idle USDC to work in audited Stellar lending venues and keeps a liquid sleeve so you can leave at
+          any moment. A published risk model decides where the money goes; a policy you sign decides how far the keeper
+          may move it. We hold no key, so there is no custody to lose.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href={depositHref(1000)}>See the live plan</a>
+          <a class="btn ghost" href={href('/evidence/')}>What routing is actually worth</a>
+        </div>
+        <ul class="trust">
+          <li>Non-custodial</li>
+          <li>Withdraw any time</li>
+          <li>No lock-up</li>
+          <li>Backend holds no key</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb a"></div>
+        <div class="orb b"></div>
+        <div class="orb c"></div>
+        <svg viewBox="0 0 320 320" class="rings" fill="none">
+          <circle cx="160" cy="160" r="118" stroke="#E8DCC6" stroke-width="1.5"></circle>
+          <circle cx="160" cy="160" r="86" stroke="#E8DCC6" stroke-width="1.5" stroke-dasharray="3 6"></circle>
+          <path d="M42 205c34 26 202 26 236 0" stroke="#C7481D" stroke-width="3" stroke-linecap="round"></path>
+          <circle cx="160" cy="132" r="26" fill="#C7481D"></circle>
+          <circle cx="160" cy="132" r="10" fill="#FBF6EC"></circle>
+        </svg>
+      </div>
+    </section>
+
+    <ol class="steps">
+      {steps.map((s) => (
+        <li>
+          <span class="step-n num">{s.n}</span>
+          <div>
+            <strong>{s.t}</strong>
+            <p class="small muted">{s.d}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </>
+)}
+
+{offline ? (
+  <div class="card err">
+    <h2>No data to render</h2>
+    <p class="small">
+      Neither a live API nor a snapshot was available. Start the backend
+      (<span class="mono">cd backend && go run ./cmd/api</span>), or regenerate the snapshot with
+      <span class="mono">go run ./cmd/snapshot</span>.
+    </p>
+  </div>
+) : (
+  <>
+    <div class="toolbar">
+      <div class="amount-label">
+        <span class="k">Savings amount</span>
+        <strong class="num">{usd(deposit)}</strong>
+      </div>
+      <div class="presets">
+        {DEPOSITS.map((p) => (
+          <a class:list={['chip', p === deposit && 'on']} href={depositHref(p)}>{usd(p)}</a>
+        ))}
+      </div>
+    </div>
+
+    <BalanceCard plan={plan} deposit={deposit} />
+
+    {plan.legs.length === 0 && (
+      <div class="card notice">
+        <h3>Nothing is deployed at {usd(deposit)}</h3>
+        <p class="small muted">
+          The policy keeps at least 10% liquid and will not open a position smaller than $25 per venue, so a deposit
+          this small stays in the vault's idle sleeve. Between roughly $60 and $140 only one venue is used; above
+          that the planner splits. This floor is deliberate: dust positions cost more in attention than they earn.
+        </p>
+      </div>
+    )}
+
+    <div class="stack"><AllocationBar plan={plan} deposit={deposit} /></div>
+
+    <div class="grid g2 stack">
+      <RefusalList refusals={plan.refusals} />
+      <DecisionLog decisions={decisions?.decisions ?? []} note={decisions?.note} />
+    </div>
+
+    <div class="stack"><VenueTable venues={venues.venues} limit={8} /></div>
+
+    <div class="grid g3 stack">
+      <div class="card">
+        <h3>Non-custodial, in code</h3>
+        <p class="small muted">
+          The backend holds no key and has no submit path. It reads chain state and returns unsigned intents; the
+          wallet builds, simulates and signs. There is no custody to lose, only a policy to enforce.
+        </p>
+        <a class="link small" href={href('/how-it-works/')}>How the guarantees are implemented →</a>
+      </div>
+      <div class="card">
+        <h3>Automatic, but bounded</h3>
+        <p class="small muted">
+          The keeper is permissionless; the vault is not. Caps, a cooldown, a 25 bps improvement threshold and a NAV
+          check run on-chain, so automation cannot drift into a bad move even if the keeper is wrong.
+        </p>
+        <a class="link small" href={href('/how-it-works/#policy')}>The policy you sign →</a>
+      </div>
+      <div class="card">
+        <h3>What routing is worth</h3>
+        <p class="small muted">
+          We measured it instead of promising it: picking the better of the two verified venues was worth about 27 bps
+          a year to a realistic keeper. Getting money from 0% to working capital is worth ~550 bps.
+        </p>
+        <a class="link small" href={href('/evidence/')}>The measurement →</a>
+      </div>
+    </div>
+  </>
+)}
+
+<style>
+  .hero { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 24px; align-items: center; margin-bottom: 26px; }
+  @media (max-width: 880px) { .hero { grid-template-columns: 1fr; } .hero-art { display: none; } }
+  .eyebrow { margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--brand); font-weight: 700; }
+  .hero h1 { margin: 0 0 12px; font-size: 38px; line-height: 1.14; letter-spacing: -0.02em; }
+  .lede { margin: 0 0 16px; color: #5D4C38; max-width: 62ch; }
+  .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { border-radius: 999px; padding: 11px 20px; font-size: 14px; font-weight: 600; }
+  .btn.primary { background: var(--brand); color: #fff; box-shadow: 0 6px 16px rgba(199, 72, 29, 0.22); }
+  .btn.primary:hover { background: var(--brand-ink); }
+  .btn.ghost { border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  .btn.ghost:hover { border-color: var(--brand); color: var(--brand); }
+  .trust { list-style: none; display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0 0; padding: 0; font-size: 12.5px; color: var(--muted); }
+  .trust li { display: inline-flex; align-items: center; gap: 6px; }
+  .trust li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
+  .hero-art { position: relative; min-height: 240px; }
+  .rings { width: 100%; height: auto; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(2px); opacity: 0.55; }
+  .orb.a { width: 90px; height: 90px; background: #F6E3C6; top: -6px; right: 18px; }
+  .orb.b { width: 46px; height: 46px; background: #EAD9BF; bottom: 18px; left: 6px; }
+  .orb.c { width: 22px; height: 22px; background: #C7481D; opacity: 0.25; top: 46%; right: 4px; }
+
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 24px; padding: 0; }
+  @media (max-width: 880px) { .steps { grid-template-columns: 1fr; } }
+  .steps li { display: flex; gap: 12px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .step-n { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--brand-soft); color: var(--brand-ink); display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+  .steps strong { font-size: 14px; }
+  .steps p { margin: 3px 0 0; }
+
+  .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+  .k { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .amount-label strong { font-size: 22px; }
+  .presets { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { font-size: 12.5px; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: #5D4C38; }
+  .chip:hover { border-color: var(--brand); color: var(--brand); }
+  .chip.on { background: var(--ink); border-color: var(--ink); color: #FBF6EC; }
+  .stack { margin-top: 14px; }
+  .notice { margin-top: 14px; background: var(--gold-soft); border-color: #EFDCB6; }
+  .err { border-color: #E7C4B6; background: #FDF3EF; }
+</style>

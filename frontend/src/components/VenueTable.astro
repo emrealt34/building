@@ -1,0 +1,72 @@
+---
+import { href } from '../lib/url';
+import { pct, usd, compactUSD, bandLabel, bandColor } from '../lib/format';
+import type { Venue } from '../lib/types';
+
+export interface Props { venues: Venue[]; limit?: number }
+const { venues, limit } = Astro.props;
+const rows = limit ? venues.slice(0, limit) : venues;
+---
+<div class="card">
+  <div class="head">
+    <h2>Venue ranking</h2>
+    <span class="small muted">net score = APY − 0.05 × (risk − 50): safety can outrank yield</span>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Venue</th>
+          <th class="right">APY</th>
+          <th class="right">Risk</th>
+          <th class="right">Net score</th>
+          <th class="right">Withdrawable</th>
+          <th>Eligible</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((v) => (
+          <tr class={v.eligible ? '' : 'refused'}>
+            <td>
+              <a class="name" href={href(`/venues/${v.id}/`)}>{v.label}</a>
+              <div class="small muted">{v.underlying.join(' → ')}</div>
+              {!v.eligible && v.refusal && <div class="reason small" title={v.refusal}>{v.refusal}</div>}
+            </td>
+            <td class="right num strong">{pct(v.apy)}</td>
+            <td class="right num">
+              <span class="band" style={`background:${bandColor[v.risk.band]}1a;color:${bandColor[v.risk.band]}`}>
+                {v.risk.band} {v.risk.score.toFixed(0)}
+              </span>
+            </td>
+            <td class="right num">{v.net_score ? v.net_score.toFixed(2) : '—'}</td>
+            <td class="right num">{compactUSD(v.capacity_usd)}</td>
+            <td>
+              {v.eligible
+                ? <span class="yes">yes</span>
+                : <span class="no" title={v.refusal}>no</span>}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted foot">
+    "Withdrawable" is the part of a venue we consider safely exit-able at our size, not its total TVL.
+    A venue can be large and still be risky if our position would be a big share of what is actually available.
+  </p>
+</div>
+
+<style>
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .scroll { overflow-x: auto; }
+  .name { font-weight: 600; font-size: 13.5px; }
+  .name:hover { color: var(--brand); text-decoration: underline; }
+  .strong { font-weight: 600; }
+  .band { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 600; }
+  .yes { color: var(--brand); font-weight: 600; font-size: 12.5px; }
+  .no { color: var(--bad); font-weight: 600; font-size: 12.5px; cursor: help; }
+  tr.refused { background: #FCF8F0; }
+  tr.refused .name { color: #7A6A55; }
+  .foot { margin: 10px 0 0; }
+  .reason { color: var(--warn); max-width: 44ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+</style>

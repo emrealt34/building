@@ -1,0 +1,54 @@
+---
+import { href } from '../lib/url';
+import { pct } from '../lib/format';
+import type { Refusal } from '../lib/types';
+
+export interface Props { refusals: Refusal[] }
+const { refusals } = Astro.props;
+const shown = refusals.slice(0, 6);
+---
+<div class="card refuse">
+  <div class="head">
+    <h2>What we refused, and why</h2>
+    <span class="small muted">the most useful screen in the product</span>
+  </div>
+
+  {shown.length === 0 && <p class="small muted">Nothing was refused in this cycle.</p>}
+
+  <ul>
+    {shown.map((r) => (
+      <li>
+        <div class="top">
+          <span class="apy num">{pct(r.apy)}</span>
+          <a class="lbl" href={href(`/venues/${r.venue_id}/`)}>{r.label}</a>
+        </div>
+        <p class="why small">{r.reason}</p>
+      </li>
+    ))}
+  </ul>
+
+  {refusals.length > shown.length && (
+    <p class="small muted more">+ {refusals.length - shown.length} more refused venues. <a href={href('/venues/')}>See all</a></p>
+  )}
+
+  <p class="small muted foot">
+    A router that only ever shows you the winners cannot be audited. The highest APY in the list is currently
+    refused on purpose: its yield cannot be split into borrower interest and expiring incentives.
+  </p>
+</div>
+
+<style>
+  .refuse { border-color: #E8DCC6; background: #FFFCF6; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 10px 0; border-bottom: 1px dashed #F3EBDB; }
+  li:last-child { border-bottom: none; }
+  .top { display: flex; align-items: baseline; gap: 10px; }
+  .apy { font-weight: 700; color: var(--warn); width: 60px; flex: none; }
+  .lbl { font-weight: 600; font-size: 13px; }
+  .lbl:hover { color: var(--brand); text-decoration: underline; }
+  .why { margin: 3px 0 0 70px; color: #7A6A55; }
+  .more { margin: 10px 0 0; }
+  .more a { color: var(--brand); text-decoration: underline; }
+  .foot { margin: 12px 0 0; border-top: 1px solid #F3EBDB; padding-top: 10px; }
+</style>

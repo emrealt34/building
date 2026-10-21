@@ -1,0 +1,21 @@
+# build output
+frontend/dist/
+frontend/.astro/
+backend/bin/
+node_modules/
+
+# local env
+.env
+.env.*
+*.local
+
+# secrets — never commit keys, this repo is public
+*.pem
+*.key
+secrets/
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
