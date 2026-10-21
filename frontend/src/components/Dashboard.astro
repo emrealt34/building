@@ -134,16 +134,17 @@ const steps = [
       <div class="card">
         <h3>Automatic, but bounded</h3>
         <p class="small muted">
-          The keeper is permissionless; the vault is not. Caps, a cooldown, a 25 bps improvement threshold and a NAV
-          check run on-chain, so automation cannot drift into a bad move even if the keeper is wrong.
+          Anyone may trigger a move; the vault decides which moves are allowed. Position caps, a two-day wait, a
+          0.25% improvement threshold and a before/after value check are enforced by the contract, so automation
+          cannot drift into a bad move even if the automation is wrong.
         </p>
         <a class="link small" href={href('/how-it-works/#policy')}>The policy you sign →</a>
       </div>
       <div class="card">
         <h3>What routing is worth</h3>
         <p class="small muted">
-          Measured, not promised: choosing the better of two verified venues was worth about 27 bps a year to a
-          realistic keeper. Getting money from idle to working is worth ~550 bps.
+          Measured, not promised: choosing the better of two verified venues was worth about 0.27% a year on
+          ordinary balances. Getting money from idle to working is worth roughly 5.5%.
         </p>
         <a class="link small" href={href('/evidence/')}>The measurement →</a>
       </div>

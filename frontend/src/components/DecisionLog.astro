@@ -22,7 +22,7 @@ const badge: Record<string, string> = { noop: 'stayed put', proposed: 'proposed 
           <span class={`badge ${d.action}`}>{badge[d.action] ?? d.action}</span>
           <span class="when small muted num">{timeAgo(d.at)}</span>
           {typeof d.gap_bps === 'number' && d.gap_bps !== 0 && (
-            <span class="gap small num">{d.gap_bps > 0 ? '+' : ''}{d.gap_bps.toFixed(0)} bps</span>
+            <span class="gap small num">{d.gap_bps > 0 ? '+' : ''}{(d.gap_bps / 100).toFixed(2)}% gap</span>
           )}
           {d.current_apy ? <span class="small muted num">in {pct(d.current_apy)} → best {pct(d.best_apy ?? 0)}</span> : null}
           {d.plan_hash && <span class="mono hash small">{d.plan_hash}</span>}
