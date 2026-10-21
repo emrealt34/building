@@ -59,17 +59,22 @@ Nobody has deposited anything. There is no TVL and no user count, and we do not 
 
 ## 4. The 30-day scope this award would fund
 
-**Goal: from read-only keeper to a testnet vault that a stranger can use and audit.**
+**Goal: from a tested vault to a testnet product a stranger can use and audit.**
 
-| # | Deliverable | Verifiable by |
-| --- | --- | --- |
-| 1 | Soroban `UserVault` (per-user, owner-authorised) + `IdleAdapter` | Contract id on testnet, source in repo |
-| 2 | On-chain policy check: `max_venue_bps`, `min_idle_bps`, `max_move_bps`, cooldown, NAV before/after | Integration test that fails on a value-losing move |
-| 3 | `BlendAdapter`, live on testnet USDC | Deposit → withdraw round trip, hashes published |
-| 4 | Permissionless `rebalance(plan)` that reverts on policy or NAV violation | A rejected transaction hash, published |
-| 5 | Passkey smart-account deposit/withdraw in the UI (unsigned XDR built client-side) | Working testnet flow + screen recording |
-| 6 | Freeze-on-deterioration: blocks new deposits, withdrawals stay open | Test proving withdrawal still works while frozen |
-| 7 | Public runbook + threat model page | `docs/` in repo |
+Items 2, 4 and 6 are already delivered in `contracts/ballast-vault` (12 tests, wasm built in CI),
+so the award buys deployment, a real adapter and the interface — not a rewrite.
+
+| # | Deliverable | Status | Verifiable by |
+| --- | --- | --- | --- |
+| 1 | Soroban `UserVault`: share accounting, owner rails | ✅ built | `contracts/ballast-vault`, 12 tests |
+| 2 | On-chain policy: `max_venue_bps`, `min_idle_bps`, `max_move_bps`, cooldown, NAV check | ✅ built | test `a_plan_that_loses_value_is_rejected` |
+| 3 | Permissionless `rebalance(plan)` that reverts on policy/NAV violation | ✅ built | test `anyone_can_rebalance_and_value_is_conserved` |
+| 4 | Freeze on deterioration: blocks new deposits, withdrawals stay open | ✅ built | tests `freeze_stops_automation…`, `a_frozen_venue_takes_no_new_money…` |
+| 5 | Testnet deployment with contract id published | ⏳ funded by this award | contract id on stellar.expert |
+| 6 | **BlendAdapter** against a real Blend pool on testnet | ⏳ funded | deposit → withdraw round trip with tx hashes |
+| 7 | Passkey smart account (OpenZeppelin) + deposit/withdraw in the UI, unsigned XDR built client-side | ⏳ funded | working testnet flow + recording |
+| 8 | A published rejected-move transaction (the proof that automation is bounded) | ⏳ funded | a failed tx hash anyone can open |
+| 9 | Runbook + incident response | ⏳ funded | `docs/` |
 
 Explicitly **out of scope** for 30 days: mainnet, real deposits, audit, marketing.
 
@@ -77,7 +82,7 @@ Explicitly **out of scope** for 30 days: mainnet, real deposits, audit, marketin
 
 | Line | USD | Why |
 | --- | --- | --- |
-| Contract development (vault, policy module, Blend adapter, tests) | 8,500 | ~3.5 weeks of focused work |
+| Blend adapter + testnet deployment + evidence (vault and policy module already shipped) | 8,500 | adapters, integration, tx-hash proofs |
 | Testnet deployment + QA + evidence (tx hashes, rejected-move proof) | 2,000 | The artefact reviewers can inspect |
 | Passkey smart-account integration (OZ + Stellar Wallets Kit) | 2,500 | The UX that makes "non-custodial" usable |
 | Docs, threat model, demo video, chapter demo session | 1,500 | Distribution of the result |
@@ -90,6 +95,9 @@ Deliverable-verified payments preferred; a 3-milestone split (contract / adapter
 
 * Repository: `https://github.com/emrealt34/building` — MIT, CI green, tests for the risk and policy packages.
 * Site: `https://emrealt34.github.io/building/` — static, rebuilt nightly from mainnet by GitHub Actions.
+* Contracts: `contracts/ballast-vault` — Soroban `UserVault`, 12 tests green, wasm built and size-capped in CI.
+* Cross-border measurement: `/borders` — a 37% lira rate returned +15.9% in dollars over the last year; India's
+  5.5% returned −1.8% after the rupee fell. Published because it argues against our own category.
 * Live numbers at time of writing: 12 venues observed, 2 eligible, blended **5.67%** at $1,000 with **$100** kept
   liquid, 10 refusals each with a reason.
 * Measured routing value: upper bound **+14 bps** over 90 days with perfect hindsight; realistic keeper **+27 bps/yr**,
@@ -98,9 +106,9 @@ Deliverable-verified payments preferred; a 3-milestone split (contract / adapter
 
 ## 7. Why us, why now, why this amount
 
-* The hard, unglamorous half (venue ingestion, risk model, policy engine, refusal UX, CI/CD, honest measurement) is
-  **already shipped and public**. The award buys the part that needs a contract and a security story, not a
-  prototype that would be thrown away.
+* The hard, unglamorous half (venue ingestion, risk model, policy engine, refusal UX, CI/CD, honest measurement,
+  **and now the vault contract with its policy checks and tests**) is already shipped and public. The award buys
+  deployment, a real adapter and the passkey interface — not a prototype that would be thrown away.
 * $15k is exactly one tranche of the work above; it converts a read-only keeper into a testnet product. The follow-on
   Build Award ask (Tranche 2) would be the audit + mainnet + passkey distribution.
 * The chapter gets a project it can point at: an auditable risk layer, open source, with a published number that
