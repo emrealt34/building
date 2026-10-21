@@ -40,7 +40,7 @@ jobs:
       - name: Check the build
         run: |
           test -f frontend/dist/index.html
-          grep -q "Total balance" frontend/dist/index.html
+          grep -q "Your savings" frontend/dist/index.html
           echo "$(find frontend/dist -name '*.html' | wc -l) HTML pages"
 
       - uses: actions/configure-pages@v5

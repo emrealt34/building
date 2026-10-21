@@ -79,8 +79,10 @@ jobs:
         run: |
           test -f dist/index.html
           test -f dist/venues/index.html
-          grep -q "Total balance" dist/index.html
-          grep -q "refused" dist/index.html
+          grep -q "Your savings" dist/index.html
+          grep -qi "refused" dist/index.html
+          test -f dist/cherry/index.html
+          grep -q "highest rate is not the highest return" dist/cherry/index.html
           echo "pages: $(find dist -name '*.html' | wc -l)"
 
       - uses: actions/upload-artifact@v5
