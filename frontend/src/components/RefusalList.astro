@@ -1,5 +1,5 @@
 ---
-import { href } from '../lib/url';
+import { href, venueHref } from '../lib/url';
 import { pct } from '../lib/format';
 import type { Refusal } from '../lib/types';
 
@@ -20,7 +20,7 @@ const shown = refusals.slice(0, 6);
       <li>
         <div class="top">
           <span class="apy num">{pct(r.apy)}</span>
-          <a class="lbl" href={href(`/venues/${r.venue_id}/`)}>{r.label}</a>
+          <a class="lbl" href={venueHref(r.venue_id)}>{r.label}</a>
         </div>
         <p class="why small">{r.reason}</p>
       </li>

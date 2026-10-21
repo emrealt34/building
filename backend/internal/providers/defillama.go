@@ -108,9 +108,9 @@ func (d *DefiLlama) Venues(ctx context.Context) ([]model.Venue, error) {
 
 // APYPoint is one daily observation.
 type APYPoint struct {
-	Date      string  `json:"date"`
-	APY       float64 `json:"apy"`
-	TVLUsd    float64 `json:"tvl_usd"`
+	Date   string  `json:"date"`
+	APY    float64 `json:"apy"`
+	TVLUsd float64 `json:"tvl_usd"`
 }
 
 // History returns the daily APY series for a pool id.

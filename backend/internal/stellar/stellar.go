@@ -161,9 +161,9 @@ func (c *Client) AccountBalance(ctx context.Context, address string) model.Accou
 	}
 	var payload struct {
 		Balances []struct {
-			AssetType   string `json:"asset_type"`
-			AssetCode   string `json:"asset_code"`
-			Balance     string `json:"balance"`
+			AssetType      string `json:"asset_type"`
+			AssetCode      string `json:"asset_code"`
+			Balance        string `json:"balance"`
 			LiquidityPools []struct {
 				Reserves []struct {
 					Asset  string `json:"asset"`

@@ -7,3 +7,11 @@ export const href = (path: string): string => `${base}${path.startsWith('/') ? p
 
 /** Base-aware link to a dashboard page for a given deposit amount. */
 export const depositHref = (deposit: number): string => href(`/d/${deposit}/`);
+
+/**
+ * Venue ids look like "blend-pools-v2:ecf788e3". A colon is a legal URL character but an
+ * illegal character in the file path GitHub Pages and its artifact uploader create, so
+ * the public route uses a slug and the id is carried along as page props.
+ */
+export const venueSlug = (id: string): string => id.replace(/[^a-zA-Z0-9._-]+/g, '-');
+export const venueHref = (id: string): string => href(`/venues/${venueSlug(id)}/`);

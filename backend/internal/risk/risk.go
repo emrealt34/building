@@ -242,8 +242,23 @@ func InputHash(v model.Venue) string {
 // ---- small helpers (kept local so the model stays dependency-free) ----
 
 func clamp(x, lo, hi float64) float64 { return max(lo, min(hi, x)) }
-func min(a, b float64) float64        { if a < b { return a }; return b }
-func max(a, b float64) float64        { if a > b { return a }; return b }
-func mabs(a float64) float64          { if a < 0 { return -a }; return a }
-func round1(x float64) float64        { return float64(int(x*10+0.5)) / 10 }
-func round2(x float64) float64        { return float64(int(x*100+0.5)) / 100 }
+func min(a, b float64) float64 {
+	if a < b {
+		return a
+	}
+	return b
+}
+func max(a, b float64) float64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+func mabs(a float64) float64 {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+func round1(x float64) float64 { return float64(int(x*10+0.5)) / 10 }
+func round2(x float64) float64 { return float64(int(x*100+0.5)) / 100 }

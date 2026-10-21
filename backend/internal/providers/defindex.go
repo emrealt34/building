@@ -26,7 +26,7 @@ func NewDeFindex() *DeFindex {
 }
 
 type defindexVault struct {
-	Address           string `json:"address"`
+	Address           string  `json:"address"`
 	APY               float64 `json:"apy"`
 	TotalManagedFunds []struct {
 		Asset       string `json:"asset"`

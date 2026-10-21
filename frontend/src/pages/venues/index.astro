@@ -1,5 +1,5 @@
 ---
-import { href } from '../../lib/url';
+import { href, venueHref } from '../../lib/url';
 import Base from '../../layouts/Base.astro';
 import VenueTable from '../../components/VenueTable.astro';
 import { api } from '../../lib/api';
@@ -42,7 +42,7 @@ const refused = list.filter((v) => !v.eligible);
       <tbody>
         {refused.map((v) => (
           <tr>
-            <td><a class="name" href={href(`/venues/${v.id}/`)}>{v.label}</a></td>
+            <td><a class="name" href={venueHref(v.id)}>{v.label}</a></td>
             <td class="right num">{pct(v.apy)}</td>
             <td class="right num"><span class="band" style={`color:${bandColor[v.risk.band]}`}>{v.risk.band}</span></td>
             <td class="small muted">{v.refusal}</td>

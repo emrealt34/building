@@ -19,13 +19,13 @@ import (
 )
 
 type Server struct {
-	Store    *store.Store
-	Stellar  *stellar.Client
-	LLama    *providers.DefiLlama
-	Policy   model.Policy
-	Network  string // "mainnet" | "testnet"
-	VaultID  string // UserVault contract id, empty until Tranche 2
-	Version  string
+	Store   *store.Store
+	Stellar *stellar.Client
+	LLama   *providers.DefiLlama
+	Policy  model.Policy
+	Network string // "mainnet" | "testnet"
+	VaultID string // UserVault contract id, empty until Tranche 2
+	Version string
 }
 
 func (s *Server) Routes() http.Handler {
@@ -61,16 +61,16 @@ func (s *Server) health(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) meta(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, map[string]any{
-		"product":            "Compass",
-		"chain":              "Stellar",
-		"asset":              "USDC",
-		"custody":            "non-custodial: the backend holds no key and signs nothing",
-		"automation":         "policy-bounded: the vault enforces caps, cooldowns and a NAV check",
-		"risk_model":         risk.Version,
-		"safety_registry":    providers.RegistryVersion,
-		"policy_version":     s.Policy.Version,
-		"api_version":        s.Version,
-		"vault_contract":     s.VaultID,
+		"product":         "Compass",
+		"chain":           "Stellar",
+		"asset":           "USDC",
+		"custody":         "non-custodial: the backend holds no key and signs nothing",
+		"automation":      "policy-bounded: the vault enforces caps, cooldowns and a NAV check",
+		"risk_model":      risk.Version,
+		"safety_registry": providers.RegistryVersion,
+		"policy_version":  s.Policy.Version,
+		"api_version":     s.Version,
+		"vault_contract":  s.VaultID,
 	})
 }
 
@@ -87,10 +87,10 @@ func (s *Server) policyDoc(w http.ResponseWriter, r *http.Request) {
 		"policy":  s.Policy,
 		"explain": "These parameters are what a user signs once. The vault cannot exceed them, and the keeper cannot bypass them.",
 		"chosen_by_measurement": map[string]string{
-			"cooldown_secs":           "average leadership between the two verified venues was ~6.7 days; a 7-day cooldown missed most switches",
-			"min_improvement_bps":     "below 25 bps the switch costs more attention than it earns",
-			"min_capacity_usd":        "venues under $100k cannot absorb our exit without moving the rate against us",
-			"max_venue_share_of_cap":  "capped at 2% of a venue so our own exit does not become the risk",
+			"cooldown_secs":          "average leadership between the two verified venues was ~6.7 days; a 7-day cooldown missed most switches",
+			"min_improvement_bps":    "below 25 bps the switch costs more attention than it earns",
+			"min_capacity_usd":       "venues under $100k cannot absorb our exit without moving the rate against us",
+			"max_venue_share_of_cap": "capped at 2% of a venue so our own exit does not become the risk",
 		},
 	})
 }

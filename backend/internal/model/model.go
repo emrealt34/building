@@ -51,7 +51,7 @@ type Venue struct {
 	APYReward    float64 `json:"apy_reward"`
 	APYMean30d   float64 `json:"apy_mean_30d,omitempty"`
 	TVLUSD       float64 `json:"tvl_usd"`
-	CapacityUSD  float64 `json:"capacity_usd"` // what we consider safely withdrawable
+	CapacityUSD  float64 `json:"capacity_usd"`              // what we consider safely withdrawable
 	UtilizationB float64 `json:"utilization_bps,omitempty"` // basis points, lending only
 	InstantExit  bool    `json:"instant_exit"`
 
@@ -61,8 +61,8 @@ type Venue struct {
 	LiveMonths          int        `json:"live_months"`
 	Upgradeable         bool       `json:"upgradeable"`
 	Oracle              string     `json:"oracle,omitempty"`
-	OracleQuality       float64    `json:"oracle_quality"`       // 0..1, higher is better
-	RewardDependence    float64    `json:"reward_dependence"`    // 0..1 share of yield from incentives
+	OracleQuality       float64    `json:"oracle_quality"`    // 0..1, higher is better
+	RewardDependence    float64    `json:"reward_dependence"` // 0..1 share of yield from incentives
 	YieldSourceVerified bool       `json:"yield_source_verified"`
 	Underlying          []string   `json:"underlying"`
 	Incidents           []Incident `json:"incidents,omitempty"`
@@ -125,13 +125,13 @@ func DefaultPolicy() Policy {
 }
 
 type PlanLeg struct {
-	VenueID  string   `json:"venue_id"`
-	Label    string   `json:"label"`
-	AmountUSD float64 `json:"amount_usd"`
-	WeightBps int     `json:"weight_bps"`
-	APY      float64  `json:"apy"`
-	RiskBand RiskBand `json:"risk_band"`
-	Risk     float64  `json:"risk"`
+	VenueID   string   `json:"venue_id"`
+	Label     string   `json:"label"`
+	AmountUSD float64  `json:"amount_usd"`
+	WeightBps int      `json:"weight_bps"`
+	APY       float64  `json:"apy"`
+	RiskBand  RiskBand `json:"risk_band"`
+	Risk      float64  `json:"risk"`
 }
 
 type Refusal struct {
@@ -142,47 +142,47 @@ type Refusal struct {
 }
 
 type Plan struct {
-	DepositUSD        float64    `json:"deposit_usd"`
-	Legs              []PlanLeg  `json:"legs"`
-	IdleUSD           float64    `json:"idle_usd"`
-	BlendedAPY        float64    `json:"blended_apy"`
-	PortfolioRisk     float64    `json:"portfolio_risk"`
-	PortfolioRiskBase float64    `json:"portfolio_risk_base"`
+	DepositUSD         float64   `json:"deposit_usd"`
+	Legs               []PlanLeg `json:"legs"`
+	IdleUSD            float64   `json:"idle_usd"`
+	BlendedAPY         float64   `json:"blended_apy"`
+	PortfolioRisk      float64   `json:"portfolio_risk"`
+	PortfolioRiskBase  float64   `json:"portfolio_risk_base"`
 	CorrelationPenalty float64   `json:"correlation_penalty"`
-	Refusals          []Refusal  `json:"refusals"`
-	PolicyVersion     string     `json:"policy_version"`
-	GeneratedAt       time.Time  `json:"generated_at"`
+	Refusals           []Refusal `json:"refusals"`
+	PolicyVersion      string    `json:"policy_version"`
+	GeneratedAt        time.Time `json:"generated_at"`
 }
 
 // Decision is one keeper evaluation, stored for the public decision log.
 type Decision struct {
-	At        time.Time `json:"at"`
-	Vault     string    `json:"vault"`
-	Action    string    `json:"action"` // "noop" | "proposed" | "skipped"
-	Reason    string    `json:"reason"`
-	PlanHash  string    `json:"plan_hash,omitempty"`
-	BestAPY   float64   `json:"best_apy,omitempty"`
-	CurrentAPY float64  `json:"current_apy,omitempty"`
-	GapBps    float64   `json:"gap_bps,omitempty"`
+	At         time.Time `json:"at"`
+	Vault      string    `json:"vault"`
+	Action     string    `json:"action"` // "noop" | "proposed" | "skipped"
+	Reason     string    `json:"reason"`
+	PlanHash   string    `json:"plan_hash,omitempty"`
+	BestAPY    float64   `json:"best_apy,omitempty"`
+	CurrentAPY float64   `json:"current_apy,omitempty"`
+	GapBps     float64   `json:"gap_bps,omitempty"`
 }
 
 // NetworkStatus is read live from Stellar RPC + Horizon.
 type NetworkStatus struct {
-	RPCHealthy     bool   `json:"rpc_healthy"`
-	LatestLedger   uint32 `json:"latest_ledger"`
-	Protocol       uint32 `json:"protocol"`
-	CloseTime      int64  `json:"close_time"`
-	BaseFeeStroops int64  `json:"base_fee_stroops"`
-	HorizonOK      bool   `json:"horizon_ok"`
+	RPCHealthy     bool      `json:"rpc_healthy"`
+	LatestLedger   uint32    `json:"latest_ledger"`
+	Protocol       uint32    `json:"protocol"`
+	CloseTime      int64     `json:"close_time"`
+	BaseFeeStroops int64     `json:"base_fee_stroops"`
+	HorizonOK      bool      `json:"horizon_ok"`
 	CheckedAt      time.Time `json:"checked_at"`
 }
 
 // AccountBalance is read from Horizon (classic account, non-custodial read only).
 type AccountBalance struct {
-	Address  string             `json:"address"`
-	Found    bool               `json:"found"`
-	Balances []AssetBalance     `json:"balances"`
-	Error    string             `json:"error,omitempty"`
+	Address  string         `json:"address"`
+	Found    bool           `json:"found"`
+	Balances []AssetBalance `json:"balances"`
+	Error    string         `json:"error,omitempty"`
 }
 
 type AssetBalance struct {

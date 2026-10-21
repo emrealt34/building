@@ -188,5 +188,5 @@ func ShouldMove(currentVenue, bestVenue model.Venue, daysSinceMove int, p model.
 	return true, fmt.Sprintf("Move %.0f bps of annual yield is worth the switch.", gap)
 }
 
-func round0(x float64) float64 { return float64(int(x+0.5)) }
+func round0(x float64) float64 { return float64(int(x + 0.5)) }
 func round2(x float64) float64 { return float64(int(x*100+0.5)) / 100 }

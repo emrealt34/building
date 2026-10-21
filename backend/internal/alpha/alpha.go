@@ -21,12 +21,12 @@ type series struct {
 }
 
 type VenueSeries struct {
-	VenueID string             `json:"venue_id"`
-	Label   string             `json:"label"`
-	Days    int                `json:"days"`
-	Mean    float64            `json:"mean_apy"`
-	Min     float64            `json:"min_apy"`
-	Max     float64            `json:"max_apy"`
+	VenueID string               `json:"venue_id"`
+	Label   string               `json:"label"`
+	Days    int                  `json:"days"`
+	Mean    float64              `json:"mean_apy"`
+	Min     float64              `json:"min_apy"`
+	Max     float64              `json:"max_apy"`
 	Series  []providers.APYPoint `json:"series"`
 }
 
@@ -45,18 +45,18 @@ type SimResult struct {
 }
 
 type Report struct {
-	WindowDays   int           `json:"window_days"`
-	GeneratedAt  time.Time     `json:"generated_at"`
-	Venues       []VenueSeries `json:"venues"`
-	UpperBoundUSD float64      `json:"upper_bound_usd"`   // perfect hindsight minus best single
-	BestSingle    string       `json:"best_single_label"`
-	BestSingleUSD float64      `json:"best_single_usd"`
-	PerfectUSD    float64      `json:"perfect_hindsight_usd"`
-	Sweeps        []SimResult  `json:"sweeps"`
-	Best          *SimResult   `json:"best"`
-	GapDays       int          `json:"days_gap_over_threshold"`
-	AvgGapBps     float64      `json:"avg_gap_bps"`
-	Note          string       `json:"note"`
+	WindowDays    int           `json:"window_days"`
+	GeneratedAt   time.Time     `json:"generated_at"`
+	Venues        []VenueSeries `json:"venues"`
+	UpperBoundUSD float64       `json:"upper_bound_usd"` // perfect hindsight minus best single
+	BestSingle    string        `json:"best_single_label"`
+	BestSingleUSD float64       `json:"best_single_usd"`
+	PerfectUSD    float64       `json:"perfect_hindsight_usd"`
+	Sweeps        []SimResult   `json:"sweeps"`
+	Best          *SimResult    `json:"best"`
+	GapDays       int           `json:"days_gap_over_threshold"`
+	AvgGapBps     float64       `json:"avg_gap_bps"`
+	Note          string        `json:"note"`
 }
 
 // Analyse downloads history for the given pools and runs the keeper simulation.

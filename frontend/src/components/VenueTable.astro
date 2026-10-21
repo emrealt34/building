@@ -1,5 +1,5 @@
 ---
-import { href } from '../lib/url';
+import { href, venueHref } from '../lib/url';
 import { pct, usd, compactUSD, bandLabel, bandColor } from '../lib/format';
 import type { Venue } from '../lib/types';
 
@@ -28,7 +28,7 @@ const rows = limit ? venues.slice(0, limit) : venues;
         {rows.map((v) => (
           <tr class={v.eligible ? '' : 'refused'}>
             <td>
-              <a class="name" href={href(`/venues/${v.id}/`)}>{v.label}</a>
+              <a class="name" href={venueHref(v.id)}>{v.label}</a>
               <div class="small muted">{v.underlying.join(' → ')}</div>
               {!v.eligible && v.refusal && <div class="reason small" title={v.refusal}>{v.refusal}</div>}
             </td>

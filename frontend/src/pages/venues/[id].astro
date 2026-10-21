@@ -1,5 +1,5 @@
 ---
-import { href } from '../../lib/url';
+import { href, venueSlug } from '../../lib/url';
 import Base from '../../layouts/Base.astro';
 import RiskBars from '../../components/RiskBars.astro';
 import { api } from '../../lib/api';
@@ -10,10 +10,13 @@ import { pct, usd, compactUSD, sparkline } from '../../lib/format';
 // venue appears on the next build without touching this file.
 export async function getStaticPaths() {
   const list = await api.venues(1000);
-  return (list?.venues ?? []).map((v) => ({ params: { id: v.id } }));
+  return (list?.venues ?? []).map((v) => ({
+    params: { id: venueSlug(v.id) },
+    props: { venueId: v.id },
+  }));
 }
 
-const id = Astro.params.id as string;
+const id = Astro.props.venueId as string;
 const deposit = 1_000;
 const [detail, hist, meta, network] = await Promise.all([
   api.venue(id, deposit),
