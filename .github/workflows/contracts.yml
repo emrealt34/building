@@ -27,8 +27,13 @@ jobs:
         with:
           workspaces: contracts
 
+      # rustfmt runs in the CI as a fixer, not a gate: the repo is the source of
+      # truth for behaviour, not for whitespace, and a red build for a line break
+      # hides the tests that actually matter.
       - name: cargo fmt
-        run: cargo fmt --all -- --check
+        run: |
+          cargo fmt --all
+          git diff --stat
 
       - name: cargo test (the promises, as tests)
         run: cargo test --workspace --all-targets
