@@ -3,6 +3,9 @@ members = ["ballast-vault"]
 resolver = "2"
 
 [profile.release]
+# Soroban refuses a release profile without overflow checks: silent integer overflow
+# in a vault is a money bug, so panicking is the correct behaviour.
+overflow-checks = true
 opt-level = "z"
 lto = true
 codegen-units = 1
