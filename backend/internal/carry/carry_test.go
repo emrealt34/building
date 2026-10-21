@@ -42,6 +42,20 @@ func TestBandNeverRewardsAHighRateAlone(t *testing.T) {
 	}
 }
 
+// A currency walked down a little every day shows no drawdown and no volatility, but
+// the user still loses. The slide gate is what stops that being graded calm.
+func TestASmoothCrawlIsNotACalmCurrency(t *testing.T) {
+	real := 6.0
+	crawl := Row{PolicyRate: 37, RealRate: &real, VolAnnual: 1.5, MaxDrawdown: 0.4, CurrencyMove: -15.4}
+	if got := band(crawl); got == "A" || got == "B" {
+		t.Fatalf("band for a 15%% crawl = %s, want C or worse", got)
+	}
+	steady := Row{PolicyRate: 6, RealRate: &real, VolAnnual: 4, MaxDrawdown: 3, CurrencyMove: -2}
+	if got := band(steady); got != "A" {
+		t.Fatalf("band for a stable currency = %s, want A", got)
+	}
+}
+
 func TestAnnualVolOfFlatSeriesIsZero(t *testing.T) {
 	dates := []string{"d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12"}
 	rates := map[string]map[string]float64{}

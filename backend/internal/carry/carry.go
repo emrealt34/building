@@ -232,21 +232,25 @@ func Analyse(ctx context.Context, c *http.Client, benchmark float64, now time.Ti
 	return report, nil
 }
 
-// band grades currency risk. Volatility alone is not enough: a managed currency
-// can be calm for months and then step 20% in a week, so the worst drawdown counts
-// as much as the day-to-day noise.
+// band grades currency risk. Volatility alone is not enough: a managed currency can
+// be calm for months and then step 20% in a week, so the worst drawdown counts as much
+// as the day-to-day noise. Nor is drawdown enough on its own: a currency that is walked
+// down steadily — a couple of basis points every single day — shows almost no drawdown
+// and almost no volatility, yet still hands the user a 15% loss over the year. So the
+// twelve-month slide is a third gate: a smooth crawl is not a calm currency.
 func band(r Row) string {
 	vol, dd := r.VolAnnual, r.MaxDrawdown
+	slide := -r.CurrencyMove // positive = the currency bought fewer dollars over the year
 	real := 0.0
 	if r.RealRate != nil {
 		real = *r.RealRate
 	}
 	switch {
-	case vol <= 5 && dd <= 10 && real >= 1:
+	case vol <= 5 && dd <= 10 && slide <= 5 && real >= 1:
 		return "A"
-	case vol <= 8 && dd <= 18 && real >= -1:
+	case vol <= 8 && dd <= 18 && slide <= 12 && real >= -1:
 		return "B"
-	case vol <= 15 && dd <= 30:
+	case vol <= 15 && dd <= 30 && slide <= 25:
 		return "C"
 	default:
 		return "D"

@@ -144,8 +144,9 @@ const money = (n: number) =>
           </ul>
           <p class="small muted">
             Turkey is the clearest case: 33 points of extra yield, and the lira lost
-            {' '}{Math.abs(rows.find((r) => r.code === 'TR')?.currency_move_pct ?? 0).toFixed(1)} points of it last year.
-            You were paid, but a third of the income was the currency deciding not to move — not the bank paying you.
+            {' '}{Math.abs(rows.find((r) => r.code === 'TR')?.currency_move_pct ?? 0).toFixed(1)} points of that last year —
+            which is why it is graded stretched here despite barely any daily noise. You were paid, but a third of
+            the income was the currency deciding to hold still.
           </p>
         </div>
 
@@ -153,7 +154,9 @@ const money = (n: number) =>
           <h2>Why the calm country is not always the safe one</h2>
           <p class="small muted">
             Volatility alone gives managed currencies a flattering grade: they are quiet for months, then step.
-            We therefore grade on the worst peak-to-trough move of the year as well as the noise.
+            So the grade uses three things at once — the day-to-day noise, the worst peak-to-trough move of the
+            year, and where the currency actually finished the year. A currency walked down a few points a day
+            scores clean on the first two and still costs you 15%.
           </p>
           <ul class="dd">
             {rows.filter((r) => r.verdict !== 'base').map((r) => (
