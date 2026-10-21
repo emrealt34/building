@@ -1,0 +1,54 @@
+name: Deploy backend
+
+# The public site is static and served by GitHub Pages. The API is a separate thing:
+# a small Go service on Render that answers the same handlers, so the product has a
+# live backend and not only a build-time snapshot.
+#
+# Render already auto-deploys on push; this job makes the deployment visible in the
+# same place as the tests, and fails loudly if the service is not answering afterwards.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger a Render deploy
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: srv-dbcfnboae00c73a4dipg
+        run: |
+          if [ -z "${RENDER_API_KEY:-}" ]; then
+            echo "RENDER_API_KEY is not set; Render auto-deploy on push is doing the work."
+            exit 0
+          fi
+          curl -sS -X POST "https://api.render.com/v1/services/$SERVICE_ID/deploys" \
+            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"clearCache":"do_not_clear"}' | head -c 400
+
+      - name: Wait for the API to answer
+        run: |
+          url="https://keelson-api.onrender.com/api/v1/health"
+          for i in $(seq 1 30); do
+            if curl -fsS --max-time 10 "$url" | grep -q '"status": *"ok"'; then
+              echo "API is healthy: $(curl -fsS "$url")"
+              exit 0
+            fi
+            echo "attempt $i: not up yet"; sleep 20
+          done
+          echo "API did not come up in time" >&2
+          exit 1
