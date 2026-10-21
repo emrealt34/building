@@ -172,7 +172,9 @@ fn deposit_and_withdraw_round_trip() {
 
 #[test]
 fn anyone_can_rebalance_and_value_is_conserved() {
-    let ctx = setup(policy());
+    let mut p = policy();
+    p.max_move_bps = 10_000;
+    let ctx = setup(p);
     let v = UserVaultClient::new(&ctx.env, &ctx.vault);
     v.deposit(&ctx.alice, &100_000);
     v.deposit(&ctx.bob, &100_000);
@@ -196,15 +198,18 @@ fn a_single_venue_cannot_take_everything() {
 
 #[test]
 fn the_liquid_floor_is_not_negotiable() {
-    let ctx = setup(policy());
+    // A policy that allows 95% in one venue, so the venue cap cannot be the thing that
+    // saves us: only the liquid floor is left to reject the plan.
+    let mut p = policy();
+    p.max_venue_bps = 9_500;
+    p.max_move_bps = 10_000;
+    let ctx = setup(p);
     let v = UserVaultClient::new(&ctx.env, &ctx.vault);
     v.deposit(&ctx.alice, &100_000);
 
-    // 60% is within the venue cap but would leave only 40%… still above 10%, so this
-    // passes; 95% would not.
     let err = v.try_rebalance(&plan(&ctx, 95_000)).unwrap_err().unwrap();
-    assert_eq!(err, Error::VenueCap, "95% also breaks the venue cap");
-    assert!(v.try_rebalance(&plan(&ctx, 60_000)).is_ok());
+    assert_eq!(err, Error::IdleFloor, "5% left liquid is below the 10% floor");
+    assert!(v.try_rebalance(&plan(&ctx, 60_000)).is_ok(), "60% leaves 40% liquid");
 }
 
 #[test]
@@ -238,9 +243,14 @@ fn a_plan_that_loses_value_is_rejected() {
     let v = UserVaultClient::new(&ctx.env, &ctx.vault);
     v.deposit(&ctx.alice, &100_000);
 
-    // The venue will only return 95% on exit: the NAV check must refuse the move.
+    // Deploy first…
+    v.rebalance(&plan(&ctx, 50_000));
+    assert_eq!(v.total_assets(), 100_000);
+
+    // …then make the venue return only 95% on exit. Pulling the money back is a move
+    // that destroys 2,500 of value, and the NAV check must refuse it.
     MockVenueClient::new(&ctx.env, &ctx.venue).set_haircut(&500);
-    let err = v.try_rebalance(&plan(&ctx, 50_000)).unwrap_err().unwrap();
+    let err = v.try_rebalance(&plan(&ctx, 20_000)).unwrap_err().unwrap();
     assert_eq!(err, Error::Slippage);
     assert_eq!(v.total_assets(), 100_000, "state rolled back with the error");
 }
