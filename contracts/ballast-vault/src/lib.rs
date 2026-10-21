@@ -139,7 +139,7 @@ impl UserVault {
             return Err(Error::Paused);
         }
 
-        let total_assets = Self::total_assets(&env);
+        let total_assets = Self::total_assets(env.clone());
         let total_shares = Self::total_shares(&env);
         let shares = if total_shares == 0 || total_assets == 0 {
             amount
@@ -183,7 +183,7 @@ impl UserVault {
             return Err(Error::InsufficientShares);
         }
 
-        let total_assets = Self::total_assets(&env);
+        let total_assets = Self::total_assets(env.clone());
         let total_shares = Self::total_shares(&env);
         if total_shares == 0 {
             return Err(Error::InsufficientShares);
@@ -249,7 +249,7 @@ impl UserVault {
             return Err(Error::Paused);
         }
 
-        let policy = Self::policy(&env);
+        let policy = Self::policy(env.clone());
         let now = env.ledger().timestamp();
         let last: u64 = env
             .storage()
@@ -264,7 +264,7 @@ impl UserVault {
         }
 
         let registered = Self::adapters(&env);
-        let nav_before = Self::total_assets(&env);
+        let nav_before = Self::total_assets(env.clone());
 
         // Target per adapter, and the per-venue cap.
         let venue_cap = nav_before * policy.max_venue_bps as i128 / BPS;
@@ -330,7 +330,7 @@ impl UserVault {
         }
 
         // Value check: the plan must not have destroyed value on the way through.
-        let nav_after = Self::total_assets(&env);
+        let nav_after = Self::total_assets(env.clone());
         let floor = nav_before * (BPS - policy.max_slippage_bps as i128) / BPS;
         if nav_after < floor {
             return Err(Error::Slippage);
@@ -433,9 +433,9 @@ impl UserVault {
     pub fn state(env: Env) -> VaultState {
         VaultState {
             idle: Self::idle(&env),
-            total_assets: Self::total_assets(&env),
+            total_assets: Self::total_assets(env.clone()),
             total_shares: Self::total_shares(&env),
-            policy: Self::policy(&env),
+            policy: Self::policy(env.clone()),
             frozen: Self::frozen(&env),
             paused: Self::paused(&env),
             last_rebalance: env
@@ -469,7 +469,7 @@ impl UserVault {
         if shares == 0 {
             return 1_000_000;
         }
-        Self::total_assets(&env) * 1_000_000 / shares
+        Self::total_assets(env.clone()) * 1_000_000 / shares
     }
 
     pub fn positions(env: Env) -> Vec<Position> {
