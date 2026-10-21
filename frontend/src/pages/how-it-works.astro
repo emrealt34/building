@@ -86,6 +86,33 @@ const honest = [
     </div>
   </div>
 
+  <div class="card stack">
+    <h2>You do not have to believe any of this</h2>
+    <p class="small">
+      Every promise above is enforced by code that is running on a public test network, and every step is a
+      transaction you can open yourself. No real money is involved: this is the rehearsal, and it is public on
+      purpose.
+    </p>
+    <div class="grid g3">
+      <div class="proof">
+        <span class="k">Put money in</span>
+        <a href="https://stellar.expert/explorer/testnet/tx/02218da803ba7e389a2da1018dda1f239b7288d8cc67cb82db4472f21121673a" rel="noopener">Deposit, 100 units</a>
+      </div>
+      <div class="proof">
+        <span class="k">Take it out</span>
+        <a href="https://stellar.expert/explorer/testnet/tx/b21cb35b6d39df5cd160fc5cec6ed90d79aa8f7483d73c57987b78fd45019cd0" rel="noopener">Withdrawal, 40 units</a>
+      </div>
+      <div class="proof">
+        <span class="k">Refuse a bad move</span>
+        <span class="small muted">A move to an unknown place is rejected by the account itself — the transaction never happens.</span>
+      </div>
+    </div>
+    <p class="small muted">
+      The account that holds the money:
+      <span class="mono">CDXAAVRFWPUNJRTTGBK66LLG2CZZYNHVCQ7P5AZZSQDTEMLP7M5DVTY6</span> (test network).
+    </p>
+  </div>
+
   <div class="card stack callout">
     <h2>What we will not pretend</h2>
     <ul class="no">
@@ -138,6 +165,10 @@ const honest = [
   .mt { margin-top: 12px; }
   .callout { background: #FFFCF6; border-color: #E8DCC6; }
   .no { margin: 0 0 10px 18px; padding: 0; font-size: 13px; line-height: 1.75; color: #4A3D2C; }
+  .proof { background: #FFFDF8; border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+  .proof .k { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 4px; }
+  .proof a { color: var(--brand); font-weight: 600; font-size: 13px; }
+  .proof a:hover { text-decoration: underline; }
   .quote { background: var(--brand-soft); border-radius: 14px; padding: 18px; display: grid; place-items: center; }
   .quote p { margin: 0; font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 17px; line-height: 1.45; color: var(--brand-ink); }
 </style>

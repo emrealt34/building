@@ -21,6 +21,10 @@ Go backend (read-only, no keys)  →  frozen JSON snapshot  →  Astro static si
 | ✅ Working | **`UserVault` (Soroban)** — policy enforced on-chain, permissionless rebalance, NAV check, freeze/timelock, 12 tests, wasm built in CI. Not deployed to testnet yet, and the keeper still proposes off-chain only. |
 | ✅ Working | **Cross-border carry measurement** (`/borders`): what a dollar actually earned in TR/BR/MX/IN/EU after the currency moved, with volatility and worst drawdown. Real data, published as a measurement, not a product. |
 | ✅ Working | **`BlendAdapter` (Soroban)** — supplies USDC to a real Blend pool using Blend's own contract SDK, values the position from the pool's exchange rate, and only ever files a supply request (no collateral, no borrowing). Withdrawals always pay the vault. 7 tests, wasm 7.3 KB. Not yet wired to a live testnet pool. |
+| ✅ Live (testnet) | **Vault deployed and used on Stellar testnet**: deposit, withdraw, and a refused rebalance, each with a public transaction. See [`docs/TESTNET.md`](docs/TESTNET.md). |
+| ✅ Live | **Backend on Render** (`https://keelson-api.onrender.com`) serving the same read-only API, deployed from `main` on every push. |
+| ✅ Automatic | **Hourly data refresh** — GitHub Actions re-runs the backend against mainnet every hour, regenerates the snapshot and republishes the site. |
+| ⚠️ Partly | **Cherry picking** (`/cherry`, `GET /api/v1/cherry`): every country ranked by net return after currency, inflation and our fee, with three switching rules replayed over the year. The engine is built and honest about its own bad result; what is not built is access to a foreign deposit, which needs a licensed bank and is out of scope. |
 | ❌ Not built | Passkey smart account, signed-XDR wallet flow in the UI, third-party audit. The site says so on `/how-it-works`. |
 
 No fake traction: there are no deposits, no TVL, no users. What exists is a working, auditable pipeline and a
