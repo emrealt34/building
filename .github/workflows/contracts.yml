@@ -63,7 +63,7 @@ jobs:
       - name: Report artifact sizes
         run: |
           ls -lh target/wasm32v1-none/release/*.wasm
-          for f in target/wasm32v1-none/release/*.wasm contracts/keelson-blend-adapter/target/wasm32v1-none/release/*.wasm; do
+          for f in target/wasm32v1-none/release/*.wasm keelson-blend-adapter/target/wasm32v1-none/release/*.wasm; do
             size=$(stat -c%s "$f")
             echo "$f: $size bytes"
             test "$size" -lt 120000 || { echo "wasm over 120KB, tighten it"; exit 1; }
