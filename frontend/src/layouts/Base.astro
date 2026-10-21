@@ -15,6 +15,7 @@ const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, 
 const isActive = (p: string) => (p === '/' ? path === '/' || path.startsWith('/d/') : path.startsWith(p));
 const nav = [
   { p: '/', label: 'Home' },
+  { p: '/cherry', label: 'Best rate' },
   { p: '/borders', label: 'Countries' },
   { p: '/venues', label: 'Where it sits' },
   { p: '/evidence', label: 'Track record' },

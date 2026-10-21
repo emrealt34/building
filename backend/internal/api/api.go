@@ -12,6 +12,7 @@ import (
 
 	"github.com/emrealt34/keelson/backend/internal/alpha"
 	"github.com/emrealt34/keelson/backend/internal/carry"
+	"github.com/emrealt34/keelson/backend/internal/cherry"
 	"github.com/emrealt34/keelson/backend/internal/model"
 	"github.com/emrealt34/keelson/backend/internal/policy"
 	"github.com/emrealt34/keelson/backend/internal/providers"
@@ -44,6 +45,7 @@ func (s *Server) Routes() http.Handler {
 	mux.HandleFunc("GET /api/v1/decisions", s.decisions)
 	mux.HandleFunc("GET /api/v1/alpha", s.alphaReport)
 	mux.HandleFunc("GET /api/v1/carry", s.carryReport)
+	mux.HandleFunc("GET /api/v1/cherry", s.cherryReport)
 	mux.HandleFunc("GET /api/v1/accounts/{address}", s.account)
 	mux.HandleFunc("POST /api/v1/intents/deposit", s.intentDeposit)
 	mux.HandleFunc("POST /api/v1/intents/withdraw", s.intentWithdraw)
@@ -285,6 +287,24 @@ func queryInt(r *http.Request, key string, def int) int {
 
 // carryReport measures what a dollar deposit in another currency actually paid,
 // after the currency moved. It is the honest counterweight to headline rates.
+// cherryReport ranks countries by what a dollar actually earned after the currency
+// moved, after local inflation and after our fee — and replays three ways of
+// choosing over the same year so the difference is visible rather than asserted.
+func (s *Server) cherryReport(w http.ResponseWriter, r *http.Request) {
+	ctx, cancel := context.WithTimeout(r.Context(), 20*time.Second)
+	defer cancel()
+	client := s.HTTP
+	if client == nil {
+		client = &http.Client{Timeout: 20 * time.Second}
+	}
+	rep, err := cherry.Analyse(ctx, client, time.Now().UTC())
+	if err != nil {
+		writeJSON(w, http.StatusBadGateway, map[string]string{"error": err.Error()})
+		return
+	}
+	writeJSON(w, http.StatusOK, rep)
+}
+
 func (s *Server) carryReport(w http.ResponseWriter, r *http.Request) {
 	client := s.HTTP
 	if client == nil {

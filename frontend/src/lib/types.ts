@@ -214,3 +214,39 @@ export interface CarryReport {
   rows: CarryRow[];
   note: string;
 }
+
+// ---- cherry picking (net return across countries) ------------------------------
+
+export interface CherryMarket {
+  code: string; country: string; currency: string;
+  rate_name: string; source: string; as_of: string;
+  policy_rate: number; inflation_pct: number;
+  fx_move_pct: number;
+  gross_usd_pct: number;
+  net_usd_pct: number;
+  real_usd_pct: number;
+  real_local_pct: number;
+  days: number;
+}
+
+export interface CherryLeg {
+  from: string; to: string; code: string; country: string;
+  return_pct: number; chosen_on_pct: number;
+}
+
+export interface CherryStrategy {
+  key: string; label: string; return_pct: number; note: string; legs?: CherryLeg[];
+}
+
+export interface CherryReport {
+  version: string;
+  window_days: number;
+  start: string;
+  end: string;
+  fee_bps: number;
+  us_inflation_pct: number;
+  markets: CherryMarket[];
+  strategies: CherryStrategy[];
+  note: string;
+  registry: string;
+}

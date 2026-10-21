@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T17:44:41.945996716Z",
+ "generated_at": "2026-10-21T17:51:16.772267301Z",
  "note": "Frozen read API. This static site renders this snapshot; run the Go backend for live data.",
  "deposits": [
   100,
@@ -10,7 +10,7 @@
  "responses": {
   "/api/v1/alpha?days=90": {
    "window_days": 90,
-   "generated_at": "2026-10-21T17:44:41.947575618Z",
+   "generated_at": "2026-10-21T17:51:16.773612094Z",
    "venues": [
     {
      "venue_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
@@ -1331,7 +1331,7 @@
   "/api/v1/carry": {
    "version": "carry-model-v1.0",
    "registry": "rates-2026-10-21",
-   "generated_at": "2026-10-21T17:44:42.005307876Z",
+   "generated_at": "2026-10-21T17:51:16.86764948Z",
    "window_days": 256,
    "benchmark_apy": 5.67,
    "rows": [
@@ -1460,6 +1460,392 @@
    ],
    "note": "Real one-year return of a dollar deposited at each country's central bank rate, converted back to dollars at today's rate. Uses the actual currency path, not a forecast. A managed currency can post a low volatility and still step sharply; the drawdown column exists for that. Not an offer, not advice, and not a product: no cross-border deposit is available through Keelson."
   },
+  "/api/v1/cherry": {
+   "version": "cherry-model-v1.0",
+   "window_days": 365,
+   "start": "2025-10-21",
+   "end": "2026-10-21",
+   "fee_bps": 50,
+   "us_inflation_pct": 3.7,
+   "markets": [
+    {
+     "code": "BR",
+     "country": "Brazil",
+     "currency": "BRL",
+     "rate_name": "Selic rate",
+     "source": "BCB Copom, 2026-09-16",
+     "as_of": "2026-09-16",
+     "policy_rate": 13.75,
+     "inflation_pct": 4.58,
+     "fx_move_pct": 7.24,
+     "gross_usd_pct": 21.98,
+     "net_usd_pct": 21.48,
+     "real_usd_pct": 17.15,
+     "real_local_pct": 9.17,
+     "days": 365
+    },
+    {
+     "code": "TR",
+     "country": "Türkiye",
+     "currency": "TRY",
+     "rate_name": "CBRT rate",
+     "source": "CBRT MPC 2026-09-10; TÜİK CPI Sep 2026",
+     "as_of": "2026-09-10",
+     "policy_rate": 37,
+     "inflation_pct": 29.73,
+     "fx_move_pct": -15.39,
+     "gross_usd_pct": 15.91,
+     "net_usd_pct": 15.41,
+     "real_usd_pct": 11.29,
+     "real_local_pct": 7.27,
+     "days": 365
+    },
+    {
+     "code": "MX",
+     "country": "Mexico",
+     "currency": "MXN",
+     "rate_name": "Banxico rate",
+     "source": "Banxico, 2026-09-24",
+     "as_of": "2026-09-24",
+     "policy_rate": 6.5,
+     "inflation_pct": 3.45,
+     "fx_move_pct": -0.24,
+     "gross_usd_pct": 6.24,
+     "net_usd_pct": 5.74,
+     "real_usd_pct": 1.97,
+     "real_local_pct": 3.05,
+     "days": 365
+    },
+    {
+     "code": "US",
+     "country": "United States",
+     "currency": "USD",
+     "rate_name": "Fed funds rate",
+     "source": "Federal Reserve H.15, 2026-10-20",
+     "as_of": "2026-10-20",
+     "policy_rate": 3.88,
+     "inflation_pct": 3.7,
+     "fx_move_pct": 0,
+     "gross_usd_pct": 3.88,
+     "net_usd_pct": 3.38,
+     "real_usd_pct": -0.31,
+     "real_local_pct": 0.18,
+     "days": 365
+    },
+    {
+     "code": "EU",
+     "country": "Euro area",
+     "currency": "EUR",
+     "rate_name": "ECB rate",
+     "source": "ECB, effective 2026-09-16",
+     "as_of": "2026-09-16",
+     "policy_rate": 2.5,
+     "inflation_pct": 3.8,
+     "fx_move_pct": -3.21,
+     "gross_usd_pct": -0.79,
+     "net_usd_pct": -1.29,
+     "real_usd_pct": -4.81,
+     "real_local_pct": -1.3,
+     "days": 365
+    },
+    {
+     "code": "IN",
+     "country": "India",
+     "currency": "INR",
+     "rate_name": "RBI rate",
+     "source": "RBI MPC, 2026-10-07",
+     "as_of": "2026-10-07",
+     "policy_rate": 5.5,
+     "inflation_pct": 5.54,
+     "fx_move_pct": -6.88,
+     "gross_usd_pct": -1.76,
+     "net_usd_pct": -2.26,
+     "real_usd_pct": -5.75,
+     "real_local_pct": -0.04,
+     "days": 365
+    }
+   ],
+   "strategies": [
+    {
+     "key": "nominal",
+     "label": "Chase the headline rate",
+     "return_pct": 12.11,
+     "note": "Every month, move to whichever country advertises the highest rate. The intuitive strategy, and the one the advert wants.",
+     "legs": [
+      {
+       "from": "2025-11-03",
+       "to": "2025-11-28",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 1.1,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2025-12-01",
+       "to": "2025-12-31",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 1.41,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-01-02",
+       "to": "2026-01-30",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 1.36,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-02-02",
+       "to": "2026-02-27",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 1.09,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-03-02",
+       "to": "2026-03-31",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 1.33,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-04-01",
+       "to": "2026-04-30",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.9,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-05-04",
+       "to": "2026-05-29",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.65,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-06-01",
+       "to": "2026-06-30",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.85,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-07-01",
+       "to": "2026-07-31",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.78,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-08-03",
+       "to": "2026-08-31",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.9,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-09-01",
+       "to": "2026-09-30",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.98,
+       "chosen_on_pct": 37
+      },
+      {
+       "from": "2026-10-01",
+       "to": "2026-10-21",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.57,
+       "chosen_on_pct": 37
+      }
+     ]
+    },
+    {
+     "key": "net",
+     "label": "Chase the net return, monthly",
+     "return_pct": 4.93,
+     "note": "Every month, move to whichever country actually paid the most in dollars the month before — after the currency moved.",
+     "legs": [
+      {
+       "from": "2025-11-03",
+       "to": "2025-11-28",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 1.1,
+       "chosen_on_pct": 0.01
+      },
+      {
+       "from": "2025-12-01",
+       "to": "2025-12-31",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": 2.23,
+       "chosen_on_pct": 0.01
+      },
+      {
+       "from": "2026-01-02",
+       "to": "2026-01-30",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": 4.31,
+       "chosen_on_pct": 0.02
+      },
+      {
+       "from": "2026-02-02",
+       "to": "2026-02-27",
+       "code": "BR",
+       "country": "Brazil",
+       "return_pct": 2.84,
+       "chosen_on_pct": 0.05
+      },
+      {
+       "from": "2026-03-02",
+       "to": "2026-03-31",
+       "code": "BR",
+       "country": "Brazil",
+       "return_pct": 0.69,
+       "chosen_on_pct": 0.03
+      },
+      {
+       "from": "2026-04-01",
+       "to": "2026-04-30",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.9,
+       "chosen_on_pct": 0.01
+      },
+      {
+       "from": "2026-05-04",
+       "to": "2026-05-29",
+       "code": "BR",
+       "country": "Brazil",
+       "return_pct": -0.7,
+       "chosen_on_pct": 0.05
+      },
+      {
+       "from": "2026-06-01",
+       "to": "2026-06-30",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": -0.31,
+       "chosen_on_pct": 0.01
+      },
+      {
+       "from": "2026-07-01",
+       "to": "2026-07-31",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.78,
+       "chosen_on_pct": 0.01
+      },
+      {
+       "from": "2026-08-03",
+       "to": "2026-08-31",
+       "code": "BR",
+       "country": "Brazil",
+       "return_pct": -1.04,
+       "chosen_on_pct": 0.04
+      },
+      {
+       "from": "2026-09-01",
+       "to": "2026-09-30",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": -5.74,
+       "chosen_on_pct": 0.02
+      },
+      {
+       "from": "2026-10-01",
+       "to": "2026-10-21",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.57,
+       "chosen_on_pct": 0.01
+      }
+     ]
+    },
+    {
+     "key": "net",
+     "label": "Chase the net return, quarterly",
+     "return_pct": 2.3,
+     "note": "The same rule, but only allowed to move once a quarter. Fewer moves, less whipsaw, and the number we would actually ship.",
+     "legs": [
+      {
+       "from": "2026-01-02",
+       "to": "2026-03-31",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": 1.12,
+       "chosen_on_pct": 0.04
+      },
+      {
+       "from": "2026-04-01",
+       "to": "2026-06-30",
+       "code": "BR",
+       "country": "Brazil",
+       "return_pct": 2.86,
+       "chosen_on_pct": 0.07
+      },
+      {
+       "from": "2026-07-01",
+       "to": "2026-09-30",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": -1.73,
+       "chosen_on_pct": 0.04
+      },
+      {
+       "from": "2026-10-01",
+       "to": "2026-10-21",
+       "code": "TR",
+       "country": "Türkiye",
+       "return_pct": 0.57,
+       "chosen_on_pct": 0.03
+      }
+     ]
+    },
+    {
+     "key": "commit",
+     "label": "Rank once, then leave it alone",
+     "return_pct": 2.08,
+     "note": "Mexico won the first quarter on net return (3.85%) and was then left alone for the rest of the year. Rank the countries on the first three months, put the money in the winner, and do not touch it again. No hindsight, no churn — the honest test of whether the ranking is useful.",
+     "legs": [
+      {
+       "from": "2026-01-02",
+       "to": "2026-10-21",
+       "code": "MX",
+       "country": "Mexico",
+       "return_pct": 2.08,
+       "chosen_on_pct": 3.85
+      }
+     ]
+    },
+    {
+     "key": "best_single",
+     "label": "Pick the winner in hindsight",
+     "return_pct": 21.48,
+     "note": "Brazil, held for the whole window. Impossible in advance; the number to beat."
+    },
+    {
+     "key": "usd",
+     "label": "Leave the dollars alone",
+     "return_pct": 0,
+     "note": "The baseline: dollars earning the US rate. No currency risk, nothing to watch."
+    }
+   ],
+   "note": "Net return is what a dollar actually earned: the local central bank rate, multiplied by the currency's actual move against the dollar, minus our fee, measured against US inflation. This is a measurement of public data, not a product: we cannot open a deposit in another country for you, and nothing here is an offer.",
+   "registry": "2026-10-21"
+  },
   "/api/v1/decisions": {
    "decisions": [],
    "note": "Every check we made, including the ones where we did nothing. A log that only shows the moves that worked is advertising, not a log."
@@ -1468,9 +1854,9 @@
    "network": "mainnet",
    "provider_error": "",
    "status": "ok",
-   "time": "2026-10-21T17:44:41.946274779Z",
+   "time": "2026-10-21T17:51:16.772625369Z",
    "venues_cached": 12,
-   "venues_updated": "2026-10-21T17:44:41.140044615Z",
+   "venues_updated": "2026-10-21T17:51:15.981597375Z",
    "version": "1.0.0"
   },
   "/api/v1/meta": {
@@ -1487,12 +1873,12 @@
   },
   "/api/v1/network": {
    "rpc_healthy": true,
-   "latest_ledger": 65063779,
+   "latest_ledger": 65063858,
    "protocol": 29,
-   "close_time": 1792604678,
+   "close_time": 1792605073,
    "base_fee_stroops": 100,
    "horizon_ok": true,
-   "checked_at": "2026-10-21T17:44:41.140045093Z"
+   "checked_at": "2026-10-21T17:51:15.981597686Z"
   },
   "/api/v1/plan?deposit=100": {
    "deposit_usd": 100,
@@ -1587,7 +1973,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T17:44:42.058584908Z"
+   "generated_at": "2026-10-21T17:51:16.948022997Z"
   },
   "/api/v1/plan?deposit=1000": {
    "deposit_usd": 1000,
@@ -1682,7 +2068,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T17:44:42.059991276Z"
+   "generated_at": "2026-10-21T17:51:16.949166799Z"
   },
   "/api/v1/plan?deposit=10000": {
    "deposit_usd": 10000,
@@ -1777,7 +2163,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T17:44:42.060968686Z"
+   "generated_at": "2026-10-21T17:51:16.950072532Z"
   },
   "/api/v1/plan?deposit=50000": {
    "deposit_usd": 50000,
@@ -1872,7 +2258,7 @@
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-21T17:44:42.061933053Z"
+   "generated_at": "2026-10-21T17:51:16.950979876Z"
   },
   "/api/v1/policy": {
    "chosen_by_measurement": {
@@ -2360,7 +2746,7 @@
    "venue_id": "blend-pools-v2:48c597dc"
   },
   "/api/v1/venues/blend-pools-v2:48c597dc?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "blend-pools-v2:48c597dc",
     "label": "Blend — YieldBlox Pool",
@@ -2418,7 +2804,7 @@
       "oracle": 75
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.147418738Z",
+     "computed_at": "2026-10-21T17:51:17.123453188Z",
      "stale": false,
      "input_hash": "81e2be0310d1fae2"
     },
@@ -2890,7 +3276,7 @@
    "venue_id": "blend-pools-v2:ecf788e3"
   },
   "/api/v1/venues/blend-pools-v2:ecf788e3?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "blend-pools-v2:ecf788e3",
     "label": "Blend — Fixed Pool",
@@ -2948,7 +3334,7 @@
       "oracle": 35
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.081660772Z",
+     "computed_at": "2026-10-21T17:51:17.076719555Z",
      "stale": false,
      "input_hash": "9a3b024b4af6c0b5"
     },
@@ -2959,7 +3345,7 @@
   },
   "/api/v1/venues/defindex:CA2FIPJ7U6/history?days=90": null,
   "/api/v1/venues/defindex:CA2FIPJ7U6?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CA2FIPJ7U6",
     "label": "DeFindex savings pool CA2FIP… (small, $40098)",
@@ -2999,7 +3385,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.1798483Z",
+     "computed_at": "2026-10-21T17:51:17.162615309Z",
      "stale": false,
      "input_hash": "5478a1a9aa961ded"
     },
@@ -3011,7 +3397,7 @@
   },
   "/api/v1/venues/defindex:CAB4JOLSCN/history?days=90": null,
   "/api/v1/venues/defindex:CAB4JOLSCN?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CAB4JOLSCN",
     "label": "DeFindex savings pool CAB4JO… (small, $7511)",
@@ -3025,8 +3411,8 @@
     "apy": 7.34,
     "apy_base": 7.34,
     "apy_reward": 0,
-    "tvl_usd": 7511.2963486,
-    "capacity_usd": 7511.2963486,
+    "tvl_usd": 7511.3008602,
+    "capacity_usd": 7511.3008602,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3051,7 +3437,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.183237337Z",
+     "computed_at": "2026-10-21T17:51:17.166076403Z",
      "stale": false,
      "input_hash": "06017491c9ee1216"
     },
@@ -3063,7 +3449,7 @@
   },
   "/api/v1/venues/defindex:CAWM7NKSYG/history?days=90": null,
   "/api/v1/venues/defindex:CAWM7NKSYG?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CAWM7NKSYG",
     "label": "DeFindex savings pool CAWM7N… (small, $10079)",
@@ -3077,8 +3463,8 @@
     "apy": 6.32,
     "apy_base": 6.32,
     "apy_reward": 0,
-    "tvl_usd": 10078.7766412,
-    "capacity_usd": 10078.7766412,
+    "tvl_usd": 10078.7828135,
+    "capacity_usd": 10078.7828135,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3103,7 +3489,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.182683907Z",
+     "computed_at": "2026-10-21T17:51:17.165595804Z",
      "stale": false,
      "input_hash": "0ae8c7ea2c4af8c1"
     },
@@ -3115,7 +3501,7 @@
   },
   "/api/v1/venues/defindex:CBNKCU3HGF/history?days=90": null,
   "/api/v1/venues/defindex:CBNKCU3HGF?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CBNKCU3HGF",
     "label": "DeFindex savings pool CBNKCU… ($272K)",
@@ -3129,8 +3515,8 @@
     "apy": 5.93,
     "apy_base": 5.93,
     "apy_reward": 0,
-    "tvl_usd": 271852.8759712,
-    "capacity_usd": 271852.8759712,
+    "tvl_usd": 271853.0340463,
+    "capacity_usd": 271853.0340463,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3155,7 +3541,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.179037376Z",
+     "computed_at": "2026-10-21T17:51:17.162070584Z",
      "stale": false,
      "input_hash": "511de267b8b8261c"
     },
@@ -3166,7 +3552,7 @@
   },
   "/api/v1/venues/defindex:CBUJZL5QAD/history?days=90": null,
   "/api/v1/venues/defindex:CBUJZL5QAD?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CBUJZL5QAD",
     "label": "DeFindex savings pool CBUJZL… (small, $8780)",
@@ -3180,8 +3566,8 @@
     "apy": 6.06,
     "apy_base": 6.06,
     "apy_reward": 0,
-    "tvl_usd": 8779.7164884,
-    "capacity_usd": 8779.7164884,
+    "tvl_usd": 8779.7218595,
+    "capacity_usd": 8779.7218595,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3206,7 +3592,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.180535091Z",
+     "computed_at": "2026-10-21T17:51:17.163168668Z",
      "stale": false,
      "input_hash": "783d450ae1d51a06"
     },
@@ -3218,7 +3604,7 @@
   },
   "/api/v1/venues/defindex:CC767WIU5Q/history?days=90": null,
   "/api/v1/venues/defindex:CC767WIU5Q?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CC767WIU5Q",
     "label": "DeFindex savings pool CC767W… (small, $1458)",
@@ -3232,8 +3618,8 @@
     "apy": 5.24,
     "apy_base": 5.24,
     "apy_reward": 0,
-    "tvl_usd": 1458.4461437,
-    "capacity_usd": 1458.4461437,
+    "tvl_usd": 1458.4465805,
+    "capacity_usd": 1458.4465805,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3258,7 +3644,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.181666845Z",
+     "computed_at": "2026-10-21T17:51:17.16446665Z",
      "stale": false,
      "input_hash": "e4fba8b0d66097ad"
     },
@@ -3270,7 +3656,7 @@
   },
   "/api/v1/venues/defindex:CCA2ZJP5BV/history?days=90": null,
   "/api/v1/venues/defindex:CCA2ZJP5BV?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CCA2ZJP5BV",
     "label": "DeFindex savings pool CCA2ZJ… (large, $18.9M)",
@@ -3284,8 +3670,8 @@
     "apy": 5.31,
     "apy_base": 5.31,
     "apy_reward": 0,
-    "tvl_usd": 18910731.7378596,
-    "capacity_usd": 18910731.7378596,
+    "tvl_usd": 18908556.0162526,
+    "capacity_usd": 18908556.0162526,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3310,7 +3696,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.183665287Z",
+     "computed_at": "2026-10-21T17:51:17.166550284Z",
      "stale": false,
      "input_hash": "9aaf3f367202605c"
     },
@@ -3321,7 +3707,7 @@
   },
   "/api/v1/venues/defindex:CCDRFMZ7CH/history?days=90": null,
   "/api/v1/venues/defindex:CCDRFMZ7CH?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CCDRFMZ7CH",
     "label": "DeFindex savings pool CCDRFM… (small, $4745)",
@@ -3335,8 +3721,8 @@
     "apy": 6.78,
     "apy_base": 6.78,
     "apy_reward": 0,
-    "tvl_usd": 4745.0966654,
-    "capacity_usd": 4745.0966654,
+    "tvl_usd": 4745.0995751,
+    "capacity_usd": 4745.0995751,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3361,7 +3747,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.182138572Z",
+     "computed_at": "2026-10-21T17:51:17.165073028Z",
      "stale": false,
      "input_hash": "8e90fadbc0dd6e5d"
     },
@@ -3373,7 +3759,7 @@
   },
   "/api/v1/venues/defindex:CD4JGS6BB5/history?days=90": null,
   "/api/v1/venues/defindex:CD4JGS6BB5?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "defindex:CD4JGS6BB5",
     "label": "DeFindex savings pool CD4JGS… (small, $13352)",
@@ -3387,8 +3773,8 @@
     "apy": 5.95,
     "apy_base": 5.95,
     "apy_reward": 0,
-    "tvl_usd": 13352.3885407,
-    "capacity_usd": 13352.3885407,
+    "tvl_usd": 13352.3967276,
+    "capacity_usd": 13352.3967276,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3413,7 +3799,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.181063924Z",
+     "computed_at": "2026-10-21T17:51:17.163838784Z",
      "stale": false,
      "input_hash": "157a0704b15fe43c"
     },
@@ -3885,7 +4271,7 @@
    "venue_id": "gami-labs:038cb9c0"
   },
   "/api/v1/venues/gami-labs:038cb9c0?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "venue": {
     "id": "gami-labs:038cb9c0",
     "label": "Gami earnUSDC (managed pool)",
@@ -3928,7 +4314,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-21T17:44:42.062863771Z",
+     "computed_at": "2026-10-21T17:51:16.951990343Z",
      "stale": false,
      "input_hash": "e37bd80607ad0cba"
     },
@@ -3939,7 +4325,7 @@
    }
   },
   "/api/v1/venues?deposit=100": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "count": 12,
    "deposit_usd": 100,
    "provider_error": "",
@@ -3986,7 +4372,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -4008,8 +4394,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2963486,
-     "capacity_usd": 7511.2963486,
+     "tvl_usd": 7511.3008602,
+     "capacity_usd": 7511.3008602,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4023,7 +4409,7 @@
       "Blend strategy (autocompound)"
      ],
      "risk": {
-      "score": 38.9,
+      "score": 39,
       "band": "A",
       "subs": {
        "contagion": 42,
@@ -4034,7 +4420,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -4056,8 +4442,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0966654,
-     "capacity_usd": 4745.0966654,
+     "tvl_usd": 4745.0995751,
+     "capacity_usd": 4745.0995751,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4082,7 +4468,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -4104,8 +4490,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.7766412,
-     "capacity_usd": 10078.7766412,
+     "tvl_usd": 10078.7828135,
+     "capacity_usd": 10078.7828135,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4130,7 +4516,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -4196,7 +4582,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -4218,8 +4604,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.7164884,
-     "capacity_usd": 8779.7164884,
+     "tvl_usd": 8779.7218595,
+     "capacity_usd": 8779.7218595,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4244,7 +4630,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -4266,8 +4652,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.3885407,
-     "capacity_usd": 13352.3885407,
+     "tvl_usd": 13352.3967276,
+     "capacity_usd": 13352.3967276,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4292,7 +4678,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -4314,8 +4700,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271852.8759712,
-     "capacity_usd": 271852.8759712,
+     "tvl_usd": 271853.0340463,
+     "capacity_usd": 271853.0340463,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4340,7 +4726,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -4361,8 +4747,8 @@
      "apy": 5.31,
      "apy_base": 5.31,
      "apy_reward": 0,
-     "tvl_usd": 18910731.7378596,
-     "capacity_usd": 18910731.7378596,
+     "tvl_usd": 18908556.0162526,
+     "capacity_usd": 18908556.0162526,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4387,7 +4773,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -4452,7 +4838,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -4473,8 +4859,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4461437,
-     "capacity_usd": 1458.4461437,
+     "tvl_usd": 1458.4465805,
+     "capacity_usd": 1458.4465805,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4499,7 +4885,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -4547,7 +4933,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.059018637Z",
+      "computed_at": "2026-10-21T17:51:16.948380924Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -4559,7 +4945,7 @@
    ]
   },
   "/api/v1/venues?deposit=1000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "count": 12,
    "deposit_usd": 1000,
    "provider_error": "",
@@ -4606,7 +4992,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -4628,8 +5014,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2963486,
-     "capacity_usd": 7511.2963486,
+     "tvl_usd": 7511.3008602,
+     "capacity_usd": 7511.3008602,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4654,7 +5040,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -4676,8 +5062,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0966654,
-     "capacity_usd": 4745.0966654,
+     "tvl_usd": 4745.0995751,
+     "capacity_usd": 4745.0995751,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4702,7 +5088,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -4724,8 +5110,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.7766412,
-     "capacity_usd": 10078.7766412,
+     "tvl_usd": 10078.7828135,
+     "capacity_usd": 10078.7828135,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4750,7 +5136,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -4772,8 +5158,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.7164884,
-     "capacity_usd": 8779.7164884,
+     "tvl_usd": 8779.7218595,
+     "capacity_usd": 8779.7218595,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4798,7 +5184,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -4864,7 +5250,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -4886,8 +5272,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.3885407,
-     "capacity_usd": 13352.3885407,
+     "tvl_usd": 13352.3967276,
+     "capacity_usd": 13352.3967276,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4912,7 +5298,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -4934,8 +5320,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271852.8759712,
-     "capacity_usd": 271852.8759712,
+     "tvl_usd": 271853.0340463,
+     "capacity_usd": 271853.0340463,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4960,7 +5346,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -4981,8 +5367,8 @@
      "apy": 5.31,
      "apy_base": 5.31,
      "apy_reward": 0,
-     "tvl_usd": 18910731.7378596,
-     "capacity_usd": 18910731.7378596,
+     "tvl_usd": 18908556.0162526,
+     "capacity_usd": 18908556.0162526,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5007,7 +5393,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -5072,7 +5458,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -5093,8 +5479,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4461437,
-     "capacity_usd": 1458.4461437,
+     "tvl_usd": 1458.4465805,
+     "capacity_usd": 1458.4465805,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5119,7 +5505,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -5167,7 +5553,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.060232035Z",
+      "computed_at": "2026-10-21T17:51:16.949392316Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -5179,7 +5565,7 @@
    ]
   },
   "/api/v1/venues?deposit=10000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "count": 12,
    "deposit_usd": 10000,
    "provider_error": "",
@@ -5226,7 +5612,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -5248,8 +5634,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2963486,
-     "capacity_usd": 7511.2963486,
+     "tvl_usd": 7511.3008602,
+     "capacity_usd": 7511.3008602,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5274,7 +5660,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -5296,8 +5682,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0966654,
-     "capacity_usd": 4745.0966654,
+     "tvl_usd": 4745.0995751,
+     "capacity_usd": 4745.0995751,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5322,7 +5708,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -5344,8 +5730,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.7766412,
-     "capacity_usd": 10078.7766412,
+     "tvl_usd": 10078.7828135,
+     "capacity_usd": 10078.7828135,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5370,7 +5756,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -5392,8 +5778,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.7164884,
-     "capacity_usd": 8779.7164884,
+     "tvl_usd": 8779.7218595,
+     "capacity_usd": 8779.7218595,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5418,7 +5804,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -5484,7 +5870,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -5506,8 +5892,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.3885407,
-     "capacity_usd": 13352.3885407,
+     "tvl_usd": 13352.3967276,
+     "capacity_usd": 13352.3967276,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5532,7 +5918,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -5554,8 +5940,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271852.8759712,
-     "capacity_usd": 271852.8759712,
+     "tvl_usd": 271853.0340463,
+     "capacity_usd": 271853.0340463,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5580,7 +5966,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -5601,8 +5987,8 @@
      "apy": 5.31,
      "apy_base": 5.31,
      "apy_reward": 0,
-     "tvl_usd": 18910731.7378596,
-     "capacity_usd": 18910731.7378596,
+     "tvl_usd": 18908556.0162526,
+     "capacity_usd": 18908556.0162526,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5627,7 +6013,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -5692,7 +6078,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -5713,8 +6099,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4461437,
-     "capacity_usd": 1458.4461437,
+     "tvl_usd": 1458.4465805,
+     "capacity_usd": 1458.4465805,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5739,7 +6125,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -5787,7 +6173,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.061223628Z",
+      "computed_at": "2026-10-21T17:51:16.950332002Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -5799,7 +6185,7 @@
    ]
   },
   "/api/v1/venues?deposit=50000": {
-   "as_of": "2026-10-21T17:44:41.140044615Z",
+   "as_of": "2026-10-21T17:51:15.981597375Z",
    "count": 12,
    "deposit_usd": 50000,
    "provider_error": "",
@@ -5846,7 +6232,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -5868,8 +6254,8 @@
      "apy": 7.34,
      "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 7511.2963486,
-     "capacity_usd": 7511.2963486,
+     "tvl_usd": 7511.3008602,
+     "capacity_usd": 7511.3008602,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5894,7 +6280,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -5916,8 +6302,8 @@
      "apy": 6.78,
      "apy_base": 6.78,
      "apy_reward": 0,
-     "tvl_usd": 4745.0966654,
-     "capacity_usd": 4745.0966654,
+     "tvl_usd": 4745.0995751,
+     "capacity_usd": 4745.0995751,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5942,7 +6328,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
@@ -5964,8 +6350,8 @@
      "apy": 6.32,
      "apy_base": 6.32,
      "apy_reward": 0,
-     "tvl_usd": 10078.7766412,
-     "capacity_usd": 10078.7766412,
+     "tvl_usd": 10078.7828135,
+     "capacity_usd": 10078.7828135,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5990,7 +6376,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
@@ -6012,8 +6398,8 @@
      "apy": 6.06,
      "apy_base": 6.06,
      "apy_reward": 0,
-     "tvl_usd": 8779.7164884,
-     "capacity_usd": 8779.7164884,
+     "tvl_usd": 8779.7218595,
+     "capacity_usd": 8779.7218595,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6038,7 +6424,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
@@ -6104,7 +6490,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -6126,8 +6512,8 @@
      "apy": 5.95,
      "apy_base": 5.95,
      "apy_reward": 0,
-     "tvl_usd": 13352.3885407,
-     "capacity_usd": 13352.3885407,
+     "tvl_usd": 13352.3967276,
+     "capacity_usd": 13352.3967276,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6152,7 +6538,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "157a0704b15fe43c"
      },
@@ -6174,8 +6560,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 271852.8759712,
-     "capacity_usd": 271852.8759712,
+     "tvl_usd": 271853.0340463,
+     "capacity_usd": 271853.0340463,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6200,7 +6586,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
@@ -6221,8 +6607,8 @@
      "apy": 5.31,
      "apy_base": 5.31,
      "apy_reward": 0,
-     "tvl_usd": 18910731.7378596,
-     "capacity_usd": 18910731.7378596,
+     "tvl_usd": 18908556.0162526,
+     "capacity_usd": 18908556.0162526,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6247,7 +6633,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -6312,7 +6698,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -6333,8 +6719,8 @@
      "apy": 5.24,
      "apy_base": 5.24,
      "apy_reward": 0,
-     "tvl_usd": 1458.4461437,
-     "capacity_usd": 1458.4461437,
+     "tvl_usd": 1458.4465805,
+     "capacity_usd": 1458.4465805,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6359,7 +6745,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
@@ -6407,7 +6793,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-21T17:44:42.06222362Z",
+      "computed_at": "2026-10-21T17:51:16.951352883Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },

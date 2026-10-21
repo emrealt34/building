@@ -1,0 +1,219 @@
+---
+import Base from '../layouts/Base.astro';
+import { api } from '../lib/api';
+import { href } from '../lib/url';
+
+const [cherry, meta, network] = await Promise.all([api.cherry(), api.meta(), api.network()]);
+
+const markets = cherry?.markets ?? [];
+const byNet = [...markets].sort((a, b) => b.net_usd_pct - a.net_usd_pct);
+const byHeadline = [...markets].sort((a, b) => b.policy_rate - a.policy_rate);
+const top = byNet[0];
+const headlineLeader = byHeadline[0];
+const worst = byNet[byNet.length - 1];
+const fee = (cherry?.fee_bps ?? 50) / 100;
+
+const strat = (key: string) => cherry?.strategies.find((s) => s.key === key);
+const commit = strat('commit');
+const chase = strat('net');
+const headline = strat('nominal');
+const usd = strat('usd');
+const best = strat('best_single');
+const signed = (n: number) => `${n > 0 ? '+' : ''}${n.toFixed(1)}%`;
+const rate = (n: number) => `${n.toFixed(1).replace('.0', '')}%`;
+---
+<Base
+  title="The highest rate is not the highest return"
+  subtitle="Every number here is after the currency moved, after that country's own inflation, and after our fee. It is the only comparison worth making — and it changes the ranking."
+  network={network}
+  meta={meta}
+>
+  {!cherry ? (
+    <div class="card err"><h2>Comparison unavailable</h2><p class="small">The numbers could not be loaded. Try again in a moment.</p></div>
+  ) : (
+    <>
+      <section class="headline">
+        <div class="lead">
+          <p class="eyebrow">Cherry picking · last {cherry.window_days} days of real data</p>
+          <h1>
+            {headlineLeader && top
+              ? <>{headlineLeader.country} advertises <em>{rate(headlineLeader.policy_rate)}</em>.
+                A dollar there earned <em>{headlineLeader.net_usd_pct.toFixed(1)}%</em>.
+                {' '}{top.country} advertises {rate(top.policy_rate)} and paid <em>{top.net_usd_pct.toFixed(1)}%</em>.</>
+              : 'Measured, not advertised.'}
+          </h1>
+          <p class="lede">
+            That is the whole idea in one line. The rate in an advertisement is paid in a currency that moves, in a
+            country with its own inflation. Subtract both and the ranking is not the one you were shown — the
+            country paying the least interest was the one that paid the most to a dollar saver.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#table">See the honest table</a>
+            <a class="btn ghost" href={href('/borders/')}>The other half of the number</a>
+          </div>
+        </div>
+
+        <aside class="verdict-card">
+          <span class="k">What we do with this</span>
+          <p>
+            We publish it, and we do not sell it. Getting your money into another country's deposit needs a bank
+            account there, and the countries with the best numbers are the ones that make leaving hardest.
+          </p>
+          <span class="k">What you get instead</span>
+          <p class="tight">
+            Dollars that earn the dollar rate, in places that pass our safety check, with your money free to leave
+            any time — and this table, so you can see exactly what you are not being sold.
+          </p>
+        </aside>
+      </section>
+
+      <section id="table" class="card table-card">
+        <div class="card-head">
+          <h2>Advertised rate vs. what a dollar actually earned</h2>
+          <span class="small muted">one year · {cherry.start} → {cherry.end}</span>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th class="right">Advertised</th>
+                <th class="right">Currency vs $</th>
+                <th class="right">In dollars</th>
+                <th class="right">After our {fee.toFixed(2)}% fee</th>
+                <th class="right">After US inflation</th>
+                <th class="right">In local money</th>
+              </tr>
+            </thead>
+            <tbody>
+              {byNet.map((m) => (
+                <tr class:list={[m.code === 'US' ? 'base' : '']}>
+                  <td>
+                    <span class="country">{m.country}</span>
+                    <span class="small muted">{m.currency} · {m.rate_name}</span>
+                  </td>
+                  <td class="right num strong">{m.policy_rate.toFixed(2)}%</td>
+                  <td class:list={['right', 'num', m.fx_move_pct < 0 ? 'down' : 'up']}>
+                    {m.fx_move_pct > 0 ? '+' : ''}{m.fx_move_pct.toFixed(1)}%
+                  </td>
+                  <td class:list={['right', 'num', m.gross_usd_pct >= 0 ? 'good' : 'meh']}>{signed(m.gross_usd_pct)}</td>
+                  <td class="right num strong">{signed(m.net_usd_pct)}</td>
+                  <td class:list={['right', 'num muted', m.real_usd_pct >= 0 ? '' : 'meh']}>{signed(m.real_usd_pct)}</td>
+                  <td class="right num muted">{signed(m.real_local_pct)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted foot">
+          “In dollars” is the advertised rate multiplied by the currency's actual move — not a forecast. “After our
+          fee” is what you would keep if this were our product. “After US inflation” is purchasing power: the number
+          that decides whether saving gained you anything. “In local money” is the advertised rate minus that
+          country's own inflation, which is what it is worth to somebody who lives and spends there.
+        </p>
+      </section>
+
+      <div class="grid g2 stack">
+        <div class="card">
+          <h2>So what would cherry picking have earned?</h2>
+          <p class="small muted">
+            We replayed the year three ways. None of them looks at a month it has not lived through yet: the rule
+            decides with last month's result, which is all anyone knows.
+          </p>
+          <ul class="strats">
+            {[
+              { s: headline, tone: 'meh' },
+              { s: chase, tone: 'meh' },
+              { s: commit, tone: 'ok' },
+              { s: best, tone: 'ghost' },
+              { s: usd, tone: 'ghost' },
+            ]
+              .filter((x) => x.s)
+              .map(({ s, tone }) => (
+                <li class={tone}>
+                  <div class="srow">
+                    <strong>{s!.label}</strong>
+                    <span class="num">{signed(s!.return_pct)}</span>
+                  </div>
+                  <p class="small muted">{s!.note}</p>
+                </li>
+              ))}
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>The uncomfortable result</h2>
+          <p class="small">
+            Our own favourite — move to whichever country actually paid the most last month — earned
+            <strong> {chase ? signed(chase.return_pct) : '—'}</strong>, less than simply sitting in the country with
+            the highest advertised rate ({headline ? signed(headline.return_pct) : '—'}), and far less than the
+            hindsight number ({best ? signed(best.return_pct) : '—'}).
+          </p>
+          <p class="small">
+            The reason is boring and worth saying: switching is a bet on last month repeating, and currencies do not
+            repeat on a schedule. Ranking tells you where the best net return is <em>now</em>. It does not tell you
+            where it will be next month.
+          </p>
+          <p class="small muted">
+            This is why our product does not promise to chase countries. It keeps dollars in dollars, moves only when
+            a better <em>safe</em> place appears, waits between moves, and lets you leave at any time.
+          </p>
+        </div>
+      </div>
+
+      <div class="card stack callout">
+        <h2>What would have to be true to sell this</h2>
+        <ol>
+          <li><strong>Access.</strong> A deposit in another country needs a licensed local bank or a regulated product. We cannot open one for you, and pretending otherwise is how people lose money to a spreadsheet.</li>
+          <li><strong>An exit.</strong> The high-rate countries are exactly the ones that limit withdrawals when it suits them. A rate you cannot leave is not a rate.</li>
+          <li><strong>Tax.</strong> Currency gains and foreign interest are taxed where you live, usually without a clean offset. Nobody's comparison table includes this line.</li>
+          <li><strong>Honesty.</strong> The product people want is "the biggest number". The product that can be defended is "no currency risk and a door". We ship the second and publish the first one's real arithmetic.</li>
+        </ol>
+        <p class="small muted">
+          {cherry.note} Inflation from {cherry.registry ? 'national statistics offices' : 'public data'} for
+          September 2026; exchange rates from ECB reference rates.
+        </p>
+      </div>
+    </>
+  )}
+</Base>
+
+<style>
+  .headline { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 22px; align-items: start; margin-bottom: 18px; }
+  @media (max-width: 880px) { .headline { grid-template-columns: 1fr; } }
+  .eyebrow { margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--brand); font-weight: 700; }
+  .headline h1 { margin: 0 0 12px; font-size: 31px; line-height: 1.18; }
+  .headline h1 em { font-style: normal; color: var(--brand); }
+  .lede { margin: 0 0 16px; color: #5D4C38; max-width: 62ch; }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { border-radius: 999px; padding: 11px 20px; font-size: 14px; font-weight: 600; }
+  .btn.primary { background: var(--brand); color: #fff; box-shadow: 0 6px 16px rgba(199,72,29,.22); }
+  .btn.primary:hover { background: var(--brand-ink); }
+  .btn.ghost { border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  .btn.ghost:hover { border-color: var(--brand); color: var(--brand); }
+  .verdict-card { background: #FFFCF6; border: 1px solid var(--brand); border-radius: var(--radius); padding: 16px; box-shadow: 0 6px 20px rgba(199,72,29,.08); }
+  .verdict-card .k { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 4px; }
+  .verdict-card p { margin: 0 0 12px; font-size: 13px; color: #4A3D2C; }
+  .verdict-card p.tight { margin-bottom: 0; }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .scroll { overflow-x: auto; }
+  .country { display: block; font-weight: 600; }
+  .strong { font-weight: 600; }
+  .good { color: var(--ok); }
+  .meh { color: var(--brand-ink); }
+  .up { color: var(--ok); }
+  .down { color: var(--brand-ink); }
+  tr.base { background: #FAF6ED; }
+  .foot { margin: 10px 0 0; }
+  .strats { list-style: none; margin: 0; padding: 0; }
+  .strats li { border-bottom: 1px dashed #F3EBDB; padding: 9px 0; }
+  .strats li:last-child { border-bottom: none; }
+  .srow { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .strats p { margin: 3px 0 0; }
+  .strats li.ok .num { color: var(--ok); font-weight: 700; }
+  .strats li.ghost { opacity: .75; }
+  .stack { margin-top: 14px; }
+  .callout { background: #FFFCF6; border-color: #E8DCC6; }
+  .callout ol { margin: 0 0 10px 18px; padding: 0; font-size: 13px; line-height: 1.7; color: #4A3D2C; }
+  .err { border-color: #E7C4B6; }
+</style>

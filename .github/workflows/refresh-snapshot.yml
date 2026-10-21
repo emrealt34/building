@@ -1,16 +1,19 @@
 name: Refresh data snapshot
 
 # The public site is static, so its numbers are frozen at build time. This job
-# re-runs the real Go backend against mainnet every day, regenerates
+# re-runs the real Go backend against mainnet every hour, regenerates
 # frontend/src/data/snapshot.json, and commits it. That commit triggers the Pages
 # deploy, so the published site stays current without any server to operate.
+#
+# Hourly is a deliberate cost/benefit choice: rates move slowly, but a site that
+# shows yesterday's number is the one thing a saver cannot forgive.
 #
 # If the providers or the RPC are unreachable the job fails before writing, leaving
 # the last good snapshot in place — a stale page beats a blank one.
 
 on:
   schedule:
-    - cron: '17 5 * * *' # daily, 05:17 UTC
+    - cron: '7 * * * *' # hourly, at :07 UTC
   workflow_dispatch:
 
 permissions:
