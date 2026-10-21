@@ -11,7 +11,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/emrealt34/building/backend/internal/providers"
+	"github.com/emrealt34/keelson/backend/internal/providers"
 )
 
 // series is one venue's daily APY history.

@@ -5,10 +5,10 @@
 [workspace]
 
 [package]
-name = "ballast-blend-adapter"
+name = "keelson-blend-adapter"
 version = "0.1.0"
 edition = "2021"
-description = "Ballast adapter for the Blend lending pool: the venue the vault earns yield in."
+description = "Keelson adapter for the Blend lending pool: the venue the vault earns yield in."
 license = "MIT"
 
 [lib]

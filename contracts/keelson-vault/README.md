@@ -1,6 +1,6 @@
-# ballast-vault (Soroban)
+# keelson-vault (Soroban)
 
-The `UserVault`: the only Ballast component that can move money, and the smallest one.
+The `UserVault`: the only Keelson component that can move money, and the smallest one.
 
 ## Adapter interface
 

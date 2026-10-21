@@ -19,12 +19,12 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/emrealt34/building/backend/internal/api"
-	"github.com/emrealt34/building/backend/internal/model"
-	"github.com/emrealt34/building/backend/internal/policy"
-	"github.com/emrealt34/building/backend/internal/providers"
-	"github.com/emrealt34/building/backend/internal/stellar"
-	"github.com/emrealt34/building/backend/internal/store"
+	"github.com/emrealt34/keelson/backend/internal/api"
+	"github.com/emrealt34/keelson/backend/internal/model"
+	"github.com/emrealt34/keelson/backend/internal/policy"
+	"github.com/emrealt34/keelson/backend/internal/providers"
+	"github.com/emrealt34/keelson/backend/internal/stellar"
+	"github.com/emrealt34/keelson/backend/internal/store"
 )
 
 // Deposit presets the static site renders one page for each.

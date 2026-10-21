@@ -4,7 +4,7 @@ Researched 2026-10-21. The honest answer to "has someone done this idea?" is **y
 are live on Stellar mainnet.** Pretending otherwise in an SCF/Instawards application is the fastest way to be
 rejected by reviewers who know the ecosystem.
 
-What follows is what exists, what it does not do, and the one seam Ballast is aiming at.
+What follows is what exists, what it does not do, and the one seam Keelson is aiming at.
 
 ---
 
@@ -22,16 +22,18 @@ you it is a popular reference architecture rather than an obscure one.
 * Honest self-assessment in its own README: no independent audit yet, single admin key, DeFindex adapter built but
   not wired.
 
-**Overlap with Ballast:** ~85%. Non-custodial vault, adapter pattern, keeper, Blend + DeFindex, risk labels.
+**Overlap with Keelson:** ~85%. Non-custodial vault, adapter pattern, keeper, Blend + DeFindex, risk labels.
 
 ## 2. Adjacent, same category
 
 | Project | What it is | Gap |
 | --- | --- | --- |
+| **Normal** (normalfi) | Non-custodial high-yield stablecoin savings account on Stellar, built on DeFindex vaults, "7%+ APY", automatic compounding and rebalancing; positioned as an ordinary savings account | Vault strategy is DeFindex's, so the risk model and the refusal are not theirs; no per-user policy |
 | **Nester** | "Diversified yield strategies… routes across lending pools and AMMs on Stellar, non-custodial vaults" | Marketing site; no public audit trail of decisions |
 | **StellarYield** (edehvictor, Amas-01) | AI-assisted aggregator, Freighter + Soroban vault, one-click rebalance | "AI advisor" replaces a reproducible model; no published metric |
 | **soroban-yield-vault** (stellar-zklab) | ERC-4626-style vault, Yearn-V3 debt allocator, live strategy allocation table | Single-asset, no cross-protocol risk screen |
 | **Stellar-Defi-Vault** (hardcordev) | Share-based non-custodial vault on Soroban | Vault only; no venue discovery or policy |
+| **DeFindex** (Palta Labs) | The yield-vault infrastructure much of the above runs on: tokenised vaults, strategies, SDK; ~$19.6M TVL, integrated by Soroswap Earn and by wallets | Infrastructure, not a saver-facing product; no policy the saver signs |
 | **Wirex × Ultra Stellar** (Apr 2026) | Native stablecoin yield "up to 6% APY, full liquidity, no lock-ups" inside 7M-user infrastructure | A distribution giant; they do not need to be non-custodial in the same sense |
 
 ## 3. What none of them do well
@@ -49,12 +51,12 @@ Almost nobody publishes:
 2. **What the routing is actually worth.** Not one of the projects above publishes a counterfactual: *how much would
    a keeper have earned versus never moving?* It is cheap to compute and it usually produces an embarrassing number
    (ours: ~27 bps/year between the two verified venues), which is exactly why it is worth publishing.
-3. **A model you can re-derive.** Weights are typically private heuristics or an LLM call. Ballast hashes its inputs
+3. **A model you can re-derive.** Weights are typically private heuristics or an LLM call. Keelson hashes its inputs
    so a score can be checked (`input_hash`), and versions every model change.
 4. **The refusal path in the protocol.** Freeze-on-deterioration that blocks new deposits while keeping withdrawals
    open — implemented in the contract, not in a dashboard.
 
-## 4. The seam Ballast is aiming at
+## 4. The seam Keelson is aiming at
 
 > Not another aggregator. A **policy and refusal layer** that any aggregator could sit on top of.
 
@@ -70,7 +72,16 @@ Concretely:
 That is a defensible difference for a $15k Instaward and a later $150k Build Award: not "we do yield", but
 "we are the part of yield that can be audited".
 
-## 5. Risk of the position
+## 5. Why the name changed on day one
+
+The project shipped for a few hours as **Ballast**, until a search for the name turned up
+[`Oltking/Ballast`](https://github.com/Oltking/Ballast) — a ZK neobank on Stellar, live on testnet, also built for an
+SCF-adjacent hackathon. Different product, same chain, same word. A reviewer typing the name into a search box would
+have found the other project first, which is the exact confusion a name is supposed to prevent. It is now
+**Keelson**: the beam that runs the length of a ship's hull and ties every frame to it — the part that makes the hull
+one piece rather than a pile of ribs. Nothing else on Stellar uses it.
+
+## 6. Risk of the position
 
 * Meridian has a head start on contracts and mainnet. If they ship an audit and a policy layer, the seam narrows.
 * Reviewers may reasonably ask "why not contribute the risk layer to Meridian?" — the answer has to be product

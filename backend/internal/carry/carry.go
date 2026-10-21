@@ -174,7 +174,7 @@ func Analyse(ctx context.Context, c *http.Client, benchmark float64, now time.Ti
 		Note: "Realised one-year return of a dollar deposited at each country's policy rate, " +
 			"converted back to dollars at today's rate. Uses the actual currency path, not a forecast. " +
 			"A managed currency can post a low volatility and still step sharply; the drawdown column exists for that. " +
-			"Not an offer, not advice, and not a product: no cross-border deposit is available through Ballast.",
+			"Not an offer, not advice, and not a product: no cross-border deposit is available through Keelson.",
 	}
 
 	for _, r := range rates {

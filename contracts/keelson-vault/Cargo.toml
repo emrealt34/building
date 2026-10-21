@@ -1,8 +1,8 @@
 [package]
-name = "ballast-vault"
+name = "keelson-vault"
 version = "0.1.0"
 edition = "2021"
-description = "Ballast UserVault: a non-custodial USDC vault whose automation is bounded by a policy the owner signs."
+description = "Keelson UserVault: a non-custodial USDC vault whose automation is bounded by a policy the owner signs."
 license = "MIT"
 
 [lib]

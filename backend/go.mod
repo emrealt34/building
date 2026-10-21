@@ -1,3 +1,3 @@
-module github.com/emrealt34/building/backend
+module github.com/emrealt34/keelson/backend
 
 go 1.23

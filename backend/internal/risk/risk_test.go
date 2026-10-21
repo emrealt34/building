@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emrealt34/building/backend/internal/model"
+	"github.com/emrealt34/keelson/backend/internal/model"
 )
 
 func baseVenue() model.Venue {

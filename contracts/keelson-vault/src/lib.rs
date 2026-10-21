@@ -1,6 +1,6 @@
-//! Ballast `UserVault`.
+//! Keelson `UserVault`.
 //!
-//! The vault is the only component in Ballast that can move money, so it is also the
+//! The vault is the only component in Keelson that can move money, so it is also the
 //! smallest and the most constrained. Its whole job is to refuse things:
 //!
 //! * a rebalance is **permissionless** — anyone may propose one — but it is rejected if

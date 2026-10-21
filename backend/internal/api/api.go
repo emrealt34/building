@@ -10,14 +10,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emrealt34/building/backend/internal/alpha"
-	"github.com/emrealt34/building/backend/internal/carry"
-	"github.com/emrealt34/building/backend/internal/model"
-	"github.com/emrealt34/building/backend/internal/policy"
-	"github.com/emrealt34/building/backend/internal/providers"
-	"github.com/emrealt34/building/backend/internal/risk"
-	"github.com/emrealt34/building/backend/internal/stellar"
-	"github.com/emrealt34/building/backend/internal/store"
+	"github.com/emrealt34/keelson/backend/internal/alpha"
+	"github.com/emrealt34/keelson/backend/internal/carry"
+	"github.com/emrealt34/keelson/backend/internal/model"
+	"github.com/emrealt34/keelson/backend/internal/policy"
+	"github.com/emrealt34/keelson/backend/internal/providers"
+	"github.com/emrealt34/keelson/backend/internal/risk"
+	"github.com/emrealt34/keelson/backend/internal/stellar"
+	"github.com/emrealt34/keelson/backend/internal/store"
 )
 
 type Server struct {
@@ -291,7 +291,7 @@ func (s *Server) carryReport(w http.ResponseWriter, r *http.Request) {
 		client = &http.Client{Timeout: 25 * time.Second}
 	}
 
-	// Benchmark: what the same dollar would earn inside Ballast's current plan.
+	// Benchmark: what the same dollar would earn inside Keelson's current plan.
 	benchmark := 0.0
 	if venues, _, _ := s.Store.Venues(); len(venues) > 0 {
 		benchmark = policy.Build(venues, 1000, s.Policy).BlendedAPY

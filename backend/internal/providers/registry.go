@@ -1,6 +1,6 @@
 package providers
 
-import "github.com/emrealt34/building/backend/internal/model"
+import "github.com/emrealt34/keelson/backend/internal/model"
 
 // USDC is the Stellar Asset Contract address for USDC on mainnet.
 const USDC = "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75"

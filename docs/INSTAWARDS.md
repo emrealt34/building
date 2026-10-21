@@ -1,4 +1,4 @@
-# Instawards application pack — Ballast
+# Instawards application pack — Keelson
 
 Prepared 2026-10-21. Everything here is written to be pasted into the SCF/Instawards form; nothing in it claims
 something that does not exist in this repository.
@@ -27,7 +27,7 @@ local chapter is inactive, the fallback is the standard Build Award *Open* track
 
 ## 1. One-line pitch
 
-> Ballast is a non-custodial USDC savings autopilot on Stellar whose core feature is **refusal**: it shows which
+> Keelson is a non-custodial USDC savings autopilot on Stellar whose core feature is **refusal**: it shows which
 > venues it rejected and why, publishes what routing is really worth, and bounds its own automation with a policy the
 > user signs.
 
@@ -61,12 +61,12 @@ Nobody has deposited anything. There is no TVL and no user count, and we do not 
 
 **Goal: from a tested vault to a testnet product a stranger can use and audit.**
 
-Items 2, 4 and 6 are already delivered in `contracts/ballast-vault` (12 tests, wasm built in CI),
+Items 2, 4 and 6 are already delivered in `contracts/keelson-vault` (12 tests, wasm built in CI),
 so the award buys deployment, a real adapter and the interface — not a rewrite.
 
 | # | Deliverable | Status | Verifiable by |
 | --- | --- | --- | --- |
-| 1 | Soroban `UserVault`: share accounting, owner rails | ✅ built | `contracts/ballast-vault`, 12 tests |
+| 1 | Soroban `UserVault`: share accounting, owner rails | ✅ built | `contracts/keelson-vault`, 12 tests |
 | 2 | On-chain policy: `max_venue_bps`, `min_idle_bps`, `max_move_bps`, cooldown, NAV check | ✅ built | test `a_plan_that_loses_value_is_rejected` |
 | 3 | Permissionless `rebalance(plan)` that reverts on policy/NAV violation | ✅ built | test `anyone_can_rebalance_and_value_is_conserved` |
 | 4 | Freeze on deterioration: blocks new deposits, withdrawals stay open | ✅ built | tests `freeze_stops_automation…`, `a_frozen_venue_takes_no_new_money…` |
@@ -93,9 +93,9 @@ Deliverable-verified payments preferred; a 3-milestone split (contract / adapter
 
 ## 6. Traction and evidence (paste-ready)
 
-* Repository: `https://github.com/emrealt34/building` — MIT, CI green, tests for the risk and policy packages.
+* Repository: `https://github.com/emrealt34/keelson` — MIT, CI green, tests for the risk and policy packages.
 * Site: `https://emrealt34.github.io/building/` — static, rebuilt nightly from mainnet by GitHub Actions.
-* Contracts: `contracts/ballast-vault` — Soroban `UserVault`, 12 tests green, wasm built and size-capped in CI.
+* Contracts: `contracts/keelson-vault` — Soroban `UserVault`, 12 tests green, wasm built and size-capped in CI.
 * Cross-border measurement: `/borders` — a 37% lira rate returned +15.9% in dollars over the last year; India's
   5.5% returned −1.8% after the rupee fell. Published because it argues against our own category.
 * Live numbers at time of writing: 12 venues observed, 2 eligible, blended **5.67%** at $1,000 with **$100** kept
@@ -117,7 +117,7 @@ Deliverable-verified payments preferred; a 3-milestone split (contract / adapter
 ## 8. Questions reviewers will ask, and the answers
 
 **"Meridian already does this."**
-Yes — see `docs/COMPETITORS.md`. Meridian is a vault plus a router; Ballast is a policy and refusal layer. The
+Yes — see `docs/COMPETITORS.md`. Meridian is a vault plus a router; Keelson is a policy and refusal layer. The
 deliverable here is the on-chain policy module and the audit trail, which is complementary: a neutral policy layer
 can serve several vaults. We say this openly rather than pretending the space is empty.
 

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emrealt34/building/backend/internal/model"
-	"github.com/emrealt34/building/backend/internal/risk"
+	"github.com/emrealt34/keelson/backend/internal/model"
+	"github.com/emrealt34/keelson/backend/internal/risk"
 )
 
 // Annotate fills the derived fields (risk, net score, cap, eligibility) on each venue.

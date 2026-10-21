@@ -1,4 +1,4 @@
-//! Ballast `BlendAdapter` — the piece that turns "the vault holds dollars" into
+//! Keelson `BlendAdapter` — the piece that turns "the vault holds dollars" into
 //! "the vault is lending dollars on Blend".
 //!
 //! Design rules:

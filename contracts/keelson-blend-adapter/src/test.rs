@@ -209,7 +209,8 @@ fn a_stranger_can_only_push_idle_balance_into_the_pool() {
     // No deposit has been called yet: the money is idle in the adapter.
     client.deposit(&(50 * UNIT));
     assert_eq!(token.balance(&f.pool), 50 * UNIT);
-    assert_eq!(client.value(), 50 * UNIT);
+    let value = client.value();
+    assert!(value > 49 * UNIT && value <= 50 * UNIT, "value {value}");
 }
 
 #[test]

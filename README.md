@@ -1,4 +1,4 @@
-# Ballast
+# Keelson
 
 **A non-custodial USDC savings autopilot on Stellar.** Your money sits in a vault you own; a published risk model
 decides which audited venues may hold it; a policy you sign bounds what a permissionless keeper may do; and the
@@ -30,7 +30,7 @@ measurement of what the product is worth.
 
 ## Why this is not "highest APY, automated"
 
-The category is crowded (see [`docs/COMPETITORS.md`](docs/COMPETITORS.md)). Ballast is deliberately the
+The category is crowded (see [`docs/COMPETITORS.md`](docs/COMPETITORS.md)). Keelson is deliberately the
 **refusal-first** version of it:
 
 * **A venue that cannot justify its yield is refused, not ranked.** The 10.00% venue in the list is refused today
@@ -172,7 +172,7 @@ Policy (`policy-v1.2`): `MaxVenueBps 6000`, `MinIdleBps 1000`, `MaxMoveBps 5000`
 
 ```
 contracts/
-  ballast-vault/    Soroban UserVault: on-chain policy, NAV check, freeze rails (12 tests)
+  keelson-vault/    Soroban UserVault: on-chain policy, NAV check, freeze rails (12 tests)
 backend/
   cmd/api/          live HTTP server
   cmd/snapshot/     freezes the API into frontend/src/data/snapshot.json

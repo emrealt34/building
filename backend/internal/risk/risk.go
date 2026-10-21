@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emrealt34/building/backend/internal/model"
+	"github.com/emrealt34/keelson/backend/internal/model"
 )
 
 const Version = "risk-model-v1.0"

@@ -1,5 +1,5 @@
 [workspace]
-members = ["ballast-vault"]
+members = ["keelson-vault"]
 resolver = "2"
 
 [profile.release]

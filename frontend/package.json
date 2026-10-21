@@ -1,9 +1,9 @@
 {
-  "name": "ballast-web",
+  "name": "keelson-web",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Static Astro frontend for Ballast — a non-custodial USDC savings autopilot on Stellar.",
+  "description": "Static Astro frontend for Keelson — a non-custodial USDC savings autopilot on Stellar.",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",

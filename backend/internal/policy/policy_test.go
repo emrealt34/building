@@ -3,7 +3,7 @@ package policy
 import (
 	"testing"
 
-	"github.com/emrealt34/building/backend/internal/model"
+	"github.com/emrealt34/keelson/backend/internal/model"
 )
 
 func venue(id string, apy float64, cap float64, verified bool) model.Venue {
