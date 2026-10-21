@@ -1,5 +1,5 @@
 [workspace]
-members = ["ballast-vault", "ballast-blend-adapter"]
+members = ["ballast-vault"]
 resolver = "2"
 
 [profile.release]

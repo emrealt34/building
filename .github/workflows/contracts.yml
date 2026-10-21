@@ -38,6 +38,12 @@ jobs:
       - name: cargo test (the promises, as tests)
         run: cargo test --workspace --all-targets
 
+      # The Blend adapter is its own workspace: Blend's SDK targets soroban-sdk 25 while
+      # the vault is on 29, and the two cannot share one lockfile.
+      - name: cargo test · Blend adapter
+        working-directory: contracts/ballast-blend-adapter
+        run: cargo test --all-targets
+
       # soroban-sdk 29 refuses to emit wasm without stellar-cli, so the CLI is part of
       # the toolchain rather than an optional convenience.
       - name: Install stellar-cli
@@ -50,10 +56,14 @@ jobs:
       - name: Build the wasm the chain will actually run
         run: stellar contract build
 
+      - name: Build the adapter wasm
+        working-directory: contracts/ballast-blend-adapter
+        run: stellar contract build
+
       - name: Report artifact sizes
         run: |
           ls -lh target/wasm32v1-none/release/*.wasm
-          for f in target/wasm32v1-none/release/*.wasm; do
+          for f in target/wasm32v1-none/release/*.wasm contracts/ballast-blend-adapter/target/wasm32v1-none/release/*.wasm; do
             size=$(stat -c%s "$f")
             echo "$f: $size bytes"
             test "$size" -lt 120000 || { echo "wasm over 120KB, tighten it"; exit 1; }

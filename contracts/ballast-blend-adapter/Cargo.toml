@@ -1,3 +1,9 @@
+# Its own workspace on purpose: the adapter is built against soroban-sdk 25 (the version
+# Blend's SDK targets) while the vault is on 29. Cargo cannot resolve both in one
+# workspace, and there is no reason to force them together — the contracts only ever
+# exchange addresses and i128s across the call boundary.
+[workspace]
+
 [package]
 name = "ballast-blend-adapter"
 version = "0.1.0"
@@ -18,4 +24,11 @@ blend-contract-sdk = "2.25"
 
 [dev-dependencies]
 soroban-sdk = { version = "25", features = ["testutils"] }
-blend-contract-sdk = { version = "2.25", features = ["testutils"] }
+
+[profile.release]
+overflow-checks = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
