@@ -1,129 +1,143 @@
 ---
 import Base from '../layouts/Base.astro';
 import { api } from '../lib/api';
-import { pct, usd } from '../lib/format';
+import { usd } from '../lib/format';
 
 const [meta, network, policyDoc] = await Promise.all([api.meta(), api.network(), api.policy()]);
 const p = policyDoc?.policy;
-const flows = [
+
+const promises = [
   {
-    n: '1', title: 'User signs in with a passkey',
-    body: 'An OpenZeppelin smart account is created on Stellar; the passkey is the key. No seed phrase to lose, no extension to install.',
+    title: 'You can always take your money back',
+    body: 'There is no lock-up, no notice period and no queue. We keep a slice of every balance free at all times, so a withdrawal is not waiting on anyone — including us.',
   },
   {
-    n: '2', title: 'A vault is deployed for that user',
-    body: 'The vault is a Soroban contract owned by the smart account. The backend proposes; it cannot move a cent.',
+    title: 'We cannot move your money anywhere else',
+    body: 'Your savings sit in an account that belongs to you. We can suggest a move; the account only accepts the ones that fit the rules below. There is no button, ours or anyone else\'s, that pays money out to a third party.',
   },
   {
-    n: '3', title: 'USDC arrives',
-    body: 'From an existing wallet, from a SEP-24 anchor (KYC stays with the licensed anchor), or from another chain via CCTP — no bridge custodian.',
+    title: 'Only places that pass the checklist',
+    body: 'We watch every place that pays for dollars. Before any money goes in, it has to be big enough for you to leave quickly, audited, and paying something we can explain. Right now most of the list does not pass, and we say so on the page instead of quietly ranking it.',
   },
   {
-    n: '4', title: 'The keeper proposes, the vault decides',
-    body: 'A permissionless keeper builds a plan. The vault checks it against the signed policy and against NAV before/after. A value-losing move reverts inside the same transaction.',
+    title: 'If a place starts looking bad, new money stops going there',
+    body: 'A problem is caught before it becomes a headline: that place stops receiving money immediately, your existing money can still be taken out, and the page tells you it happened.',
+  },
+  {
+    title: 'Nothing moves without a reason you can read',
+    body: 'Every move we make, and every move we decided not to make, is written down with the rate it was based on and the reason in plain words. You do not have to trust our judgement; you can read it.',
   },
 ];
-const invariants = [
-  'No arbitrary transfer entry point: the vault can only call registered adapters, and adapters only return funds to the vault.',
-  'Rebalance is permissionless but policy-bounded and NAV-checked; automation cannot exceed what the user signed.',
-  'The owner can always withdraw. Illiquid parts return as “pending” and are shown — never hidden.',
-  'Keeper bounties are paid by the app treasury, never from user principal.',
-  'Vaults are immutable by default; upgrading requires a new version and per-user opt-in migration.',
-  'Freezing a venue blocks new deposits immediately while withdrawals stay open. Freezing is instant; unfreezing needs a timelock.',
+
+const rules = [
+  ['Any single place', p ? `${(p.max_venue_bps / 100).toFixed(0)}% of a balance at most` : 'a minority of a balance'],
+  ['Always free to withdraw', p ? `at least ${(p.min_idle_bps / 100).toFixed(0)}%` : 'a slice kept free'],
+  ['One move at a time', p ? `${(p.max_move_bps / 100).toFixed(0)}% of a balance at most` : 'a fraction of a balance'],
+  ['How much better the new place must pay', p ? `at least ${(p.min_improvement_bps / 100).toFixed(2)}% more` : 'a clear improvement'],
+  ['Wait between moves', p ? `${p.cooldown_secs / 86400} days` : 'a few days'],
+  ['A move may never make you worse off', 'if it would, it is cancelled'],
+  ['Smallest position worth opening', p ? usd(p.min_capacity_usd) : '—'],
+];
+
+const honest = [
+  'Rates move. The number you see today is the rate being paid now, not a rate you are promised.',
+  'A lending market can be exploited, paused, or stop paying. We size positions so that a single failure costs you a slice, never everything.',
+  'A dollar coin can, in the worst case, lose its peg or be frozen by its issuer. That risk is real and it is on the page, not in a footnote.',
+  'We do not take currency risk on your behalf. If you want the higher rates other countries pay, the next section is the honest version of that trade.',
 ];
 ---
-<Base title="How it works" subtitle="Non-custodial, automatic, and boring in the places that matter: the parts that can move money are small, bounded and testable." network={network} meta={meta}>
-  <div class="grid g4">
-    {flows.map((f) => (
-      <div class="card flow">
-        <span class="n num">{f.n}</span>
-        <h3>{f.title}</h3>
-        <p class="small muted">{f.body}</p>
-      </div>
-    ))}
-  </div>
-
+<Base
+  title="Why your money is safe with us"
+  subtitle="Not because we say so — because of what we are structurally unable to do, and what you can check."
+  network={network}
+  meta={meta}
+>
   <div class="grid g2 stack">
     <div class="card">
-      <h2>Six invariants we test</h2>
-      <ul class="inv">
-        {invariants.map((i) => <li><span class="tick">✓</span><span>{i}</span></li>)}
+      <h2>Five promises</h2>
+      <ul class="promises">
+        {promises.map((x) => (
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>{x.title}</strong>
+              <p class="small muted">{x.body}</p>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
 
-    <div class="card" id="policy">
-      <h2>The policy you sign</h2>
-      {p ? (
-        <div class="kv small">
-          <div><span>Max in one venue</span><span class="num">{(p.max_venue_bps / 100).toFixed(0)}%</span></div>
-          <div><span>Always liquid</span><span class="num">{(p.min_idle_bps / 100).toFixed(0)}%</span></div>
-          <div><span>Max single move</span><span class="num">{(p.max_move_bps / 100).toFixed(0)}%</span></div>
-          <div><span>Min. improvement to move</span><span class="num">{(p.min_improvement_bps / 100).toFixed(2)}%</span></div>
-          <div><span>Cooldown</span><span class="num">{p.cooldown_secs / 86400} days</span></div>
-          <div><span>Value check tolerance</span><span class="num">{(p.max_slippage_bps / 100).toFixed(2)}%</span></div>
-          <div><span>Max venue utilisation</span><span class="num">{(p.max_venue_utilization_bps / 100).toFixed(0)}%</span></div>
-          <div><span>Min. venue size</span><span class="num">{usd(p.min_capacity_usd)}</span></div>
-          <div><span>Max share of a venue</span><span class="num">{(p.max_venue_share_of_capacity * 100).toFixed(0)}%</span></div>
-        </div>
-      ) : <p class="small muted">Policy unavailable.</p>}
+    <div class="card" id="rules">
+      <h2>The rules we keep</h2>
+      <p class="small muted">
+        These are the house rules, and they are applied automatically to every move. They exist so that being
+        automatic never means being careless.
+      </p>
+      <div class="kv small">
+        {rules.map(([k, v]) => (
+          <div><span>{k}</span><span class="num">{v}</span></div>
+        ))}
+      </div>
       <p class="small muted mt">
-        These values were chosen by measurement, not taste. The cooldown is two days because measured leadership
-        between the verified venues lasts about a week; a seven-day cooldown missed most switches.
+        The two-day wait and the small improvement threshold are not caution for its own sake: we measured how long
+        one place tends to stay ahead of another, and moving faster than that earned less than the moves cost.
       </p>
     </div>
   </div>
 
-  <details class="card stack tech">
-    <summary>Technical details (for builders and reviewers)</summary>
-    <h2>Architecture</h2>
-    <pre class="arch mono">
-passkey smart account (owner)
-        │ owner auth
-        ▼
-   UserVault (one per user, immutable by default)
-     ├── idle USDC sleeve          policy: min_idle_bps
-     ├── positions per venue       policy: max_venue_bps, max_move_bps, cooldown
-     └── rebalance(plan)           ANYONE → policy check → NAV check → revert on loss
-             ├── BlendAdapter     supply / withdraw / position_value / liquidity_now
-             └── DeFindexAdapter  deposit / withdraw / share_price / position_value
-
-Registry (2/3 multisig + 48h timelock; guardian can freeze instantly)
-Go backend:  venue ingestion · risk engine · policy planner · keeper log · read-only API
-Astro:       server-rendered dashboard (no client key, no API token in the browser)</pre>
-    <p class="small muted">
-      The backend is deliberately the least powerful component. It reads the chain, scores venues and returns
-      unsigned intents. There is no signing key in it, so compromising it does not move funds — the worst case is a
-      bad proposal, which the vault rejects.
-    </p>
-  </details>
-
   <div class="card stack callout">
-    <h2>What we will not claim</h2>
+    <h2>What we will not pretend</h2>
     <ul class="no">
-      <li>No fixed APY, no “beat inflation”, no principal protection. Yield comes from borrowers paying interest and can fall.</li>
-      <li>Not “KYC-free”. The app takes no custody and performs no KYC; a fiat ramp means the licensed anchor performs KYC.</li>
-      <li>We are not an aggregator while the venue count is small. We are a policy-driven allocator, and its value grows as decorrelated venues appear.</li>
-      <li>A risk score cannot see a zero-day contract bug or an issuer freezing a balance. It prices what is observable and dated.</li>
+      {honest.map((h) => <li>{h}</li>)}
     </ul>
+    <p class="small muted">
+      Keelson is not a bank account and is not insured like one. Nothing here is investment or legal advice.
+    </p>
+  </div>
+
+  <div class="card stack">
+    <h2>If you want the higher rates other countries pay</h2>
+    <div class="grid g2">
+      <div>
+        <p class="small">
+          Some countries pay far more than yours. We think you deserve to see those numbers — and to see the whole
+          trade, not just the flattering half of it. So we publish what a dollar actually earned there over the last
+          twelve months, after the currency moved.
+        </p>
+        <p class="small muted">
+          What we will not do is pretend you can already take your money there through us. Getting a deposit into
+          another country means a local bank or a licensed product, capital controls the high-rate countries impose
+          when it suits them, and tax where you live. That is the next thing to solve, and until it is solved this
+          page will not claim it.
+        </p>
+        <a class="link small" href="../borders/">The honest comparison →</a>
+      </div>
+      <div class="quote">
+        <p>
+          “A headline rate is not a return. The second number — what the currency did — is the one nobody puts in the
+          advert.”
+        </p>
+      </div>
+    </div>
   </div>
 </Base>
 
 <style>
-  .flow { display: flex; flex-direction: column; gap: 6px; }
-  .n { font-size: 12px; font-weight: 700; color: var(--brand); }
-  .flow h3 { margin: 0; }
   .stack { margin-top: 14px; }
-  .inv { list-style: none; margin: 0; padding: 0; font-size: 13px; }
-  .inv li { display: flex; gap: 9px; padding: 7px 0; border-bottom: 1px dashed #F3EBDB; color: #4A3D2C; }
-  .inv li:last-child { border-bottom: none; }
+  .promises { list-style: none; margin: 0; padding: 0; font-size: 13.5px; }
+  .promises li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #F3EBDB; }
+  .promises li:last-child { border-bottom: none; }
+  .promises strong { font-size: 14px; }
+  .promises p { margin: 3px 0 0; }
   .tick { color: var(--brand); font-weight: 700; flex: none; }
-  .kv { display: flex; flex-direction: column; gap: 4px; }
-  .kv div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed #F3EBDB; padding: 5px 0; }
+  .kv { display: flex; flex-direction: column; }
+  .kv div { display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px dashed #F3EBDB; padding: 7px 0; }
   .kv span:first-child { color: var(--muted); }
+  .kv div:last-child { border-bottom: none; }
   .mt { margin-top: 12px; }
-  .tech summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--muted); }
-  .tech[open] summary { margin-bottom: 12px; color: var(--ink); }
-  .arch { background: #2E2418; color: #F3E9D8; padding: 16px; border-radius: 10px; overflow-x: auto; line-height: 1.45; font-size: 11.5px; }
   .callout { background: #FFFCF6; border-color: #E8DCC6; }
-  .no { margin: 0 0 0 18px; padding: 0; font-size: 13px; line-height: 1.7; color: #4A3D2C; }
+  .no { margin: 0 0 10px 18px; padding: 0; font-size: 13px; line-height: 1.75; color: #4A3D2C; }
+  .quote { background: var(--brand-soft); border-radius: 14px; padding: 18px; display: grid; place-items: center; }
+  .quote p { margin: 0; font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 17px; line-height: 1.45; color: var(--brand-ink); }
 </style>

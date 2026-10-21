@@ -7,7 +7,7 @@ const [meta, network, health] = await Promise.all([api.meta(), api.network(), ap
 ---
 <Base
   title="Where your money is, what it earns, what could go wrong"
-  subtitle="A non-custodial USDC savings autopilot on Stellar. Your money sits in a contract you own; a policy you sign decides which audited venue holds it; a permissionless keeper proposes moves and the contract rejects any that lose value."
+  subtitle="Savings that always sit where the rate is best, and a page that shows you the working: what you earn, where it is, and what we turned down to keep it there."
   network={network}
   meta={meta}
   updated={health?.venues_updated ?? null}

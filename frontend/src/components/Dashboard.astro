@@ -22,31 +22,32 @@ const [meta, network, plan, venues, decisions, health] = await Promise.all([
 
 const offline = !plan || !venues;
 const steps = [
-  { n: '1', t: 'Deposit USDC', d: 'From a wallet, an anchor, or another chain via CCTP. Your passkey is the key.' },
-  { n: '2', t: 'The policy picks the venue', d: 'Audited venues only, capped per venue, 10% always liquid, no exotic yield.' },
-  { n: '3', t: 'Withdraw whenever', d: 'No lock-up, no queue, no permission from us. The contract is yours.' },
+  { n: '1', t: 'Put dollars in', d: 'From your wallet, in a minute. No paperwork, no minimum worth mentioning.' },
+  { n: '2', t: 'We pick the best-paying safe place', d: 'Every week we compare what the safe places pay and move your money to the better one. Part of it stays free.' },
+  { n: '3', t: 'Take it out whenever', d: 'No lock-up, no waiting list, nobody to ask. That is the whole point.' },
 ];
 ---
 {hero && (
   <>
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Non-custodial savings · Stellar</p>
-        <h1>Your savings should earn.<br />Without leaving your hands.</h1>
+        <p class="eyebrow">Savings that follow the best rate</p>
+        <h1>Your money should earn where the rate is best.<br />Not where your bank happens to be.</h1>
         <p class="lede">
-          Keelson puts idle USDC to work in audited Stellar lending venues and keeps a liquid sleeve so you can leave at
-          any moment. A published risk model decides where the money goes; a policy you sign decides how far the keeper
-          may move it. We hold no key, so there is no custody to lose.
+          Banks pay whatever is convenient for them. Keelson keeps your dollars in whichever safe place pays the most
+          this week, and moves them the moment that stops being true. Some countries pay far more than yours — we show
+          you exactly what those rates are worth once the currency moves, and we never put your money somewhere you
+          cannot get it back from.
         </p>
         <div class="hero-cta">
-          <a class="btn primary" href={depositHref(1000)}>See the live plan</a>
-          <a class="btn ghost" href={href('/evidence/')}>What routing is actually worth</a>
+          <a class="btn primary" href={depositHref(1000)}>See what $1,000 would earn</a>
+          <a class="btn ghost" href={href('/borders/')}>Compare countries</a>
         </div>
         <ul class="trust">
-          <li>Non-custodial</li>
-          <li>Withdraw any time</li>
+          <li>Your money stays yours</li>
+          <li>Take it out any time</li>
           <li>No lock-up</li>
-          <li>Backend holds no key</li>
+          <li>No currency bet</li>
         </ul>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -80,17 +81,13 @@ const steps = [
 {offline ? (
   <div class="card err">
     <h2>No data to render</h2>
-    <p class="small">
-      Neither a live API nor a snapshot was available. Start the backend
-      (<span class="mono">cd backend && go run ./cmd/api</span>), or regenerate the snapshot with
-      <span class="mono">go run ./cmd/snapshot</span>.
-    </p>
+    <p class="small">The rates could not be loaded. Please try again in a moment.</p>
   </div>
 ) : (
   <>
     <div class="toolbar">
       <div class="amount-label">
-        <span class="k">Savings amount</span>
+        <span class="k">If you saved</span>
         <strong class="num">{usd(deposit)}</strong>
       </div>
       <div class="presets">
@@ -106,9 +103,9 @@ const steps = [
       <div class="card notice">
         <h3>Nothing is deployed at {usd(deposit)}</h3>
         <p class="small muted">
-          The policy keeps at least 10% liquid and will not open a position smaller than $25 per venue, so a deposit
-          this small stays in the vault's idle sleeve. Between roughly $60 and $140 only one venue is used; above
-          that the planner splits. This floor is deliberate: dust positions cost more in attention than they earn.
+          At this size we keep everything free to withdraw. We will not open a tiny position that earns a few cents
+          a year and takes three days of attention; below about $25 there is nothing here that would be honest to
+          call a return.
         </p>
       </div>
     )}
@@ -124,37 +121,37 @@ const steps = [
 
     <div class="grid g4 stack">
       <div class="card">
-        <h3>Non-custodial, in code</h3>
+        <h3>We cannot touch your money</h3>
         <p class="small muted">
-          The backend holds no key and has no submit path. It reads chain state and returns unsigned intents; the
-          wallet builds, simulates and signs. There is no custody to lose, only a policy to enforce.
+          Your savings sit in an account that answers to you, not to us. We can suggest where it goes; we cannot
+          spend it, move it, or block a withdrawal. There is nothing of ours holding it.
         </p>
-        <a class="link small" href={href('/how-it-works/')}>How the guarantees are implemented →</a>
+        <a class="link small" href={href('/how-it-works/')}>How that works →</a>
       </div>
       <div class="card">
-        <h3>Automatic, but bounded</h3>
+        <h3>Automatic, but not loose</h3>
         <p class="small muted">
-          Anyone may trigger a move; the vault decides which moves are allowed. Position caps, a two-day wait, a
-          0.25% improvement threshold and a before/after value check are enforced by the contract, so automation
-          cannot drift into a bad move even if the automation is wrong.
+          We only move money on a schedule, never on a whim, only to a place on our shortlist, and never so much at
+          once that you could not get out. If a move would leave you worse off, it does not happen.
         </p>
-        <a class="link small" href={href('/how-it-works/#policy')}>The policy you sign →</a>
+        <a class="link small" href={href('/how-it-works/')}>The rules we keep →</a>
       </div>
       <div class="card">
-        <h3>What routing is worth</h3>
+        <h3>What picking is actually worth</h3>
         <p class="small muted">
-          Measured, not promised: choosing the better of two verified venues was worth about 0.27% a year on
-          ordinary balances. Getting money from idle to working is worth roughly 5.5%.
+          Measured, not promised: between two safe places, choosing the better one is worth about 0.27% a year on
+          ordinary balances. Getting money off zero is worth roughly 5.5%. We would rather tell you the small
+          number than sell you the big one.
         </p>
-        <a class="link small" href={href('/evidence/')}>The measurement →</a>
+        <a class="link small" href={href('/evidence/')}>Our track record →</a>
       </div>
       <div class="card accent">
-        <h3>Across borders</h3>
+        <h3>The other half of the number</h3>
         <p class="small muted">
-          Some countries pay far more — and their currencies move. We publish what a dollar actually earned there,
-          currency included, because a headline rate is not a return.
+          Türkiye pays 37%. Brazil pays 13.75%. Both look like free money until you count what the currency did.
+          We publish what a dollar actually earned in each country, currency included.
         </p>
-        <a class="link small" href={href('/borders/')}>See the real numbers →</a>
+        <a class="link small" href={href('/borders/')}>Compare countries →</a>
       </div>
     </div>
   </>

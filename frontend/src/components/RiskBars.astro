@@ -9,13 +9,10 @@ export interface Props {
 const { risk, incidents = [] } = Astro.props;
 const color = bandColor[risk.band];
 const order = ['contract', 'liquidity', 'oracle', 'durability', 'contagion', 'governance'];
-const weights: Record<string, number> = {
-  contract: 0.25, liquidity: 0.2, oracle: 0.15, durability: 0.15, contagion: 0.15, governance: 0.1,
-};
 ---
 <div class="card">
   <div class="head">
-    <h2>Risk breakdown</h2>
+    <h2>What could go wrong here</h2>
     <span class="band" style={`background:${color}1a;color:${color}`}>
       {risk.band} · {bandLabel[risk.band]} — {risk.score.toFixed(0)}/100
     </span>
@@ -24,7 +21,7 @@ const weights: Record<string, number> = {
   <ul class="subs">
     {order.map((k) => (
       <li>
-        <span class="name">{subLabel[k]} <span class="w small muted">×{weights[k].toFixed(2)}</span></span>
+        <span class="name">{subLabel[k]}</span>
         <span class="track"><span class="fill" style={`width:${Math.min(100, risk.subs[k])}%;background:${color}`}></span></span>
         <span class="val num">{risk.subs[k].toFixed(0)}</span>
       </li>
@@ -33,11 +30,11 @@ const weights: Record<string, number> = {
 
   {incidents.length > 0 && (
     <div class="incidents">
-      <h3>Incident history (scored, not hidden)</h3>
+      <h3>Times this place had a problem</h3>
       <ul>
         {incidents.map((i) => (
           <li class="small">
-            <span class={i.scope === 'protocol_code' ? 'tag bad' : 'tag warn'}>{i.scope === 'protocol_code' ? 'protocol code' : 'pool config'}</span>
+            <span class={i.scope === 'protocol_code' ? 'tag bad' : 'tag warn'}>{i.scope === 'protocol_code' ? 'the code' : 'the settings'}</span>
             <span class="num">${(i.loss_usd / 1_000_000).toFixed(2)}M · {i.months_ago} mo ago</span>
             <p class="muted">{i.note}</p>
           </li>
@@ -45,8 +42,6 @@ const weights: Record<string, number> = {
       </ul>
     </div>
   )}
-
-    <div><span>Input hash</span><span class="mono">{risk.input_hash}</span></div>
     <div><span>Computed</span><span class="mono">{new Date(risk.computed_at).toISOString().slice(0, 16).replace('T', ' ')} UTC</span></div>
   </div>
   <p class="small muted foot">

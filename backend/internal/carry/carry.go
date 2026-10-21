@@ -48,17 +48,17 @@ func Registry() (asOf time.Time, rows []CountryRate) {
 	tr := 29.73
 	return time.Date(2026, 10, 21, 0, 0, 0, 0, time.UTC), []CountryRate{
 		{Code: "US", Country: "United States", Currency: "USD", Policy: 3.88, Inflation: nil,
-			RateName: "Fed funds (effective)", Source: "Federal Reserve H.15, 2026-10-20", AsOf: "2026-10-20"},
+			RateName: "Fed funds rate", Source: "Federal Reserve H.15, 2026-10-20", AsOf: "2026-10-20"},
 		{Code: "EU", Country: "Euro area", Currency: "EUR", Policy: 2.50, Inflation: nil,
-			RateName: "ECB deposit facility", Source: "ECB, effective 2026-09-16", AsOf: "2026-09-16"},
+			RateName: "ECB rate", Source: "ECB, effective 2026-09-16", AsOf: "2026-09-16"},
 		{Code: "TR", Country: "Türkiye", Currency: "TRY", Policy: 37.00, Inflation: &tr,
-			RateName: "CBRT one-week repo", Source: "CBRT MPC 2026-09-10; TÜİK CPI Sep 2026", AsOf: "2026-09-10"},
+			RateName: "CBRT rate", Source: "CBRT MPC 2026-09-10; TÜİK CPI Sep 2026", AsOf: "2026-09-10"},
 		{Code: "BR", Country: "Brazil", Currency: "BRL", Policy: 13.75, Inflation: nil,
-			RateName: "Selic", Source: "BCB Copom, 2026-09-16", AsOf: "2026-09-16"},
+			RateName: "Selic rate", Source: "BCB Copom, 2026-09-16", AsOf: "2026-09-16"},
 		{Code: "MX", Country: "Mexico", Currency: "MXN", Policy: 6.50, Inflation: nil,
-			RateName: "Banxico overnight target", Source: "Banxico, 2026-09-24", AsOf: "2026-09-24"},
+			RateName: "Banxico rate", Source: "Banxico, 2026-09-24", AsOf: "2026-09-24"},
 		{Code: "IN", Country: "India", Currency: "INR", Policy: 5.50, Inflation: nil,
-			RateName: "RBI repo", Source: "RBI MPC, 2026-10-07", AsOf: "2026-10-07"},
+			RateName: "RBI rate", Source: "RBI MPC, 2026-10-07", AsOf: "2026-10-07"},
 	}
 }
 
@@ -171,7 +171,7 @@ func Analyse(ctx context.Context, c *http.Client, benchmark float64, now time.Ti
 		GeneratedAt:  now.UTC(),
 		WindowDays:   len(dates),
 		BenchmarkAPY: benchmark,
-		Note: "Realised one-year return of a dollar deposited at each country's policy rate, " +
+		Note: "Real one-year return of a dollar deposited at each country's central bank rate, " +
 			"converted back to dollars at today's rate. Uses the actual currency path, not a forecast. " +
 			"A managed currency can post a low volatility and still step sharply; the drawdown column exists for that. " +
 			"Not an offer, not advice, and not a product: no cross-border deposit is available through Keelson.",

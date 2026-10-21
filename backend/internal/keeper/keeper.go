@@ -128,7 +128,7 @@ func (k *Keeper) tick(ctx context.Context) {
 	if best == nil {
 		k.Store.AddDecision(model.Decision{
 			At: time.Now().UTC(), Vault: k.TrackedVault, Action: "noop",
-			Reason: "No eligible venue in this cycle.", CurrentAPY: current.APY,
+			Reason: "No suitable place to move to this time.", CurrentAPY: current.APY,
 		})
 		return
 	}

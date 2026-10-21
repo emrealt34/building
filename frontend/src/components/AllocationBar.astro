@@ -12,8 +12,8 @@ const w = (usd_: number) => (deposit > 0 ? Math.round((usd_ / deposit) * 10000) 
 ---
 <div class="card">
   <div class="head">
-    <h2>Allocation</h2>
-    <span class="small muted">your policy, applied</span>
+    <h2>Where your money actually is</h2>
+    <span class="small muted">today, not in theory</span>
   </div>
 
   <div class="bar">
@@ -24,7 +24,7 @@ const w = (usd_: number) => (deposit > 0 ? Math.round((usd_ / deposit) * 10000) 
         title={`${leg.label} — ${usd(leg.amount_usd)}`}
       ></div>
     ))}
-    <div class="seg idle" style={`width:${w(plan.idle_usd)}%`} title={`Withdrawable cash — ${usd(plan.idle_usd)}`}></div>
+    <div class="seg idle" style={`width:${w(plan.idle_usd)}%`} title={`Free to withdraw — ${usd(plan.idle_usd)}`}></div>
   </div>
 
   <ul class="legend">
@@ -40,7 +40,7 @@ const w = (usd_: number) => (deposit > 0 ? Math.round((usd_ / deposit) * 10000) 
     <li class="idle-row">
       <span class="swatch idle"></span>
       <span class="w num">{idlePct.toFixed(0)}%</span>
-      <span class="lbl">Withdrawable cash (always ≥ policy floor)</span>
+      <span class="lbl">Kept free so you can leave</span>
       <span class="apy num">—</span>
       <span class="amt num">{usd(plan.idle_usd)}</span>
     </li>

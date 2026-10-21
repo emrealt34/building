@@ -15,26 +15,26 @@ const riskBand = plan.portfolio_risk < 45 ? 'A' : plan.portfolio_risk < 60 ? 'B'
 ---
 <section class="grid g2">
   <div class="hero">
-    <div class="hero-label">Total balance</div>
+    <div class="hero-label">Your savings</div>
     <div class="hero-amount num">{usd(deposit)}</div>
     <div class="hero-split">
-      <div><span class="k">Working</span><span class="v num">{usd(invested)}</span></div>
-      <div><span class="k">Withdrawable now</span><span class="v num">{usd(plan.idle_usd)}</span></div>
-      <div><span class="k">Blended rate</span><span class="v num">{pct(plan.blended_apy)}</span></div>
+      <div><span class="k">Earning now</span><span class="v num">{usd(invested)}</span></div>
+      <div><span class="k">Free to take out</span><span class="v num">{usd(plan.idle_usd)}</span></div>
+      <div><span class="k">Rate you are earning</span><span class="v num">{pct(plan.blended_apy)}</span></div>
     </div>
     <div class="hero-earn">
-      <div><span class="k">Est. per year</span><span class="v num">{usd(yearly, 2)}</span></div>
+      <div><span class="k">About per year</span><span class="v num">{usd(yearly, 2)}</span></div>
       <div><span class="k">per month</span><span class="v num">{usd(monthly, 2)}</span></div>
       <div><span class="k">per day</span><span class="v num">{usd(daily, 2)}</span></div>
     </div>
     <p class="hero-note">
-      Estimates use the venues' current realised rates. Rates are variable; this is not a fixed rate,
-      not a deposit account and not a promise. Idle cash is kept deliberately: it is what makes "withdraw any time" true.
+      Based on the rates these places are paying today. Rates move, so this is an estimate, not a promise, and not a
+      bank deposit. The part left free is deliberate: it is what makes “take it out any time” true.
     </p>
   </div>
 
   <div class="card risk">
-    <h2>Portfolio risk</h2>
+    <h2>How safe this mix is</h2>
     <div class="risk-head">
       <div class="num big">{plan.portfolio_risk.toFixed(0)}</div>
       <div class="small muted">/ 100 · {bandLabel[riskBand]}</div>
@@ -43,13 +43,13 @@ const riskBand = plan.portfolio_risk < 45 ? 'A' : plan.portfolio_risk < 60 ? 'B'
       <div class="meter-fill" style={`width:${Math.min(100, plan.portfolio_risk)}%;background:${bandColor[riskBand]}`}></div>
     </div>
     <div class="risk-breakdown small">
-      <div><span class="muted">Weighted venue risk</span><span class="num">{plan.portfolio_risk_base.toFixed(1)}</span></div>
-      <div><span class="muted">Shared-dependency penalty</span><span class="num">+{plan.correlation_penalty.toFixed(1)}</span></div>
+      <div><span class="muted">Average rating of the places used</span><span class="num">{plan.portfolio_risk_base.toFixed(1)}</span></div>
+      <div><span class="muted">Penalty when they share a weakness</span><span class="num">+{plan.correlation_penalty.toFixed(1)}</span></div>
     </div>
     <p class="small muted">
-      Two venues that look different are not diversification if they are backed by the same collateral.
-      The penalty is charged on shared dependencies — the August 2026 lesson, when one shared pool impaired
-      every Blend backstop at once.
+      Two places that look different are not actually different if they lean on the same thing. In August 2026 a
+      single shared pool was drained and every lending market built like it was hurt on the same day, so we add a
+      penalty whenever the places we use have a weakness in common.
     </p>
   </div>
 </section>

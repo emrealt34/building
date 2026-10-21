@@ -31,35 +31,36 @@ const avg = rows.length ? rows.reduce((s, p) => s + p.apy, 0) / rows.length : 0;
 const min = rows.length ? Math.min(...rows.map((p) => p.apy)) : 0;
 const max = rows.length ? Math.max(...rows.map((p) => p.apy)) : 0;
 ---
-<Base title={v.label} subtitle={`${v.kind.replace('_', ' ')} · ${v.source} · asset USDC · ${v.oracle ?? 'n/a'}`} network={network} meta={meta} updated={detail.as_of}>
+<Base title={v.label} subtitle="What it pays, how safe it is, and why we would or would not put your money here." network={network} meta={meta} updated={detail.as_of}>
   <div class="grid g2">
     <div class="card">
       <div class="rowtop">
         <div>
-          <span class="k">Current rate</span>
+          <span class="k">Paying today</span>
           <div class="rate num">{pct(v.apy)}</div>
           <div class="small muted">
-            base {pct(v.apy_base)}{v.apy_reward > 0 ? ` · reward ${pct(v.apy_reward)}` : ''}
-            {v.apy_mean_30d ? ` · 30d avg ${pct(v.apy_mean_30d)}` : ''}
+            {v.apy_reward > 0
+              ? `${pct(v.apy_base)} from borrowers, ${pct(v.apy_reward)} in temporary rewards`
+              : 'all of it paid by borrowers'}
+            {v.apy_mean_30d ? ` · 30-day average ${pct(v.apy_mean_30d)}` : ''}
           </div>
         </div>
         <div class="pos">
-          <div><span class="k">Withdrawable</span><span class="num">{compactUSD(v.capacity_usd)}</span></div>
-          <div><span class="k">Our max per policy</span><span class="num">{usd(v.max_position_usd)}</span></div>
-          <div><span class="k">Net score</span><span class="num">{v.net_score.toFixed(2)}</span></div>
+          <div><span class="k">You could take out</span><span class="num">{compactUSD(v.capacity_usd)}</span></div>
+          <div><span class="k">Most we would put here</span><span class="num">{usd(v.max_position_usd)}</span></div>
         </div>
       </div>
 
       <div class={`verdict ${v.eligible ? 'ok' : 'no'}`}>
         {v.eligible
-          ? <>Eligible for new deposits under the current policy.</>
-          : <><strong>Refused:</strong> {v.refusal}</>}
+          ? <>We would put money here today.</>
+          : <><strong>We would not put money here:</strong> {v.refusal}</>}
       </div>
 
       {chart && (
         <div class="chart">
           <div class="chart-head small muted">
-            <span>90-day realised APY</span>
+            <span>What it actually paid over 90 days</span>
             <span class="num">min {pct(min)} · avg {pct(avg)} · max {pct(max)}</span>
           </div>
           <div set:html={chart} />
@@ -72,36 +73,36 @@ const max = rows.length ? Math.max(...rows.map((p) => p.apy)) : 0;
 
   <div class="grid g2 stack">
     <div class="card">
-      <h2>Dependencies</h2>
+      <h2>What it depends on</h2>
       <ul class="deps">
         {v.underlying.map((u) => (
           <li><span class="bull">•</span><span>{u}</span></li>
         ))}
       </ul>
-      <h3 class="mt">Safety inputs (curated, versioned)</h3>
+      <h3 class="mt">What we checked</h3>
       <div class="kv small">
-        <div><span>Audits</span><span class="num">{v.audits}{v.tier1_audit ? ' · tier-1' : ''}</span></div>
-        <div><span>Live on mainnet</span><span class="num">{v.live_months} months</span></div>
-        <div><span>Upgradeable</span><span class="num">{v.upgradeable ? 'yes' : 'no'}</span></div>
-        <div><span>Oracle</span><span class="num">{v.oracle ?? 'n/a'}</span></div>
-        <div><span>Incentive dependence</span><span class="num">{Math.round(v.reward_dependence * 100)}%</span></div>
-        <div><span>Yield source verified</span><span class="num">{v.yield_source_verified ? 'yes' : 'no'}</span></div>
-        <div><span>Instant exit</span><span class="num">{v.instant_exit ? 'yes' : 'no'}</span></div>
+        <div><span>Independent audits</span><span class="num">{v.audits}{v.tier1_audit ? ' · tier-1' : ''}</span></div>
+        <div><span>Running for</span><span class="num">{v.live_months} months</span></div>
+        <div><span>Rules can be changed</span><span class="num">{v.upgradeable ? 'yes' : 'no'}</span></div>
+        <div><span>Price feed</span><span class="num">{v.oracle ?? 'n/a'}</span></div>
+        <div><span>Share of the rate that is temporary</span><span class="num">{Math.round(v.reward_dependence * 100)}%</span></div>
+        <div><span>We know where the interest comes from</span><span class="num">{v.yield_source_verified ? 'yes' : 'no'}</span></div>
+        <div><span>You can leave immediately</span><span class="num">{v.instant_exit ? 'yes' : 'no'}</span></div>
       </div>
     </div>
 
     <div class="card">
-      <h2>What this page is not</h2>
+      <h2>What this page does not promise</h2>
       <p class="small muted">
-        This is a venue risk profile, not a recommendation. The score cannot see a zero-day contract bug, a stablecoin
-        issuer freezing a balance, or a governance vote changing parameters overnight. It prices what is observable and
-        dated, and it stops new deposits when a venue's own metrics deteriorate — nothing more.
+        This is a judgement, not a recommendation. No score can see a brand-new bug, an issuer freezing a balance, or
+        the people running a place changing its rules overnight. What it can do is price what is visible today, and
+        stop new money going in when the numbers start to slip.
       </p>
       <p class="small muted">
-        Rates shown are realised, not promised. A 6% venue can pay 3% next month; that is why the product keeps a
-        liquid sleeve and a cooldown instead of chasing the top of the table.
+        Every rate here was actually paid; none of it is promised. A place paying 6% can pay 3% next month — which is
+        why we keep part of every balance free instead of chasing the top of the table.
       </p>
-      <a class="link small" href={href('/evidence/')}>How much does switching between venues actually earn? →</a>
+      <a class="link small" href={href('/evidence/')}>How much is switching actually worth? →</a>
     </div>
   </div>
 </Base>

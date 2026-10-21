@@ -64,8 +64,8 @@ func Analyse(ctx context.Context, llama *providers.DefiLlama, days int, principa
 	rep := Report{WindowDays: days, GeneratedAt: time.Now().UTC()}
 
 	pools := []struct{ id, label string }{
-		{"ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf", "Blend Fixed Pool — USDC"},
-		{"48c597dc-9367-4b4a-aa10-49b9755c4c2e", "Blend YieldBlox Pool — USDC"},
+		{"ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf", "Blend fixed pool"},
+		{"48c597dc-9367-4b4a-aa10-49b9755c4c2e", "Blend YieldBlox pool"},
 	}
 
 	data := map[string]*series{}

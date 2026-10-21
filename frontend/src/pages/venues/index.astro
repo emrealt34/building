@@ -12,17 +12,17 @@ const eligible = list.filter((v) => v.eligible);
 const refused = list.filter((v) => !v.eligible);
 ---
 <Base
-  title="Venues"
-  subtitle="Every Stellar USDC venue we can observe, scored on the same published scale. Inclusion is not an endorsement: half of this list is refused on purpose."
+  title="Where your money can sit"
+  subtitle="Every place that pays interest on dollars, judged on the same scale. Being on this list is not a recommendation — more than half of it is turned down on purpose."
   network={network}
   meta={meta}
   updated={venues?.as_of ?? null}
 >
   <div class="grid g4">
-    <div class="card stat"><span class="k">Venues observed</span><span class="v num">{list.length}</span></div>
-    <div class="card stat"><span class="k">Eligible now</span><span class="v num ok">{eligible.length}</span></div>
-    <div class="card stat"><span class="k">Refused</span><span class="v num bad">{refused.length}</span></div>
-    <div class="card stat"><span class="k">Largest withdrawable</span><span class="v num">{compactUSD(Math.max(0, ...list.map((v) => v.capacity_usd)))}</span></div>
+    <div class="card stat"><span class="k">Places we watch</span><span class="v num">{list.length}</span></div>
+    <div class="card stat"><span class="k">We use</span><span class="v num ok">{eligible.length}</span></div>
+    <div class="card stat"><span class="k">We turn down</span><span class="v num bad">{refused.length}</span></div>
+    <div class="card stat"><span class="k">Biggest place we could use</span><span class="v num">{compactUSD(Math.max(0, ...list.map((v) => v.capacity_usd)))}</span></div>
   </div>
 
   <div class="stack">
@@ -30,15 +30,15 @@ const refused = list.filter((v) => !v.eligible);
   </div>
 
   <div class="stack card">
-    <h2>Why the refusals matter more than the picks</h2>
+    <h2>Why what we turn down matters more than what we pick</h2>
     <p class="small muted">
-      A list that only ranks yield rewards the venue with the most aggressive incentive programme. Our
-      eligibility rules refuse four categories before any ranking happens: yield that cannot be decomposed into
-      borrower interest versus incentives; venues too small to exit at our size; utilisation above the policy ceiling;
-      and rates more than 3× their own 30-day median (a liquidity squeeze, not a yield).
+      A list sorted by rate always rewards whoever is shouting loudest. So four kinds of place are turned down before
+      anything is ranked: rates we cannot explain (is it borrowers paying, or a temporary promotion?); places too
+      small for you to get out of quickly; places that are nearly out of lendable money; and rates several times
+      their own normal level, which usually means a shortage rather than a real rate.
     </p>
     <table class="reasons">
-      <thead><tr><th>Venue</th><th class="right">APY</th><th class="right">Risk</th><th>Refusal</th></tr></thead>
+      <thead><tr><th>Place</th><th class="right">Pays</th><th class="right">Safety</th><th>Why not</th></tr></thead>
       <tbody>
         {refused.map((v) => (
           <tr>

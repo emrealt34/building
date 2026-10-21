@@ -29,10 +29,10 @@ export const timeAgo = (iso: string): string => {
 };
 
 export const bandLabel: Record<string, string> = {
-  A: 'Low',
-  B: 'Moderate',
-  C: 'Elevated',
-  D: 'High',
+  A: 'Solid',
+  B: 'Fair',
+  C: 'Weak',
+  D: 'Poor',
 };
 
 export const bandColor: Record<string, string> = {
@@ -43,12 +43,12 @@ export const bandColor: Record<string, string> = {
 };
 
 export const subLabel: Record<string, string> = {
-  contract: 'Contract & audit',
-  liquidity: 'Exit liquidity',
-  oracle: 'Bad debt / oracle',
-  durability: 'Yield durability',
-  contagion: 'Contagion',
-  governance: 'Governance',
+  contract: 'Has it been audited?',
+  liquidity: 'Can you get your money out?',
+  oracle: 'Could it break?',
+  durability: 'Will the rate last?',
+  contagion: 'Is it tied to something risky?',
+  governance: 'Who can change the rules?',
 };
 
 // Inline SVG sparkline: no chart library, no external requests, renders inside the

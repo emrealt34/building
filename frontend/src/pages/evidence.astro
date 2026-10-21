@@ -14,7 +14,7 @@ const years = (report?.window_days ?? 90) / 365;
 ---
 <Base
   title="What is choosing the better venue actually worth?"
-  subtitle="We measured the claim before building the product on it. Two verified dollar venues on Stellar, daily rates from a public feed, and a rule that only reacts to yesterday's data — the same restraint the product uses with your money."
+  subtitle="We measured the claim before building the product on it. Two verified dollar venues, daily rates from a public feed, and a rule that only reacts to yesterday's data — the same restraint the product uses with your money."
   network={network}
   meta={meta}
   updated={report?.generated_at ?? null}
@@ -73,8 +73,8 @@ const years = (report?.window_days ?? 90) / 365;
       <div class="card stack">
         <h2>How patient is the right answer?</h2>
         <p class="small muted">
-          We tested every combination of two settings: how long we wait between moves, and how much better a venue has
-          to be before it is worth the move. The best combination is the one we ship.
+          We tested every combination of two settings: how long we wait between moves, and how much better a place has
+          to be before the move is worth making. The best combination is the one we use.
         </p>
         <table>
           <thead>
@@ -110,25 +110,11 @@ const years = (report?.window_days ?? 90) / 365;
           <li><strong>We do not sell "the highest rate".</strong> Between two verified venues, moving well is worth a fraction of a percent a year at ordinary sizes. Real, but not a reason to download an app.</li>
           <li><strong>The value is 0% → {pct(workingYield, 1)}.</strong> Idle cash earning nothing is the actual problem. Add the ability to leave at any time and to see what you hold, and that is the product.</li>
           <li><strong>We wait two days between moves, not seven.</strong> Measured leadership between these venues lasts about a week; a seven-day wait misses most of it.</li>
-          <li><strong>We ignore outliers.</strong> One venue printed 193% for a single day. A naive rule chases it; we treat it as a liquidity squeeze, drop the day, and stop sending new money there.</li>
+          <li><strong>We ignore outliers.</strong> One venue printed 193% for a single day. A naive rule chases it; we treat it as a shortage of supply, drop the day, and stop sending new money there.</li>
         </ol>
         <p class="small muted">Past performance is not a forecast. Rates move; the discipline does not.</p>
       </div>
 
-      <details class="card stack tech">
-        <summary>Method, for the curious</summary>
-        <p class="small">
-          Daily rates from the public DefiLlama yields feed over {report.window_days} days ({years.toFixed(2)} of a year).
-          Observations above three times their trailing 30-day median are dropped before anything is computed.
-          A move is decided on the previous day's observation and applied the next day — no peeking at the future.
-          Transaction costs are excluded because a move costs under a cent on Stellar.
-        </p>
-        <p class="small">
-          The table above sweeps waiting periods of one to seven days against improvement thresholds of 0% to 1%,
-          replaying the same window for each combination; the shipped policy is the highest-returning combination that
-          keeps the number of moves sensible. Recompute it with <span class="mono">GET /api/v1/alpha?days=90</span>.
-        </p>
-      </details>
     </>
   )}
 </Base>
@@ -146,7 +132,5 @@ const years = (report?.window_days ?? 90) / 365;
   tr.best td { font-weight: 600; }
   .callout { background: #F6FBF4; border-color: #D6E3CF; }
   .callout ol { margin: 0 0 10px 18px; padding: 0; font-size: 13px; line-height: 1.7; color: #4A3D2C; }
-  .tech summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--muted); }
-  .tech[open] summary { margin-bottom: 12px; color: var(--ink); }
   .err { border-color: #E7C4B6; }
 </style>

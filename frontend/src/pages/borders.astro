@@ -26,7 +26,7 @@ const money = (n: number) =>
 ---
 <Base
   title="Interest is high in some countries. Getting paid in dollars is another matter."
-  subtitle="The one number a headline rate never shows you: what a dollar actually earned across a border, after the currency moved. Measured from public central-bank rates and ECB exchange rates — not forecast, not a product."
+  subtitle="The one number a headline rate never shows you: what a dollar actually earned in each country, after the currency moved. Measured from public central-bank rates and official exchange rates — not forecast, not a product."
   network={network}
   meta={null}
 >
@@ -45,9 +45,9 @@ const money = (n: number) =>
           </h1>
           <p class="lede">
             {winner && loser ? (
-              <>In the same twelve months, a dollar parked in {loser.country} at its policy rate came back
+              <>In the same twelve months, a dollar parked in {loser.country} at its central bank rate came back
                 {' '}<strong>{Math.abs(loser.local_return_usd_pct).toFixed(1)}% {loser.local_return_usd_pct >= 0 ? 'better' : 'poorer'}</strong> in dollar terms, and the same dollar inside
-                Keelson's current Stellar plan earned <strong>{benchmark.toFixed(2)}%</strong>. The rate you are quoted is
+                Keelson's current plan earned <strong>{benchmark.toFixed(2)}%</strong>. The rate you are quoted is
                 not the return you get.</>
             ) : null}
           </p>
@@ -66,8 +66,8 @@ const money = (n: number) =>
           </p>
           <span class="k">Our own alternative</span>
           <p class="tight">
-            Keep dollars, earn <strong>{benchmark.toFixed(2)}%</strong> in audited Stellar venues, withdraw any time,
-            take no currency risk. Smaller number. No hidden second number.
+            Keep dollars, earn <strong>{benchmark.toFixed(2)}%</strong> in places that pass our safety check, take your
+            money out any time, and take no currency risk. Smaller number. No hidden second number.
           </p>
         </aside>
       </section>
@@ -75,14 +75,14 @@ const money = (n: number) =>
       <section id="table" class="card table-card">
         <div class="card-head">
           <h2>What $1,000 became in twelve months</h2>
-          <span class="small muted">policy rate, currency move, and the two combined</span>
+          <span class="small muted">central bank rate, currency move, and the two combined</span>
         </div>
         <div class="scroll">
           <table>
             <thead>
               <tr>
                 <th>Country</th>
-                <th class="right">Local rate</th>
+                <th class="right">Their central bank rate</th>
                 <th class="right">Currency vs $</th>
                 <th class="right">In dollars</th>
                 <th class="right">$1,000 became</th>
@@ -117,7 +117,7 @@ const money = (n: number) =>
           </table>
         </div>
         <p class="small muted foot">
-          Policy rates as published by each central bank on the date shown; exchange rates are the ECB reference
+          Central bank rates as published by each central bank on the date shown; exchange rates are the ECB reference
           rates ({carry.registry}). "In dollars" applies the actual currency path, not a forecast, and ignores
           taxes, spreads and access costs — which is generous to the trade.
         </p>
@@ -128,22 +128,22 @@ const money = (n: number) =>
           <h2>The break-even line</h2>
           <p class="small muted">
             A high rate only pays while the currency holds. The gap between a country's rate and the dollar rate is
-            exactly the depreciation it can absorb before you are worse off than doing nothing:
+            exactly how much the currency can fall before you would have been better off doing nothing:
           </p>
           <ul class="breakeven">
             {rows.filter((r) => r.verdict !== 'base').slice(0, 4).map((r) => (
               <li>
                 <span class="cc">{r.currency}</span>
                 <span class="small">
-                  pays <strong>{r.policy_rate.toFixed(1)}%</strong> — can fall
-                  <strong> {r.breakeven_depreciation_pct.toFixed(1)} points</strong> against the dollar before the
-                  carry stops paying
+                  pays <strong>{r.policy_rate.toFixed(1)}%</strong> — the currency can fall
+                  <strong> {r.breakeven_depreciation_pct.toFixed(1)} points</strong> against the dollar before the extra
+                  interest is wiped out
                 </span>
               </li>
             ))}
           </ul>
           <p class="small muted">
-            Turkey is the clearest case: 33 points of extra yield, and the lira lost
+            Turkey is the clearest case: 33 points of extra interest, and the lira lost
             {' '}{Math.abs(rows.find((r) => r.code === 'TR')?.currency_move_pct ?? 0).toFixed(1)} points of that last year —
             which is why it is graded stretched here despite barely any daily noise. You were paid, but a third of
             the income was the currency deciding to hold still.
@@ -176,9 +176,9 @@ const money = (n: number) =>
       <div class="card stack callout">
         <h2>What we would have to solve before selling this</h2>
         <ol>
-          <li><strong>Access.</strong> Holding a lira deposit from a phone needs a licensed local bank or a regulated product; a Stellar app cannot open one for you.</li>
+          <li><strong>Access.</strong> Holding a lira deposit from your phone needs a licensed local bank or a regulated product. An app like ours cannot open one for you.</li>
           <li><strong>Capital controls.</strong> The high-rate countries are exactly the ones that restrict exits when it suits them.</li>
-          <li><strong>Liquidity and counterparty.</strong> A policy rate is not a deposit you can withdraw at 3am; the bank can gate withdrawals, and deposit insurance is local and limited.</li>
+          <li><strong>Getting your money back.</strong> A central bank rate is not an account you can empty at 3am. The bank can limit withdrawals, and any insurance is local and limited.</li>
           <li><strong>Tax.</strong> Currency gains and foreign interest are taxed where you live, usually without a neat offset.</li>
           <li><strong>Honesty.</strong> The product people actually want is "the highest number"; the product we can defend is "no currency risk and an exit". Those are not the same, so we ship the second one and publish the first one's real number.</li>
         </ol>

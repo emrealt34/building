@@ -36,7 +36,7 @@ var blendIncidents = []model.Incident{
 		LossUSD:   10_900_000,
 		MonthsAgo: 8,
 		Scope:     "pool_config",
-		Note:      "Feb 2026: YieldBlox pool oracle fed from a shallow SDEX market was manipulated; ~$10.9M. Not a bug in Blend core code, but the same oracle plumbing.",
+		Note:      "Feb 2026: the price feed this pool relies on was pushed around using a market with almost no depth. About $10.9M was lost. Not a bug in Blend's own code, but every pool built like this one leans on the same feed.",
 	},
 }
 
@@ -45,14 +45,14 @@ var blend2026Comet = model.Incident{
 	LossUSD:   717_000,
 	MonthsAgo: 2,
 	Scope:     "protocol_code",
-	Note:      "Aug 2026: Comet BLND-USDC pool (the backstop collateral for every Blend pool) was exploited; all backstops were impaired simultaneously and Stellar DeFi TVL fell ~60% intraday. This is why we never enter backstops or BLND-LP collateral.",
+	Note:      "Aug 2026: a pool that acts as the safety cushion for every Blend pool was drained. Every cushion was hit at once and the chain's lending market lost about 60% of its size within a day. This is why we never put money in the cushions.",
 }
 
 // Registry maps a provider+pool identity to a curated safety profile.
 func Registry(project, poolMeta, address string) (SafetyProfile, bool) {
 	switch project {
 	case "blend-pools-v2":
-		label := "Blend v2 — " + orDefault(poolMeta, "Pool") + " / USDC reserve"
+		label := "Blend — " + orDefault(poolMeta, "Pool")
 		p := SafetyProfile{
 			Kind:                model.KindLendingReserve,
 			Audits:              3,
@@ -81,13 +81,13 @@ func Registry(project, poolMeta, address string) (SafetyProfile, bool) {
 			Tier1Audit:          false,
 			LiveMonths:          7,
 			Upgradeable:         true,
-			Oracle:              "n/a (vault NAV)",
+			Oracle:              "n/a (its own accounting)",
 			OracleQuality:       0.70,
 			RewardDependence:    0.50,
 			YieldSourceVerified: false, // a flat 10% with no published decomposition
 			InstantExit:         true,
 			Underlying:          []string{"Blend", "Aquarius", "managed strategy"},
-			Label:               "Gami earnUSDC (managed vault)",
+			Label:               "Gami earnUSDC (managed pool)",
 		}, true
 
 	case "defindex":
@@ -103,7 +103,7 @@ func Registry(project, poolMeta, address string) (SafetyProfile, bool) {
 			YieldSourceVerified: true,
 			InstantExit:         true,
 			Underlying:          []string{"Blend strategy (autocompound)"},
-			Label:               "DeFindex vault",
+			Label:               "DeFindex savings pool",
 		}, true
 	}
 	return SafetyProfile{}, false

@@ -156,7 +156,7 @@ func (s *Server) plan(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) decisions(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, map[string]any{
-		"note":      "Every keeper evaluation, including the ones where nothing happened. A decision log that only shows successful moves is marketing, not a log.",
+		"note":      "Every check we made, including the ones where we did nothing. A log that only shows the moves that worked is advertising, not a log.",
 		"decisions": s.Store.Decisions(),
 	})
 }

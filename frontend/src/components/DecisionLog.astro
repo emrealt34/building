@@ -9,11 +9,11 @@ const badge: Record<string, string> = { noop: 'stayed put', proposed: 'proposed 
 ---
 <div class="card">
   <div class="head">
-    <h2>Keeper decision log</h2>
-    <span class="small muted">every evaluation, including the boring ones</span>
+    <h2>What we did, and why</h2>
+    <span class="small muted">including the times we did nothing</span>
   </div>
 
-  {rows.length === 0 && <p class="small muted">No evaluations yet — the keeper ticks every minute in this deployment.</p>}
+  {rows.length === 0 && <p class="small muted">Nothing to show yet — we check every few minutes.</p>}
 
   <ul>
     {rows.map((d) => (
@@ -22,10 +22,9 @@ const badge: Record<string, string> = { noop: 'stayed put', proposed: 'proposed 
           <span class={`badge ${d.action}`}>{badge[d.action] ?? d.action}</span>
           <span class="when small muted num">{timeAgo(d.at)}</span>
           {typeof d.gap_bps === 'number' && d.gap_bps !== 0 && (
-            <span class="gap small num">{d.gap_bps > 0 ? '+' : ''}{(d.gap_bps / 100).toFixed(2)}% gap</span>
+            <span class="gap small num">{d.gap_bps > 0 ? '+' : ''}{(d.gap_bps / 100).toFixed(2)}% better</span>
           )}
           {d.current_apy ? <span class="small muted num">in {pct(d.current_apy)} → best {pct(d.best_apy ?? 0)}</span> : null}
-          {d.plan_hash && <span class="mono hash small">{d.plan_hash}</span>}
         </div>
         <p class="why small">{d.reason}</p>
       </li>

@@ -34,21 +34,21 @@ func Annotate(venues []model.Venue, depositUSD float64, p model.Policy, now time
 func eligible(v model.Venue, p model.Policy) (bool, string) {
 	switch {
 	case !v.YieldSourceVerified:
-		return false, "Yield source is not verifiable (borrower interest vs incentives cannot be separated), so new money is not deployed here."
+		return false, "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
 	case v.Risk == nil:
-		return false, "No risk score available."
+		return false, "We do not have enough information to judge how safe it is yet."
 	case v.Risk.Band == model.BandD:
-		return false, "Risk band D: new deposits blocked by policy."
+		return false, "It fails our safety check, so no new money goes in."
 	case v.APY <= 0:
-		return false, "No yield."
+		return false, "It is not paying anything right now."
 	case v.CapacityUSD < p.MinCapacityUSD:
-		return false, fmt.Sprintf("Venue is too small ($%.0f withdrawable): exit liquidity cannot be guaranteed at our size.", v.CapacityUSD)
+		return false, fmt.Sprintf("Too small to be worth it: only $%.0f is available to take out, which is not enough to guarantee you could leave quickly.", v.CapacityUSD)
 	case v.MaxPosUSD < p.MinPositionUSD:
-		return false, fmt.Sprintf("Position cap ($%.0f) is below the minimum order size ($%.0f).", v.MaxPosUSD, p.MinPositionUSD)
+		return false, fmt.Sprintf("The most we would ever put here ($%.0f) is below the smallest position worth opening ($%.0f).", v.MaxPosUSD, p.MinPositionUSD)
 	case int(v.UtilizationB) > p.MaxVenueUtilizationBps:
-		return false, fmt.Sprintf("Utilisation %.0f bps is above the %d bps policy ceiling.", v.UtilizationB, p.MaxVenueUtilizationBps)
+		return false, fmt.Sprintf("%.0f%% of the money lent here is already out the door, which is more than we allow — getting your money back could take longer than we promise.", float64(v.UtilizationB)/100)
 	case v.APYMean30d > 0 && v.APY > 3*v.APYMean30d:
-		return false, fmt.Sprintf("Rate (%.2f%%) is more than 3× its 30-day median: a liquidity-squeeze signal, not an opportunity.", v.APY)
+		return false, fmt.Sprintf("%.2f%% is more than three times this place's own normal rate. That usually means a shortage of supply, not free money.", v.APY)
 	}
 	return true, ""
 }
@@ -173,19 +173,19 @@ func ImprovementBps(from, to float64) float64 { return round2((to - from) * 100)
 // It returns a decision plus a human-readable reason; "no-op" is a valid, logged outcome.
 func ShouldMove(currentVenue, bestVenue model.Venue, daysSinceMove int, p model.Policy) (bool, string) {
 	if !p.RebalanceEnabled {
-		return false, "Rebalance disabled by policy."
+		return false, "Automatic moving is switched off for this account."
 	}
 	if daysSinceMove*86400 < p.CooldownSecs {
-		return false, fmt.Sprintf("Cooldown active (%d of %d days).", daysSinceMove, p.CooldownSecs/86400)
+		return false, fmt.Sprintf("We moved money recently; we wait %d days between moves and only %d have passed.", p.CooldownSecs/86400, daysSinceMove)
 	}
 	gap := ImprovementBps(currentVenue.APY, bestVenue.APY)
 	if gap < float64(p.MinImprovementBps) {
-		return false, fmt.Sprintf("Improvement %.0f bps is below the %d bps threshold.", gap, p.MinImprovementBps)
+		return false, fmt.Sprintf("The other place pays only %.2f%% more a year, which is not worth the move.", gap/100)
 	}
 	if strings.EqualFold(currentVenue.ID, bestVenue.ID) {
-		return false, "Already in the best eligible venue."
+		return false, "Your money is already where it pays best."
 	}
-	return true, fmt.Sprintf("Move %.0f bps of annual yield is worth the switch.", gap)
+	return true, fmt.Sprintf("The other place pays %.2f%% more a year — worth the move.", gap/100)
 }
 
 func round0(x float64) float64 { return float64(int(x + 0.5)) }

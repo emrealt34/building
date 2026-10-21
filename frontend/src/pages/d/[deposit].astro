@@ -14,7 +14,7 @@ const [meta, network, health] = await Promise.all([api.meta(), api.network(), ap
 ---
 <Base
   title={`Savings plan for $${deposit.toLocaleString('en-US')}`}
-  subtitle="The same policy, applied to a different balance. Small balances stay liquid because a $25 minimum position is not worth its own overhead."
+  subtitle="The same rules, applied to a different amount. Small amounts stay free to withdraw, because opening a tiny position earns cents and costs attention."
   network={network}
   meta={meta}
   updated={health?.venues_updated ?? null}

@@ -14,11 +14,11 @@ const { title, subtitle, network, meta, updated } = Astro.props;
 const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
 const isActive = (p: string) => (p === '/' ? path === '/' || path.startsWith('/d/') : path.startsWith(p));
 const nav = [
-  { p: '/', label: 'Dashboard' },
-  { p: '/borders', label: 'Across borders' },
-  { p: '/venues', label: 'Venues' },
-  { p: '/evidence', label: 'Evidence' },
-  { p: '/how-it-works', label: 'How it works' },
+  { p: '/', label: 'Home' },
+  { p: '/borders', label: 'Countries' },
+  { p: '/venues', label: 'Where it sits' },
+  { p: '/evidence', label: 'Track record' },
+  { p: '/how-it-works', label: 'Safety' },
 ];
 const src = dataSource();
 ---
@@ -28,7 +28,7 @@ const src = dataSource();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · Keelson</title>
-    <meta name="description" content="Keelson — a non-custodial USDC savings autopilot on Stellar. Money you can always withdraw, in venues a published risk model accepts, moved by a keeper the vault polices." />
+    <meta name="description" content="Keelson keeps your savings where the rate is best and moves them when a better safe place appears. Your money stays yours, and you can take it back whenever you want." />
     <meta name="color-scheme" content="light" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C7481D'/%3E%3Cpath d='M9 20c2.6 2.2 11.4 2.2 14 0' stroke='%23FBF6EC' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='12' r='3' fill='%23FBF6EC'/%3E%3C/svg%3E" />
   </head>
@@ -37,11 +37,9 @@ const src = dataSource();
       <div class="wrap strip-inner">
         <span class="net">
           <span class:list={['dot', network?.rpc_healthy ? 'ok' : 'bad']}></span>
-          {network ? `Stellar mainnet · ledger ${network.latest_ledger.toLocaleString()} · protocol ${network.protocol || '—'}` : 'Stellar mainnet'}
+          {src.at ? `Rates checked ${timeAgo(src.at)}` : 'Rates from public market data'}
         </span>
-        <span class="src">
-          {src.mode === 'live' ? 'live Go API' : `data snapshot · ${src.at ? timeAgo(src.at) : 'unknown'}`}
-        </span>
+        <span class="src">Dollars only · no currency risk taken on your behalf</span>
       </div>
     </div>
 
@@ -56,7 +54,7 @@ const src = dataSource();
             </svg>
           </span>
           <span class="word">Keelson</span>
-          <span class="tag">USDC · Stellar</span>
+          <span class="tag">USD savings</span>
         </a>
 
         <nav class="nav">
@@ -77,7 +75,7 @@ const src = dataSource();
           {updated && (
             <div class="statusline">
               <span class="pill">rates refreshed {timeAgo(updated)}</span>
-              <span class="pill ghost">non-custodial · no lock-up</span>
+              <span class="pill ghost">your money stays yours · no lock-up</span>
             </div>
           )}
         </div>
@@ -91,22 +89,23 @@ const src = dataSource();
           <div>
             <div class="foot-brand">Keelson</div>
             <p class="small muted">
-              A non-custodial savings autopilot: your USDC sits in a vault you own, a policy you sign bounds what
-              the keeper can do, and withdrawals never depend on our uptime.
+              Savings that always sit where the rate is best. We never hold your money, and taking it back never
+              needs our permission.
             </p>
           </div>
           <div class="foot-links">
-            <a href={href('/how-it-works/')}>How it works</a>
-            <a href={href('/borders/')}>Across borders</a>
-            <a href={href('/evidence/')}>Evidence</a>
-            <a href={href('/venues/')}>Venues</a>
+            <a href={href('/how-it-works/')}>Safety</a>
+            <a href={href('/borders/')}>Countries</a>
+            <a href={href('/evidence/')}>Track record</a>
+            <a href={href('/venues/')}>Where it sits</a>
             <a href="https://github.com/emrealt34/keelson" rel="noopener">Source</a>
           </div>
         </div>
         <p class="small muted legal">
-          Not investment or legal advice. Yield is variable and can fall; a venue can be exploited or paused; a
-          stablecoin can depeg or be frozen. The backend holds no key and cannot move funds. Figures on this page are
-          realised rates from public feeds at the time shown, not a promise of future return.
+          Not investment or legal advice. Rates are variable and can fall. A lending market can be exploited or
+          paused, and a dollar coin can lose its peg or be frozen. We never hold your money and cannot move it.
+          Every figure on this site is a rate that was actually paid at the time shown — never a promise of what
+          you will earn.
         </p>
       </div>
     </footer>

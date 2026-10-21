@@ -9,19 +9,18 @@ const rows = limit ? venues.slice(0, limit) : venues;
 ---
 <div class="card">
   <div class="head">
-    <h2>Venue ranking</h2>
-    <span class="small muted">net score = APY − 0.05 × (risk − 50): safety can outrank yield</span>
+    <h2>Every place that pays for dollars</h2>
+    <span class="small muted">a higher rate does not win on its own — safety counts too</span>
   </div>
   <div class="scroll">
     <table>
       <thead>
         <tr>
-          <th>Venue</th>
-          <th class="right">APY</th>
-          <th class="right">Risk</th>
-          <th class="right">Net score</th>
-          <th class="right">Withdrawable</th>
-          <th>Eligible</th>
+          <th>Place</th>
+          <th class="right">Pays</th>
+          <th class="right">Safety</th>
+          <th class="right">You could take out</th>
+          <th>Allowed</th>
         </tr>
       </thead>
       <tbody>
@@ -38,7 +37,6 @@ const rows = limit ? venues.slice(0, limit) : venues;
                 {v.risk.band} {v.risk.score.toFixed(0)}
               </span>
             </td>
-            <td class="right num">{v.net_score ? v.net_score.toFixed(2) : '—'}</td>
             <td class="right num">{compactUSD(v.capacity_usd)}</td>
             <td>
               {v.eligible
