@@ -63,8 +63,8 @@ impl BlendAdapter {
             return Err(Error::InvalidAmount);
         }
         let me = env.current_contract_address();
-        let usdc = Self::usdc(&env);
-        let pool_addr = Self::pool(&env);
+        let usdc = Self::usdc(env.clone());
+        let pool_addr = Self::pool(env.clone());
 
         let token = token::Client::new(&env, &usdc);
         // Never lend money we do not have: the vault may have called us after a partial
@@ -98,8 +98,8 @@ impl BlendAdapter {
             return Err(Error::InvalidAmount);
         }
         let me = env.current_contract_address();
-        let usdc = Self::usdc(&env);
-        let pool_addr = Self::pool(&env);
+        let usdc = Self::usdc(env.clone());
+        let pool_addr = Self::pool(env.clone());
         let token = token::Client::new(&env, &usdc);
 
         let before = token.balance(&me);
@@ -118,20 +118,20 @@ impl BlendAdapter {
         if received <= 0 {
             return Ok(0);
         }
-        token.transfer(&me, &Self::vault(&env), &received);
+        token.transfer(&me, &Self::vault(env.clone()), &received);
         Ok(received)
     }
 
     /// What the position is worth right now, in USDC, straight from the pool.
     pub fn value(env: Env) -> i128 {
         let me = env.current_contract_address();
-        let usdc = Self::usdc(&env);
-        let pool_client = pool::Client::new(&env, &Self::pool(&env));
+        let usdc = Self::usdc(env.clone());
+        let pool_client = pool::Client::new(&env, &Self::pool(env.clone()));
 
         let positions = pool_client.get_positions(&me);
         let b_tokens = positions
             .supply
-            .get(Self::reserve_id(&env))
+            .get(Self::reserve_id(env.clone()))
             .unwrap_or(0);
         if b_tokens <= 0 {
             return 0;
