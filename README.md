@@ -17,9 +17,11 @@ Go backend (read-only, no keys)  →  frozen JSON snapshot  →  Astro static si
 
 | | |
 | --- | --- |
-| ✅ Working | Venue ingestion (12 Stellar USDC venues, live), deterministic risk scoring, policy-scoped allocation with refusals, keeper decision loop, full read API, server-rendered dashboard, evidence page with a measured (not promised) value of routing. |
-| ⚠️ Read-only keeper | It evaluates and logs; it does not submit transactions. Moving funds needs the Soroban vault, which is Tranche 2. A keeper that can move money without the contract would be the custodian this design refuses to be. |
-| ❌ Not built | Soroban `UserVault` + adapters, passkey smart account, deposit/withdraw signing flow, audit. The site says so on `/how-it-works`. |
+| ✅ Working | Venue ingestion (12 Stellar USDC venues, live), deterministic risk scoring, policy-scoped allocation with refusals, keeper decision loop, full read API, static site, evidence page with a measured (not promised) value of routing. |
+| ✅ Working | **`UserVault` (Soroban)** — policy enforced on-chain, permissionless rebalance, NAV check, freeze/timelock, 12 tests, wasm built in CI. Not deployed to testnet yet, and the keeper still proposes off-chain only. |
+| ✅ Working | **Cross-border carry measurement** (`/borders`): what a dollar actually earned in TR/BR/MX/IN/EU after the currency moved, with volatility and worst drawdown. Real data, published as a measurement, not a product. |
+| ⚠️ Partly | Adapter interface is proven against a mock venue contract in tests; the **Blend adapter** and testnet deployment are next. |
+| ❌ Not built | Passkey smart account, signed-XDR wallet flow in the UI, third-party audit. The site says so on `/how-it-works`. |
 
 No fake traction: there are no deposits, no TVL, no users. What exists is a working, auditable pipeline and a
 measurement of what the product is worth.
@@ -38,6 +40,9 @@ The category is crowded (see [`docs/COMPETITORS.md`](docs/COMPETITORS.md)). Ball
   the verified venues, then how much a realistic keeper captures: **~27 bps/year**, not 300. The honest pitch is
   0% → working capital (~550 bps), not "beat the market".
 * **Safety can outrank yield.** Scores are net: `apy − 0.05 × max(0, risk − 50)`.
+* **Interest is high in some countries — and their currencies move.** `/borders` publishes what a dollar actually
+  earned across a border (Turkey: +37% rate, +16% in dollars after the lira fell; India: positive rate, negative
+  return). The page exists to make "chase the highest rate" answerable, not to sell it.
 * **Everything is versioned and hash-addressed** (`risk-model-v1.0`, `safety-registry-2026-10-21`, `policy-v1.2`,
   `input_hash` per venue), so a score can be re-derived instead of trusted.
 * **The backend is the least powerful component.** `internal/stellar` is the only package that opens a socket, and
@@ -70,6 +75,14 @@ DeFindex discovery API ────────┘
                      frontend/  (Astro 5, `output: 'static'`)
                      └── prerendered pages → GitHub Pages
 ```
+
+### Two things we deliberately publish against our own interest
+
+1. **Routing is worth ~27 bps.** `/evidence` computes the perfect-hindsight ceiling and how little of it a realistic
+   keeper captures. It would be easier to quote the ceiling.
+2. **High rates are currency bets.** `/borders` shows that a 37% lira rate became +15.9% in dollars over the last
+   year and that India's 5.5% became −1.8%, because the rupee fell more than the rate paid. No product is offered
+   there — the page exists so the claim "put money where interest is high" can be judged instead of sold.
 
 ### Why the site is static
 
@@ -132,6 +145,7 @@ All `GET`, JSON, no auth, read-only by construction.
 | `/api/v1/policy` | the policy + why each value was chosen |
 | `/api/v1/decisions` | keeper log, including no-ops |
 | `/api/v1/alpha?days=` | measured value of routing: upper bound, realistic keeper, sweep |
+| `/api/v1/carry` | cross-border carry: policy rate, currency move, realised USD return, break-even, drawdown |
 | `/api/v1/accounts/{address}` | read-only USDC balance for an account |
 | `POST /api/v1/intents/{deposit,withdraw}` | unsigned intent for a wallet to build and sign |
 
@@ -157,6 +171,8 @@ Policy (`policy-v1.2`): `MaxVenueBps 6000`, `MinIdleBps 1000`, `MaxMoveBps 5000`
 ## Repository layout
 
 ```
+contracts/
+  ballast-vault/    Soroban UserVault: on-chain policy, NAV check, freeze rails (12 tests)
 backend/
   cmd/api/          live HTTP server
   cmd/snapshot/     freezes the API into frontend/src/data/snapshot.json
@@ -165,11 +181,12 @@ backend/
     risk/           scoring (tested)
     policy/         eligibility + allocation + keepers' move rules (tested)
     alpha/          counterfactual value of routing
+    carry/          cross-border carry: local rate vs currency move, in dollars
     keeper/         refresh + tick loop
     stellar/        the only package that touches the network; read-only
     store/ api/ model/
 frontend/
-  src/pages/        index, d/[deposit], venues, venues/[id], evidence, how-it-works
+  src/pages/        index, d/[deposit], borders, venues, venues/[id], evidence, how-it-works
   src/components/   BalanceCard, AllocationBar, RefusalList, DecisionLog, VenueTable, RiskBars
   src/data/         snapshot.json (regenerated daily)
 docs/
@@ -179,7 +196,8 @@ docs/
 ```
 
 CI: `.github/workflows/ci.yml` (gofmt, vet, tests, API smoke test, static build assertion),
-`pages.yml` (deploy), `refresh-snapshot.yml` (daily mainnet refresh).
+`contracts.yml` (rustfmt, cargo test, wasm build with a size cap), `pages.yml` (deploy),
+`refresh-snapshot.yml` (daily mainnet refresh).
 
 ---
 
