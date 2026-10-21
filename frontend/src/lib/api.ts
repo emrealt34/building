@@ -9,7 +9,7 @@
 // The browser never calls the API: every page is rendered at build time, so there is
 // no token, no CORS surface and no key anywhere near the client.
 import type {
-  Plan, Venue, Decision, NetworkStatus, PolicyDoc, AlphaReport, Meta, HistoryPoint,
+  Plan, Venue, Decision, NetworkStatus, PolicyDoc, AlphaReport, Meta, HistoryPoint, CarryReport,
 } from './types';
 import snapshotJson from '../data/snapshot.json';
 
@@ -49,6 +49,7 @@ export const api = {
   plan: (deposit: number) => get<Plan>(`/plan?deposit=${deposit}`),
   decisions: () => get<{ note: string; decisions: Decision[] }>('/decisions'),
   alpha: (days = 90) => get<AlphaReport>(`/alpha?days=${days}`),
+  carry: () => get<CarryReport>('/carry'),
 };
 
 /** Deposit presets the static site builds one page per entry. */

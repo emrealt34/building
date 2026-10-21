@@ -117,7 +117,7 @@ func main() {
 
 	for _, p := range []string{
 		"/api/v1/health", "/api/v1/meta", "/api/v1/network",
-		"/api/v1/policy", "/api/v1/decisions", "/api/v1/alpha?days=90",
+		"/api/v1/policy", "/api/v1/decisions", "/api/v1/alpha?days=90", "/api/v1/carry",
 	} {
 		snap.Responses[p] = get(p)
 		log.Printf("snapshot: %s ok", p)

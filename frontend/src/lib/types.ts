@@ -181,3 +181,36 @@ export interface HistoryPoint {
   apy: number;
   tvl_usd: number;
 }
+
+export interface CarryRow {
+  code: string;
+  country: string;
+  currency: string;
+  policy_rate: number;
+  inflation?: number;
+  real_rate?: number;
+  rate_name: string;
+  spot_now: number;
+  spot_year_ago: number;
+  currency_move_pct: number;
+  local_return_usd_pct: number;
+  breakeven_depreciation_pct: number;
+  vol_annual_pct: number;
+  max_drawdown_pct: number;
+  band: string;
+  verdict: string;
+  excess_vs_usd_bps: number;
+  days: number;
+  source: string;
+  as_of: string;
+}
+
+export interface CarryReport {
+  version: string;
+  registry: string;
+  generated_at: string;
+  window_days: number;
+  benchmark_apy: number;
+  rows: CarryRow[];
+  note: string;
+}

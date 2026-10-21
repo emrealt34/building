@@ -15,6 +15,7 @@ const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, 
 const isActive = (p: string) => (p === '/' ? path === '/' || path.startsWith('/d/') : path.startsWith(p));
 const nav = [
   { p: '/', label: 'Dashboard' },
+  { p: '/borders', label: 'Across borders' },
   { p: '/venues', label: 'Venues' },
   { p: '/evidence', label: 'Evidence' },
   { p: '/how-it-works', label: 'How it works' },
@@ -73,11 +74,10 @@ const src = dataSource();
         <div class="page-head">
           <h1>{title}</h1>
           {subtitle && <p class="sub">{subtitle}</p>}
-          {(meta || updated) && (
+          {updated && (
             <div class="statusline">
-              {meta && <span class="pill ghost mono">{meta.risk_model}</span>}
-              {meta && <span class="pill ghost mono">{meta.policy_version}</span>}
-              {updated && <span class="pill">venues as of {timeAgo(updated)}</span>}
+              <span class="pill">rates refreshed {timeAgo(updated)}</span>
+              <span class="pill ghost">non-custodial · no lock-up</span>
             </div>
           )}
         </div>
@@ -97,6 +97,7 @@ const src = dataSource();
           </div>
           <div class="foot-links">
             <a href={href('/how-it-works/')}>How it works</a>
+            <a href={href('/borders/')}>Across borders</a>
             <a href={href('/evidence/')}>Evidence</a>
             <a href={href('/venues/')}>Venues</a>
             <a href="https://github.com/emrealt34/building" rel="noopener">Source</a>

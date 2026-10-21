@@ -1,0 +1,46 @@
+name: Contracts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  soroban:
+    name: Soroban · build + test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32v1-none
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: contracts
+
+      - name: cargo fmt
+        run: cargo fmt --all -- --check
+
+      - name: cargo test (the promises, as tests)
+        run: cargo test --workspace --all-targets
+
+      - name: Build the wasm the chain will actually run
+        run: cargo build --workspace --release --target wasm32v1-none
+
+      - name: Report artifact sizes
+        run: |
+          ls -lh target/wasm32v1-none/release/*.wasm
+          for f in target/wasm32v1-none/release/*.wasm; do
+            size=$(stat -c%s "$f")
+            echo "$f: $size bytes"
+            test "$size" -lt 100000 || { echo "wasm over 100KB, tighten it"; exit 1; }
+          done

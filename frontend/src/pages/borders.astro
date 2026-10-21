@@ -1,0 +1,240 @@
+---
+import Base from '../layouts/Base.astro';
+import { api } from '../lib/api';
+import { href } from '../lib/url';
+
+const [carry, meta, network, plan] = await Promise.all([
+  api.carry(),
+  api.meta(),
+  api.network(),
+  api.plan(1000),
+]);
+
+const rows = carry?.rows ?? [];
+const ranked = rows
+  .filter((r) => r.verdict !== 'base' && r.verdict !== 'not enough data')
+  .sort((a, b) => b.local_return_usd_pct - a.local_return_usd_pct);
+const winner = ranked[0];
+const loser = ranked[ranked.length - 1];
+const benchmark = carry?.benchmark_apy ?? 0;
+const bandLabel: Record<string, string> = { A: 'Calm', B: 'Watch', C: 'Stretched', D: 'Hostile', '—': 'Base' };
+const bandTone: Record<string, string> = {
+  A: 'ok', B: 'mid', C: 'warn', D: 'bad', '—': 'base',
+};
+const money = (n: number) =>
+  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+---
+<Base
+  title="Interest is high in some countries. Getting paid in dollars is another matter."
+  subtitle="The one number a headline rate never shows you: what a dollar actually earned across a border, after the currency moved. Measured from public central-bank rates and ECB exchange rates — not forecast, not a product."
+  network={network}
+  meta={null}
+>
+  {!carry ? (
+    <div class="card err"><h2>Measurement unavailable</h2><p class="small">The cross-border data could not be loaded.</p></div>
+  ) : (
+    <>
+      <section class="headline">
+        <div class="lead">
+          <p class="eyebrow">Across borders · last {carry.window_days} days of quotes</p>
+          <h1>
+            {winner ? (
+              <>A dollar saved in <em>{winner.country}</em> {winner.local_return_usd_pct > 0 ? 'came back richer' : 'came back poorer'}
+                {' '}by <span class="big">{Math.abs(winner.local_return_usd_pct).toFixed(0)}%</span>.</>
+            ) : 'Measured, not advertised.'}
+          </h1>
+          <p class="lede">
+            {winner && loser ? (
+              <>In the same twelve months, a dollar parked in {loser.country} at its policy rate came back
+                {' '}<strong>{Math.abs(loser.local_return_usd_pct).toFixed(1)}% {loser.local_return_usd_pct >= 0 ? 'better' : 'poorer'}</strong> in dollar terms, and the same dollar inside
+                Ballast's current Stellar plan earned <strong>{benchmark.toFixed(2)}%</strong>. The rate you are quoted is
+                not the return you get.</>
+            ) : null}
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href={href('/d/1000/')}>See what $1,000 earns here</a>
+            <a class="btn ghost" href="#table">Read the table</a>
+          </div>
+        </div>
+
+        <aside class="verdict-card">
+          <span class="k">What this changes for you</span>
+          <p>
+            Ballast does not take your money abroad, and this page is not an offer to. It is here because the
+            honest version of "put money where interest is high" is a currency bet with a rate attached — and
+            nobody shows you the downside in the same font size as the rate.
+          </p>
+          <span class="k">Our own alternative</span>
+          <p class="tight">
+            Keep dollars, earn <strong>{benchmark.toFixed(2)}%</strong> in audited Stellar venues, withdraw any time,
+            take no currency risk. Smaller number. No hidden second number.
+          </p>
+        </aside>
+      </section>
+
+      <section id="table" class="card table-card">
+        <div class="card-head">
+          <h2>What $1,000 became in twelve months</h2>
+          <span class="small muted">policy rate, currency move, and the two combined</span>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th class="right">Local rate</th>
+                <th class="right">Currency vs $</th>
+                <th class="right">In dollars</th>
+                <th class="right">$1,000 became</th>
+                <th class="right">Calm / stretched</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr>
+                  <td>
+                    <span class="country">{r.country}</span>
+                    <span class="small muted">{r.currency} · {r.rate_name}</span>
+                  </td>
+                  <td class="right num strong">{r.policy_rate.toFixed(2)}%</td>
+                  <td class="right num" class:list={[r.currency_move_pct < 0 ? 'down' : 'up']}>
+                    {r.currency_move_pct > 0 ? '+' : ''}{r.currency_move_pct.toFixed(1)}%
+                  </td>
+                  <td class:list={['right', 'num', 'strong', r.local_return_usd_pct >= benchmark ? 'good' : 'meh']}>
+                    {r.verdict === 'base' ? '—' : `${r.local_return_usd_pct > 0 ? '+' : ''}${r.local_return_usd_pct.toFixed(1)}%`}
+                  </td>
+                  <td class="right num muted">
+                    {r.verdict === 'base' ? money(1000) : money(1000 * (1 + r.local_return_usd_pct / 100))}
+                  </td>
+                  <td class="right">
+                    {r.verdict === 'base'
+                      ? <span class="band base">base</span>
+                      : <span class:list={['band', bandTone[r.band]]}>{bandLabel[r.band] ?? r.band}</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted foot">
+          Policy rates as published by each central bank on the date shown; exchange rates are the ECB reference
+          rates ({carry.registry}). "In dollars" applies the actual currency path, not a forecast, and ignores
+          taxes, spreads and access costs — which is generous to the trade.
+        </p>
+      </section>
+
+      <div class="grid g2 stack">
+        <div class="card">
+          <h2>The break-even line</h2>
+          <p class="small muted">
+            A high rate only pays while the currency holds. The gap between a country's rate and the dollar rate is
+            exactly the depreciation it can absorb before you are worse off than doing nothing:
+          </p>
+          <ul class="breakeven">
+            {rows.filter((r) => r.verdict !== 'base').slice(0, 4).map((r) => (
+              <li>
+                <span class="cc">{r.currency}</span>
+                <span class="small">
+                  pays <strong>{r.policy_rate.toFixed(1)}%</strong> — can fall
+                  <strong> {r.breakeven_depreciation_pct.toFixed(1)} points</strong> against the dollar before the
+                  carry stops paying
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p class="small muted">
+            Turkey is the clearest case: 33 points of extra yield, and the lira lost
+            {' '}{Math.abs(rows.find((r) => r.code === 'TR')?.currency_move_pct ?? 0).toFixed(1)} points of it last year.
+            You were paid, but a third of the income was the currency deciding not to move — not the bank paying you.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Why the calm country is not always the safe one</h2>
+          <p class="small muted">
+            Volatility alone gives managed currencies a flattering grade: they are quiet for months, then step.
+            We therefore grade on the worst peak-to-trough move of the year as well as the noise.
+          </p>
+          <ul class="dd">
+            {rows.filter((r) => r.verdict !== 'base').map((r) => (
+              <li>
+                <span class="cc">{r.currency}</span>
+                <span class="bar"><span style={`width:${Math.min(100, r.max_drawdown_pct * 3)}%`}></span></span>
+                <span class="num small">worst drop {r.max_drawdown_pct.toFixed(1)}%</span>
+              </li>
+            ))}
+          </ul>
+          <p class="small muted">
+            A currency can pay 30% and lose 30% in a week; the rate is contractual, the exchange rate is not.
+          </p>
+        </div>
+      </div>
+
+      <div class="card stack callout">
+        <h2>What we would have to solve before selling this</h2>
+        <ol>
+          <li><strong>Access.</strong> Holding a lira deposit from a phone needs a licensed local bank or a regulated product; a Stellar app cannot open one for you.</li>
+          <li><strong>Capital controls.</strong> The high-rate countries are exactly the ones that restrict exits when it suits them.</li>
+          <li><strong>Liquidity and counterparty.</strong> A policy rate is not a deposit you can withdraw at 3am; the bank can gate withdrawals, and deposit insurance is local and limited.</li>
+          <li><strong>Tax.</strong> Currency gains and foreign interest are taxed where you live, usually without a neat offset.</li>
+          <li><strong>Honesty.</strong> The product people actually want is "the highest number"; the product we can defend is "no currency risk and an exit". Those are not the same, so we ship the second one and publish the first one's real number.</li>
+        </ol>
+        <p class="small muted">
+          {carry.note}
+        </p>
+      </div>
+    </>
+  )}
+</Base>
+
+<style>
+  .headline { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 22px; align-items: start; margin-bottom: 18px; }
+  @media (max-width: 880px) { .headline { grid-template-columns: 1fr; } }
+  .eyebrow { margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--brand); font-weight: 700; }
+  .headline h1 { margin: 0 0 12px; font-size: 34px; line-height: 1.15; }
+  .headline h1 em { font-style: normal; color: var(--brand); }
+  .big { font-family: "Iowan Old Style", Palatino, Georgia, serif; }
+  .lede { margin: 0 0 16px; color: #5D4C38; max-width: 62ch; }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { border-radius: 999px; padding: 11px 20px; font-size: 14px; font-weight: 600; }
+  .btn.primary { background: var(--brand); color: #fff; box-shadow: 0 6px 16px rgba(199,72,29,.22); }
+  .btn.primary:hover { background: var(--brand-ink); }
+  .btn.ghost { border: 1px solid var(--line); background: #fff; }
+  .btn.ghost:hover { border-color: var(--brand); color: var(--brand); }
+
+  .verdict-card { background: #FFFCF6; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+  .verdict-card .k { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 12px 0 4px; font-weight: 700; }
+  .verdict-card .k:first-child { margin-top: 0; }
+  .verdict-card p { margin: 0 0 4px; font-size: 13px; color: #4A3D2C; }
+  .verdict-card p.tight { color: var(--ink); }
+
+  .table-card { padding-bottom: 12px; }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .scroll { overflow-x: auto; }
+  .country { display: block; font-weight: 600; font-size: 14px; }
+  .small.muted { display: block; font-size: 11.5px; }
+  .strong { font-weight: 600; }
+  .up { color: var(--ok); }
+  .down { color: var(--bad); }
+  .good { color: var(--ok); }
+  .meh { color: var(--muted); }
+  .band { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; }
+  .band.ok { background: var(--ok-soft); color: #2E563C; }
+  .band.mid { background: var(--gold-soft); color: #7A5410; }
+  .band.warn { background: var(--brand-soft); color: var(--brand-ink); }
+  .band.bad { background: var(--bad-soft); color: #7A2A10; }
+  .band.base { background: #F1EADA; color: var(--muted); }
+  .foot { margin: 10px 0 0; }
+
+  .stack { margin-top: 14px; }
+  .breakeven, .dd { list-style: none; margin: 8px 0 10px; padding: 0; }
+  .breakeven li { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #F3EBDB; font-size: 13px; }
+  .cc { font-weight: 700; width: 44px; flex: none; color: var(--brand-ink); }
+  .dd li { display: flex; align-items: center; gap: 10px; padding: 5px 0; }
+  .dd .bar { flex: 1; height: 7px; background: #F2EADB; border-radius: 999px; overflow: hidden; }
+  .dd .bar span { display: block; height: 7px; background: linear-gradient(90deg, var(--gold), var(--brand)); }
+  .dd .num { width: 130px; text-align: right; color: var(--muted); }
+  .callout { background: #FFFCF6; border-color: #E8DCC6; }
+  .callout ol { margin: 0 0 10px 18px; padding: 0; font-size: 13px; line-height: 1.7; color: #4A3D2C; }
+  .err { border-color: #E7C4B6; background: #FDF3EF; }
+</style>

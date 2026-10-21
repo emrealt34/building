@@ -32,7 +32,7 @@ const steps = [
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Non-custodial savings · Stellar</p>
-        <h1>Your dollars should not sit still.<br />They should not sit in our wallet either.</h1>
+        <h1>Your savings should earn.<br />Without leaving your hands.</h1>
         <p class="lede">
           Ballast puts idle USDC to work in audited Stellar lending venues and keeps a liquid sleeve so you can leave at
           any moment. A published risk model decides where the money goes; a policy you sign decides how far the keeper
@@ -122,7 +122,7 @@ const steps = [
 
     <div class="stack"><VenueTable venues={venues.venues} limit={8} /></div>
 
-    <div class="grid g3 stack">
+    <div class="grid g4 stack">
       <div class="card">
         <h3>Non-custodial, in code</h3>
         <p class="small muted">
@@ -142,10 +142,18 @@ const steps = [
       <div class="card">
         <h3>What routing is worth</h3>
         <p class="small muted">
-          We measured it instead of promising it: picking the better of the two verified venues was worth about 27 bps
-          a year to a realistic keeper. Getting money from 0% to working capital is worth ~550 bps.
+          Measured, not promised: choosing the better of two verified venues was worth about 27 bps a year to a
+          realistic keeper. Getting money from idle to working is worth ~550 bps.
         </p>
         <a class="link small" href={href('/evidence/')}>The measurement →</a>
+      </div>
+      <div class="card accent">
+        <h3>Across borders</h3>
+        <p class="small muted">
+          Some countries pay far more — and their currencies move. We publish what a dollar actually earned there,
+          currency included, because a headline rate is not a return.
+        </p>
+        <a class="link small" href={href('/borders/')}>See the real numbers →</a>
       </div>
     </div>
   </>
@@ -190,4 +198,5 @@ const steps = [
   .stack { margin-top: 14px; }
   .notice { margin-top: 14px; background: var(--gold-soft); border-color: #EFDCB6; }
   .err { border-color: #E7C4B6; background: #FDF3EF; }
+  .card.accent { background: #FFFCF6; border-color: var(--brand); box-shadow: 0 6px 20px rgba(199,72,29,0.10); }
 </style>

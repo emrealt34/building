@@ -3,6 +3,7 @@
 package api
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
 	"strconv"
@@ -10,6 +11,7 @@ import (
 	"time"
 
 	"github.com/emrealt34/building/backend/internal/alpha"
+	"github.com/emrealt34/building/backend/internal/carry"
 	"github.com/emrealt34/building/backend/internal/model"
 	"github.com/emrealt34/building/backend/internal/policy"
 	"github.com/emrealt34/building/backend/internal/providers"
@@ -26,6 +28,7 @@ type Server struct {
 	Network string // "mainnet" | "testnet"
 	VaultID string // UserVault contract id, empty until Tranche 2
 	Version string
+	HTTP    *http.Client // used by the cross-border carry measurement
 }
 
 func (s *Server) Routes() http.Handler {
@@ -40,6 +43,7 @@ func (s *Server) Routes() http.Handler {
 	mux.HandleFunc("GET /api/v1/plan", s.plan)
 	mux.HandleFunc("GET /api/v1/decisions", s.decisions)
 	mux.HandleFunc("GET /api/v1/alpha", s.alphaReport)
+	mux.HandleFunc("GET /api/v1/carry", s.carryReport)
 	mux.HandleFunc("GET /api/v1/accounts/{address}", s.account)
 	mux.HandleFunc("POST /api/v1/intents/deposit", s.intentDeposit)
 	mux.HandleFunc("POST /api/v1/intents/withdraw", s.intentWithdraw)
@@ -277,4 +281,31 @@ func queryInt(r *http.Request, key string, def int) int {
 		}
 	}
 	return def
+}
+
+// carryReport measures what a dollar deposit in another currency actually paid,
+// after the currency moved. It is the honest counterweight to headline rates.
+func (s *Server) carryReport(w http.ResponseWriter, r *http.Request) {
+	client := s.HTTP
+	if client == nil {
+		client = &http.Client{Timeout: 25 * time.Second}
+	}
+
+	// Benchmark: what the same dollar would earn inside Ballast's current plan.
+	benchmark := 0.0
+	if venues, _, _ := s.Store.Venues(); len(venues) > 0 {
+		benchmark = policy.Build(venues, 1000, s.Policy).BlendedAPY
+	}
+
+	ctx, cancel := context.WithTimeout(r.Context(), 25*time.Second)
+	defer cancel()
+
+	report, err := carry.Analyse(ctx, client, benchmark, time.Now().UTC())
+	if err != nil {
+		writeJSON(w, http.StatusServiceUnavailable, map[string]any{
+			"error": "fx or rate data unavailable: " + err.Error(),
+		})
+		return
+	}
+	writeJSON(w, http.StatusOK, report)
 }

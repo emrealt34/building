@@ -46,14 +46,12 @@ const weights: Record<string, number> = {
     </div>
   )}
 
-  <div class="meta small muted">
-    <div><span>Model</span><span class="mono">{risk.version}</span></div>
     <div><span>Input hash</span><span class="mono">{risk.input_hash}</span></div>
     <div><span>Computed</span><span class="mono">{new Date(risk.computed_at).toISOString().slice(0, 16).replace('T', ' ')} UTC</span></div>
   </div>
   <p class="small muted foot">
-    Deterministic and reproducible: the same inputs always produce the same score, and the input hash lets you
-    check that a score was not quietly re-weighted. A score cannot predict a zero-day contract bug.
+    The same inputs always produce the same score, and every score is dated. A score cannot predict a zero-day bug —
+    it prices what can be observed, and it stops new deposits when the observables deteriorate.
   </p>
 </div>
 
