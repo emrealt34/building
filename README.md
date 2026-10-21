@@ -4,7 +4,7 @@
 decides which audited venues may hold it; a policy you sign bounds what a permissionless keeper may do; and the
 backend that scores everything holds no key at all.
 
-Live site (static build, refreshed daily from mainnet): **https://emrealt34.github.io/building/**
+Live site (static build, refreshed daily from mainnet): **https://emrealt34.github.io/keelson/**
 
 ```
 Go backend (read-only, no keys)  →  frozen JSON snapshot  →  Astro static site  →  GitHub Pages
@@ -20,7 +20,7 @@ Go backend (read-only, no keys)  →  frozen JSON snapshot  →  Astro static si
 | ✅ Working | Venue ingestion (12 Stellar USDC venues, live), deterministic risk scoring, policy-scoped allocation with refusals, keeper decision loop, full read API, static site, evidence page with a measured (not promised) value of routing. |
 | ✅ Working | **`UserVault` (Soroban)** — policy enforced on-chain, permissionless rebalance, NAV check, freeze/timelock, 12 tests, wasm built in CI. Not deployed to testnet yet, and the keeper still proposes off-chain only. |
 | ✅ Working | **Cross-border carry measurement** (`/borders`): what a dollar actually earned in TR/BR/MX/IN/EU after the currency moved, with volatility and worst drawdown. Real data, published as a measurement, not a product. |
-| ⚠️ Partly | Adapter interface is proven against a mock venue contract in tests; the **Blend adapter** and testnet deployment are next. |
+| ✅ Working | **`BlendAdapter` (Soroban)** — supplies USDC to a real Blend pool using Blend's own contract SDK, values the position from the pool's exchange rate, and only ever files a supply request (no collateral, no borrowing). Withdrawals always pay the vault. 7 tests, wasm 7.3 KB. Not yet wired to a live testnet pool. |
 | ❌ Not built | Passkey smart account, signed-XDR wallet flow in the UI, third-party audit. The site says so on `/how-it-works`. |
 
 No fake traction: there are no deposits, no TVL, no users. What exists is a working, auditable pipeline and a
