@@ -2,6 +2,12 @@
 members = ["ballast-vault"]
 resolver = "2"
 
+# soroban-env-host 23 resolves ed25519-dalek 3.x, whose rand_core is newer than the
+# host expects (ChaCha20Rng no longer satisfies CryptoRng). Pinning the 2.x line keeps
+# the test utils compiling; it is a test-only dependency of the host.
+[patch.crates-io]
+ed25519-dalek = { version = "=2.1.1" }
+
 [profile.release]
 opt-level = "z"
 lto = true
