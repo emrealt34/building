@@ -70,11 +70,20 @@ so the award buys deployment, a real adapter and the interface — not a rewrite
 | 2 | On-chain policy: `max_venue_bps`, `min_idle_bps`, `max_move_bps`, cooldown, NAV check | ✅ built | test `a_plan_that_loses_value_is_rejected` |
 | 3 | Permissionless `rebalance(plan)` that reverts on policy/NAV violation | ✅ built | test `anyone_can_rebalance_and_value_is_conserved` |
 | 4 | Freeze on deterioration: blocks new deposits, withdrawals stay open | ✅ built | tests `freeze_stops_automation…`, `a_frozen_venue_takes_no_new_money…` |
-| 5 | Testnet deployment with contract id published | ⏳ funded by this award | contract id on stellar.expert |
-| 6 | **BlendAdapter** against a real Blend pool on testnet | ⏳ funded | deposit → withdraw round trip with tx hashes |
-| 7 | Passkey smart account (OpenZeppelin) + deposit/withdraw in the UI, unsigned XDR built client-side | ⏳ funded | working testnet flow + recording |
+| 5 | Testnet deployment with contract id published | ✅ built | `CDXAAVRFWPUNJRTTGBK66LLG2CZZYNHVCQ7P5AZZSQDTEMLP7M5DVTY6` (deposit, withdraw and a refused move, `docs/TESTNET.md`) |
+| 6 | **BlendAdapter** against a real Blend pool on testnet | ⚠️ written and tested against a pool mock; needs a live testnet pool to point at | deposit → withdraw round trip with tx hashes |
+| 7 | Passkey smart account (OpenZeppelin) + deposit/withdraw in the UI, unsigned XDR built client-side | ⏳ funded — **this is the main remaining piece** | working testnet flow + recording |
 | 8 | A published rejected-move transaction (the proof that automation is bounded) | ⏳ funded | a failed tx hash anyone can open |
 | 9 | Runbook + incident response | ⏳ funded | `docs/` |
+
+Also shipped today (not funded by the award, already public): the backend runs on Render from `main`;
+the site regenerates its data every hour from mainnet; and `/cherry` ranks every country by net return
+after currency, inflation and a 0.50% fee — including the result that argues against the idea.
+
+**Revenue model, stated because reviewers ask:** 0.50% a year on what the money earns, never on the
+principal, with no entry or exit fee and no lock-up. It is not enforced on-chain yet — the contract
+charges nothing — which is why the site says "charged on what your money earns" and not "deducted in
+the contract". Making the fee a contract-level parameter is part of the funded work.
 
 Explicitly **out of scope** for 30 days: mainnet, real deposits, audit, marketing.
 
