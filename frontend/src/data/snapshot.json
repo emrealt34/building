@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T14:27:06.197573602Z",
+ "generated_at": "2026-10-24T18:03:52.295767851Z",
  "note": "Frozen read API. This static site renders this snapshot; run the Go backend for live data.",
  "deposits": [
   100,
@@ -10,7 +10,7 @@
  "responses": {
   "/api/v1/alpha?days=90": {
    "window_days": 90,
-   "generated_at": "2026-10-24T14:27:06.198950448Z",
+   "generated_at": "2026-10-24T18:03:52.297313358Z",
    "venues": [
     {
      "venue_id": "ecf788e3-d2ef-4fdd-9ece-8a2d96226ddf",
@@ -497,8 +497,8 @@
       },
       {
        "date": "2026-10-24",
-       "apy": 5.73806,
-       "tvl_usd": 14072218
+       "apy": 5.7361,
+       "tvl_usd": 14052282
       }
      ]
     },
@@ -1151,7 +1151,7 @@
      "passive_venue": "Blend fixed pool",
      "passive_final_usd": 1018.74,
      "alpha_usd": 0.64,
-     "alpha_bps_per_year": 24.37,
+     "alpha_bps_per_year": 24.38,
      "capture_of_upper_bound_pct": 46.04
     },
     {
@@ -1229,7 +1229,7 @@
      "passive_venue": "Blend fixed pool",
      "passive_final_usd": 1018.74,
      "alpha_usd": 0.56,
-     "alpha_bps_per_year": 21.17,
+     "alpha_bps_per_year": 21.18,
      "capture_of_upper_bound_pct": 40.29
     },
     {
@@ -1242,7 +1242,7 @@
      "passive_venue": "Blend fixed pool",
      "passive_final_usd": 1018.74,
      "alpha_usd": 0.56,
-     "alpha_bps_per_year": 21.17,
+     "alpha_bps_per_year": 21.18,
      "capture_of_upper_bound_pct": 40.29
     },
     {
@@ -1331,7 +1331,7 @@
   "/api/v1/carry": {
    "version": "carry-model-v1.0",
    "registry": "rates-2026-10-21",
-   "generated_at": "2026-10-24T14:27:07.633874813Z",
+   "generated_at": "2026-10-24T18:03:54.077036545Z",
    "window_days": 255,
    "benchmark_apy": 5.62,
    "rows": [
@@ -1854,9 +1854,9 @@
    "network": "mainnet",
    "provider_error": "",
    "status": "ok",
-   "time": "2026-10-24T14:27:06.197894492Z",
+   "time": "2026-10-24T18:03:52.296144182Z",
    "venues_cached": 12,
-   "venues_updated": "2026-10-24T14:27:05.404744467Z",
+   "venues_updated": "2026-10-24T18:03:51.53019919Z",
    "version": "1.0.0"
   },
   "/api/v1/meta": {
@@ -1873,12 +1873,12 @@
   },
   "/api/v1/network": {
    "rpc_healthy": true,
-   "latest_ledger": 65113248,
+   "latest_ledger": 65115849,
    "protocol": 29,
-   "close_time": 1792852023,
+   "close_time": 1792865028,
    "base_fee_stroops": 100,
    "horizon_ok": true,
-   "checked_at": "2026-10-24T14:27:05.404744768Z"
+   "checked_at": "2026-10-24T18:03:51.530199567Z"
   },
   "/api/v1/plan?deposit=100": {
    "deposit_usd": 100,
@@ -1897,7 +1897,7 @@
      "label": "Blend — Fixed Pool",
      "amount_usd": 29.2,
      "weight_bps": 2920,
-     "apy": 5.73806,
+     "apy": 5.7361,
      "risk_band": "B",
      "risk": 58.3
     },
@@ -1924,34 +1924,28 @@
      "reason": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
     },
     {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "apy": 7.34,
+     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
      "venue_id": "defindex:CAB4JOLSCN",
      "label": "DeFindex savings pool CAB4JO… (small, $7515)",
      "apy": 7.22,
      "reason": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
-     "apy": 6.74,
-     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "venue_id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
-     "apy": 6.17,
-     "reason": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
      "venue_id": "defindex:CBUJZL5QAD",
      "label": "DeFindex savings pool CBUJZL… (small, $8784)",
-     "apy": 5.98,
+     "apy": 6.67,
      "reason": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "apy": 5.85,
-     "reason": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "apy": 6.17,
+     "reason": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "blend-pools-v2:48c597dc",
@@ -1961,19 +1955,25 @@
     },
     {
      "venue_id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
-     "apy": 4.78,
-     "reason": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
+     "apy": 4.77,
+     "reason": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "defindex:CA2FIPJ7U6",
      "label": "DeFindex savings pool CA2FIP… (small, $40098)",
      "apy": 0,
      "reason": "It is not paying anything right now."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "apy": 0,
+     "reason": "It is not paying anything right now."
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-24T14:27:08.670929611Z"
+   "generated_at": "2026-10-24T18:03:55.371848731Z"
   },
   "/api/v1/plan?deposit=1000": {
    "deposit_usd": 1000,
@@ -1992,7 +1992,7 @@
      "label": "Blend — Fixed Pool",
      "amount_usd": 291.95,
      "weight_bps": 2919,
-     "apy": 5.73806,
+     "apy": 5.7361,
      "risk_band": "B",
      "risk": 58.3
     },
@@ -2019,34 +2019,28 @@
      "reason": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
     },
     {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "apy": 7.34,
+     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
      "venue_id": "defindex:CAB4JOLSCN",
      "label": "DeFindex savings pool CAB4JO… (small, $7515)",
      "apy": 7.22,
      "reason": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
-     "apy": 6.74,
-     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "venue_id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
-     "apy": 6.17,
-     "reason": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
      "venue_id": "defindex:CBUJZL5QAD",
      "label": "DeFindex savings pool CBUJZL… (small, $8784)",
-     "apy": 5.98,
+     "apy": 6.67,
      "reason": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "apy": 5.85,
-     "reason": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "apy": 6.17,
+     "reason": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "blend-pools-v2:48c597dc",
@@ -2056,19 +2050,25 @@
     },
     {
      "venue_id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
-     "apy": 4.78,
-     "reason": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
+     "apy": 4.77,
+     "reason": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "defindex:CA2FIPJ7U6",
      "label": "DeFindex savings pool CA2FIP… (small, $40098)",
      "apy": 0,
      "reason": "It is not paying anything right now."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "apy": 0,
+     "reason": "It is not paying anything right now."
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-24T14:27:08.672239094Z"
+   "generated_at": "2026-10-24T18:03:55.373143488Z"
   },
   "/api/v1/plan?deposit=10000": {
    "deposit_usd": 10000,
@@ -2087,7 +2087,7 @@
      "label": "Blend — Fixed Pool",
      "amount_usd": 2919.51,
      "weight_bps": 2919,
-     "apy": 5.73806,
+     "apy": 5.7361,
      "risk_band": "B",
      "risk": 58.4
     },
@@ -2114,34 +2114,28 @@
      "reason": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
     },
     {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "apy": 7.34,
+     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
      "venue_id": "defindex:CAB4JOLSCN",
      "label": "DeFindex savings pool CAB4JO… (small, $7515)",
      "apy": 7.22,
      "reason": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
-     "apy": 6.74,
-     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "venue_id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
-     "apy": 6.17,
-     "reason": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
      "venue_id": "defindex:CBUJZL5QAD",
      "label": "DeFindex savings pool CBUJZL… (small, $8784)",
-     "apy": 5.98,
+     "apy": 6.67,
      "reason": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "apy": 5.85,
-     "reason": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "apy": 6.17,
+     "reason": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "blend-pools-v2:48c597dc",
@@ -2151,19 +2145,25 @@
     },
     {
      "venue_id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
-     "apy": 4.78,
-     "reason": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
+     "apy": 4.77,
+     "reason": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "defindex:CA2FIPJ7U6",
      "label": "DeFindex savings pool CA2FIP… (small, $40098)",
      "apy": 0,
      "reason": "It is not paying anything right now."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "apy": 0,
+     "reason": "It is not paying anything right now."
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-24T14:27:08.673369807Z"
+   "generated_at": "2026-10-24T18:03:55.374159463Z"
   },
   "/api/v1/plan?deposit=50000": {
    "deposit_usd": 50000,
@@ -2182,7 +2182,7 @@
      "label": "Blend — Fixed Pool",
      "amount_usd": 20074.87,
      "weight_bps": 4014,
-     "apy": 5.73806,
+     "apy": 5.7361,
      "risk_band": "B",
      "risk": 58.5
     },
@@ -2209,34 +2209,28 @@
      "reason": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
     },
     {
+     "venue_id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "apy": 7.34,
+     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
      "venue_id": "defindex:CAB4JOLSCN",
      "label": "DeFindex savings pool CAB4JO… (small, $7515)",
      "apy": 7.22,
      "reason": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
-     "apy": 6.74,
-     "reason": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "venue_id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
-     "apy": 6.17,
-     "reason": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
      "venue_id": "defindex:CBUJZL5QAD",
      "label": "DeFindex savings pool CBUJZL… (small, $8784)",
-     "apy": 5.98,
+     "apy": 6.67,
      "reason": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "venue_id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "apy": 5.85,
-     "reason": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
+     "venue_id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "apy": 6.17,
+     "reason": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "blend-pools-v2:48c597dc",
@@ -2246,19 +2240,25 @@
     },
     {
      "venue_id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
-     "apy": 4.78,
-     "reason": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
+     "apy": 4.77,
+     "reason": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "venue_id": "defindex:CA2FIPJ7U6",
      "label": "DeFindex savings pool CA2FIP… (small, $40098)",
      "apy": 0,
      "reason": "It is not paying anything right now."
+    },
+    {
+     "venue_id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "apy": 0,
+     "reason": "It is not paying anything right now."
     }
    ],
    "policy_version": "policy-v1.2",
-   "generated_at": "2026-10-24T14:27:08.674722006Z"
+   "generated_at": "2026-10-24T18:03:55.375328717Z"
   },
   "/api/v1/policy": {
    "chosen_by_measurement": {
@@ -2746,7 +2746,7 @@
    "venue_id": "blend-pools-v2:48c597dc"
   },
   "/api/v1/venues/blend-pools-v2:48c597dc?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "blend-pools-v2:48c597dc",
     "label": "Blend — YieldBlox Pool",
@@ -2760,7 +2760,7 @@
     "apy": 5.62728,
     "apy_base": 5.62728,
     "apy_reward": 0,
-    "apy_mean_30d": 7.25261,
+    "apy_mean_30d": 7.23866,
     "tvl_usd": 9270,
     "capacity_usd": 9270,
     "instant_exit": false,
@@ -2804,7 +2804,7 @@
       "oracle": 75
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.353838855Z",
+     "computed_at": "2026-10-24T18:03:55.424294088Z",
      "stale": false,
      "input_hash": "81e2be0310d1fae2"
     },
@@ -3269,14 +3269,14 @@
     },
     {
      "date": "2026-10-24",
-     "apy": 5.73806,
-     "tvl_usd": 14072218
+     "apy": 5.7361,
+     "tvl_usd": 14052282
     }
    ],
    "venue_id": "blend-pools-v2:ecf788e3"
   },
   "/api/v1/venues/blend-pools-v2:ecf788e3?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "blend-pools-v2:ecf788e3",
     "label": "Blend — Fixed Pool",
@@ -3287,12 +3287,12 @@
     "source": "defillama",
     "chain": "Stellar",
     "protocol": "blend-pools-v2",
-    "apy": 5.73806,
-    "apy_base": 5.73806,
+    "apy": 5.7361,
+    "apy_base": 5.7361,
     "apy_reward": 0,
-    "apy_mean_30d": 6.81858,
-    "tvl_usd": 14072218,
-    "capacity_usd": 14072218,
+    "apy_mean_30d": 6.81048,
+    "tvl_usd": 14052282,
+    "capacity_usd": 14052282,
     "instant_exit": false,
     "audits": 3,
     "tier1_audit": true,
@@ -3334,7 +3334,7 @@
       "oracle": 35
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.297702519Z",
+     "computed_at": "2026-10-24T18:03:55.39879029Z",
      "stale": false,
      "input_hash": "9a3b024b4af6c0b5"
     },
@@ -3345,7 +3345,7 @@
   },
   "/api/v1/venues/defindex:CA2FIPJ7U6/history?days=90": null,
   "/api/v1/venues/defindex:CA2FIPJ7U6?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CA2FIPJ7U6",
     "label": "DeFindex savings pool CA2FIP… (small, $40098)",
@@ -3385,7 +3385,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.405767985Z",
+     "computed_at": "2026-10-24T18:03:55.44819186Z",
      "stale": false,
      "input_hash": "5478a1a9aa961ded"
     },
@@ -3397,7 +3397,7 @@
   },
   "/api/v1/venues/defindex:CAB4JOLSCN/history?days=90": null,
   "/api/v1/venues/defindex:CAB4JOLSCN?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CAB4JOLSCN",
     "label": "DeFindex savings pool CAB4JO… (small, $7515)",
@@ -3411,8 +3411,8 @@
     "apy": 7.22,
     "apy_base": 7.22,
     "apy_reward": 0,
-    "tvl_usd": 7514.651994,
-    "capacity_usd": 7514.651994,
+    "tvl_usd": 7514.8276175,
+    "capacity_usd": 7514.8276175,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3437,7 +3437,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.409421682Z",
+     "computed_at": "2026-10-24T18:03:55.451368225Z",
      "stale": false,
      "input_hash": "06017491c9ee1216"
     },
@@ -3449,10 +3449,10 @@
   },
   "/api/v1/venues/defindex:CAWM7NKSYG/history?days=90": null,
   "/api/v1/venues/defindex:CAWM7NKSYG?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CAWM7NKSYG",
-    "label": "DeFindex savings pool CAWM7N… (small, $10083)",
+    "label": "DeFindex savings pool CAWM7N… (small, $10084)",
     "kind": "vault",
     "project": "defindex",
     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
@@ -3463,8 +3463,8 @@
     "apy": 6.17,
     "apy_base": 6.17,
     "apy_reward": 0,
-    "tvl_usd": 10083.3444023,
-    "capacity_usd": 10083.3444023,
+    "tvl_usd": 10083.583649,
+    "capacity_usd": 10083.583649,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3489,19 +3489,19 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.408884417Z",
+     "computed_at": "2026-10-24T18:03:55.450907448Z",
      "stale": false,
      "input_hash": "0ae8c7ea2c4af8c1"
     },
     "net_score": 6.17,
     "max_position_usd": 202,
     "eligible": false,
-    "refusal": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
+    "refusal": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
    }
   },
   "/api/v1/venues/defindex:CBNKCU3HGF/history?days=90": null,
   "/api/v1/venues/defindex:CBNKCU3HGF?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CBNKCU3HGF",
     "label": "DeFindex savings pool CBNKCU… ($257K)",
@@ -3515,8 +3515,8 @@
     "apy": 5.93,
     "apy_base": 5.93,
     "apy_reward": 0,
-    "tvl_usd": 256628.7068912,
-    "capacity_usd": 256628.7068912,
+    "tvl_usd": 256634.8364478,
+    "capacity_usd": 256634.8364478,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3541,7 +3541,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.404923054Z",
+     "computed_at": "2026-10-24T18:03:55.447562946Z",
      "stale": false,
      "input_hash": "511de267b8b8261c"
     },
@@ -3552,7 +3552,7 @@
   },
   "/api/v1/venues/defindex:CBUJZL5QAD/history?days=90": null,
   "/api/v1/venues/defindex:CBUJZL5QAD?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CBUJZL5QAD",
     "label": "DeFindex savings pool CBUJZL… (small, $8784)",
@@ -3563,11 +3563,11 @@
     "source": "defindex-discovery",
     "chain": "Stellar",
     "protocol": "defindex",
-    "apy": 5.98,
-    "apy_base": 5.98,
+    "apy": 6.67,
+    "apy_base": 6.67,
     "apy_reward": 0,
-    "tvl_usd": 8783.6913442,
-    "capacity_usd": 8783.6913442,
+    "tvl_usd": 8783.8995362,
+    "capacity_usd": 8783.8995362,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3592,11 +3592,11 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.406363821Z",
+     "computed_at": "2026-10-24T18:03:55.448778111Z",
      "stale": false,
      "input_hash": "783d450ae1d51a06"
     },
-    "net_score": 5.98,
+    "net_score": 6.67,
     "max_position_usd": 176,
     "eligible": false,
     "refusal": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
@@ -3604,10 +3604,10 @@
   },
   "/api/v1/venues/defindex:CC767WIU5Q/history?days=90": null,
   "/api/v1/venues/defindex:CC767WIU5Q?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CC767WIU5Q",
-    "label": "DeFindex savings pool CC767W… (small, $1351)",
+    "label": "DeFindex savings pool CC767W… (small, $1356)",
     "kind": "vault",
     "project": "defindex",
     "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
@@ -3615,11 +3615,11 @@
     "source": "defindex-discovery",
     "chain": "Stellar",
     "protocol": "defindex",
-    "apy": 4.78,
-    "apy_base": 4.78,
+    "apy": 4.77,
+    "apy_base": 4.77,
     "apy_reward": 0,
-    "tvl_usd": 1351.2116214,
-    "capacity_usd": 1351.2116214,
+    "tvl_usd": 1356.2241598,
+    "capacity_usd": 1356.2241598,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3644,19 +3644,19 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.407700221Z",
+     "computed_at": "2026-10-24T18:03:55.449894338Z",
      "stale": false,
      "input_hash": "e4fba8b0d66097ad"
     },
-    "net_score": 4.78,
+    "net_score": 4.77,
     "max_position_usd": 27,
     "eligible": false,
-    "refusal": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+    "refusal": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
    }
   },
   "/api/v1/venues/defindex:CCA2ZJP5BV/history?days=90": null,
   "/api/v1/venues/defindex:CCA2ZJP5BV?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CCA2ZJP5BV",
     "label": "DeFindex savings pool CCA2ZJ… (large, $18.7M)",
@@ -3670,8 +3670,8 @@
     "apy": 5.15,
     "apy_base": 5.15,
     "apy_reward": 0,
-    "tvl_usd": 18746106.7456129,
-    "capacity_usd": 18746106.7456129,
+    "tvl_usd": 18723115.3054327,
+    "capacity_usd": 18723115.3054327,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3696,7 +3696,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.410017507Z",
+     "computed_at": "2026-10-24T18:03:55.451845766Z",
      "stale": false,
      "input_hash": "9aaf3f367202605c"
     },
@@ -3707,7 +3707,7 @@
   },
   "/api/v1/venues/defindex:CCDRFMZ7CH/history?days=90": null,
   "/api/v1/venues/defindex:CCDRFMZ7CH?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CCDRFMZ7CH",
     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
@@ -3718,11 +3718,11 @@
     "source": "defindex-discovery",
     "chain": "Stellar",
     "protocol": "defindex",
-    "apy": 6.74,
-    "apy_base": 6.74,
+    "apy": 7.34,
+    "apy_base": 7.34,
     "apy_reward": 0,
-    "tvl_usd": 4747.2499634,
-    "capacity_usd": 4747.2499634,
+    "tvl_usd": 4747.3627472,
+    "capacity_usd": 4747.3627472,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3747,11 +3747,11 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.408267892Z",
+     "computed_at": "2026-10-24T18:03:55.45040621Z",
      "stale": false,
      "input_hash": "8e90fadbc0dd6e5d"
     },
-    "net_score": 6.74,
+    "net_score": 7.34,
     "max_position_usd": 95,
     "eligible": false,
     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
@@ -3759,10 +3759,10 @@
   },
   "/api/v1/venues/defindex:CD4JGS6BB5/history?days=90": null,
   "/api/v1/venues/defindex:CD4JGS6BB5?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "defindex:CD4JGS6BB5",
-    "label": "DeFindex savings pool CD4JGS… (small, $13358)",
+    "label": "DeFindex savings pool CD4JGS… (small, $13359)",
     "kind": "vault",
     "project": "defindex",
     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
@@ -3770,11 +3770,11 @@
     "source": "defindex-discovery",
     "chain": "Stellar",
     "protocol": "defindex",
-    "apy": 5.85,
-    "apy_base": 5.85,
+    "apy": 0,
+    "apy_base": 0,
     "apy_reward": 0,
-    "tvl_usd": 13358.447179,
-    "capacity_usd": 13358.447179,
+    "tvl_usd": 13358.7645138,
+    "capacity_usd": 13358.7645138,
     "instant_exit": true,
     "audits": 2,
     "tier1_audit": false,
@@ -3788,25 +3788,25 @@
      "Blend strategy (autocompound)"
     ],
     "risk": {
-     "score": 42.7,
+     "score": 44.2,
      "band": "A",
      "subs": {
       "contagion": 42,
       "contract": 55,
-      "durability": 34,
+      "durability": 44,
       "governance": 45,
       "liquidity": 42.5,
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:09.407032204Z",
+     "computed_at": "2026-10-24T18:03:55.449328951Z",
      "stale": false,
      "input_hash": "157a0704b15fe43c"
     },
-    "net_score": 5.85,
+    "net_score": 0,
     "max_position_usd": 267,
     "eligible": false,
-    "refusal": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
+    "refusal": "It is not paying anything right now."
    }
   },
   "/api/v1/venues/gami-labs:038cb9c0/history?days=90": {
@@ -4271,7 +4271,7 @@
    "venue_id": "gami-labs:038cb9c0"
   },
   "/api/v1/venues/gami-labs:038cb9c0?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "venue": {
     "id": "gami-labs:038cb9c0",
     "label": "Gami earnUSDC (managed pool)",
@@ -4314,7 +4314,7 @@
       "oracle": 30
      },
      "version": "risk-model-v1.0",
-     "computed_at": "2026-10-24T14:27:08.675881165Z",
+     "computed_at": "2026-10-24T18:03:55.376058602Z",
      "stale": false,
      "input_hash": "e37bd80607ad0cba"
     },
@@ -4325,7 +4325,7 @@
    }
   },
   "/api/v1/venues?deposit=100": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "count": 12,
    "deposit_usd": 100,
    "provider_error": "",
@@ -4372,7 +4372,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -4380,54 +4380,6 @@
      "max_position_usd": 250000,
      "eligible": false,
      "refusal": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
-    },
-    {
-     "id": "defindex:CAB4JOLSCN",
-     "label": "DeFindex savings pool CAB4JO… (small, $7515)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 7.22,
-     "apy_base": 7.22,
-     "apy_reward": 0,
-     "tvl_usd": 7514.651994,
-     "capacity_usd": 7514.651994,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 39,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 24,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
-      "stale": false,
-      "input_hash": "06017491c9ee1216"
-     },
-     "net_score": 7.22,
-     "max_position_usd": 150,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CCDRFMZ7CH",
@@ -4439,11 +4391,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 6.74,
-     "apy_base": 6.74,
+     "apy": 7.34,
+     "apy_base": 7.34,
      "apy_reward": 0,
-     "tvl_usd": 4747.2499634,
-     "capacity_usd": 4747.2499634,
+     "tvl_usd": 4747.3627472,
+     "capacity_usd": 4747.3627472,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4468,30 +4420,30 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "8e90fadbc0dd6e5d"
      },
-     "net_score": 6.74,
+     "net_score": 7.34,
      "max_position_usd": 95,
      "eligible": false,
      "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
+     "id": "defindex:CAB4JOLSCN",
+     "label": "DeFindex savings pool CAB4JO… (small, $7515)",
      "kind": "vault",
      "project": "defindex",
-     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "address": "CAB4JOLSCNELJVDQKZLVGHKWJCLXFDBZZMITJAFL4GBGTHIKWO47PYFH",
      "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 6.17,
-     "apy_base": 6.17,
+     "apy": 7.22,
+     "apy_base": 7.22,
      "apy_reward": 0,
-     "tvl_usd": 10083.3444023,
-     "capacity_usd": 10083.3444023,
+     "tvl_usd": 7514.8276175,
+     "capacity_usd": 7514.8276175,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4505,25 +4457,25 @@
       "Blend strategy (autocompound)"
      ],
      "risk": {
-      "score": 38.8,
+      "score": 39,
       "band": "A",
       "subs": {
        "contagion": 42,
        "contract": 55,
        "durability": 34,
        "governance": 45,
-       "liquidity": 23,
+       "liquidity": 24,
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
-      "input_hash": "0ae8c7ea2c4af8c1"
+      "input_hash": "06017491c9ee1216"
      },
-     "net_score": 6.17,
-     "max_position_usd": 202,
+     "net_score": 7.22,
+     "max_position_usd": 150,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBUJZL5QAD",
@@ -4535,11 +4487,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 5.98,
-     "apy_base": 5.98,
+     "apy": 6.67,
+     "apy_base": 6.67,
      "apy_reward": 0,
-     "tvl_usd": 8783.6913442,
-     "capacity_usd": 8783.6913442,
+     "tvl_usd": 8783.8995362,
+     "capacity_usd": 8783.8995362,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4564,14 +4516,62 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
-     "net_score": 5.98,
+     "net_score": 6.67,
      "max_position_usd": 176,
      "eligible": false,
      "refusal": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.17,
+     "apy_base": 6.17,
+     "apy_reward": 0,
+     "tvl_usd": 10083.583649,
+     "capacity_usd": 10083.583649,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 38.8,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 23,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.17,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBNKCU3HGF",
@@ -4586,8 +4586,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 256628.7068912,
-     "capacity_usd": 256628.7068912,
+     "tvl_usd": 256634.8364478,
+     "capacity_usd": 256634.8364478,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4612,61 +4612,13 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
      "net_score": 5.93,
      "max_position_usd": 5133,
      "eligible": true
-    },
-    {
-     "id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 5.85,
-     "apy_base": 5.85,
-     "apy_reward": 0,
-     "tvl_usd": 13358.447179,
-     "capacity_usd": 13358.447179,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 38.6,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 22.2,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
-      "stale": false,
-      "input_hash": "157a0704b15fe43c"
-     },
-     "net_score": 5.85,
-     "max_position_usd": 267,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:ecf788e3",
@@ -4678,12 +4630,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73806,
-     "apy_base": 5.73806,
+     "apy": 5.7361,
+     "apy_base": 5.7361,
      "apy_reward": 0,
-     "apy_mean_30d": 6.81858,
-     "tvl_usd": 14072218,
-     "capacity_usd": 14072218,
+     "apy_mean_30d": 6.81048,
+     "tvl_usd": 14052282,
+     "capacity_usd": 14052282,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -4725,7 +4677,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -4746,8 +4698,8 @@
      "apy": 5.15,
      "apy_base": 5.15,
      "apy_reward": 0,
-     "tvl_usd": 18746106.7456129,
-     "capacity_usd": 18746106.7456129,
+     "tvl_usd": 18723115.3054327,
+     "capacity_usd": 18723115.3054327,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4772,7 +4724,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -4793,7 +4745,7 @@
      "apy": 5.62728,
      "apy_base": 5.62728,
      "apy_reward": 0,
-     "apy_mean_30d": 7.25261,
+     "apy_mean_30d": 7.23866,
      "tvl_usd": 9270,
      "capacity_usd": 9270,
      "instant_exit": false,
@@ -4837,7 +4789,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -4848,7 +4800,7 @@
     },
     {
      "id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
      "kind": "vault",
      "project": "defindex",
      "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
@@ -4856,11 +4808,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 4.78,
-     "apy_base": 4.78,
+     "apy": 4.77,
+     "apy_base": 4.77,
      "apy_reward": 0,
-     "tvl_usd": 1351.2116214,
-     "capacity_usd": 1351.2116214,
+     "tvl_usd": 1356.2241598,
+     "capacity_usd": 1356.2241598,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -4881,18 +4833,18 @@
        "contract": 55,
        "durability": 34,
        "governance": 45,
-       "liquidity": 42.2,
+       "liquidity": 42.1,
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
-     "net_score": 4.78,
+     "net_score": 4.77,
      "max_position_usd": 27,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CA2FIPJ7U6",
@@ -4933,7 +4885,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.671315653Z",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -4941,11 +4893,59 @@
      "max_position_usd": 802,
      "eligible": false,
      "refusal": "It is not paying anything right now."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 13358.7645138,
+     "capacity_usd": 13358.7645138,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 40.1,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 22.2,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.372220894Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 0,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "It is not paying anything right now."
     }
    ]
   },
   "/api/v1/venues?deposit=1000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "count": 12,
    "deposit_usd": 1000,
    "provider_error": "",
@@ -4992,7 +4992,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -5000,6 +5000,54 @@
      "max_position_usd": 250000,
      "eligible": false,
      "refusal": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 4747.3627472,
+     "capacity_usd": 4747.3627472,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CAB4JOLSCN",
@@ -5014,8 +5062,8 @@
      "apy": 7.22,
      "apy_base": 7.22,
      "apy_reward": 0,
-     "tvl_usd": 7514.651994,
-     "capacity_usd": 7514.651994,
+     "tvl_usd": 7514.8276175,
+     "capacity_usd": 7514.8276175,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5040,7 +5088,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -5050,20 +5098,20 @@
      "refusal": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
-     "id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "id": "defindex:CBUJZL5QAD",
+     "label": "DeFindex savings pool CBUJZL… (small, $8784)",
      "kind": "vault",
      "project": "defindex",
-     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
      "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 6.74,
-     "apy_base": 6.74,
+     "apy": 6.67,
+     "apy_base": 6.67,
      "apy_reward": 0,
-     "tvl_usd": 4747.2499634,
-     "capacity_usd": 4747.2499634,
+     "tvl_usd": 8783.8995362,
+     "capacity_usd": 8783.8995362,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5088,18 +5136,18 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
-      "input_hash": "8e90fadbc0dd6e5d"
+      "input_hash": "783d450ae1d51a06"
      },
-     "net_score": 6.74,
-     "max_position_usd": 95,
+     "net_score": 6.67,
+     "max_position_usd": 176,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
      "kind": "vault",
      "project": "defindex",
      "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
@@ -5110,8 +5158,8 @@
      "apy": 6.17,
      "apy_base": 6.17,
      "apy_reward": 0,
-     "tvl_usd": 10083.3444023,
-     "capacity_usd": 10083.3444023,
+     "tvl_usd": 10083.583649,
+     "capacity_usd": 10083.583649,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5136,62 +5184,14 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "0ae8c7ea2c4af8c1"
      },
      "net_score": 6.17,
      "max_position_usd": 202,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "id": "defindex:CBUJZL5QAD",
-     "label": "DeFindex savings pool CBUJZL… (small, $8784)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CBUJZL5QAD5TOPD7JMCBQ3RHR6RZWY34A4QF7UHILTDH2JF2Z3VJGY2Y",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 5.98,
-     "apy_base": 5.98,
-     "apy_reward": 0,
-     "tvl_usd": 8783.6913442,
-     "capacity_usd": 8783.6913442,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
-      "stale": false,
-      "input_hash": "783d450ae1d51a06"
-     },
-     "net_score": 5.98,
-     "max_position_usd": 176,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBNKCU3HGF",
@@ -5206,8 +5206,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 256628.7068912,
-     "capacity_usd": 256628.7068912,
+     "tvl_usd": 256634.8364478,
+     "capacity_usd": 256634.8364478,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5232,61 +5232,13 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
      "net_score": 5.93,
      "max_position_usd": 5133,
      "eligible": true
-    },
-    {
-     "id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 5.85,
-     "apy_base": 5.85,
-     "apy_reward": 0,
-     "tvl_usd": 13358.447179,
-     "capacity_usd": 13358.447179,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 42.7,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 42.5,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
-      "stale": false,
-      "input_hash": "157a0704b15fe43c"
-     },
-     "net_score": 5.85,
-     "max_position_usd": 267,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:ecf788e3",
@@ -5298,12 +5250,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73806,
-     "apy_base": 5.73806,
+     "apy": 5.7361,
+     "apy_base": 5.7361,
      "apy_reward": 0,
-     "apy_mean_30d": 6.81858,
-     "tvl_usd": 14072218,
-     "capacity_usd": 14072218,
+     "apy_mean_30d": 6.81048,
+     "tvl_usd": 14052282,
+     "capacity_usd": 14052282,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -5345,7 +5297,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -5366,8 +5318,8 @@
      "apy": 5.15,
      "apy_base": 5.15,
      "apy_reward": 0,
-     "tvl_usd": 18746106.7456129,
-     "capacity_usd": 18746106.7456129,
+     "tvl_usd": 18723115.3054327,
+     "capacity_usd": 18723115.3054327,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5392,7 +5344,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -5402,7 +5354,7 @@
     },
     {
      "id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
      "kind": "vault",
      "project": "defindex",
      "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
@@ -5410,11 +5362,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 4.78,
-     "apy_base": 4.78,
+     "apy": 4.77,
+     "apy_base": 4.77,
      "apy_reward": 0,
-     "tvl_usd": 1351.2116214,
-     "capacity_usd": 1351.2116214,
+     "tvl_usd": 1356.2241598,
+     "capacity_usd": 1356.2241598,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5439,14 +5391,14 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
-     "net_score": 4.78,
+     "net_score": 4.77,
      "max_position_usd": 27,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:48c597dc",
@@ -5461,7 +5413,7 @@
      "apy": 5.62728,
      "apy_base": 5.62728,
      "apy_reward": 0,
-     "apy_mean_30d": 7.25261,
+     "apy_mean_30d": 7.23866,
      "tvl_usd": 9270,
      "capacity_usd": 9270,
      "instant_exit": false,
@@ -5505,7 +5457,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -5553,7 +5505,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.672526041Z",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -5561,11 +5513,59 @@
      "max_position_usd": 802,
      "eligible": false,
      "refusal": "It is not paying anything right now."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 13358.7645138,
+     "capacity_usd": 13358.7645138,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 42.5,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.373395884Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 0,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "It is not paying anything right now."
     }
    ]
   },
   "/api/v1/venues?deposit=10000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "count": 12,
    "deposit_usd": 10000,
    "provider_error": "",
@@ -5612,7 +5612,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -5620,6 +5620,54 @@
      "max_position_usd": 250000,
      "eligible": false,
      "refusal": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 4747.3627472,
+     "capacity_usd": 4747.3627472,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CAB4JOLSCN",
@@ -5634,8 +5682,8 @@
      "apy": 7.22,
      "apy_base": 7.22,
      "apy_reward": 0,
-     "tvl_usd": 7514.651994,
-     "capacity_usd": 7514.651994,
+     "tvl_usd": 7514.8276175,
+     "capacity_usd": 7514.8276175,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5660,7 +5708,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -5668,102 +5716,6 @@
      "max_position_usd": 150,
      "eligible": false,
      "refusal": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 6.74,
-     "apy_base": 6.74,
-     "apy_reward": 0,
-     "tvl_usd": 4747.2499634,
-     "capacity_usd": 4747.2499634,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
-      "stale": false,
-      "input_hash": "8e90fadbc0dd6e5d"
-     },
-     "net_score": 6.74,
-     "max_position_usd": 95,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 6.17,
-     "apy_base": 6.17,
-     "apy_reward": 0,
-     "tvl_usd": 10083.3444023,
-     "capacity_usd": 10083.3444023,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
-      "stale": false,
-      "input_hash": "0ae8c7ea2c4af8c1"
-     },
-     "net_score": 6.17,
-     "max_position_usd": 202,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBUJZL5QAD",
@@ -5775,11 +5727,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 5.98,
-     "apy_base": 5.98,
+     "apy": 6.67,
+     "apy_base": 6.67,
      "apy_reward": 0,
-     "tvl_usd": 8783.6913442,
-     "capacity_usd": 8783.6913442,
+     "tvl_usd": 8783.8995362,
+     "capacity_usd": 8783.8995362,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5804,14 +5756,62 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
-     "net_score": 5.98,
+     "net_score": 6.67,
      "max_position_usd": 176,
      "eligible": false,
      "refusal": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.17,
+     "apy_base": 6.17,
+     "apy_reward": 0,
+     "tvl_usd": 10083.583649,
+     "capacity_usd": 10083.583649,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.17,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBNKCU3HGF",
@@ -5826,8 +5826,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 256628.7068912,
-     "capacity_usd": 256628.7068912,
+     "tvl_usd": 256634.8364478,
+     "capacity_usd": 256634.8364478,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -5852,61 +5852,13 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
      "net_score": 5.93,
      "max_position_usd": 5133,
      "eligible": true
-    },
-    {
-     "id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 5.85,
-     "apy_base": 5.85,
-     "apy_reward": 0,
-     "tvl_usd": 13358.447179,
-     "capacity_usd": 13358.447179,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
-      "stale": false,
-      "input_hash": "157a0704b15fe43c"
-     },
-     "net_score": 5.85,
-     "max_position_usd": 267,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:ecf788e3",
@@ -5918,12 +5870,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73806,
-     "apy_base": 5.73806,
+     "apy": 5.7361,
+     "apy_base": 5.7361,
      "apy_reward": 0,
-     "apy_mean_30d": 6.81858,
-     "tvl_usd": 14072218,
-     "capacity_usd": 14072218,
+     "apy_mean_30d": 6.81048,
+     "tvl_usd": 14052282,
+     "capacity_usd": 14052282,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -5965,7 +5917,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -5986,8 +5938,8 @@
      "apy": 5.15,
      "apy_base": 5.15,
      "apy_reward": 0,
-     "tvl_usd": 18746106.7456129,
-     "capacity_usd": 18746106.7456129,
+     "tvl_usd": 18723115.3054327,
+     "capacity_usd": 18723115.3054327,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6012,7 +5964,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -6022,7 +5974,7 @@
     },
     {
      "id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
      "kind": "vault",
      "project": "defindex",
      "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
@@ -6030,11 +5982,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 4.78,
-     "apy_base": 4.78,
+     "apy": 4.77,
+     "apy_base": 4.77,
      "apy_reward": 0,
-     "tvl_usd": 1351.2116214,
-     "capacity_usd": 1351.2116214,
+     "tvl_usd": 1356.2241598,
+     "capacity_usd": 1356.2241598,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6059,14 +6011,14 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
-     "net_score": 4.78,
+     "net_score": 4.77,
      "max_position_usd": 27,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:48c597dc",
@@ -6081,7 +6033,7 @@
      "apy": 5.62728,
      "apy_base": 5.62728,
      "apy_reward": 0,
-     "apy_mean_30d": 7.25261,
+     "apy_mean_30d": 7.23866,
      "tvl_usd": 9270,
      "capacity_usd": 9270,
      "instant_exit": false,
@@ -6125,7 +6077,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -6173,7 +6125,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.673646289Z",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
@@ -6181,11 +6133,59 @@
      "max_position_usd": 802,
      "eligible": false,
      "refusal": "It is not paying anything right now."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 13358.7645138,
+     "capacity_usd": 13358.7645138,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 45.7,
+      "band": "B",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.374413753Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 0,
+     "max_position_usd": 267,
+     "eligible": false,
+     "refusal": "It is not paying anything right now."
     }
    ]
   },
   "/api/v1/venues?deposit=50000": {
-   "as_of": "2026-10-24T14:27:05.404744467Z",
+   "as_of": "2026-10-24T18:03:51.53019919Z",
    "count": 12,
    "deposit_usd": 50000,
    "provider_error": "",
@@ -6232,7 +6232,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "e37bd80607ad0cba"
      },
@@ -6240,6 +6240,54 @@
      "max_position_usd": 250000,
      "eligible": false,
      "refusal": "We cannot explain where the interest comes from — part of it looks like a temporary promotion rather than borrowers paying. Until we can tell the two apart, no new money goes in."
+    },
+    {
+     "id": "defindex:CCDRFMZ7CH",
+     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 7.34,
+     "apy_base": 7.34,
+     "apy_reward": 0,
+     "tvl_usd": 4747.3627472,
+     "capacity_usd": 4747.3627472,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
+      "stale": false,
+      "input_hash": "8e90fadbc0dd6e5d"
+     },
+     "net_score": 7.34,
+     "max_position_usd": 95,
+     "eligible": false,
+     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CAB4JOLSCN",
@@ -6254,8 +6302,8 @@
      "apy": 7.22,
      "apy_base": 7.22,
      "apy_reward": 0,
-     "tvl_usd": 7514.651994,
-     "capacity_usd": 7514.651994,
+     "tvl_usd": 7514.8276175,
+     "capacity_usd": 7514.8276175,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6280,7 +6328,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "06017491c9ee1216"
      },
@@ -6288,102 +6336,6 @@
      "max_position_usd": 150,
      "eligible": false,
      "refusal": "Too small to be worth it: only $7515 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "id": "defindex:CCDRFMZ7CH",
-     "label": "DeFindex savings pool CCDRFM… (small, $4747)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CCDRFMZ7CH364ATQ5YSVTEJ3G3KPNFVM6TTC6N4T5REHWJS6LGVFP7MY",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 6.74,
-     "apy_base": 6.74,
-     "apy_reward": 0,
-     "tvl_usd": 4747.2499634,
-     "capacity_usd": 4747.2499634,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
-      "stale": false,
-      "input_hash": "8e90fadbc0dd6e5d"
-     },
-     "net_score": 6.74,
-     "max_position_usd": 95,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $4747 is available to take out, which is not enough to guarantee you could leave quickly."
-    },
-    {
-     "id": "defindex:CAWM7NKSYG",
-     "label": "DeFindex savings pool CAWM7N… (small, $10083)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 6.17,
-     "apy_base": 6.17,
-     "apy_reward": 0,
-     "tvl_usd": 10083.3444023,
-     "capacity_usd": 10083.3444023,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
-      "stale": false,
-      "input_hash": "0ae8c7ea2c4af8c1"
-     },
-     "net_score": 6.17,
-     "max_position_usd": 202,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $10083 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBUJZL5QAD",
@@ -6395,11 +6347,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 5.98,
-     "apy_base": 5.98,
+     "apy": 6.67,
+     "apy_base": 6.67,
      "apy_reward": 0,
-     "tvl_usd": 8783.6913442,
-     "capacity_usd": 8783.6913442,
+     "tvl_usd": 8783.8995362,
+     "capacity_usd": 8783.8995362,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6424,14 +6376,62 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "783d450ae1d51a06"
      },
-     "net_score": 5.98,
+     "net_score": 6.67,
      "max_position_usd": 176,
      "eligible": false,
      "refusal": "Too small to be worth it: only $8784 is available to take out, which is not enough to guarantee you could leave quickly."
+    },
+    {
+     "id": "defindex:CAWM7NKSYG",
+     "label": "DeFindex savings pool CAWM7N… (small, $10084)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CAWM7NKSYG2ITJW2MYYJWJ5ULGCJLDB6MXZIWPL3VPRG5TDVLJ66IMWR",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 6.17,
+     "apy_base": 6.17,
+     "apy_reward": 0,
+     "tvl_usd": 10083.583649,
+     "capacity_usd": 10083.583649,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 44.2,
+      "band": "A",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 34,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
+      "stale": false,
+      "input_hash": "0ae8c7ea2c4af8c1"
+     },
+     "net_score": 6.17,
+     "max_position_usd": 202,
+     "eligible": false,
+     "refusal": "Too small to be worth it: only $10084 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "defindex:CBNKCU3HGF",
@@ -6446,8 +6446,8 @@
      "apy": 5.93,
      "apy_base": 5.93,
      "apy_reward": 0,
-     "tvl_usd": 256628.7068912,
-     "capacity_usd": 256628.7068912,
+     "tvl_usd": 256634.8364478,
+     "capacity_usd": 256634.8364478,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6472,61 +6472,13 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "511de267b8b8261c"
      },
      "net_score": 5.93,
      "max_position_usd": 5133,
      "eligible": true
-    },
-    {
-     "id": "defindex:CD4JGS6BB5",
-     "label": "DeFindex savings pool CD4JGS… (small, $13358)",
-     "kind": "vault",
-     "project": "defindex",
-     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
-     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
-     "source": "defindex-discovery",
-     "chain": "Stellar",
-     "protocol": "defindex",
-     "apy": 5.85,
-     "apy_base": 5.85,
-     "apy_reward": 0,
-     "tvl_usd": 13358.447179,
-     "capacity_usd": 13358.447179,
-     "instant_exit": true,
-     "audits": 2,
-     "tier1_audit": false,
-     "live_months": 14,
-     "upgradeable": true,
-     "oracle": "n/a (share price)",
-     "oracle_quality": 0.7,
-     "reward_dependence": 0.15,
-     "yield_source_verified": true,
-     "underlying": [
-      "Blend strategy (autocompound)"
-     ],
-     "risk": {
-      "score": 44.2,
-      "band": "A",
-      "subs": {
-       "contagion": 42,
-       "contract": 55,
-       "durability": 34,
-       "governance": 45,
-       "liquidity": 50,
-       "oracle": 30
-      },
-      "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
-      "stale": false,
-      "input_hash": "157a0704b15fe43c"
-     },
-     "net_score": 5.85,
-     "max_position_usd": 267,
-     "eligible": false,
-     "refusal": "Too small to be worth it: only $13358 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:ecf788e3",
@@ -6538,12 +6490,12 @@
      "source": "defillama",
      "chain": "Stellar",
      "protocol": "blend-pools-v2",
-     "apy": 5.73806,
-     "apy_base": 5.73806,
+     "apy": 5.7361,
+     "apy_base": 5.7361,
      "apy_reward": 0,
-     "apy_mean_30d": 6.81858,
-     "tvl_usd": 14072218,
-     "capacity_usd": 14072218,
+     "apy_mean_30d": 6.81048,
+     "tvl_usd": 14052282,
+     "capacity_usd": 14052282,
      "instant_exit": false,
      "audits": 3,
      "tier1_audit": true,
@@ -6585,7 +6537,7 @@
        "oracle": 35
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "9a3b024b4af6c0b5"
      },
@@ -6606,8 +6558,8 @@
      "apy": 5.15,
      "apy_base": 5.15,
      "apy_reward": 0,
-     "tvl_usd": 18746106.7456129,
-     "capacity_usd": 18746106.7456129,
+     "tvl_usd": 18723115.3054327,
+     "capacity_usd": 18723115.3054327,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6632,7 +6584,7 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "9aaf3f367202605c"
      },
@@ -6642,7 +6594,7 @@
     },
     {
      "id": "defindex:CC767WIU5Q",
-     "label": "DeFindex savings pool CC767W… (small, $1351)",
+     "label": "DeFindex savings pool CC767W… (small, $1356)",
      "kind": "vault",
      "project": "defindex",
      "address": "CC767WIU5QGJMXYHDDYJAJEF2YWPHOXOZDWD3UUAZVS4KQPRXCKPT2YZ",
@@ -6650,11 +6602,11 @@
      "source": "defindex-discovery",
      "chain": "Stellar",
      "protocol": "defindex",
-     "apy": 4.78,
-     "apy_base": 4.78,
+     "apy": 4.77,
+     "apy_base": 4.77,
      "apy_reward": 0,
-     "tvl_usd": 1351.2116214,
-     "capacity_usd": 1351.2116214,
+     "tvl_usd": 1356.2241598,
+     "capacity_usd": 1356.2241598,
      "instant_exit": true,
      "audits": 2,
      "tier1_audit": false,
@@ -6679,14 +6631,14 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "e4fba8b0d66097ad"
      },
-     "net_score": 4.78,
+     "net_score": 4.77,
      "max_position_usd": 27,
      "eligible": false,
-     "refusal": "Too small to be worth it: only $1351 is available to take out, which is not enough to guarantee you could leave quickly."
+     "refusal": "Too small to be worth it: only $1356 is available to take out, which is not enough to guarantee you could leave quickly."
     },
     {
      "id": "blend-pools-v2:48c597dc",
@@ -6701,7 +6653,7 @@
      "apy": 5.62728,
      "apy_base": 5.62728,
      "apy_reward": 0,
-     "apy_mean_30d": 7.25261,
+     "apy_mean_30d": 7.23866,
      "tvl_usd": 9270,
      "capacity_usd": 9270,
      "instant_exit": false,
@@ -6745,7 +6697,7 @@
        "oracle": 75
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "81e2be0310d1fae2"
      },
@@ -6793,12 +6745,60 @@
        "oracle": 30
       },
       "version": "risk-model-v1.0",
-      "computed_at": "2026-10-24T14:27:08.67501788Z",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
       "stale": false,
       "input_hash": "5478a1a9aa961ded"
      },
      "net_score": 0,
      "max_position_usd": 802,
+     "eligible": false,
+     "refusal": "It is not paying anything right now."
+    },
+    {
+     "id": "defindex:CD4JGS6BB5",
+     "label": "DeFindex savings pool CD4JGS… (small, $13359)",
+     "kind": "vault",
+     "project": "defindex",
+     "address": "CD4JGS6BB5NZVSNKRNI43GUC6E3OBYLCLBQZJVTZLDVHQ5KDAOHVOIQF",
+     "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+     "source": "defindex-discovery",
+     "chain": "Stellar",
+     "protocol": "defindex",
+     "apy": 0,
+     "apy_base": 0,
+     "apy_reward": 0,
+     "tvl_usd": 13358.7645138,
+     "capacity_usd": 13358.7645138,
+     "instant_exit": true,
+     "audits": 2,
+     "tier1_audit": false,
+     "live_months": 14,
+     "upgradeable": true,
+     "oracle": "n/a (share price)",
+     "oracle_quality": 0.7,
+     "reward_dependence": 0.15,
+     "yield_source_verified": true,
+     "underlying": [
+      "Blend strategy (autocompound)"
+     ],
+     "risk": {
+      "score": 45.7,
+      "band": "B",
+      "subs": {
+       "contagion": 42,
+       "contract": 55,
+       "durability": 44,
+       "governance": 45,
+       "liquidity": 50,
+       "oracle": 30
+      },
+      "version": "risk-model-v1.0",
+      "computed_at": "2026-10-24T18:03:55.375514503Z",
+      "stale": false,
+      "input_hash": "157a0704b15fe43c"
+     },
+     "net_score": 0,
+     "max_position_usd": 267,
      "eligible": false,
      "refusal": "It is not paying anything right now."
     }
